@@ -1,0 +1,2338 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\date{}
+\end_preamble
+\use_default_options false
+\master guida.lyx
+\maintain_unincluded_children true
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans helvet
+\font_typewriter courier
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Indice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Programmazione-dinamica"
+
+\end_inset
+
+Programmazione dinamica 
+\end_layout
+
+\begin_layout Quote
+
+\shape italic
+\begin_inset Quotes eld
+\end_inset
+
+L'asse più a monte premerà contro i sassi, spinta dall'acqua.
+ La seconda asse s'inclinerà e prima o poi verrà strappata via, ma se ne
+ avessimo anche una terza, bè...
+ guardate.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+\align right
+
+\shape italic
+Stephen King
+\shape default
+, It
+\end_layout
+
+\begin_layout Standard
+La programmazione dinamica è una tecnica che può essere applicata ad alcuni
+ problemi aventi alcune caratteristiche strutturali precise ed è uno degli
+ strumenti più utili per le selezioni territoriali e nazionali.
+ Si vedrà che, seppure l'idea in sé è semplice, la difficoltà della tecnica
+ sta nel riuscire a trovare una descrizione del problema che permetta di
+ affrontarlo tramite un algoritmo dinamico.
+\end_layout
+
+\begin_layout Section
+Sottoproblemi e programmazione dinamica
+\end_layout
+
+\begin_layout Standard
+Nel paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Costo-ricorsione"
+
+\end_inset
+
+ abbiamo visto che il calcolo del numero di Fibonacci in modo ricorsivo
+ risulta estremamente inefficiente, questo perché i sottoproblemi che dobbiamo
+ risolvere vengono risolti molte volte (vedi figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Numero-di-Fibonacci"
+
+\end_inset
+
+).
+ In contesti come questo la programmazione dinamica può trasformare il problema
+ da uno di complessità esponenziale ad uno di complessità polinomiale, rendendol
+o quindi trattabile.
+ Nel caso del calcolo del numero di Fibonacci la soluzione è molto semplice:
+ una volta risolto il problema per F
+\begin_inset Formula $_{\text{N}}$
+\end_inset
+
+, basta tabularlo in un vettore e usare quel valore al posto di rieseguire
+ tutti i calcoli.
+ Volendo implementare questa idea si ottiene la seguente versione iterativa
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int Fibonacci[100];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int fibonacci(int n)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	Fibonacci[0] = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Fibonacci[1] = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=2; i<=n; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		Fibonacci[i] = Fibonacci[i-1] + Fibonacci[i-2];
+\end_layout
+
+\begin_layout Plain Layout
+
+	return Fibonacci[n];
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si può vedere la complessità in questo caso è lineare, che è un miglioramen
+to notevolissimo rispetto alla complessità esponenziale della versione ricorsiva.
+ Si può anche vedere che il vettore poteva non essere utilizzato, perché
+ ad ogni passo servono solo i due valori precedenti e quindi sarebbero bastate
+ due variabili, modificate opportunamente a ogni giro.
+\end_layout
+
+\begin_layout Standard
+Un altro modo di implementare la stessa idea è quello di partire dalla funzione
+ ricorsiva e modificarla in modo che vada a cercare all'interno di una tabella
+ se i valori che sta cercando di calcolare sono già presenti, nel qual caso
+ ritorna subito il valore desiderato e non procede ulteriormente nella ricorsion
+e.
+ Questa modalità può essere implementata così
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int Fibonacci[100];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int fibonacci_r(int n) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (Fibonacci[n]!=-1) return Fibonacci[n];
+\end_layout
+
+\begin_layout Plain Layout
+
+    Fibonacci[n-1] = fibonacci_r(n-1);      
+\end_layout
+
+\begin_layout Plain Layout
+
+	Fibonacci[n-2] = fibonacci_r(n-2);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	return Fibonacci[n-1] + Fibonacci[n-2]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Perché questo codice funzioni è necessario inizializzare prima il vettore
+ 
+\emph on
+Fibonacci
+\emph default
+: verranno messi tutti i suoi elementi a -1 per indicare che non si conoscono
+ ancora quei numeri di Fibonacci, tranne i primi due elementi di cui si
+ conosce a priori il valore per definizione, quindi 
+\emph on
+Fibonacci[0]=0
+\emph default
+ e 
+\emph on
+Fibonacci[1]=1
+\emph default
+.
+ Una volta fatto questo la differenza fondamentale tra questa funzione ricorsiva
+ e quella del paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Costo-ricorsione"
+
+\end_inset
+
+ sta tutta nella prima riga, in cui adesso si controlla se il numero n di
+ Fibonacci è già stato calcolato e in caso positivo lo si ritorna evitando
+ tutto il successivo ramo della ricorsione, altrimenti si procede come al
+ solito.
+\end_layout
+
+\begin_layout Standard
+Questi due modi di affrontare la programmazione dinamica vengono chiamati
+ 
+\emph on
+bottom-up
+\emph default
+ e 
+\emph on
+top-down
+\emph default
+, in riferimento al modo in cui agiscono: entrambi permettono di risolvere
+ il problema efficientemente, scegliere l'uno o l'altro può dipendere dal
+ problema in se, che a volte sembra suggerire un modo piuttosto che l'altro,
+ e anche, ma è una mia opinione, dal modo con cui il cervello del risolutore
+ funziona.
+\end_layout
+
+\begin_layout Section
+Il problema dello zaino
+\end_layout
+
+\begin_layout Standard
+Vediamo adesso una altro classico esempio, un po' più complesso del calcolo
+ del numero di Fibonacci, per esplorare ulteriormente le possibilità che
+ offre questa tecnica risolutiva.
+ In letteratura questo problema è noto con il nome inglese di 
+\emph on
+knapsack 
+\emph default
+e ne esistono un insieme di varianti che lo rendono più o meno complesso.
+ Noi guarderemo la versione 
+\begin_inset Quotes eld
+\end_inset
+
+base
+\begin_inset Quotes erd
+\end_inset
+
+ e vedremo come risolverla utilizzando la normale ricorsione (in questo
+ caso il problema risulterà non trattabile), la programmazione dinamica
+ 
+\emph on
+bottom-up
+\emph default
+ e quella 
+\emph on
+top-down
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\begin_inset Quotes eld
+\end_inset
+
+storiella
+\begin_inset Quotes erd
+\end_inset
+
+ tipicamente usata per introdurre questo problema ha come protagonista un
+ ladro con il suo zaino che è in grado di portare M chilogrammi prima di
+ sfondarsi.
+ Essendo in una casa piena di oggetti da rubare e dovendo scegliere come
+ riempire il suo zaino, il ladro ovviamente deve cercare di mettere un insieme
+ di oggetti che massimizzi il valore della refurtiva: ogni oggetto è caratterizz
+ato da un peso
+\emph on
+ 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+
+\emph default
+ e da un valore 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ e si suppone che di ogni oggetto ce ne siano quanti esemplari si vuole
+ (questo nella versione base del problema).
+ 
+\end_layout
+
+\begin_layout Standard
+Si potrebbe provare ad usare le tecniche viste in precedenza, cioè l'approccio
+ 
+\emph on
+greedy
+\emph default
+ o la ricorsione.
+ Usando l'approccio 
+\emph on
+greedy
+\emph default
+ la tentazione sarebbe quella di ordinare gli oggetti da quello con valore
+ maggiore a quello con valore minore e inserirli nello zaino finché non
+ si riempie.
+ Purtroppo in questo caso una scelta locale ottima (scelgo l'oggetto che
+ vale di più e avendo solo un oggetto quella è la scelta ottima) non si
+ traduce necessariamente nella soluzione migliore.
+ Vediamolo con un controesempio che dimostra come questa strategia fallisca:
+ sia lo zaino di portata 9 e siano presenti due tipi di oggetti, il primo
+ con peso 6 e valore 8 e il secondo con peso 4 e valore 7 (si ricorda che
+ di ogni tipo di oggetto ce ne sono quanti esemplari si vuole).
+ Se inseriamo l'oggetto di valore maggiore, cioè il primo, non possiamo
+ poi mettere nient'altro, in quanto lo zaino può ancora portare 3 Kg e nessun
+ oggetto pesa così poco.
+ Se invece avessimo scelto di inserire un oggetto del secondo tipo, poi
+ ci sarebbe stato spazio ancora per un altro oggetto di quel tipo, per un
+ totale di 8 Kg e un valore di 14, che è una soluzione migliore di quella
+ ottenuta utilizzando la strategia 
+\emph on
+greedy
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Esclusa quindi questa possibilità si può ripiegare sulla soluzione ricorsiva,
+ che risulta abbastanza semplice da formalizzare, in quanto posso calcolare
+ la soluzione ottima per un sacco di portata M come somma del peso di uno
+ degli oggetti da prendere con la soluzione ottima del sacco di portata
+ 
+\begin_inset Formula $M-P_{i}$
+\end_inset
+
+.
+ Visto in un altro modo, forse più chiaro, possiamo dire che se conosciamo
+ la soluzione ottima del sacco di portata 
+\begin_inset Formula $M-P_{i}$
+\end_inset
+
+ allora basta aggiungere l'oggetto i-esimo per ottenere la soluzione ottima
+ del sacco di portata M (ovviamente come in tutti i procedimenti ricorsivi
+ non conosciamo la soluzione ottima del sacco di portata 
+\begin_inset Formula $M-P_{i}$
+\end_inset
+
+, ma questa verrà a sua volta costruita in maniera ricorsiva) .
+ La condizione base è che la soluzione ottima di un sacco di portata 0 è
+ 0.
+ L'implementazione risulta fatta così:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+struct oggetto{     
+\end_layout
+
+\begin_layout Plain Layout
+
+int peso;      
+\end_layout
+
+\begin_layout Plain Layout
+
+int valore;  
+\end_layout
+
+\begin_layout Plain Layout
+
+}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+oggetto oggetti[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int knapsack_ricorsivo(int n) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (n==0) return 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int max = 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		int preso = 0; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (n - oggetti[i].peso >= 0) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			preso = oggetti[i].valore + knapsack_ricorsivo(n - oggetti[i].peso);
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (preso > max) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			max = preso; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return max; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La funzione 
+\emph on
+knapsack_ricorsivo
+\emph default
+ riceve come ingresso la portata M del sacco e ritorna il valore del 
+\begin_inset Quotes eld
+\end_inset
+
+sacco migliore
+\begin_inset Quotes erd
+\end_inset
+
+: alla riga 9 viene scritta la condizione base, come già detto, e successivament
+e si cicla tra tutti gli oggetti (a differenza del problema delle permutazioni
+ qui siccome ci sono infiniti esemplari di ogni oggetti non si tiene memoria
+ degli oggetti già inseriti nel sacco, ma a ogni chiamata ricorsiva si riprovano
+ tutti) e si tiene il valore del sacco che permette di ottenere il valore
+ massimo (righe 16-17).
+ Per stabilire il valore del sacco contenente l'oggetto i-esimo si controlla
+ se è possibile inserire l'oggetto di indice i (riga 14) e nel caso lo sia
+ si calcola il valore del sacco come valore dell'oggetto i-esimo più il
+ valore del sacco di portata 
+\begin_inset Formula $M-P_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Come si vede l'implementazione è piuttosto semplice, il problema è però
+ quello già mostrato ad esempio al paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Esempio-Missioni"
+
+\end_inset
+
+: il costo è di tipo esponenziale, quindi è una soluzione che arriva a un
+ risultato in tempi ragionevoli solo per input piccoli.
+\end_layout
+
+\begin_layout Standard
+Vediamo allora la soluzione dinamica, usando prima l'approccio 
+\emph on
+bottom-up
+\emph default
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+struct oggetto{     
+\end_layout
+
+\begin_layout Plain Layout
+
+int peso;      
+\end_layout
+
+\begin_layout Plain Layout
+
+int valore;  
+\end_layout
+
+\begin_layout Plain Layout
+
+}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+oggetto oggetti[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int soluzioni[1000];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int knapsack_bottom_up(int n) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j = 0; j <= M - oggetti[i].peso ; j++) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (soluzioni[j] + oggetti[i].valore > soluzioni[j+oggetti[i].peso])
+\end_layout
+
+\begin_layout Plain Layout
+
+				soluzioni[j+oggetti[i].peso] = soluzioni[j] + oggetti[i].valore;
+\end_layout
+
+\begin_layout Plain Layout
+
+	return soluzioni[M]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'idea in questo caso è piuttosto semplice: si calcola per il primo oggetto
+ il meglio che si riesce a fare con quell'oggetto su zaini di dimensioni
+ da 0 a M e i risultati vengono memorizzati nel vettore 
+\emph on
+soluzioni
+\emph default
+.
+ Poi per il secondo oggetto (e per tutti i successivi) si procede allo stesso
+ modo, aggiornando dove si ottengono dei risultati migliori, i valori massimi
+ per gli zaini di dimensioni da 0 a M.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/dinamica/knapsack/knapsack.eps
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:knapsack-bottom-up"
+
+\end_inset
+
+Soluzione knapsack bottom-up
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:knapsack-bottom-up"
+
+\end_inset
+
+ dovrebbe illustrare meglio come funziona l'algoritmo: alla prima riga il
+ vettore 
+\emph on
+soluzioni
+\emph default
+ viene inizializzato a zero, poiché se non ci sono oggetti il valore dello
+ zaino è zero indipendentemente dalla sua dimensione.
+ Alla seconda riga si inserisce il primo oggetto, quello di peso 6 e valore
+ 8 e per farlo è sufficiente ragionare nel solito modo, per cui se so la
+ soluzione ottima dello zaino di dimensione 
+\emph on
+k
+\emph default
+, allora se posso inserire l'oggetto troverò la soluzione ottima
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Questo ragionamento funziona perché abbiamo quanti oggetti vogliamo di ogni
+ tipo, se così non fosse non potremmo arrivare alla stessa conclusione poiché
+ per inserire un oggetto nello zaino dovremmo anche sapere se ne sono rimasti
+ degli esemplari o se sono già stati usati tutti nella soluzione ottima
+ precedente.
+\end_layout
+
+\end_inset
+
+ dello zaino di dimensione 
+\begin_inset Formula $k+P_{i}$
+\end_inset
+
+ semplicemente aggiungendo il valore dell'oggetto i-esimo al valore dello
+ zaino di dimensione 
+\emph on
+k
+\emph default
+.
+ Attenzione a non confondere questo modo di procedere con quello della tecnica
+ 
+\emph on
+greedy
+\emph default
+: in quel caso una volta fatta una scelta non si può più tornare indietro,
+ in questo caso invece la scelta è ottima per un sottoinsieme degli oggetti
+ del problema e ogni volta che aggiungo un nuovo tipo di oggetto i valori
+ ottimi ottenuti in precedenza potrebbero essere migliorati: ad ogni passo
+ i noi teniamo in memoria nel vettore 
+\emph on
+soluzioni
+\emph default
+ tutte le soluzioni ottime per ogni zaino di dimensione da 0 a M per i sottoinsi
+emi di oggetti dal primo fino all'oggetto i-esimo.
+ 
+\end_layout
+
+\begin_layout Standard
+Aggiungendo il secondo tipo di oggetto di peso 4 e valore 7 e procedendo
+ ad aggiornare con il ciclo alla riga 11 si vede che le caselle 4 e 5 vengono
+ modificate inserendo 7, cioè adesso sappiamo che con quei due tipi di oggetti
+ uno zaino di dimensione 4 o 5 può contenere un solo oggetto del secondo
+ tipo e il valore dello zaino è 7.
+ Le caselle 6 e 7 non vengono invece aggiornate perché già hanno un valore
+ maggiore di 7, contenendo l'oggetto O
+\begin_inset Formula $_{\text{1}}$
+\end_inset
+
+.
+ La 8 e la 9 invece vengono aggiornate perché partendo dalla 4 e della 5
+ e spostandosi avanti del peso di O
+\begin_inset Formula $_{\text{2}}$
+\end_inset
+
+ e aggiungendo ai valori di quelle caselle il valore di O
+\begin_inset Formula $_{\text{2}}$
+\end_inset
+
+ si ottiene 14, che è migliore di 8 e rappresenta il fatto che negli zaini
+ di portata 8 e 9 posso mettere due oggetti di tipo O
+\begin_inset Formula $_{\text{2}}$
+\end_inset
+
+e avere gli ottimi per l'insieme formato dai due oggetti.
+\end_layout
+
+\begin_layout Standard
+L'ottimo globale lo si trova dopo avere ripetuto il procedimento per tutti
+ gli oggetti appartenenti all'insieme definito nel problema (riga 10) e
+ prendendo il valore che si trova in soluzioni[M], poiché, come si vede
+ facilmente, questo procedimento farà si che i valori nel vettore siano
+ sicuramente crescenti (non strettamente) e quindi l'ultimo non può che
+ essere il massimo (non necessariamente l'unico).
+\end_layout
+
+\begin_layout Standard
+Per completezza mostriamo infine la soluzione dinamica top-down, che come
+ già visto non è altro che una modifica abbastanza meccanica della soluzione
+ ricorsiva a cui aggiungiamo una memorizzazione opportuna degli elementi
+ già calcolati per non dover risolvere ricorsivamente più volte lo stesso
+ problema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int knapsack_top_down(int n) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (soluzioni[n] != -1) return soluzioni[n]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int max = 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		int preso = 0; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (n - oggetti[i].peso >= 0) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			preso = oggetti[i].valore + knapsack_top_down(n - oggetti[i].peso);
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (preso > max) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			max = preso; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	soluzioni[n] = max; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return max; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si può notare le uniche differenze rispetto alla funzione ricorsiva
+ 
+\begin_inset Quotes eld
+\end_inset
+
+tradizionale
+\begin_inset Quotes erd
+\end_inset
+
+ si trovano alla riga 3, dove la condizione base è stata sostituita con
+ il controllo che verifica se si è già memorizzata la soluzione per quella
+ dimensione della zaino e , in caso affermativo, lo ritorna e alla riga
+ 13 dove, una volta trovato il valore migliore, lo si memorizza nella casella
+ opportuna.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+ricorsiva
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+bottom up
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+top down
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M=120 N=7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.870 sec
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.000 sec
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.000 sec
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M =200 N=20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+> 5 min
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.000 sec
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.000 sec
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M=900 N=100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\gg$
+\end_inset
+
+ 5 min
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.004 sec
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.004 sec
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Confronto-knapsack"
+
+\end_inset
+
+Confronto delle prestazioni per il problema knapsack
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per finire vengono mostrati nella tabella 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Confronto-knapsack"
+
+\end_inset
+
+ i tempi di esecuzione misurati sul mio Pentium IV a 2.8 GHz per evidenziare
+ la non fattibilità dell'approccio ricorsivo anche per casi piuttosto piccoli.
+ Volendo dare una stima della complessità computazionale si può dire che
+ per la ricorsiva pura sicuramente abbiamo un andamento esplosivo, che dipende
+ da M (dimensione del sacco) e da N (numero di oggetti), ma anche dalle
+ dimensioni del sacco rispetto ai pesi dei singoli oggetti, quindi a parità
+ di M e N possiamo comunque avere risultati molto diversi; per le altre
+ due invece abbiamo una complessità di tipo 
+\begin_inset Formula $O(M\cdot N)$
+\end_inset
+
+, che comunque risulta essere di tipo polinomiale, alla peggio, con M e
+ N paragonabili e opportune scelte degli oggetti, di tipo 
+\begin_inset Formula $O(M^{2}).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I risultati della tabella fanno riferimento a precisi casi di input, poiché
+ come già detto non sono solo i valori di M e N a definire il costo degli
+ algoritmi, ma anche le caratteristiche degli oggetti.
+ Per la ricorsiva non sono stati misurati tempi specifici per il secondo
+ e il terzo caso a causa della lunghezza (quindi 5 minuti rappresenta solo
+ il tempo dopo il quale i processi sono stati stoppati).
+\end_layout
+
+\begin_layout Section
+Esempio: La dieta di Poldo (poldo) - territoriali 2004
+\end_layout
+
+\begin_layout Standard
+Questo esempio, pur non essendo compreso nel corretto, viene qui mostrato
+ perché è uno dei casi più semplici di programmazione dinamica ed è storicamente
+ il primo problema di questo tipo apparso alle selezioni territoriali (che
+ al tempo si chiamavano regionali).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsection*
+La dieta di Poldo (poldo)
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D=3
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema 
+\end_layout
+
+\begin_layout Plain Layout
+Il dottore ordina a Poldo di seguire una dieta.
+ Ad ogni pasto non può mai mangiare un panino che abbia un peso maggiore
+ o uguale a quello appena mangiato.
+ Quando Poldo passeggia per la via del suo paese da ogni ristorante esce
+ un cameriere proponendo il menù del giorno.
+ Ciascun menù è composto da una serie di panini, che verranno serviti in
+ un ordine ben definito, e dal peso di ciascun panino.
+ Poldo, per non violare la regola della sua dieta, una volta scelto un menù,
+ può decidere di mangiare o rifiutare un panino; se lo rifiuta il cameriere
+ gli servirà il successivo e quello rifiutato non gli sarà più servito.
+\end_layout
+
+\begin_layout Plain Layout
+Si deve scrivere un programma che permetta a Poldo, leggendo un menù, di
+ capire qual è il numero massimo di panini che può mangiare per quel menù
+ senza violare la regola della sua dieta.
+\end_layout
+
+\begin_layout Plain Layout
+Riassumendo, Poldo può mangiare un panino se e solo se soddisfa una delle
+ due condizioni:
+\end_layout
+
+\begin_layout Enumerate
+il panino è il primo che mangia in un determinato pasto; 
+\end_layout
+
+\begin_layout Enumerate
+il panino non ha un peso maggiore o uguale all'ultimo panino che ha mangiato
+ in un determinato pasto.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati in input 
+\end_layout
+
+\begin_layout Plain Layout
+La prima linea del file input.txt contiene il numero m di panini proposti
+ nel menu.
+ Le successive m linee contengono un numero intero non negativo che rappresenta
+ il peso del panino che verrà servito.
+ I panini verranno serviti nell'ordine in cui compaiono nell'input.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati in output 
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt contiene il massimo numero di panini che Poldo può mangiare
+ rispettando la dieta.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Plain Layout
+I pesi di panini sono espressi in grammi, un panino pesa al massimo 10 Kg.
+ Un menù contiene al massimo 100 panini.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8 
+\end_layout
+
+\begin_layout Plain Layout
+389 
+\end_layout
+
+\begin_layout Plain Layout
+207 
+\end_layout
+
+\begin_layout Plain Layout
+155 
+\end_layout
+
+\begin_layout Plain Layout
+300 
+\end_layout
+
+\begin_layout Plain Layout
+299 
+\end_layout
+
+\begin_layout Plain Layout
+170 
+\end_layout
+
+\begin_layout Plain Layout
+158 
+\end_layout
+
+\begin_layout Plain Layout
+65
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La prima idea che può venire (e che in effetti è venuta a molti studenti)
+ è quella di usare un approccio 
+\emph on
+greedy
+\emph default
+: mangio il primo panino, da quel momento in poi ogni panino che posso prendere
+ lo mangio, altrimenti passo al successivo.
+ É facile mostrare un controesempio: avendo 3 panini, il primo di peso 100,
+ il secondo 200 e il terzo 150, scegliendo il primo panino Poldo si troverebbe
+ a mangiare solo quel panino, perché i successivi due violerebbero le regole.
+ Se invece Poldo lasciasse indietro il primo panino, potrebbe poi mangiare
+ i successivi due senza violare le regole, ottenendo così un risultato migliore.
+\end_layout
+
+\begin_layout Standard
+Archiviato quindi l'approccio 
+\emph on
+greedy
+\emph default
+ si può pensare a una semplice implementazione ricorsiva, come fatto ad
+ esempio per l'esercizio 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Esempio-Missioni"
+
+\end_inset
+
+; per ogni panino, partendo dal primo, posso decidere se prenderlo o non
+ prenderlo e vedere, ricorsivamente, quale delle due scelte mi dà il risultato
+ migliore.
+ Pur se facile da implementare questa funzione presenta il solito problema
+ dell'esplosione combinatoria che la rende praticabile solo per casi di
+ input piccoli (il limite di 100 panini è ben oltre le possibilità di questa
+ implementazione), quindi può essere usata solo nel caso non si abbia in
+ mente niente di meglio.
+\end_layout
+
+\begin_layout Standard
+L'implementazione dinamica 
+\emph on
+bottom-up
+\emph default
+ invece è efficiente e ci permette di risolvere il problema abbastanza facilment
+e: i sottoproblemi che dobbiamo risolvere possono essere i sottoinsiemi
+ dei panini formati dagli ultimi 
+\emph on
+k
+\emph default
+ panini, per 
+\begin_inset Formula $1\leq k\leq N$
+\end_inset
+
+.
+ Si procede partendo dall'ultimo panino, dove la soluzione ottima è sicuramente
+ di prenderlo e si segna in un vettore che la soluzione ottima per questo
+ sottoproblema è 1.
+ Si passa poi al penultimo panino e si verifica se data la soluzione ottima
+ dell'ultimo panino è possibile prendere anche questo.
+ Se la risposta è positiva memorizzeremo nel vettore delle soluzioni che
+ il problema con due panini permette di avere 2 come soluzione, altrimenti
+ segneremo 1 perché quel panino possiamo sicuramente prenderlo.
+ Si procede così fino al primo panino, scorrendo il vettore delle soluzioni
+ a ritroso e memorizzando di volta in volta nel caso possiamo prendere quel
+ panino, la soluzione migliore che troviamo e poi scrivendola nel vettore
+ delle soluzioni alla posizione corrente.
+ Alla fine è necessario scorre il vettore delle soluzioni per trovare il
+ massimo e quella è la soluzione ottima del nostro problema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/dinamica/poldo.eps
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Soluzione-poldo"
+
+\end_inset
+
+Soluzione dinamica al problema poldo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un'occhiata alla figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Soluzione-poldo"
+
+\end_inset
+
+ può aiutare nella comprensione: i dati sono quelli dell'esempio con una
+ modifica al 6° panino (112 al posto di 170) per evidenziare meglio il funzionam
+ento.
+ Alla prima iterazione si guarda il sottoproblema con solo l'ultimo panino
+ e come già detto si segna che la soluzione migliore è 1.
+ Per gli ultimi due panini si scorre a ritroso il vettore delle soluzioni
+ (in questo caso solo l'ultimo elemento del vettore) e siccome 65 è più
+ piccolo di 158 allora posso aggiungerlo alla soluzione per 65 ottenendo
+ 2.
+ Al terzo passaggio vedo che posso mangiare il terzultimo panino per il
+ primo sottoproblema e quindi trovo una soluzione di valore 2, ma non posso
+ per il secondo, perché 158 è maggiore di 112, quindi la soluzione migliore
+ trovata rimane 2 e lo segno nella casella corrispondente.
+ Proseguendo in questo modo arrivo a completare il vettore delle soluzioni
+ e il valore massimo è la soluzione del problema (in questo caso è il primo
+ elemento, ma non è detto sia sempre così, quindi devo fare poi una ricerca
+ del massimo).
+\end_layout
+
+\begin_layout Standard
+Una volta capito il funzionamento il codice risulta abbastanza semplice
+ da implementare
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int soluzioni[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int panini[100];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main(int argc, char *argv[]) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{   
+\end_layout
+
+\begin_layout Plain Layout
+
+	fstream in,out;   
+\end_layout
+
+\begin_layout Plain Layout
+
+	int numeroPanini,max;   
+\end_layout
+
+\begin_layout Plain Layout
+
+	in.open("input.txt",ios::in);   
+\end_layout
+
+\begin_layout Plain Layout
+
+	out.open("output.txt",ios::out);   
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> numeroPanini;       
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0;i<numeroPanini;i++)          
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> panini[i];   
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=numeroPanini-1;i>=0;i--)    
+\end_layout
+
+\begin_layout Plain Layout
+
+	{     
+\end_layout
+
+\begin_layout Plain Layout
+
+		max=0;     
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j=numeroPanini-1;j>i;j--)     
+\end_layout
+
+\begin_layout Plain Layout
+
+		{         
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (panini[i] > panini[j] && soluzioni[j]>max)
+\end_layout
+
+\begin_layout Plain Layout
+
+			max=soluzioni[j];     
+\end_layout
+
+\begin_layout Plain Layout
+
+		}     
+\end_layout
+
+\begin_layout Plain Layout
+
+		soluzioni[i] = max + 1;   
+\end_layout
+
+\begin_layout Plain Layout
+
+	}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	max=soluzioni[0];   
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=1; i< numeroPanini;i++)     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (soluzioni[i] > max)  		 
+\end_layout
+
+\begin_layout Plain Layout
+
+		max = soluzioni[i]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << max; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopo la lettura dell'output (righe 6-12) per ogni sottoproblema di grandezza
+ via via crescente (ciclo righe 13-22) viene applicato a ritrovo il meccanismo
+ spiegato: se è possibile aggiungere il panino alla sottosoluzione (condizione
+ 
+\emph on
+panini[i] > panini[j]
+\emph default
+ alla riga 18) e se il valore trovato è maggiore del massimo trovato finora
+ lo si memorizza e alla fine viene aggiunto al vettore delle soluzioni,
+ sommando 1 poiché posso aggiungere il panino corrente.
+ Infine alle righe 24-26 viene semplicemente cercato il massimo del vettore
+ che rappresenta la soluzione del problema.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Esempio:-Lino"
+
+\end_inset
+
+Esempio: Lino il giornalaio (lino) - territoriali 2007
+\end_layout
+
+\begin_layout Standard
+Anche in questo esempio, come tutti quelli in cui viene utilizzata una dinamica,
+ si potrebbe adottare una soluzione ricorsiva pura, con i problemi già visti.
+ Con un po' di esperienza è facile capire che la soluzione ricorsiva esploderebb
+e e quindi ripiegare su una dinamica.
+\end_layout
+
+\begin_layout Standard
+L'idea non è molto diversa dal problema dello zaino, si tratta semplicemente
+ di vedere come applicarla in questo caso.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsection*
+Lino il giornalaio (lino) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Il giornalaio Lino è un appassionato di matematica e, prima di consegnare
+ il resto ai propri clienti, si diverte a calcolare mentalmente quante different
+i possibilità esistono per consegnare tale resto.
+ Ad esempio, considerando l'Euro come valuta, per consegnare 6 centesimi
+ di resto esistono le seguenti 5 possibilità:
+\end_layout
+
+\begin_layout Itemize
+6 monete da un centesimo, 
+\end_layout
+
+\begin_layout Itemize
+4 monete da un centesimo e 1 da due centesimi, 
+\end_layout
+
+\begin_layout Itemize
+2 monete da un centesimo e 2 da due centesimi, 
+\end_layout
+
+\begin_layout Itemize
+1 moneta da un centesimo e 1 da cinque centesimi, 
+\end_layout
+
+\begin_layout Itemize
+3 monete da due centesimi.
+\end_layout
+
+\begin_layout Plain Layout
+Lino si sta però accorgendo che a causa della lentezza nella consegna del
+ resto sta perdendo molti clienti.
+ Pertanto, aiuta Lino a calcolare il numero di possibili combinazioni.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt contiene nella prima riga un intero positivo N che rappresenta
+ il numero di monete diverse disponibili.
+ La seconda riga contiene un intero positivo R che rappresenta il resto
+ da consegnare al cliente.
+ Ciascuna delle successive N righe contiene un intero positivo che indica
+ il valore di ogni singolo tipo di moneta.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da una riga contenente un solo intero, che
+ rappresenta il numero di tutte le possibili combinazioni di monete per
+ la consegna del resto R (notare che possono essere usate più copie dello
+ stesso tipo di moneta, per esempio 6 monete da cinque centesimi).
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $1<N<100$
+\end_inset
+
+ e 
+\begin_inset Formula $1<R<1000$
+\end_inset
+
+.
+ I valori dei vari tipi di N monete sono tutti diversi.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8 6 
+\end_layout
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\begin_layout Plain Layout
+5 
+\end_layout
+
+\begin_layout Plain Layout
+10 
+\end_layout
+
+\begin_layout Plain Layout
+20 
+\end_layout
+
+\begin_layout Plain Layout
+50 
+\end_layout
+
+\begin_layout Plain Layout
+100 
+\end_layout
+
+\begin_layout Plain Layout
+200 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come per il problema dello zaino, avendo tante monete quante vogliamo dello
+ stesso taglio, possiamo affrontare il problema suddividendolo nei vari
+ sottoproblemi, il primo contenente solo la prima moneta, il secondo contenente
+ le prime due e così di seguito, e per ogni problema possiamo trovare la
+ soluzione per ogni valore possibile del resto r con 
+\begin_inset Formula $1\leq r\leq R$
+\end_inset
+
+, in modo da poter risolvere il successivo sottoproblema usando i risultati
+ del problema precedente.
+ Come è legato un sottoproblema al suo precedente? Come per il problema
+ dello zaino se conosciamo la soluzione ottima con un certo insieme di monete
+ 
+\begin_inset Formula $M_{i}=\{m_{0},m_{1},...,m_{i}\}$
+\end_inset
+
+ e uno resto di dimensione 
+\emph on
+r
+\emph default
+, aggiungendo una nuova moneta 
+\begin_inset Formula $m_{i+1}$
+\end_inset
+
+ di taglio 
+\emph on
+t
+\emph default
+ la soluzione ottima per il resto di dimensione 
+\begin_inset Formula $r+t$
+\end_inset
+
+ sarà uguale ai modi con cui potevo dare quel resto con l'insieme precedente
+ 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ (ovviamente se potevo darlo prima posso ancora darlo negli stessi modi)
+ sommato ai modi con cui potevo dare il resto 
+\emph on
+r
+\emph default
+, perché non faccio altro che aggiungere ai quei modi la nuova moneta di
+ taglio 
+\emph on
+t
+\emph default
+ e riottengo gli stessi modi sul resto 
+\begin_inset Formula $r+t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Il codice a questo punto risulta molto semplice da scrivere:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int monete[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int soluzioni[1001]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int N,R;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N >> R; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0;i<N;i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> monete[i];	 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i<=R; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		soluzioni[i] = 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	soluzioni[0]=1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j = 0; j <= R - monete[i]; j++) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			soluzioni[j + monete[i]] = soluzioni[j + monete[i]] + soluzioni[j];
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << soluzioni[R]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopo aver letto i dati di input (righe 7-11), nelle successive tre righe
+ inizializzo il vettore contenente le soluzioni dei vari sottoproblemi,
+ mettendo a 0 tutte le caselle, poiché se non ho monete ci sono 0 modi di
+ dare qualsiasi resto, tranne la prima casella che viene inizializzata a
+ 1 per significare che data una qualsiasi moneta esiste sempre un modo per
+ dare un resto con lo stesso taglio della moneta.
+ A questo punto la soluzione si sviluppa nelle righe 15-17, dove il ciclo
+ esterno serve ad inserire ogni volta una nuova moneta nel sottoproblema
+ da risolvere e il ciclo interno aggiorna il vettore delle soluzioni per
+ tutte le dimensioni possibili dei resti, utilizzando quanto detto in precedenza.
+\end_layout
+
+\begin_layout Standard
+La soluzione poi si troverà nell'ultima casella del vettore, perché ogni
+ casella rappresenta la soluzione migliore per ogni resto individuato dall'indic
+e del vettore.
+\end_layout
+
+\begin_layout Section
+Esempio: Missioni segrete (missioni) - territoriali 2008
+\end_layout
+
+\begin_layout Standard
+Riprendiamo qui l'esempio 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Esempio-Missioni"
+
+\end_inset
+
+ per vedere come può essere risolto in maniera dinamica (non viene quindi
+ riportato il testo che può essere trovato 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "sec:Esempio-Missioni"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+struct Missione {    
+\end_layout
+
+\begin_layout Plain Layout
+
+	int durata, fine;  
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+Missione missioni[101]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int soluzioni[366];
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int n; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> n; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i<n; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> missioni[i].durata >> missioni[i].fine;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i<n; i++)        
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j=missioni[i].fine - missioni[i].durata; j>=0; j--)
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (soluzioni[j] + 1 > soluzioni[j+missioni[i].durata])
+\end_layout
+
+\begin_layout Plain Layout
+
+				soluzioni[j+missioni[i].durata] = soluzioni[j]+1;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	int max = soluzioni[0];     
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i<366; i++)   		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (soluzioni[i] > max) max = soluzioni[i];     
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << max;              
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+Ormai dovrebbe essere chiaro che questi tipi di problemi si assomigliano
+ e basta un po' d'esperienza per vedere dove sono le differenze e modificare
+ l'idea di partenza in modo opportuno per arrivare alla soluzione del problema.
+\end_layout
+
+\begin_layout Standard
+Anche in questo caso i sottoproblemi sono gli insiemi formati dalle prime
+ 
+\emph on
+i
+\emph default
+ missioni e si tiene traccia in un vettore il numero massimo di missioni
+ che si riescono a fare fino al giorno 
+\emph on
+j
+\emph default
+-esimo.
+ Dato quindi un insieme 
+\begin_inset Formula $M_{i}=\{m_{0},m_{1},...,m_{i}\}$
+\end_inset
+
+ composto da 
+\emph on
+i
+\emph default
+ missioni, posso calcolare le soluzioni ottime per ogni giorno dell'anno
+ aggiungendo una nuova missione 
+\begin_inset Formula $m_{i+1}$
+\end_inset
+
+, considerando che la soluzione ottima al giorno 
+\begin_inset Formula $g+Durata(m_{i+1})$
+\end_inset
+
+ o è quella ottenuta con l'insieme precedente, poiché inserendo la nuova
+ soluzione peggioro la situazione (perché altre missioni che nella soluzione
+ ottima precedente si potevano fare non possono più essere fatte) oppure
+ è uguale alle missioni che si potevano fare al giorno 
+\emph on
+g
+\emph default
+ a cui sommo 1, cioè la missione che ho aggiunto.
+\end_layout
+
+\begin_layout Standard
+Il codice descrive quanto detto: dopo aver definito una struttura (righe
+ 1-3) per memorizzare le informazioni ed averle lette dal file di ingresso
+ (righe 8-13), viene eseguito il ciclo (riga 14) che crea i sottoinsiemi
+ delle missioni e poi si controlla se aggiungendo una nuova missione si
+ ottiene un miglioramento (riga 16) e nel caso si aggiorna il vettore delle
+ soluzioni (riga 17): di fatto nel ciclo interno è come se ogni missione
+ venisse piazzata in tutti i possibili posti dove può stare e per ogni possibili
+tà si memorizza il meglio che si ottiene.
+\end_layout
+
+\begin_layout Standard
+Infine viene cercato il massimo nel vettore delle soluzioni, che rappresenta
+ la soluzione cercata.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,394 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\date{}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children true
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans helvet
+\font_typewriter courier
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Indice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Olimpiadi di Informatica
+\begin_inset Newline newline
+\end_inset
+
+Guida per le selezioni territoriali
+\end_layout
+
+\begin_layout Author
+Alessandro Bugatti
+\end_layout
+
+\begin_layout Verse
+© 2013 Alessandro Bugatti
+\end_layout
+
+\begin_layout Verse
+alessandro.bugatti@istruzione.it
+\end_layout
+
+\begin_layout Verse
+Terza edizione: giugno 2013
+\end_layout
+
+\begin_layout Verse
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Questa guida è rilasciata sotto la disciplina della licenza Creative Commons
+ Attribuzione - Non commerciale - Non opere derivate 3.0 Italia, il cui testo
+ valido ai fini legali è disponibile alla pagina web http://creativecommons.org/l
+icenses/by-nc-nd/3.0/it/deed.it
+\end_layout
+
+\begin_layout Standard
+Per le parti dell'opera di pubblico dominio (i testi dei problemi), tale
+ condizione non è in alcun modo modificata dalla licenza.
+  
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../materiali/immagini_varie/cc.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100line%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nonostante il particolare regime di copyright di questo libro ti consenta
+ di riprodurlo liberamente, considera l'ipotesi di acquistarne una copia
+ originale.
+ Il prezzo di copertina particolarmente basso fa sì che l'originale costi
+ meno di una copia artigianale.
+ Avresti così un oggetto più gradevole e maneggevole e contemporaneamente
+ sosterresti questo tipo di editoria.
+\end_layout
+
+\begin_layout Standard
+Puoi trovare informazioni su come acquistare il libro cartaceo a questo
+ indirizzo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.imparando.net/guida"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+o direttamente a questo
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+target "http://ilmiolibro.kataweb.it/community.asp?id=93252"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Verse
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Verse
+Copertina di Roberto Ciroli
+\end_layout
+
+\begin_layout Verse
+www.robertociroli.it
+\end_layout
+
+\begin_layout Quote
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Verse
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+\align right
+A Cristina
+\end_layout
+
+\begin_layout Quote
+\align right
+Ai tre mostriciattoli Daniele, Chiara e Andrea
+\end_layout
+
+\begin_layout Quote
+\align right
+(senza offesa, s'intende)
+\end_layout
+
+\begin_layout Quote
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "introduzione.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "prerequisiti.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "per_iniziare.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "complessita.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "ricerca_ordinamento.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "greedy.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "ricorsione.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "dinamica.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "grafi.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "problemi_risolti.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "nuovi_problemi.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "appendice.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

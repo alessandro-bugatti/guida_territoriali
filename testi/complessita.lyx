@@ -1,0 +1,1284 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\date{}
+\end_preamble
+\use_default_options false
+\master guida.lyx
+\maintain_unincluded_children true
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans helvet
+\font_typewriter courier
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Indice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Complessità-computazionale"
+
+\end_inset
+
+Complessità computazionale
+\end_layout
+
+\begin_layout Quotation
+\align right
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+In teoria non c'è differenza fra teoria e pratica.
+ 
+\end_layout
+
+\begin_layout Quotation
+\align right
+
+\emph on
+In pratica la differenza c'è
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Introduzione
+\end_layout
+
+\begin_layout Standard
+Questo capitolo è un po' a sé stante e potrebbe anche essere saltato, ma
+ penso che per avere una buona comprensione su alcune considerazioni che
+ verranno fatte nelle soluzioni degli esempi sia necessario avere una panoramica
+ dei concetti che verranno illustrati.
+ La complessità computazionale è lo studio della quantità di risorse (memoria
+ e tempo di calcolo) necessari a un certo algoritmo per risolvere un problema
+ dato e nel contesto delle Olimpiadi permette di affrontare i problemi avendo
+ già in partenza degli 
+\begin_inset Quotes eld
+\end_inset
+
+indizi
+\begin_inset Quotes erd
+\end_inset
+
+ su come sarà fatto l'algoritmo risolutivo (si capirà alla fine del capitolo
+ cosa si intende dire con ciò).
+\end_layout
+
+\begin_layout Standard
+Tutta la trattazione, pur rimanendo corretta, affronterà l'argomento con
+ un approccio più basato sull'intuizione che su una serie di definizioni
+ e dimostrazioni formali.
+ Per approfondimenti si rimanda alla bibliografia (vedi paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Breve-bibliografia"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Section
+Algoritmi e programmi
+\end_layout
+
+\begin_layout Standard
+Come già visto in un qualsiasi corso di programmazione di base un algoritmo
+ consiste in una serie ben definita di passi che portano alla risoluzione
+ di un dato problema.
+ Pur non essendoci una definizione 
+\begin_inset Quotes eld
+\end_inset
+
+standard
+\begin_inset Quotes erd
+\end_inset
+
+ possiamo dire che un algoritmo deve soddisfare queste 4 caratteristiche:
+\end_layout
+
+\begin_layout Itemize
+il numero di passi che lo compone deve essere finito
+\end_layout
+
+\begin_layout Itemize
+deve terminare con un risultato che è la soluzione del problema
+\end_layout
+
+\begin_layout Itemize
+le istruzioni devono essere elementari e immediatamente eseguibili
+\end_layout
+
+\begin_layout Itemize
+le istruzioni devono essere espresse chiaramente, in modo che la loro interpreta
+zione sia univoca
+\end_layout
+
+\begin_layout Standard
+Quindi dato un problema il primo scopo è quello di trovare l'algoritmo risolutor
+e.
+ Spesso però un problema può essere risolto in diversi modi tramite algoritmi
+ diversi ma tutti corretti.
+ La questione che affronteremo sarà dunque quella di riuscire a caratterizzare
+ un algoritmo corretto in modo tale da poterlo confrontare con un altro
+ algoritmo anch'esso corretto e poter decidere quale sia 
+\begin_inset Quotes eld
+\end_inset
+
+migliore
+\begin_inset Quotes erd
+\end_inset
+
+ per risolvere lo stesso problema.
+\end_layout
+
+\begin_layout Section
+Memoria e velocità di esecuzione
+\end_layout
+
+\begin_layout Standard
+Per stabilire quale sia l'algoritmo migliore per risolvere un determinato
+ problema dobbiamo prima definire rispetto a che caratteristiche possiamo
+ dire che un algoritmo è migliore di un altro.
+ Nella realtà quotidiana dei programmatori ci potrebbero essere molti parametri
+ su cui misurare la qualità di un algoritmo e quindi sceglierlo: la possibilità
+ di averlo già pronto all'uso perché presente in una libreria, la facilità
+ di implementazione, la possibilità di adattarsi bene alla particolare architett
+ura utilizzata, la semplicità di comprensione ecc.
+\end_layout
+
+\begin_layout Standard
+In questa capitolo però vogliamo analizzare delle caratteristiche fondamentali
+ inerenti l'algoritmo e non aspetti esterni legati al suo essere un programma
+ per computer.
+ Solitamente i due aspetti più strettamente legati ad un algoritmo sono
+ l'
+\emph on
+utilizzo di memoria
+\emph default
+ e la 
+\emph on
+velocità di esecuzione
+\emph default
+ o 
+\emph on
+tempo di calcolo
+\emph default
+.
+ L'utilizzo della memoria non verrà trattato, in quanto rimane un aspetto
+ fondamentale solo in quei contesti in cui la memoria stessa è una risorsa
+ scarsa (vedi ad esempio i dispositivi 
+\emph on
+embedded
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+I dispositivi embedded sono tutti quei sistemi che utilizzano microcontrollori
+ poco potenti e con poca memoria (dell'ordine dei KB) per eseguire compiti
+ specializzati, come ad esempio i router che si trovano comunemente in casa,
+ piuttosto che sistemi di controllo industriale.
+\end_layout
+
+\end_inset
+
+
+\emph default
+) oppure la quantità di dati da trattare è realmente enorme (ad esempio
+ grandi database).
+ Quello che invece ci interessa maggiormente è la velocità di esecuzione
+ e come prima cosa bisogna trovare un modo per definirla in maniera chiara.
+ 
+\end_layout
+
+\begin_layout Standard
+Un algoritmo non è legato solo al mondo dei computer (si pensi ad esempio
+ ad una ricetta di cucina che se sufficientemente dettagliata può essere
+ vista come un algoritmo), ma quando viene implementato su un computer bisogna
+ definire i passaggi che attraversa per sapere che tipo di velocità intendiamo
+ misurare.
+ Nel mondo dei computer il primo passaggio che subisce un algoritmo, dopo
+ la sua ideazione, è quello di essere trasformato in un diagramma di flusso
+ o in uno pseudo-codice.
+ Questa è la forma più pura di un algoritmo, in quanto esso viene descritto
+ in astratto, ma in questa forma non può essere utilizzato sul calcolatore
+ e necessita quindi di ulteriori passaggi.
+ Solitamente a questo punto l'algoritmo viene tradotto in un linguaggio
+ di programmazione e, a seconda del tipo di linguaggio, viene reso eseguibile
+ (se si usa un linguaggio compilato) oppure interpretato (se si usa un linguaggi
+o interpretato).
+ A questo punto il programma viene eseguito e diventa un processo in memoria.
+ Si può quindi vedere che agli estremi di questa catena si trovano l'algoritmo
+ in forma simbolica e il processo in esecuzione.
+\end_layout
+
+\begin_layout Standard
+Potrebbe sembrare semplice confrontare tra loro due algoritmi misurando
+ 
+\begin_inset Quotes eld
+\end_inset
+
+con un orologio
+\begin_inset Quotes erd
+\end_inset
+
+ il tempo di esecuzione di entrambi sullo stesso insieme di input: per quanto
+ precedentemente detto però questo confronto, per avere un qualche significato,
+ dovrebbe essere fatto in condizioni molto controllate, poiché nel caso
+ di un processo il tempo di esecuzione può essere influenzato da diversi
+ fattori quali:
+\end_layout
+
+\begin_layout Itemize
+il linguaggio con cui è stato programmato: in generale i linguaggi compilati
+ producono programmi più veloci dei linguaggi interpretati e inoltre ogni
+ linguaggio può avere delle caratteristiche che lo rendono più veloce in
+ determinate aree (ad esempio un programma scritto in C++ è generalmente
+ più veloce dello stesso programma scritto in Java, anche se entrambi possono
+ essere visti come appartenenti alla categoria dei linguaggi compilati
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In realtà Java non è proprio un linguaggio compilato puro, ma ai fini dell'esemp
+io può essere considerato tale.
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+la bontà del compilatore o dell'interprete: un codice scritto con lo stesso
+ linguaggio di programmazione può essere sottoposto a compilatori diversi
+ che, pur producendo programmi funzionalmente equivalenti, possono essere
+ formati da diverse sequenze di codici macchina e anche questo può ripercuotersi
+ sulla velocità di esecuzione
+\end_layout
+
+\begin_layout Itemize
+l'abilità di chi ha scritto il programma: lo stesso algoritmo può essere
+ scritto in modi diversi e questo può riflettersi direttamente sull'efficienza
+ del programma
+\end_layout
+
+\begin_layout Itemize
+l'ambiente in cui gira il programma: il sistema operativo su cui il programma
+ viene fatto girare impatta sull'efficienza di alcune istruzione (tipicamente
+ gestione delle memoria, I/O, threading, ecc.) influendo sul tempo totale
+ di esecuzione
+\end_layout
+
+\begin_layout Itemize
+la macchina sulla quale gira il programma: è ovvio che i componenti hardware
+ di un PC influenzano la velocità di esecuzione delle istruzioni, principalmente
+ la frequenza della CPU, ma non solo
+\end_layout
+
+\begin_layout Standard
+Sembra quindi evidente che la misura 
+\begin_inset Quotes eld
+\end_inset
+
+con l'orologio
+\begin_inset Quotes erd
+\end_inset
+
+ può avere un qualche significato solo se gli algoritmi da confrontare sono
+ scritti nello stesso linguaggio dalla stessa persona, compilati con lo
+ stesso compilatore ed eseguiti sulla stessa macchina (in realtà anche in
+ questo caso potrebbero esserci delle differenze che possono falsare il
+ confronto).
+\end_layout
+
+\begin_layout Standard
+L'algoritmo in forma simbolica ha invece il vantaggio di essere una rappresentaz
+ione astratta, indipendente dai fattori visti sopra.
+ La domanda quindi è: come facciamo a 
+\begin_inset Quotes eld
+\end_inset
+
+misurare
+\begin_inset Quotes erd
+\end_inset
+
+ la velocità di un algoritmo astratto senza usare l'orologio? Intuitivamente
+ possiamo pensare di contare il numero di istruzioni che occorrono per eseguire
+ un determinato compito: più istruzioni equivalgono ad un algoritmo più
+ lento, meno istruzioni ad un algoritmo più veloce.
+ Per comprendere meglio quanto detto partiamo da un semplice esempio, la
+ moltiplicazione tra due numeri.
+ Supponiamo inoltre che la moltiplicazione non sia un'istruzione semplice
+ ma debba essere eseguita come una serie di somme, per cui ad esempio 
+\begin_inset Formula $2\times3$
+\end_inset
+
+ risulta 
+\begin_inset Formula $2+2+2$
+\end_inset
+
+.
+ Se l'operazione che dobbiamo eseguire è 
+\begin_inset Formula $3\times113$
+\end_inset
+
+ l'algoritmo più immediato è quello di eseguire un ciclo per 113 volte e
+ ogni volta sommare il numero 3 al risultato ottenuto al giro precedente.
+ Questo comporta l'esecuzione di 113 somme, 113 confronti (ad ogni giro
+ bisogna controllare se l'algoritmo può terminare o deve andare avanti)
+ e 113 incrementi (la variabile del ciclo).
+ Se approssimativamente consideriamo uguali i costi di queste operazioni
+ otteniamo che in questo caso specifico l'algoritmo deve eseguire 
+\begin_inset Formula $113+113+113=339$
+\end_inset
+
+ istruzioni.
+\end_layout
+
+\begin_layout Standard
+Pensandoci meglio potremmo trovare un algoritmo migliore anche per questo
+ semplice problema: se prima di iniziare il ciclo controllassimo quale dei
+ due operandi è il minore potremmo, in alcuni casi, ridurre drasticamente
+ il costo dell'algoritmo.
+ Nell'esempio potremmo scambiare il 3 con il 113 e effettuare solo 3 giri
+ nel ciclo, quindi il costo risulterebbe quello del controllo iniziale,
+ dello scambio delle variabili (se necessario) che prevede 3 assegnamenti
+ e la somma dei costi per i 3 giri e quindi 
+\begin_inset Formula $1+3+3+3+3=13$
+\end_inset
+
+ istruzioni.
+\end_layout
+
+\begin_layout Standard
+Passando alla generalizzazione dell'esempio otteniamo che il problema da
+ risolvere è quello di vedere quante istruzioni sono necessarie per eseguire
+ un prodotto del tipo 
+\begin_inset Formula $N\times M$
+\end_inset
+
+: nel caso del primo algoritmo il costo sarà di 
+\begin_inset Formula $3\times M$
+\end_inset
+
+ istruzioni, mentre nel secondo caso avremo 
+\begin_inset Formula $1+3+3\times\min(N,M)$
+\end_inset
+
+ (dove il 3 in realtà non è sempre presente).
+ Come si può intuitivamente capire quando 
+\begin_inset Formula $M\gg N$
+\end_inset
+
+ il secondo algoritmo è decisamente migliore del primo (come nell'esempio
+ mostrato), mentre nei casi in cui il primo è migliore lo è solo di poco.
+\end_layout
+
+\begin_layout Standard
+Riassumendo possiamo dire che per misurare la velocità di un algoritmo dobbiamo
+ contare il numero di istruzioni che esegue rispetto alla dimensione del
+ suo input (nell'esempio precedente i numeri N e M).
+ Per gli scopi che ci prefiggiamo tutte le operazioni hanno costo unitario
+ e si vedrà nel seguito che verranno fatte delle approssimazioni che comunque
+ non modificheranno la bontà dei risultati ottenuti.
+\end_layout
+
+\begin_layout Section
+Complessità computazionale
+\end_layout
+
+\begin_layout Standard
+I teorici dell'informatica hanno introdotto delle notazioni che permettono
+ di semplificare la rappresentazione della complessità computazionale di
+ un algoritmo.
+ Come primo passo il problema viene definito come funzione della grandezza
+ dell'input, che di solito viene denotato con la lettera 
+\emph on
+n
+\emph default
+.
+ Quindi la complessità di un algoritmo viene definita come 
+\begin_inset Formula $T(n)$
+\end_inset
+
+ dove 
+\emph on
+n
+\emph default
+ è la dimensione dell'input.
+ Nell'esempio fatto in precedenza 
+\emph on
+n
+\emph default
+ era il valore di un numero intero, ma spesso 
+\emph on
+n
+\emph default
+ non rappresenta la dimensione di un singolo numero ma la cardinalità di
+ un insieme: ad esempio nei problemi di ordinamento in cui si tratta di
+ ordinare un insieme di oggetti secondo una certa relazione di ordinamento,
+ la dimensione del problema è determinata dal numero di oggetti da ordinare
+ (intuitivamente più sono gli oggetti da ordinare maggiore sarà il tempo
+ impiegato dall'algoritmo per ordinarli).
+ Cerchiamo di capire con un esempio: supponiamo di aver analizzato un algoritmo
+ e aver trovato che la sua complessità computazionale valga 
+\begin_inset Formula $T(n)=n^{2}+7n+20$
+\end_inset
+
+, cioè tornando all'esempio del problema di ordinamento, se dovessimo ordinare
+ 10 oggetti l'algoritmo compierebbe 
+\begin_inset Formula $100+70+20=190$
+\end_inset
+
+ istruzioni, se ne dovessimo ordinare 20 allora avremmo 
+\begin_inset Formula $400+140+20=560$
+\end_inset
+
+ istruzioni e così via.
+ Quindi la formula 
+\begin_inset Formula $T(n)$
+\end_inset
+
+ ci permette di capire il numero di istruzioni che dovranno essere compiute
+ per risolvere un problema avendo un input di dimensione
+\emph on
+ n
+\emph default
+: pur non essendo questo direttamente traducibile in un tempo fisico, è
+ chiaro che comunque ci consente di avere un'indicazione di massima sulla
+ possibilità o meno di arrivare a termine di un algoritmo e ci permette
+ di confrontare algoritmi diversi tra loro.
+\end_layout
+
+\begin_layout Standard
+Rispetto a quest'ultima possibilità proviamo a prendere in considerazione
+ un algoritmo A
+\begin_inset Formula $_{\text{1}}$
+\end_inset
+
+ con complessità 
+\begin_inset Formula $T_{1}(n)=n^{2}+7n+20$
+\end_inset
+
+ e un altro A
+\begin_inset Formula $_{\text{2}}$
+\end_inset
+
+ con complessità 
+\begin_inset Formula $T_{2}(n)=100n+400$
+\end_inset
+
+ che siano in grado di risolvere lo stesso problema: quale dei due risulta
+ preferibile? Se ad esempio consideriamo un input di dimensione n = 10 è
+ evidente che il primo algoritmo è più veloce in quanto ha bisogno di 190
+ operazioni contro le 1400 del secondo.
+ Se però la dimensione del problema diventasse n = 100 allora il primo algoritmo
+ avrebbe bisogno di 10720 mentre il secondo di 10400 e diventando a questo
+ punto il secondo il più veloce.
+ Inoltre con 
+\begin_inset Formula $n>100$
+\end_inset
+
+ il secondo diventerebbe via via sempre più veloce del primo, come si può
+ facilmente notare dal grafico in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Confronto-tra-due"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/complessita/confronto.eps
+	lyxscale 50
+	display false
+	scale 55
+	scaleBeforeRotation
+	clip
+	rotateAngle 270
+	rotateOrigin center
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Confronto-tra-due"
+
+\end_inset
+
+Confronto tra due complessità computazionali
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Notazione O grande
+\end_layout
+
+\begin_layout Standard
+La notazione 
+\emph on
+O grande
+\emph default
+ serve appunto per fare dei confronti tra la complessità di algoritmi, semplific
+ando e ignorando parti non fondamentali del comportamento dell'algoritmo
+ quando la dimensione dell'input cresce.
+ Come si è visto nell'esempio precedente l'algoritmo A
+\begin_inset Formula $_{\text{2}}$
+\end_inset
+
+ si comporta meglio dell'algoritmo A
+\begin_inset Formula $_{\text{1}}$
+\end_inset
+
+ per valori di 
+\emph on
+n
+\emph default
+ al di sopra di una certa soglia: questo è importante perché solitamente
+ quello che interessa è il comportamento per input grandi e in quel caso
+ A
+\begin_inset Formula $_{\text{2}}$
+\end_inset
+
+ è meglio di A
+\begin_inset Formula $_{\text{1}}$
+\end_inset
+
+.
+ Ma cosa potremmo dire se avessimo un algoritmo A
+\begin_inset Formula $_{3}$
+\end_inset
+
+ con complessità 
+\begin_inset Formula $T_{3}(n)=2n^{2}+n+2$
+\end_inset
+
+? Se dovrebbe essere intuitivo che A
+\begin_inset Formula $_{\text{2}}$
+\end_inset
+
+ rimane il migliore, cosa si può dire del confronto tra A
+\begin_inset Formula $_{1}$
+\end_inset
+
+ e A
+\begin_inset Formula $_{3}$
+\end_inset
+
+? Se provassimo a calcolare i valori della complessità computazionale per
+ valori sempre più grandi di 
+\emph on
+n
+\emph default
+ ci accorgeremmo che il rapporto tende a stabilizzarsi intorno al numero
+ 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+, cioè
+\begin_inset Formula 
+\[
+\frac{T_{1}(n)}{T_{3}(n)}=\frac{n^{2}+7n+20}{2n^{2}+n+2}\simeq\frac{1}{2}
+\]
+
+\end_inset
+
+per valori di 
+\emph on
+n
+\emph default
+ grandi a sufficienza, cioè l'algoritmo A
+\begin_inset Formula $_{3}$
+\end_inset
+
+ eseguirà un numero di istruzioni circa doppio dell'algoritmo A
+\begin_inset Formula $_{1}$
+\end_inset
+
+ per 
+\emph on
+n
+\emph default
+ sufficientemente grande.
+ Questo ci porta alla seguente definizione:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\emph on
+Definizione
+\series default
+\emph default
+: Una funzione 
+\begin_inset Formula $g(n)$
+\end_inset
+
+ è detta essere 
+\begin_inset Formula $O(f(n))$
+\end_inset
+
+ se esistono constanti 
+\begin_inset Formula $c_{0}$
+\end_inset
+
+ e 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ tali che 
+\begin_inset Formula $g(n)<c_{0}\cdot f(n)$
+\end_inset
+
+ per tutti gli 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il significato di questa definizione, applicato all'esempio precedente,
+ è che la complessità di A
+\begin_inset Formula $_{3}$
+\end_inset
+
+ è O(complessità di A
+\begin_inset Formula $_{1}$
+\end_inset
+
+) e viceversa a patto di usare degli opportuni valori di 
+\begin_inset Formula $c_{0}$
+\end_inset
+
+ e 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+, mentre la complessità di A
+\begin_inset Formula $_{3}$
+\end_inset
+
+ non può essere O(complessità di A
+\begin_inset Formula $_{2}$
+\end_inset
+
+) in quanto non esistono valori di 
+\begin_inset Formula $c_{0}$
+\end_inset
+
+ e 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ tali per cui viene soddisfatta la definizione.
+\end_layout
+
+\begin_layout Standard
+Questo vuol dire che A
+\begin_inset Formula $_{1}$
+\end_inset
+
+ e A
+\begin_inset Formula $_{3}$
+\end_inset
+
+ nella nostra semplificazione si comportano più o meno nello stesso modo
+ e quindi possono essere messe in una stessa 
+\begin_inset Quotes eld
+\end_inset
+
+scatola
+\begin_inset Quotes erd
+\end_inset
+
+ insieme a tutte le altre funzioni che si comportano come loro.
+ Questa 
+\begin_inset Quotes eld
+\end_inset
+
+scatola
+\begin_inset Quotes erd
+\end_inset
+
+ viene denominata classe di complessità computazionale e viene indicata
+ con 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+ (in questo esempio specifico), dove si mette 
+\begin_inset Formula $n^{2}$
+\end_inset
+
+ poiché è la funzione più semplice che appartiene a questa classe.
+ A
+\begin_inset Formula $_{2}$
+\end_inset
+
+ invece appartiene a una classe diversa denominata 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ e per valori grandi oltre un certo 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ si comporterà sempre meglio degli altri due.
+\end_layout
+
+\begin_layout Section
+Classi di complessità computazionale
+\end_layout
+
+\begin_layout Standard
+Può essere utile a questo punto definire delle classi di complessità che
+ si trovano nell'analisi degli algoritmi più utilizzati, come sono mostrate
+ nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Classi-di-complessità"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Costante
+\series default
+: gli algoritmi che appartengono a questa classe compiono sempre lo stesso
+ numero di istruzioni indipendentemente da quanto è grande l'input e la
+ classe viene denotata come 
+\begin_inset Formula $O(k)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Logaritmica
+\series default
+: il numero delle operazioni è solitamente il logaritmo in base 2 della
+ dimensione dell'input, poiché sono algoritmi che dividono il problema in
+ due parti e ne risolvono solo la parte che interessa, come ad esempio la
+ ricerca dicotomica.
+ La classe viene denotata come 
+\begin_inset Formula $O(\lg n)$
+\end_inset
+
+.
+ Nella pratica non è molto diversa dalla classe costante.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Lineare
+\series default
+: il numero delle operazioni dipende linearmente dalla grandezza dell'input,
+ se l'input raddoppia anche il numero delle operazioni raddoppia.
+ La classe è 
+\begin_inset Formula $O(n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+N log n
+\series default
+: questa classe non ha un nome e di solito la si indica come 
+\begin_inset Quotes eld
+\end_inset
+
+enne log enne
+\begin_inset Quotes erd
+\end_inset
+
+.
+ La velocità di crescita è poco più che lineare, quindi rimane comunque
+ una classe di algoritmi 
+\begin_inset Quotes eld
+\end_inset
+
+veloci
+\begin_inset Quotes erd
+\end_inset
+
+.
+ La classe è 
+\begin_inset Formula $O(n\lg n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Quadratica
+\series default
+: il numero di istruzioni cresce come il quadrato della dimensione dell'input
+ e quindi anche per 
+\emph on
+n
+\emph default
+ non particolarmente grandi il numero di istruzioni può essere elevato,
+ ma comunque trattabile.
+ La classe è 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Cubica
+\series default
+: in questo caso il numero di istruzioni cresce come il cubo della dimensione
+ dell'input.
+ In generale tutte le funzioni di crescita della forma 
+\begin_inset Formula $n^{k}$
+\end_inset
+
+ sono di tipo 
+\emph on
+polinomiale
+\emph default
+.
+ La classe in questo caso è 
+\begin_inset Formula $O(n^{3})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Esponenziale
+\series default
+: in questo caso la forma è del tipo 
+\begin_inset Formula $k^{n}$
+\end_inset
+
+, dove 
+\emph on
+n
+\emph default
+ figura all'esponente e quindi la crescita del numero di istruzione è rapidissim
+a e porta a un numero di istruzioni molto alto anche per valori piccoli
+ di 
+\emph on
+n
+\emph default
+.
+ Nella pratica algoritmi di questo genere sono definiti 
+\emph on
+intrattabili
+\emph default
+ perché il tempo di esecuzione risulterebbe troppo alto (anche per 
+\emph on
+n
+\emph default
+ piccoli si potrebbe arrivare a milioni di anni).
+ La classe è 
+\begin_inset Formula $O(k^{n})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/complessita/classi.eps
+	lyxscale 50
+	display false
+	scale 54
+	scaleBeforeRotation
+	rotateAngle 270
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Classi-di-complessità"
+
+\end_inset
+
+Classi di complessità computazionale
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Riassumendo possiamo dire che se due algoritmi fanno parte della stessa
+ classe di complessità computazionale il loro comportamento asintotico
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Il termine asintotico ha una ben precisa definizione matematica, ma per
+ quanto riguarda i nostri problemi possiamo approssimativamente definirlo
+ come il comportamento quando 
+\emph on
+n
+\emph default
+ diventa molto grande.
+\end_layout
+
+\end_inset
+
+ è simile.
+ Attenzione che questo non vuol dire che in pratica non ci sia differenza
+ tra l'algoritmo A
+\begin_inset Formula $_{\text{1}}$
+\end_inset
+
+ e l'algoritmo A
+\begin_inset Formula $_{\text{3}}$
+\end_inset
+
+ poiché ambedue appartengono a 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+: dall'espressione della loro complessità si vede che A
+\begin_inset Formula $_{\text{1}}$
+\end_inset
+
+ è circa il doppio più veloce che A
+\begin_inset Formula $_{3}$
+\end_inset
+
+ e nella realtà questo potrebbe fare una bella differenza.
+ Quello che si vuole ottenere con questa classificazione semplificata è
+ solo di poter subito dire che se, ad esempio, un primo algoritmo è di classe
+ 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ e un secondo di classe 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+, allora il primo sarà asintoticamente molto più veloce del secondo, indipendent
+emente dall'espressione precisa delle loro complessità computazionali.
+ 
+\end_layout
+
+\begin_layout Standard
+Per finire con un esempio, supponiamo di voler trovare all'interno di un
+ vettore non ordinato, l'elemento in posizione 
+\emph on
+n
+\emph default
+ dello stesso vettore una volta che questo fosse ordinato.
+ L'idea più semplice è quella di ordinare il vettore e poi di andare alla
+ posizione 
+\emph on
+n
+\emph default
+, che è proprio quello che vogliamo trovare per definizione (quindi se fossimo
+ stati interessati al sesto elemento del vettore lo troveremmo alla sesta
+ posizione).
+ Se per ordinare usassimo un algoritmo semplice, tipo il 
+\emph on
+bubblesort
+\emph default
+, il costo totale dell'operazione sarebbe di tipo 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+, poichè il costo dominante sarebbe quello dell'ordinamento.
+ In realtà si può dimostrare che non è necessario ordinare il vettore per
+ ottenere lo stesso risultato, basta usare alcune idee furbe simili a quelle
+ presenti nel 
+\emph on
+quicksort
+\emph default
+, per trovare l'elemento 
+\emph on
+n
+\emph default
+-esimo con un costo di tipo 
+\begin_inset Formula $O(n)$
+\end_inset
+
+.
+ É evidente che dei due algoritmi il secondo è nettamente migliore del primo,
+ quindi mi permetterà di ottenere lo stesso risultato molto più velocemente
+ del primo.
+\end_layout
+
+\begin_layout Section
+Caso ottimo, caso medio, caso pessimo
+\end_layout
+
+\begin_layout Standard
+Finora come parametro per misurare la velocità di un algoritmo è stata usata
+ solo la dimensione dell'input, ma nella maggior parte dei problemi ci sono
+ altri fattori che determinano il tempo con cui un algoritmo arriva alla
+ soluzione.
+ Ritornando all'esempio dell'ordinamento ci sono alcuni algoritmi che sono
+ molto veloci se l'insieme è già quasi ordinato e molto lenti se l'insieme
+ è ordinato al contrario, pur contenendo lo stesso numero di elementi.
+ Risulta quindi utile fare una distinzione tra caso ottimo, caso medio e
+ caso pessimo per poter meglio valutare la bontà di un algoritmo.
+ 
+\end_layout
+
+\begin_layout Standard
+Il caso ottimo è un caso particolare in cui l'algoritmo ha le prestazioni
+ migliori e solitamente queste prestazioni sono molto migliori di quelle
+ del caso medio e del caso pessimo.
+ Il caso medio è quello che si manifesta più spesso in corrispondenza della
+ maggior parte delle configurazioni dell'input.
+ Il caso pessimo è il contrario del caso ottimo e in questo caso le prestazioni
+ sono il peggio che si può ottenere.
+ 
+\end_layout
+
+\begin_layout Standard
+Nonostante il caso ottimo possa sembrare importante, nella pratica questo
+ è il caso meno interessante, mentre lo sono di più il caso medio e quello
+ pessimo.
+ Cerchiamo di capire perché con un paio di esempi: supponiamo di dover progettar
+e il software di un braccio meccanico per la saldatura di telai di automobili
+ su una catena di montaggio.
+ Un software del genere ha dei vincoli temporali molto precisi, perché deve
+ calcolare i movimenti in modo da saper sempre dove spostare il braccio,
+ in modo da evitare urti o altri tipi di incidenti.
+ Supponiamo che il tempo massimo per calcolare la nuova posizione del braccio
+ sia di un secondo e che sappiamo che nel caso ottimo il tempo effettivo
+ sia di un millesimo di secondo.
+ Questa informazione ci aiuta poco perché dice solo che in alcuni caso il
+ nostro software riuscirà a fare molto in fretta il suo calcolo: basta però
+ un solo caso dove il software impiega più di un secondo per distruggere
+ il braccio o il telaio.
+ Se invece sappiamo che nel caso pessimo il tempo di esecuzione è di 80
+ centesimi di secondo questo ci rassicura sul fatto che non si verificheranno
+ mai danni per questo motivo.
+ Anche il tempo medio è importante perché nel caso di software in cui non
+ sia vitale il rispetto di limiti temporali, ad esempio un word processor,
+ sapere che nella maggior parte dei casi non supereremo un certo tempo può
+ fare la differenza tra un software utilizzabile e uno che non lo è a causa
+ di una latenza troppo lunga nell'esecuzione dei comandi.
+\end_layout
+
+\begin_layout Section
+Complessità e Olimpiadi
+\end_layout
+
+\begin_layout Standard
+Possiamo ora rispondere alla domanda 
+\begin_inset Quotes eld
+\end_inset
+
+A cosa serve conoscere la teoria della complessità computazionale per le
+ gare delle Olimpiadi?
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Come spiegato al capitolo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Per-iniziare"
+
+\end_inset
+
+ ogni problema definisce chiaramente l'input e ne definisce il range in
+ termini sia di valori che può assumere sia della dimensione massima e minima
+ dell'insieme di dati da trattare.
+ Quest'ultimo vincolo è molto importante perché ci permette di individuare,
+ anche se in maniera non precisa, la classe di complessità a cui può appartenere
+ l'algoritmo risolutivo.
+ Cerchiamo di comprenderlo meglio con due esempi, tratti dagli esercizi
+ delle territoriali 2011.
+\end_layout
+
+\begin_layout Standard
+Nel problema 
+\emph on
+domino
+\emph default
+, in cui bisogna stabilire la lunghezza massima di tessere che possono essere
+ messe in sequenza dati alcuni vincoli, l'insieme N di tessere può al massimo
+ essere 10.
+ In questo caso è evidente che essendo l'input così piccolo anche una risoluzion
+e che utilizza un algoritmo di tipo esponenziale risulta fattibile, in quanto
+ anche se N fosse all'esponente di una funzione con una base piccola, il
+ numero di calcoli sarebbe comunque praticabile.
+ In realtà non ci interessa neppure sapere esattamente a quale classe appartenga
+ l'algoritmo ideato, in quanto 10 è un numero davvero piccolo.
+ Questo quindi ci permette ad esempio di implementare una soluzione a 
+\begin_inset Quotes eld
+\end_inset
+
+forza bruta
+\begin_inset Quotes erd
+\end_inset
+
+, che esplorerà tutti i possibili casi e troverà sicuramente la soluzione
+ corretta, riducendo così lo sforzo di ideazione che avremmo dovuto fare
+ se avessimo pensato di trovare algoritmi migliori (sempre che esistano).
+\end_layout
+
+\begin_layout Standard
+Nel problema 
+\emph on
+nanga
+\emph default
+ invece il valore di N, che in questo caso rappresenta un insieme di misure,
+ arriva a un massimo di 1000 e in questo caso è evidente che si può tranquillame
+nte lavorare con un algoritmo di tipo quadratico, in quanto 1000 al quadrato
+ è solo un milione, che è un insieme di operazioni che un calcolatore esegue
+ agevolmente in un secondo, che solitamente è il tempo limite di esecuzione
+ di un caso di test.
+ Si vedrà nelle soluzioni proposte che per questo problema è possibile arrivare
+ a algoritmi migliori, ma non è necessario proprio in quanto i dati del
+ problema indicano che un algoritmo di tipo quadratico è sufficiente.
+\end_layout
+
+\end_body
+\end_document

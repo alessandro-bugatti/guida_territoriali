@@ -1,0 +1,84 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0066)http://192.168.2.100:8080/ioiManager/_proveSelezione/missioni.html -->
+<HTML 
+xmlns="http://www.w3.org/TR/xhtml1/strict"><HEAD><TITLE>Missioni segrete</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY>
+<H4>Selezioni regionali 2008</H4>
+<H1>Missioni segrete (<SAMP>missioni</SAMP>)</H1>
+<H2>Difficoltà D = 2. </H2>
+<H3>Descrizione del problema</H3>
+<P>Il Commissario Basettoni ha presentato a Topolino le missioni che egli dovrà 
+svolgere segretamente nel corso dell'anno. Per ogni missione, oltre al luogo da 
+raggiungere, Basettoni ne indica la durata in giorni e la data massima entro cui 
+deve essere completata. In altri termini, la missione può iniziare in qualunque 
+giorno dell'anno ma deve durare esattamente il numero di giorni indicato e 
+terminare non oltre la data di scadenza. </P>
+<P>Topolino, presa la lista delle missioni ricevuta da Basettoni, ordina tali 
+missioni in base alla loro data di scadenza. Quindi, numera i giorni dell'anno 
+da 1 a 365 (non esistono anni bisestili a Topolinia) e trasforma le date di 
+scadenza in numeri secondo tale numerazione. Per esempio, se una missione dura 
+15 giorni e deve essere svolta entro il 18 febbraio, Topolino la vede 
+semplicemente come una coppia di interi 15 49 (in quanto il 18 febbraio è il 
+quarantanovesimo giorno dell'anno). </P>
+<P>Poiché può effettuare una sola missione alla volta, Topolino non sarà in 
+grado di svolgerle tutte, pur iniziando una missione il giorno immediatamente 
+successivo a quello in cui termina la precedente. Vuole perciò sapere il numero 
+massimo di missioni che è in grado di eseguire rispettando i vincoli sulla loro 
+durata e scadenza. Supponendo che Topolino già fornisca le coppie di interi 
+ordinate per scadenza (il secondo membro delle coppie), aiutatelo a calcolare il 
+massimo numero di missioni che può svolgere. </P>
+<P>Per esempio, se ci sono quattro missioni, una di tre giorni da terminare 
+entro il 5 gennaio, una di quattro giorni entro l'8 gennaio, una di tre giorni 
+entro il 9 gennaio e una di 6 giorni entro il 12 gennaio, Topolino vi fornisce 
+la lista di quattro coppie 3 5, 4 8, 3 9 e 6 12. Il numero massimo di missioni 
+che può svolgere è pari a tre, ossia le missioni corrispondenti alle coppie 3 5, 
+3 9 e 6 12: la prima missione inizia il primo di gennaio e termina il 3 gennaio; 
+la seconda inizia il 4 gennaio e termina il 6 gennaio; la terza inizia il 7 
+gennaio e termina il 12 gennaio. (Notare che, scegliendo la missione 
+corrispondente alla coppia 4 8, Topolino può svolgere al più due missioni.) </P>
+<H3>Dati di input</H3>
+<P>Il file <SAMP>input.txt</SAMP> è composto da <VAR>N</VAR>+1 righe. </P>
+<P>La prima riga contiene un intero positivo che rappresenta il numero 
+<VAR>N</VAR> di missioni presentate da Basettoni a Topolino. </P>
+<P>Le successive <VAR>N</VAR> righe rappresentano durata e scadenza delle 
+missioni: ciascuna riga è composta da due interi <VAR>d</VAR> e <VAR>s</VAR> 
+separati da uno spazio, a rappresentare che la corrispondente missione dura 
+<VAR>d</VAR> giorni e deve essere completata entro l'<VAR>s</VAR>-esimo giorno 
+dell'anno. </P>
+<H3>Dati di output</H3>
+<P>Il file <SAMP>output.txt</SAMP> è composto da una sola riga contenente un 
+intero che rappresenta il massimo numero di missioni che Topolino può svolgere 
+rispettando i vincoli su durata e scadenza. </P>
+<H3>Assunzioni</H3>
+<UL>
+  <LI>1 ≤ <VAR>N</VAR> ≤ 100.
+  <LI>1 ≤ <VAR>d</VAR>, <VAR>s</VAR> ≤ 365 e <VAR>d</VAR> ≤ <VAR>s</VAR></LI></UL>
+<H3>Esempi di input/output</H3>
+<P></P>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD style="PADDING-RIGHT: 1em; PADDING-LEFT: 1em; TEXT-ALIGN: center">File 
+      <SAMP>input.txt</SAMP></TD>
+    <TD style="PADDING-RIGHT: 1em; PADDING-LEFT: 1em; TEXT-ALIGN: center">File 
+      <SAMP>output.txt</SAMP></TD></TR>
+  <TR>
+    <TD 
+    style="PADDING-RIGHT: 1em; PADDING-LEFT: 1em; PADDING-BOTTOM: 1em; PADDING-TOP: 1em" 
+    vAlign=top><PRE>4
+3 5
+4 8
+3 9
+6 12
+</PRE></TD>
+    <TD 
+    style="PADDING-RIGHT: 1em; PADDING-LEFT: 1em; PADDING-BOTTOM: 1em; PADDING-TOP: 1em" 
+    vAlign=top><PRE>3
+</PRE></TD></TR></TBODY></TABLE><BR><BR>
+<H3>Nota/e</H3>
+<UL>
+  <LI>Un programma che restituisce sempre lo stesso valore, indipendentemente 
+  dai dati in <SAMP>input.txt</SAMP>, non totalizza alcun 
+punteggio.</LI></UL></BODY></HTML>

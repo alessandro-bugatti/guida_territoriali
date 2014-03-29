@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/TR/xhtml1/strict"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Depurazione dell'acqua</title></head><body><h4>Selezioni territoriali 2009</h4><h1>Depurazione dell'acqua
+	(<samp>depura</samp>)</h1><h2>
+  Difficoltà D = 2.
+  </h2><h3>Descrizione del problema</h3><p> 
+Bisogna realizzare un procedimento chimico per la depurazione
+dell'acqua, avendo a disposizione un certo numero di sostanze,
+numerate da 1 in avanti. Per un'efficace depurazione, è
+necessario inserire nell'acqua la sostanza chimica purificante
+numero 1, tenendo presente che nell'acqua sono già
+presenti <var>K</var> sostanze chimiche.
+</p><p>
+Per quanto riguarda il procedimento adottato, valgono <var>R</var>
+precise regole per poter inserire le sostanze chimiche
+nell'acqua. Tali regole prevedono che una certa sostanza A possa
+essere inserita solo se nell'acqua sono già presenti un dato insieme
+di sostanze, ad esempio, A1, A2,..., An (dove Ai ≠ A per 1 ≤ i
+≤ n).  In tal caso, scriviamo tale regola di inserimento nel
+seguente modo
+<font>
+A :-- A1, A2,..., An<br></br>
+e diciamo che A compare nella parte sinistra della regola. Al fine di
+un corretto inserimento delle sostanze, valgono le seguenti
+osservazioni:
+</font>
+<ul>
+<li>l'eventuale presenza di ulteriori sostanze non inibisce
+l'applicabilità della regola suddetta;</li>
+<li>se A compare nella parte sinistra di una regola, allora non
+  può comparire nella parte sinistra di altre regole e non
+  può essere una delle <var>K</var> sostanze già
+  presenti nell'acqua;</li>
+<li>qualora una sostanza sia priva di regole (ossia non compaia mai nella
+  parte sinistra di una qualche regola) e non sia già presente
+  nell’acqua, tale sostanza non può essere inserita;</li>
+<li>non è necessario usare tutte le regole e/o tutte le
+  sostanze a disposizione.</li>
+</ul>
+</p><p>
+Per esempio, ipotizzando che  le sostanze 2 e 3 siano già
+presenti nell'acqua (<var>K</var>=2) e che valgano le seguenti regole
+(<var>R</var>=4):<br></br>
+4 :-- 2<br></br>
+5 :-- 2, 3<br></br>
+7 :-- 2, 4<br></br>
+1 :-- 3, 7, 4<br></br>
+possiamo inserire la sostanza 4 perché la sostanza 2 è
+già presente (prima regola); in seguito, possiamo inserire
+anche la sostanza 7 perché le sostanze 2 e 4 sono presenti
+nell'acqua (terza regola); a questo punto, possiamo aggiungere la
+sostanza 1 perché le sostanze 3, 7 e 4 sono presenti (ultima
+regola). Quindi abbiamo inserito un totale di <var>S</var>=3 sostanze, ossia
+4, 7 e 1 (oltre alle <var>K</var>=2 già presenti), per
+purificare l'acqua.
+</p><p>
+Scrivere un programma che calcoli il numero minimo <var>S</var> di
+sostanze da inserire per purificare l'acqua, conoscendo
+le <var>K</var> sostanze già presenti nell'acqua e
+le <var>R</var> regole di inserimento.  Tale numero
+sarà <var>S</var> = 0 se la sostanza 1 è già
+presente nell'acqua; sarà <var>S</var> = 1 se la sostanza 1
+può essere inserita direttamente e non è già
+presente; in generale, sarà <var>S</var> = <var>m</var> se
+è necessario inserire <var>m</var>-1 sostanze prima di poter
+inserire la sostanza 1. Nel caso in cui non sia possibile purificare
+l'acqua, bisogna restituire il valore <var>S</var> = -1.
+</p><h3>Dati di input</h3><p>
+Il file <samp>input.txt</samp> è composto da <var>K</var>+<var>R</var>+1 righe.
+</p><p>
+La prima riga contiene due interi positivi separati da uno spazio,
+rispettivamente il numero <var>K</var> delle sostanze chimiche già
+presenti nell'acqua e il numero <var>R</var> di regole di inserimento.
+</p><p>
+La successive <var>K</var> righe contengono le <var>K</var> sostanze
+già presenti nell'acqua, dove ogni riga è composta da un
+solo intero positivo che rappresenta una di tali sostanze.
+</p><p>
+Le ultime <var>R</var> righe rappresentano le <var>R</var> regole, al
+massimo una regola per ciascuna sostanza non presente nell'acqua.
+Ciascuna riga è composta da <var>n</var>+2 interi positivi A, n, A1,
+A2,..., An separati da uno spazio (dove Ai ≠ A per 1 ≤ i ≤
+n), i quali rappresentano la regola A :-- A1, A2,..., An.
+</p><h3>Dati di output</h3><p>
+Il file <samp>output.txt</samp> è composto da una sola riga
+contenente un intero <var>S</var>, il minimo numero di sostanze
+inserite (oltre alle <var>K</var> già presenti) per purificare l'acqua
+secondo le regole descritte sopra.
+</p><h3>Assunzioni</h3><ul><li> 1 ≤ <var>K, R</var> ≤ 1000</li><li>Il numero di sostanze chimiche a disposizione è al massimo 2000.</li><li>I casi di prova non contengono mai situazioni cicliche: in tal
+modo, non accade mai che una sostanza A possa essere inserita solo
+se A stessa è già presente nell'acqua.</li></ul><h3>Esempi di input/output</h3><p></p><table border="1"><tr><td style="padding-left: 1em; padding-right: 1em; text-align: center">File <samp>input.txt</samp></td><td style="padding-left: 1em; padding-right: 1em; text-align: center">File <samp>output.txt</samp></td></tr><tr><td style="padding: 1em" valign="top"><pre>
+2 4
+2
+3
+4 1 2
+5 2 2 3
+7 2 2 4
+1 3 3 7 4
+</pre></td><td style="padding: 1em" valign="top"><pre>
+3
+</pre></td></tr></table><br></br><table border="1"><tr><td style="padding-left: 1em; padding-right: 1em; text-align: center">File <samp>input.txt</samp></td><td style="padding-left: 1em; padding-right: 1em; text-align: center">File <samp>output.txt</samp></td></tr><tr><td style="padding: 1em" valign="top"><pre>
+4 2
+6
+2
+8
+3
+5 2 2 6
+1 2 3 6
+</pre></td><td style="padding: 1em" valign="top"><pre>
+1
+</pre></td></tr></table><br></br><table border="1"><tr><td style="padding-left: 1em; padding-right: 1em; text-align: center">File <samp>input.txt</samp></td><td style="padding-left: 1em; padding-right: 1em; text-align: center">File <samp>output.txt</samp></td></tr><tr><td style="padding: 1em" valign="top"><pre>
+2 3
+1
+3
+4 1 2
+5 1 3
+6 2 2 4
+</pre></td><td style="padding: 1em" valign="top"><pre>
+0
+</pre></td></tr></table><br></br><table border="1"><tr><td style="padding-left: 1em; padding-right: 1em; text-align: center">File <samp>input.txt</samp></td><td style="padding-left: 1em; padding-right: 1em; text-align: center">File <samp>output.txt</samp></td></tr><tr><td style="padding: 1em" valign="top"><pre>
+3 4
+2
+4
+8
+5 2 2 4
+7 2 4 3
+6 2 5 7
+1 3 5 2 6
+</pre></td><td style="padding: 1em" valign="top"><pre>
+-1
+</pre></td></tr></table><br></br><h3>Nota/e</h3><ul><li>Il numero di sostanze chimiche a disposizione può essere
+  semplicemente dedotto guardando il massimo intero contenuto nel
+  file <samp>input.txt</samp>.</li><li>Il numero <var>R</var> di regole di inserimento può essere
+  inferiore al numero di sostanze a disposizione e non presenti nell'acqua.</li><li>Un programma che restituisce sempre lo stesso valore,
+indipendentemente dai dati in <samp>input.txt</samp>, non totalizza
+alcun punteggio in aggiunta a quello ottenuto per la sua
+compilazione.</li></ul></body></html>

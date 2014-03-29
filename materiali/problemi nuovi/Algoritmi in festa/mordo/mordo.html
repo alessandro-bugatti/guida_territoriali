@@ -1,0 +1,52 @@
+<html>
+<body>
+<h1>I mostri di Mordo (mordo)</h1>
+<p>L'intrepido astronauta Spiff &egrave; stato incaricato di portare i mostri di Mordo detenuti nel pianeta KX-0 sui vari pianeti del sistema solare KX. Ogni mostro deve essere portato su uno specifico pianeta e nel sistema solare di KX non &egrave; che abbondi la fantasia, quindi tutti i pianeti sono stati chiamati KX-n, dove KX-0 &egrave; il pianeta dove si trova Spiff con tutti i mostri, KX-1 &egrave; il seguente pianeta, KX-2 &egrave; quello dopo ancora e via cos&igrave;. Ogni pianeta si trova alla stessa distanza da quello che lo precede e da quello che lo segue (KX &egrave; un sistema solare davvero peculiare).</p>
+<p>Dovendo partire per il suo viaggio, Spiff carica tutti i mostri sul proprio cargo spaziale e riceve una lista in cui per ogni mostro &egrave; segnato il pianeta dove dovr&agrave; essere detenuto, in ordine crescente di numero. Mentre il cargo spaziale non consuma praticamente energia nello spostamento da un pianeta a un altro, la fase di atterraggio e partenza da un pianeta &egrave; molto dispendiosa, quindi il numero di sbarchi sui pianeti &egrave; limitato ed &egrave; inferiore al numero di mostri da portare. Questo fatto comporta che su un pianeta debba essere lasciato pi&ugrave; di un mostro, saranno poi gli abitanti del pianeta che si preoccuparanno di portarli nei pianeti di effettiva destinazione. Spiff, che oltre ad essere intrepido e impavido &egrave; anche molto cortese, vuole scegliere i pianeti dove atterrare in modo che i viaggi per portare i mostri alle loro destinazioni finali siano i pi&ugrave; corti possibile: il costo di ogni singolo viaggio &egrave; pari alla distanza che separa due pianeti, quindi ad esempio portare un mostro dal pianeta KX-3 al pianeta KX-6 costa 3 agli abitanti del pianeta KX-3.</p>
+<p>Per comprendere meglio la missione di Spiff supponiamo che gli siano stati affidati 3 mostri che devono essere portati rispettivamente ai pianeti KX-3, KX-4 e KX-10, ma possa fare solo 2 atterraggi. Il modo migliore di portare i mostri sar&agrave; quello di sbarcare i primi due sul pianeta KX-3 e l'ultimo sul pianeta KX-10: in questo modo il costo totale per gli abitanti del sitema solare sar&agrave; solo 1, poich&egrave; l'unico viaggio in pi&ugrave; sar&agrave; quello per spostare uno dei due mostri sbarcati su KX-3 al pianeta a cui era destinato, cio&egrave; KX-4.</p>
+<p>Nel caso ci sia pi&ugrave; di una possibilit&agrave; di sbarcare i mostri con lo stesso costo minimo, deve essere privilegiata quella in cui i mostri vengono fatti sbarcare prima, nel caso precedente quindi non &egrave; stato scelta la possibilit&agrave; KX-4 e KX-10 per questo motivo (ovviamente Spiff vuole sbarcare i mostri quanto prima perch&egrave; sono viscidi e puzzolenti).</p>
+<p>Nel caso convenga, alcuni mostri potrebbero non essere nemmeno imbarcati, ma essere spostati dagli abitanti di KX-0 alle loro destinazioni, se questo permette un costo totale minore.</p>
+<p>Aiuta Spiff a trovare i pianeti su cui atterrare che permettano di minimizzare il costo totale dello spostamento dei mostri da parte degli abitanti dei pianeti.</p>
+<h3>Dati di input</h3>
+<p>Tre numeri interi P, A e M che rappresentano rispettivamente il numero di pianeti del sistema solare, il numero di atterraggi che Spiff pu&ograve; effettuare e il numero di mostri da portare.</p>
+<p>Seguono M numeri interi che rappresentano i pianeti nei quali gli M mostri devono essere portati, ordinati dal pi&ugrave; piccolo al pi&ugrave; grande (la sigla KX &egrave; omessa per ovvi motivi)</p>
+<h3>Dati di output</h3>
+<p>La sequenza ordinata dal pi&ugrave; piccolo al pi&ugrave; grande dei pianeti in cui Spiff deve atterrare per minimizzare il costo totale degli ulteriori spostamenti da parte degli abitanti dei pianeti.</p>
+<h3>Assunzioni</h3>
+<p>P &lt; 120</p>
+<p>M &lt; P</p>
+<p>A &lt; M</p>
+<h3>Esempi di input/output</h3>
+<table style="width: 155px; height: 88px;" border="2">
+<tbody>
+<tr>
+<td valign="top">File input.txt</td>
+<td valign="top">File output.txt</td>
+</tr>
+<tr>
+<td valign="top">10 2 3<br />3<br />4<br />10</td>
+<td valign="top">
+<p>3</p>
+<p>10</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 155px; height: 88px;" border="2">
+<tbody>
+<tr>
+<td valign="top">File input.txt</td>
+<td valign="top">File output.txt</td>
+</tr>
+<tr>
+<td valign="top">15 1 3<br />1<br />2<br />13</td>
+<td valign="top">
+<p>13</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Come si pu&ograve; notare in questo esempio i primi due mostri non partiranno, ma verranno portati direttamente dagli abitanti di KX-0 alle loro rispettive destinazioni, con un costo totale di 3 (costo 1 per portare il primo mostro su KX-1 pi&ugrave; costo 2 per portare il secondo mostro su KX-2)</p>
+</body>
+</html>

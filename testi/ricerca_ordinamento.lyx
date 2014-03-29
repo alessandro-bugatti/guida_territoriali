@@ -1,0 +1,3377 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\date{}
+\end_preamble
+\use_default_options false
+\master guida.lyx
+\maintain_unincluded_children true
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans helvet
+\font_typewriter courier
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Indice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Vettori, ordinamento e ricerca
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+Pur non conoscendo bene l'archivio, ne sapeva abbastanza per capire che
+ era organizzato in maniera geniale.
+ Se durante una seduta del Consiglio di Stato, o 
+\emph default
+divvan
+\emph on
+, il visir aveva bisogno di un documento o di un protocollo, per quanto
+ lontano nel tempo o di natura incomprensibile, gli archivisti erano in
+ grado di reperirlo nel giro di pochi minuti.
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\align right
+
+\emph on
+Jason Goodwin
+\emph default
+, 
+\begin_inset Quotes eld
+\end_inset
+
+L'albero dei giannizzeri
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In questo capitolo verrà fatta una brevissima introduzione sui vettori e
+ in particolare per la loro implementazione in C e in C++ e poi verranno
+ trattati i problemi di ordinamento e ricerca, che spesso appaiono come
+ mattoncini fondamentali nella costruzione di algoritmi più complessi.
+ Infine verranno affrontati due problemi delle selezioni territoriali per
+ mostrare come utilizzare i concetti e le tecniche spiegate.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Vettori"
+
+\end_inset
+
+Vettori
+\end_layout
+
+\begin_layout Standard
+Per introdurre i vettori partiamo da un esempio: se vogliamo sommare tra
+ loro due numeri inseriti da un utente ci servono semplicemente tre variabili,
+ due per l'input e una per l'output.
+ Se invece gli elementi da sommare fossero un numero indeterminato, ma comunque
+ di una certa grandezza, teoricamente potremmo ancora avere un insieme di
+ variabili, una per ogni termine, ma in pratica questo approccio non sarebbe
+ possibile (basta pensare a come verrebbe il codice se i numeri da inserire
+ fossero 100, per rendersi facilmente conto che è così).
+ In un contesto come questo i vettori vengono in aiuto al programmatore
+ mettendo a disposizione una semplice struttura dati con le caratteristiche
+ giuste per risolvere tutti i tipi di problemi in cui gli elementi da trattare
+ sono in numero elevato.
+\end_layout
+
+\begin_layout Standard
+Possiamo definire un vettore come un insieme di elementi omogenei tra loro
+ che possono essere indirizzati singolarmente attraverso l'uso di un indice,
+ come mostrato nell'esempio in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Vettore-di-10"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/vettori/vettore.eps
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Vettore-di-10"
+
+\end_inset
+
+Vettore di 10 elementi
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si può pensare al vettore come ad un mobile con tanti cassetti: quando la
+ mamma deve indicarci in che cassetto si trova quella maglietta che ci piace
+ tanto, individua la posizione con una frase del tipo 
+\begin_inset Quotes eld
+\end_inset
+
+Cassettone verde terzo cassetto
+\begin_inset Quotes erd
+\end_inset
+
+.
+ In analogia con i vettori 
+\emph on
+Cassettone verde
+\emph default
+ individua il vettore (nell'esempio in figura si chiama V) e 
+\emph on
+terzo cassetto
+\emph default
+ individua la posizione esatta del cassetto a cui si riferisce (che sempre
+ nell'esempio in figura è quello che contiene il numero 8).
+ I vettori in C quindi sono come dei cassettoni: hanno un nome che li identifica
+, come una qualunque variabile, e un indice che stabilisce a quale 
+\begin_inset Quotes eld
+\end_inset
+
+cassetto
+\begin_inset Quotes erd
+\end_inset
+
+ ci si vuole riferire.
+ Come già detto gli elementi sono omogenei e quindi un vettore può contenere,
+ ad esempio, o interi o caratteri, ma non contemporaneamente ambedue i tipi.
+ 
+\end_layout
+
+\begin_layout Standard
+Riprendiamo l'esempio di partenza per scrivere un semplice programma che
+ somma 10 interi forniti in input (in questo esempio il vettore non sarebbe
+ necessario, però vedremo nel seguito esempi in cui è indispensabile).
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int V[10];		//dichiarazione del vettore
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i, somma = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (i = 0; i < 10; i++)	//lettura
+\end_layout
+
+\begin_layout Plain Layout
+
+		scanf(%d,&V[i]);
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (i = 0; i < 10; i++)	//somma
+\end_layout
+
+\begin_layout Plain Layout
+
+		somma += V[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+	printf(La somma vale: %d
+\backslash
+n,somma);
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il vettore, come i cassettoni, ha una sua dimensione definita, in questo
+ caso 10, che deve essere specificata in modo tale che il compilatore la
+ conosca a priori.
+ Nell'esempio il vettore è allocato sullo 
+\emph on
+stack
+\emph default
+ essendo una variabile locale al 
+\emph on
+main
+\emph default
+, nelle Olimpiadi invece è una buona idea dichiarare tutte le variabili
+ significative come globali, per almeno due motivi: 
+\end_layout
+
+\begin_layout Enumerate
+se il vettore fosse molto grosso lo stack potrebbe non riuscire a contenerlo
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Normalmente nei sistemi Windows con le impostazioni di default del compilatore
+ lo stack è di 4 MB
+\end_layout
+
+\end_inset
+
+ e in questo caso il programma non riuscirebbe nemmeno a partire
+\end_layout
+
+\begin_layout Enumerate
+avere le variabili globali rende molto più semplice l'utilizzo delle funzioni,
+ non avendo il problema del passaggio dei parametri.
+ Questo ovviamente contrasta con le buone pratiche di programmazione che
+ in generale consigliano di minimizzare il numero di variabili globali,
+ ma ricordo che le Olimpiadi hanno delle proprie caratteristiche che derivano
+ dall'essere una gara e non un esercizio di ingegneria del software.
+\end_layout
+
+\begin_layout Standard
+Nella dichiarazione viene indicato il tipo degli elementi che deve contenere,
+ il nome e appunto la dimensione: nell'esempio mostrato si usa l'indice
+ 
+\emph on
+i
+\emph default
+ per 
+\begin_inset Quotes eld
+\end_inset
+
+muoversi
+\begin_inset Quotes erd
+\end_inset
+
+ all'interno del vettore e l'utilizzo dell'indice deve essere fatto in modo
+ tale da garantire che non assuma mai valori all'esterno di quelli consentiti
+ nel vettore, in questo caso non dovrà mai essere minore di 0 e maggiore
+ di 9, perché in C il primo elemento ha indice 0, come si vede in figura.
+ Nell'eventualità che per un errore del programmatore l'indice dovesse assumere
+ un valore non valido il compilatore non segnalerà l'errore e produrrà un
+ programma funzionante, ma non corretto: nel migliore dei casi il programma
+ crasherà, nel peggiore verrà eseguito producendo risultati non in linea
+ con quanto atteso, poiché in generale il comportamento non sarà definito.
+\end_layout
+
+\begin_layout Standard
+I vettori sono il caso unidimensionale di strutture di carattere più generale
+ chiamate 
+\emph on
+matrici
+\emph default
+, che al posto di una sola dimensione possono averne due, tre e oltre.
+ Il comportamento è il medesimo, nel senso che, supponendo di avere una
+ matrice bidimensionale, che è il caso di gran lunga più frequente, saranno
+ necessari due indici per individuare un dato appartenente a essa: l'esempio
+ più tipico, anche se banale, è quello del gioco della battaglia navale,
+ dove utilizzando due coordinate è possibile individuare univocamente una
+ casella della griglia.
+\end_layout
+
+\begin_layout Section
+I vettori in C++
+\end_layout
+
+\begin_layout Standard
+Chi utilizza il C++ ha un'altra possibilità, oltre a quella vista in precedenza,
+ se vuole utilizzare dei vettori nel proprio programma ed è quella di avvalersi
+ del contenitore 
+\emph on
+vector
+\emph default
+ della Libreria Standard.
+ Lo stesso programma visto in precedenza riscritto in C++ utilizzando il
+ contenitore 
+\emph on
+vector
+\emph default
+ risulterebbe così:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#include <vector>
+\end_layout
+
+\begin_layout Plain Layout
+
+using namespace std;
+\end_layout
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	vector <int> V;		//dichiarazione del vettore
+\end_layout
+
+\begin_layout Plain Layout
+
+	int temp, somma = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < 10; i++)	//lettura
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+		V.push_back(temp);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (i = 0; i < 10; i++)	//somma
+\end_layout
+
+\begin_layout Plain Layout
+
+		somma += V.at(i);	
+\end_layout
+
+\begin_layout Plain Layout
+
+	cout << La somma vale:  << somma << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Le differenze con i vettori del C sono:
+\end_layout
+
+\begin_layout Itemize
+non c'è bisogno di stabilire in tempo di compilazione la dimensione del
+ vettore, in quanto questo si 
+\begin_inset Quotes eld
+\end_inset
+
+adatterà
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\emph on
+runtime
+\emph default
+ per contenere il numero di elementi che vengono via via inseriti tramite
+ il metodo 
+\emph on
+push_back
+\emph default
+ (ed eventualmente diminuirà la propria dimensione nel caso che vengano
+ eliminati)
+\end_layout
+
+\begin_layout Itemize
+per accedere tramite indice ai singoli elementi si usa il metodo 
+\emph on
+at
+\emph default
+, che garantisce un controllo di accesso, generando un'eccezione nel caso
+ che l'indice non abbia un valore valido, che può essere gestita oppure,
+ se non viene gestita, fa abortire il programma.
+\end_layout
+
+\begin_layout Itemize
+si potrebbe usare anche la notazione con le parentesi quadre, ma in questo
+ modo si perde il controllo sul range dell'indice
+\end_layout
+
+\begin_layout Itemize
+per usare i vettori del C++ bisogna includere la libreria 
+\emph on
+vector
+\end_layout
+
+\begin_layout Standard
+Queste caratteristiche sono state implementate dai progettisti della Libreria
+ Standard per rendere il lavoro degli sviluppatori più semplice, evitandogli
+ di doversi preoccupare della gestione della memoria e del controllo sugli
+ indici e quindi sono un passo in avanti per quanto riguarda la scrittura
+ di codice robusto e di facile manutenzione.
+ Questo però si ottiene con un costo in termini di prestazioni in runtime,
+ poiché vengono fatti alcuni controlli in maniera automatica che rallentano
+ i tempi di esecuzione.
+ In gare di informatica come quelle delle Olimpiadi non è quindi detto che
+ sia conveniente usare questo tipo di vettori, ma i vantaggi derivanti dal
+ loro utilizzo vanno valutati caso per caso.
+ Nel seguito del manuale, quando verranno mostrate le soluzioni dei problemi
+ si discuterà del perché scegliere l'uno piuttosto che l'altro e si vedrà
+ che in alcuni casi è piuttosto indifferente.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Esempio:Brambillia"
+
+\end_inset
+
+Esempio: Ritrovo a Brambillia - territoriali 2006
+\end_layout
+
+\begin_layout Standard
+In questo esempio è sufficiente l'utilizzo di vettori e matrici per arrivare
+ alla soluzione e si può utilizzare un approccio semplice che si limita
+ a fare dei calcoli, per poi trovare il minimo di un insieme di valori.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Ritrovo a Brambillia (brambillia) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Nell'isola di Brambillia, vi sono N città numerate da 1 a N e collegate
+ attraverso una ferrovia circolare, le cui tratte sono anch'esse numerate
+ da 1 a N e possono essere percorse in entrambe le direzioni: la tratta
+ ferroviaria j collega direttamente la città j alla città j+1 (e, percorsa
+ nella direzione opposta, collega j+1 a j) dove j = 1, 2, ..., N-1; la tratta
+ N collega la città N alla città 1 (e, percorsa nella direzione opposta,
+ collega 1 a N).
+ Il biglietto ferroviario per ciascuna tratta ha un costo prestabilito.
+\end_layout
+
+\begin_layout Plain Layout
+Date due qualunque città p e q, è possibile andare da p a q attraverso due
+ percorsi ferroviari alternativi (ipotizzando che 1 ≤ p < q ≤ N, un percorso
+ attraversa le tratte p, p+1, ..., q-1 mentre l'altro attraversa, nella direzione
+ opposta, le tratte p-1, p-2, ..., 1, N, N-1, ..., q; per andare da q a p, attraversia
+mo tali percorsi ma in direzione opposta).
+ Il biglietto ferroviario per ciascuno dei percorsi ha un costo pari alla
+ somma dei costi delle singole tratte che lo compongono.
+\end_layout
+
+\begin_layout Plain Layout
+Gli abitanti di Brambillia intendono utilizzare la ferrovia circolare per
+ ritrovarsi in occasione della sagra annuale dell'isola e devono scegliere
+ la città presso cui organizzare tale sagra minimizzando il costo totale
+ dei biglietti.
+ Per questo motivo hanno contato, per ogni città, quante persone vogliono
+ parteciparvi, visto che è necessario acquistare un biglietto ferroviario
+ per persona al costo descritto sopra (per gli abitanti della città che
+ verrà scelta, il costo sarà nullo perché non dovranno prendere il treno).
+ In base a tale conteggio, individuate la città in cui organizzare la sagra,
+ tenendo presente che le persone possono giungervi attraverso uno dei due
+ percorsi a loro disposizione nella ferrovia circolare.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt è composto da 2N+1 righe.
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga contiene un intero positivo che rappresenta il numero N delle
+ città.
+\end_layout
+
+\begin_layout Plain Layout
+Le successive N righe contengono ciascuna un intero positivo: quello nella
+ j-esima di tali righe rappresenta il costo del biglietto ferroviario per
+ la tratta j, dove 1 ≤ j ≤ N.
+\end_layout
+
+\begin_layout Plain Layout
+Le ulteriori N righe contengono ciascuna un intero positivo o nullo: quello
+ nella j-esima di tali righe è il numero delle persone della città j che
+ intendono partecipare alla sagra, per 1 <= j <= N.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da una riga contenente un solo intero j che
+ rappresenta la città j presso cui organizzare la sagra.
+ Come osservato in precedenza, tale città rende minimo il costo totale,
+ ottenuto sommando i costi dei biglietti ferroviari di tutti i partecipanti.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Plain Layout
+1 < N < 100 
+\end_layout
+
+\begin_layout Plain Layout
+I dati in input.txt garantiscono che la soluzione è unica (esiste una sola
+ città in cui organizzare la sagra).
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4 
+\end_layout
+
+\begin_layout Plain Layout
+45 
+\end_layout
+
+\begin_layout Plain Layout
+34 
+\end_layout
+
+\begin_layout Plain Layout
+18 
+\end_layout
+
+\begin_layout Plain Layout
+40 
+\end_layout
+
+\begin_layout Plain Layout
+3 
+\end_layout
+
+\begin_layout Plain Layout
+0 
+\end_layout
+
+\begin_layout Plain Layout
+4 
+\end_layout
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dalla lettura del testo la prima soluzione che viene in mente è quella di
+ calcolare tutti i costi associati all'organizzazione della festa in ogni
+ città e poi trovare tra questi costi il minimo.
+ In questo caso si vede subito che la soluzione ha un costo di tipo quadratico,
+ poiché per calcolare il costo per una singola città ho bisogno di N somme
+ (di più poiché devo farlo anche in senso antiorario e poi scegliere il
+ migliore, ma sappiamo che a noi interessa un costo approssimativo), siccome
+ poi lo stesso calcolo lo devo ripetere per ogni città, quindi N volte,
+ il costo totale sarà di tipo 
+\begin_inset Formula $N^{2}$
+\end_inset
+
+.
+ Si potrebbe pensare a qualche algoritmo più sofisticato, notando che sembra
+ esserci un legame tra i calcoli fatti per ogni città, dal momento che i
+ dati sono sempre gli stessi e cambia solo il punto dove vengono calcolati,
+ ma il fatto che N sia limitato a un massimo di 100 ci assicura che un algoritmo
+ quadratico sia più che sufficiente per risolvere il problema in un tempo
+ accettabile.
+ Quindi possiamo dare un'occhiata al codice scritto in C++, di semplice
+ realizzazione e che richiede solo di porre attenzione nell'utilizzo degli
+ indici e nel fatto che il vettore viene usato in maniera 
+\begin_inset Quotes eld
+\end_inset
+
+circolare
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int N; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int abitanti[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int costi[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int spostamenti[100][100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int orario[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int antiorario[100];
+\end_layout
+
+\begin_layout Plain Layout
+
+int costoSpostamento(int i) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int costo = 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int j = 0; j < N; j++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		costo += spostamenti[i][j]*abitanti[j]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return costo; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+int main(int argc, char** argv) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i < N; i++) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> costi[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i < N; i++) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> abitanti[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i < N; i++) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		orario[i] = 0; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j = 1; j < N; j++) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			orario[(j+i)%N] = orario[((j+i)-1)%N] + costi[(j+i-1)%N]; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		antiorario[i] = 0; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j = 1; j < N; j++) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			antiorario[(j+i)%N] = antiorario[((j+i)-1)%N] + costi[(N - j + i)%N];
+ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j = 1; j < N; j++) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (orario[(j+i)%N] < antiorario[(N-j+i)%N]) 				
+\end_layout
+
+\begin_layout Plain Layout
+
+				spostamenti[i][(j+i)%N] = orario[(j+i)%N]; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			else 				
+\end_layout
+
+\begin_layout Plain Layout
+
+				spostamenti[i][(j+i)%N] = antiorario[(N-j+i)%N]; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	}  	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int minimo = costoSpostamento(0); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int citta = 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int j = 1; j < N; j++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (costoSpostamento(j) < minimo) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			minimo = costoSpostamento(j); 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			citta = j; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << citta + 1 << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Le righe 16-30 servono per la lettura dell'input: vengono creati i due oggetti
+ 
+\emph on
+in
+\emph default
+ e 
+\emph on
+out
+\emph default
+ per leggere e scrivere nei file (come già detto non viene fatto nessun
+ controllo sull'effettiva apertura dei file), viene letto il numero 
+\emph on
+N
+\emph default
+ di città e con due cicli for vengono letti i valori dei costi e gli abitanti,
+ inserendoli in vettori dallo stesso nome.
+ Si noti che, come già indicato a 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "sec:Vettori"
+
+\end_inset
+
+, i vettori e le altre variabili sono dichiarati globalmente.
+\end_layout
+
+\begin_layout Standard
+Le righe 32-45 si occupano di calcolare tutti i costi per spostarsi da una
+ città 
+\emph on
+j
+\emph default
+ alla città 
+\emph on
+i
+\emph default
+ dove viene organizzata la festa e memorizzano i risultati nella matrice
+ 
+\emph on
+spostamenti
+\emph default
+, dove la riga 
+\emph on
+i
+\emph default
+-esima contiene i costi di ogni città 
+\emph on
+j
+\emph default
+ per arrivare alla città 
+\emph on
+i
+\emph default
+.
+ Guardando il corpo del ciclo si vede che alla riga 34 viene messo a zero
+ il costo per spostarsi da 
+\emph on
+i
+\emph default
+ a 
+\emph on
+i
+\emph default
+, nel ciclo successivo vengono calcolati tutti costi per spostarsi in senso
+ orario da 
+\emph on
+j
+\emph default
+ ad 
+\emph on
+i
+\emph default
+ e l'unica cosa da notare è l'uso che si fa dell'operatore % (modulo), che
+ restituisce il resto della divisione per 
+\emph on
+N
+\emph default
+.
+ In questo modo quando l'indice del vettore raggiunge la fine, viene 
+\begin_inset Quotes eld
+\end_inset
+
+automaticamente
+\begin_inset Quotes erd
+\end_inset
+
+ riportato a zero per proseguire nei successivi passaggi.
+ L'altra cosa interessante è che per calcolare il costo per spostarsi da
+ 
+\emph on
+j
+\emph default
+ a 
+\emph on
+i
+\emph default
+ viene sommato il costo per spostarsi da
+\emph on
+ j-1
+\emph default
+ a 
+\emph on
+i
+\emph default
+ (calcolato al giro precedente) con il costo per spostarsi da 
+\emph on
+j
+\emph default
+ a 
+\emph on
+j-1
+\emph default
+ (che è un dato), evitando in questo modo di doversi ricalcolare ogni volta
+ le somme intermedie.
+\end_layout
+
+\begin_layout Standard
+Le righe 37-39 fanno la stessa cosa per il calcolo in senso antiorario e
+ le righe 40-44 trovano per ogni città se convenga spostarsi in senso orario
+ o antiorario e memorizzano il percorso migliore nella matrice 
+\emph on
+spostamenti
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+A questo punto viene utilizzata la funzione 
+\emph on
+costoSpostamento
+\emph default
+ che calcola il costo per l'organizzazione della festa nella città 
+\emph on
+i
+\emph default
+-esima facendo la somma dei valori calcolati in precedenza, pesandoli con
+ il numero di abitanti che si trovano in ogni città (la 
+\begin_inset Quotes eld
+\end_inset
+
+pesatura
+\begin_inset Quotes erd
+\end_inset
+
+ poteva essere fatta anche in precedenza, senza nessuna modifica nelle prestazio
+ni del programma).
+\end_layout
+
+\begin_layout Standard
+Infine le righe 47-52 scorrono tutte le città e memorizzano la posizione
+ dove si trova la città in cui si ha il costo minimo (l'inizializzazione
+ del valore di minimo avviene alla riga 45, dandogli il costo per organizzare
+ la festa nella città 0).
+ Da notare che alla riga 53 al valore della città viene sommato 1, poiché
+ il testo prevedeva che le città fossero numerate da 1 a N e non da 0 a
+ N-1 come viene più naturale in C/C++ e come è stato fatto nella soluzione
+ del problema: attenzione quindi a leggere attentamente il testo del problema
+ per evitare errori che potrebbero comportare una penalizzazione: in questo
+ caso se non si fosse sommato 1 si sarebbero persi tutti i punti.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Ordinamento"
+
+\end_inset
+
+L'ordinamento
+\end_layout
+
+\begin_layout Standard
+Il problema dell'ordinamento è un problema vitale in informatica e, anche
+ se magari non è così evidente, la maggior parte dei programmi che utilizziamo
+ eseguono continuamente degli ordinamenti sui propri dati: per fare degli
+ esempi banali basta pensare ai migliori punteggi di un videogioco (ordinati
+ dal più grande al più piccolo), ai nomi nella rubrica del cellulare (ordinati
+ per lettera crescente), ai messaggi su Facebook (ordinati per data dai
+ più recenti ai più vecchi, almeno penso sia così perché non ho un profilo
+ Facebook) e si potrebbe continuare anche con esempi molto meno familiari
+ ma anche più importanti e complessi.
+ Anche per un non informatico il significato del termine 
+\emph on
+ordinamento
+\emph default
+ è abbastanza scontato e intuitivamente potrebbe essere definito come l'operazio
+ne di spostare gli elementi di una sequenza in modo tale che rispettino
+ una certa condizione d'ordine, cioè che un elemento sia minore (o maggiore)
+ dell'elemento che lo precede e maggiore ( o minore) dell'elemento che lo
+ segue.
+\end_layout
+
+\begin_layout Standard
+Da quando è nata l'informatica intesa come tecnologia per la gestione dei
+ dati, i teorici hanno studiato via via algoritmi sempre più intelligenti
+ che permettessero di ordinare i dati in tempi minori e con basso consumo
+ di memoria.
+ In qualsiasi corso di informatica vengono studiati gli algoritmi standard
+ di ordinamento, i cui nomi (
+\emph on
+bubble-sort
+\emph default
+, 
+\emph on
+selection-sort
+\emph default
+, 
+\emph on
+insertion-sort
+\emph default
+, 
+\emph on
+quick-sort
+\emph default
+ e altri) sono noti ad ogni informatico che si rispetti.
+\end_layout
+
+\begin_layout Standard
+In questo manuale non verranno spiegati questi algoritmi (per approfondimenti
+ si veda la bibliografia 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Breve-bibliografia"
+
+\end_inset
+
+), ma verranno fatte delle considerazioni generali valide per l'utilizzo
+ di questi algoritmi in gara, considerato che molti problemi hanno l'ordinamento
+ come parte della propria strategia risolutiva (si pensi, ad esempio, ai
+ problemi a cui bisogna applicare un algoritmo 
+\emph on
+greedy
+\emph default
+, dove uno dei passi da fare è di ordinare l'input secondo un qualche criterio).
+ 
+\end_layout
+
+\begin_layout Standard
+Dovendo quindi usare un ordinamento durante un problema di gara una soluzione
+ potrebbe essere quella di utilizzare un algoritmo scritto 
+\begin_inset Quotes eld
+\end_inset
+
+al volo
+\begin_inset Quotes erd
+\end_inset
+
+; questo però comporterebbe principalmente tre tipi di problemi:
+\end_layout
+
+\begin_layout Itemize
+perdita di tempo per la scrittura dell'algoritmo (anche il più semplice
+ degli algoritmi di ordinamento richiede qualche minuto per essere implementato)
+\end_layout
+
+\begin_layout Itemize
+semplicità dell'algoritmo implementato: probabilmente si ricadrebbe sull'algorit
+mo 
+\emph on
+bubble-sort
+\emph default
+, che è molto semplice da implementare correttamente, ma ha delle prestazioni
+ non buone, di tipo 
+\begin_inset Formula $O\left(N^{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+possibilità di commettere degli errori: anche un algoritmo semplice come
+ il 
+\emph on
+bubble-sort
+\emph default
+ può comunque essere soggetto a errori di implementazione, dove un algoritmo
+ come il 
+\emph on
+quicksort
+\emph default
+ ha sicuramente buone probabilità di essere scritto male, soprattutto in
+ un contesto come quello delle gare dove si ha poco tempo a disposizione
+ e si è sotto tensione
+\end_layout
+
+\begin_layout Standard
+Utilizzare invece le funzioni di libreria permette di evitare questi problemi,
+ al solo costo di impararne il funzionamento.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:La-funzione-qsort"
+
+\end_inset
+
+La funzione 
+\emph on
+qsort
+\emph default
+ in C
+\end_layout
+
+\begin_layout Standard
+Nel linguaggio C è presente la funzione 
+\emph on
+qsort
+\emph default
+ di libreria che permette di ordinare un vettore di elementi a un costo
+ 
+\begin_inset Formula $O(N\log N)$
+\end_inset
+
+, che quindi è sicuramente buono in termini di prestazioni.
+ 
+\end_layout
+
+\begin_layout Standard
+La funzione ha il seguente prototipo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int qsort(void *v, size_t dimV, size_t dimE, 
+\end_layout
+
+\begin_layout Plain Layout
+
+	int (*cmp)(const void *a,const void *b)) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dove 
+\emph on
+v
+\emph default
+ è l'indirizzo del vettore da ordinare, 
+\emph on
+dimV
+\emph default
+ è la dimensione del vettore, 
+\emph on
+dimE
+\emph default
+ è la dimensione di un singolo elemento del vettore
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Di solito si preferisce usare l'operatore 
+\emph on
+sizeof
+\emph default
+ applicato al tipo di dato piuttosto che mettere direttamente il numero
+ di byte, per motivi di portabilità e di leggibilità.
+ Ad esempio se gli elementi fossero di tipo intero si userebbe 
+\emph on
+sizeof
+\emph default
+(int) e non 4 (che è la dimensione degli interi per i compilatori moderni
+ su architetture a 32 bit).
+\end_layout
+
+\end_inset
+
+ e 
+\emph on
+cmp
+\emph default
+ è la funzione che contiene il criterio con cui si può dire che un elemento
+ è minore, maggiore o uguale di un altro.
+ La funzione è progettata per poter agire su vettori contenenti qualsiasi
+ tipo di dato, anche quelli definiti dal programmatore, ad esempio attraverso
+ delle strutture, e quindi la sua interfaccia deve essere sufficientemente
+ generica per poterlo permettere.
+ 
+\end_layout
+
+\begin_layout Standard
+Come primo esempio supponiamo di voler ordinare un vettore di 10 interi:
+ in questo caso la chiamata alla funzione 
+\emph on
+qsort
+\emph default
+, supponendo che il vettore si chiami appunto 
+\emph on
+vettore
+\emph default
+, sarà la seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+qsort(vettore,10,sizeof(int),cmp);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ovviamente per realizzare l'ordinamento dovrà essere definita la funzione
+ 
+\emph on
+cmp
+\emph default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Il nome della funzione è chiaramente libero, basta che venga definita e
+ chiamata in 
+\emph on
+qsort
+\emph default
+ allo stesso modo.
+\end_layout
+
+\end_inset
+
+, che risulta essere la parte più 
+\begin_inset Quotes eld
+\end_inset
+
+complicata
+\begin_inset Quotes erd
+\end_inset
+
+.
+ La funzione 
+\emph on
+cmp
+\emph default
+ deve comportarsi come la funzione 
+\emph on
+strcmp
+\emph default
+ di confronto tra stringhe nel C, cioè dovrà restituire un valore positivo
+ se il primo elemento da confrontare è maggiore del secondo, minore di zero
+ se il primo elemento è minore del secondo e uguale a zero se i due elementi
+ sono uguali.
+ In questo caso la funzione 
+\emph on
+cmp
+\emph default
+ dovrà essere così definita:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int cmp(const void *a, const void *b)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    int primo = *(int *)a;
+\end_layout
+
+\begin_layout Plain Layout
+
+    int secondo = *(int *)b;
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (primo > secondo) return 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (primo < secondo) return -1;
+\end_layout
+
+\begin_layout Plain Layout
+
+    return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si può facilmente notare la funzione fa esattamente quanto detto in
+ precedenza; qualche difficoltà di interpretazione la potrebbero dare le
+ prime due righe, che in effetti non fanno altro che assegnare i valori
+ degli interi da confrontare alle variabili 
+\emph on
+primo
+\emph default
+ e 
+\emph on
+secondo
+\emph default
+, attraverso l'operatore di casting e la dereferenziazione dei puntatori.
+ 
+\end_layout
+
+\begin_layout Standard
+Se il vettore fosse ad esempio un vettore di 
+\emph on
+double
+\emph default
+ basterebbe sostituire alla parola 
+\emph on
+int
+\emph default
+ la parola 
+\emph on
+double
+\emph default
+ e tutto funzionerebbe senza altre modifiche.
+ Se poi si volesse ordinare in ordine discendente anziché ascendente basterebbe
+ 
+\begin_inset Quotes eld
+\end_inset
+
+invertire
+\begin_inset Quotes erd
+\end_inset
+
+ la definizione della funzione 
+\emph on
+cmp
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Cosa succede se invece di voler ordinare un vettore formato da tipi predefiniti
+ (int, float, double, ecc.) ci fosse l'esigenza di ordinare un vettore di
+ strutture dati costruite ad hoc per il programma? In realtà le modifiche
+ da fare sono minime, una volta capito come funziona 
+\emph on
+qsort
+\emph default
+ e la funzione di comparazione.
+ Se ad esempio fosse stata definita una struttura per contenere i dati di
+ peso e altezza di una persona in questo modo
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+struct persona{
+\end_layout
+
+\begin_layout Plain Layout
+
+    int peso;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	int altezza;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+allora la chiamata di 
+\emph on
+qsort
+\emph default
+ risulterebbe fatta in questo modo
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+qsort(vettore,10,sizeof(persona),cmp);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+e la funzione di comparazione avrebbe questa dichiarazione
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int cmp(const void *a, const void *b) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	persona primo = *(persona *)a;
+\end_layout
+
+\begin_layout Plain Layout
+
+	persona secondo = *(persona *)b;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (primo.peso > secondo.peso) return 1;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (primo.peso < secondo.peso) return -1;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (primo.altezza > secondo.altezza) return 1;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (primo.altezza < secondo.altezza) return -1;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per come è definita 
+\emph on
+cmp
+\emph default
+ l'ordinamento avverrebbe prima in ordine di peso e nel caso di persone
+ con lo stesso peso in ordine di altezza.
+ É quindi evidente che l'ordine viene indotto dalle scelte fatte dal programmato
+re quando implementa la funzione di comparazione: in questo esempio si sarebbe
+ ad esempio potuto ordinare prima per altezza e poi per peso semplicemente
+ scambiando l'ordine delle istruzioni in modo opportuno.
+\end_layout
+
+\begin_layout Standard
+I codici completi degli esempi visti in questo paragrafo si trovano in appendice
+ con il nome Ordinamento1.c e Ordinamento2.c.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:L'algoritmo-sort-C++"
+
+\end_inset
+
+L'algoritmo sort in C++
+\end_layout
+
+\begin_layout Standard
+Anche il C++ ha nelle sue librerie standard una funzione per l'ordinamento,
+ anche se è sempre possibile utilizzare il 
+\emph on
+qsort
+\emph default
+ del C.
+ L'algoritmo di ordinamento del C++ si chiama 
+\emph on
+sort
+\emph default
+ ed è definito come un template di funzione, cosa che gli permette di adattarsi
+ al tipo di dati su cui va ad operare, a patto che sia definito l'operatore
+ 
+\emph on
+<
+\emph default
+ oppure si fornisca una funzione di comparazione nel caso di strutture o
+ classi definite dall'utente (come succedeva per il 
+\emph on
+qsort
+\emph default
+ in C).
+\end_layout
+
+\begin_layout Standard
+Riprendendo l'esempio del paragrafo precedente in cui si vuole ordinare
+ un vettore di interi, vediamo la chiamata di 
+\emph on
+sort
+\emph default
+ per ordinare utilizzando il contenitore standard 
+\emph on
+vector
+\emph default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+I contenitori standard sono uno degli strumenti che permettono la programmazione
+ generica in C++ e possono essere molto utili in vari contesti di programmazione.
+ Se non se ne conosce il funzionamento è comunque sempre possibile utilizzare,
+ nelle gare di informatica, i vettori 
+\begin_inset Quotes eld
+\end_inset
+
+classici
+\begin_inset Quotes erd
+\end_inset
+
+, che in alcuni casi potrebbero anche essere più efficienti.
+\end_layout
+
+\end_inset
+
+per contenere gli interi
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+vector <int> vettore;
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+sort(vettore.begin(),vettore.end());
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si vede il codice tende ad essere ancora più corto della versione in
+ C, in quanto 
+\emph on
+sort
+\emph default
+ non necessita di definire la funzione di comparazione per gli interi.
+ Come parametri della funzione vengono passati due iteratori, all'inizio
+ e alla fine della sequenza, e quindi l'ordinamento avviene tra questi due
+ punti.
+ Sarebbe possibile, come conseguenza del fatto che vengono passati due iteratori
+, ordinare una sottosequenza del vettore, passando iteratori diversi dall'inizio
+ e dalla fine delle sequenza.
+ Ad esempio in questo modo
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+vector <int>::iterator a=vettore.begin();
+\end_layout
+
+\begin_layout Plain Layout
+
+a = a + 5;
+\end_layout
+
+\begin_layout Plain Layout
+
+sort(a,vettore.end());
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+verrebbero ordinati gli elementi compresi tra il sesto e la fine del vettore
+ (questa cosa si può fare anche con il 
+\emph on
+qsort
+\emph default
+ del C, a patto di passargli i parametri opportuni di inizio del vettore
+ e di numero di elementi da ordinare).
+ L'esempio completo di utilizzo si può trovare in appendice con nome Ordinamento
+1.cpp.
+\end_layout
+
+\begin_layout Standard
+Se si avesse invece l'esigenza di ordinare un vettore 
+\begin_inset Quotes eld
+\end_inset
+
+classico
+\begin_inset Quotes erd
+\end_inset
+
+ di interi (quindi non un 
+\emph on
+vector
+\emph default
+ del C++) l'unica modifica da fare sarebbe quella di indicare, al posto
+ degli iteratori, l'indirizzo di memoria iniziale del vettore e l'indirizzo
+ di memoria iniziale più il numero di elementi da ordinare in questo modo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int vettore[10];
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+sort(vettore,vettore + 10);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+come si può vedere nel codice Ordinamento2.cpp.
+\end_layout
+
+\begin_layout Standard
+Se infine, come visto anche per il 
+\emph on
+qsort
+\emph default
+, si dovesse ordinare un vettore di classi o strutture definite dal programmator
+e, bisognerebbe procedere in uno dei due modi seguenti:
+\end_layout
+
+\begin_layout Itemize
+definire una funzione di comparazione, in maniera simile a quanto visto
+ nel paragrafo precedente
+\end_layout
+
+\begin_layout Itemize
+definire, tramite 
+\emph on
+operator overloading
+\emph default
+, l'operatore < per la propria classe o struttura
+\end_layout
+
+\begin_layout Standard
+Nell'esempio Ordinamento3.cpp è stata seguita la prima possibilità: la funzione
+ deve essere definita in modo da restituire un booleano e avere come parametri
+ due oggetti del tipo che si intende ordinare.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+bool cmp(const persona& a,const persona& b)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (a.peso >= b.peso) return false;
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (a.peso < b.peso) return true;
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (a.altezza >= b.altezza) return false;
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (a.altezza < b.altezza) return true;
+\end_layout
+
+\begin_layout Plain Layout
+
+    return true;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A seconda poi del codice contenuto nella funzione l'ordinamento avverrà
+ di conseguenza.
+\end_layout
+
+\begin_layout Standard
+Se si volesse invece utilizzare l'
+\emph on
+operator overloading
+\emph default
+ la classe o la struttura verrà modificata in modo da aggiungere l'overloading
+ dell'operatore <, come segue
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+struct persona{
+\end_layout
+
+\begin_layout Plain Layout
+
+    int peso;
+\end_layout
+
+\begin_layout Plain Layout
+
+    int altezza;
+\end_layout
+
+\begin_layout Plain Layout
+
+    //Ordina per peso, in caso di pesi uguali ordina per altezza
+\end_layout
+
+\begin_layout Plain Layout
+
+    bool operator<(const persona& b)const
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (peso >= b.peso) return false;
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (peso < b.peso) return true;
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (altezza >= b.altezza) return false;
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (altezza < b.altezza) return true;
+\end_layout
+
+\begin_layout Plain Layout
+
+        return true;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il resto del programma sarà poi uguale a quello del primo esempio, poiché
+ a questo punto il tipo persona sarà trattato, per quanto riguarda l'ordinamento
+, come un tipo predefinito.
+ L'esempio completo si trova in appendice con nome Ordinamento4.cpp
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Esempio:Serie"
+
+\end_inset
+
+Esempio: Teste di serie - territoriali 2006
+\end_layout
+
+\begin_layout Standard
+In questo esempio grazie all'ordinamento rendiamo facile e veloce da implementar
+e un problema che risolto in altri modi risulterebbe complesso e probabilmente
+ scarsamente efficiente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Teste di serie (serie) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Un torneo è composto da K gironi, con N squadre partecipanti in ciascun
+ girone (per un totale di KxN squadre nel torneo).
+ Dopo le eliminatorie, passa soltanto la prima classificata di ogni girone.
+\end_layout
+
+\begin_layout Plain Layout
+A ogni squadra è associato un "coefficiente di bravura", ovvero un intero
+ positivo che è tanto maggiore quanto più la squadra è forte.
+ Per rendere più vivace il torneo, gli organizzatori vogliono far gareggiare
+ le squadre più forti tra loro soltanto dopo le eliminatorie: in altre parole,
+ le K squadre con i coefficienti di bravura più alti devono giocare in gironi
+ distinti.
+\end_layout
+
+\begin_layout Plain Layout
+Aiutate gli organizzatori a verificare che la composizione del torneo rispetti
+ il loro volere: prese le K squadre con il più alto coefficiente di bravura,
+ ciascun girone deve contenere esattamente una di esse (da notare che due
+ o più squadre possono avere lo stesso coefficiente).
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt è composto da K+1 righe.
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga contiene due interi positivi separati da uno spazio: il numero
+ K di gironi e il numero N di squadre per girone.
+\end_layout
+
+\begin_layout Plain Layout
+Le successive K righe contengono i coefficienti di bravura delle squadre:
+ la j-esima di tale righe contiene N interi positivi separati da uno spazio
+ che sono i coefficienti di bravura delle N squadre nel j-esimo girone,
+ per 1 ≤ j ≤ K.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto di una riga contenente un solo intero: 1 se
+ il torneo rispetta i vincoli imposti dagli organizzatori, 0 altrimenti.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Plain Layout
+1 < N ≤ 100 1 < K ≤ 100
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3 
+\end_layout
+
+\begin_layout Plain Layout
+4 
+\end_layout
+
+\begin_layout Plain Layout
+3 
+\end_layout
+
+\begin_layout Plain Layout
+5 
+\end_layout
+
+\begin_layout Plain Layout
+7 
+\end_layout
+
+\begin_layout Plain Layout
+9 
+\end_layout
+
+\begin_layout Plain Layout
+3 
+\end_layout
+
+\begin_layout Plain Layout
+6 
+\end_layout
+
+\begin_layout Plain Layout
+78 
+\end_layout
+
+\begin_layout Plain Layout
+90 
+\end_layout
+
+\begin_layout Plain Layout
+43 
+\end_layout
+
+\begin_layout Plain Layout
+78 
+\end_layout
+
+\begin_layout Plain Layout
+71 
+\end_layout
+
+\begin_layout Plain Layout
+32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3 
+\end_layout
+
+\begin_layout Plain Layout
+4 
+\end_layout
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\begin_layout Plain Layout
+3 
+\end_layout
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\begin_layout Plain Layout
+4 
+\end_layout
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La prima idea che può venire in mente guardando questo problema è quella
+ di trovare le prime K squadre all'interno di tutte le squadre del torneo
+ e confrontare poi se ogni girone contiene una di queste squadre.
+ In realtà l'approccio così descritto può funzionare solo se vengono gestite
+ correttamente alcune situazioni
+\end_layout
+
+\begin_layout Itemize
+quando trovo una delle K teste di serie all'interno di un girone devo 
+\begin_inset Quotes eld
+\end_inset
+
+eliminarla
+\begin_inset Quotes erd
+\end_inset
+
+ e non posso più usarla per cercarla all'interno dei rimanenti gironi, altriment
+i potrebbe succedere che ogni squadra contenga una testa di serie, ma in
+ realtà sia la stessa contata più volte, violando le regole del torneo
+\end_layout
+
+\begin_layout Itemize
+non basta che cerchi una corrispondenza tra una delle K teste di serie e
+ una squadra del girone, ma devo cercare una corrispondenza con la squadra
+ più forte del girone
+\end_layout
+
+\begin_layout Standard
+Quest'ultima osservazione, unita ad un uso intelligente delle funzioni di
+ ordinamento, permette di seguire un procedimento semplice, elegante ed
+ efficiente che porta alla soluzione del problema.
+ Se prendo le K teste di serie del torneo e le inserisco ordinate in un
+ vettore e prendo le migliori squadre di ogni girone e le inserisco anch'esse
+ in un vettore ordinato, questi due vettori o sono uguali e quindi la condizione
+ di correttezza del torneo è rispettata, perché le K teste di serie sono
+ una per girone, oppure sono diversi e quindi la condizione di correttezza
+ del torneo non è rispettata.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int N,K; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int testeDiSerie[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int squadre[10000]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> K >> N; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int cont = 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i < K; i++) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		int temp,testa; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> temp; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		testa = temp; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		squadre[cont] = temp; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		cont++;   		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j=1; j < N; j++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			in >> temp; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (temp > testa) 				
+\end_layout
+
+\begin_layout Plain Layout
+
+			testa = temp; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			squadre[cont] = temp; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			cont++; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		testeDiSerie[i]=testa; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	sort(squadre,squadre + K*N);		  	
+\end_layout
+
+\begin_layout Plain Layout
+
+	sort(testeDiSerie,testeDiSerie + K); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int ok = 1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < K; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(squadre[K*N - i - 1]!=testeDiSerie[K - i -1]) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			ok = 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << ok << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vediamo quindi l'implementazione della soluzione: nelle righe 7-9 vengono
+ letti il numero di gironi e di squadre e nelle righe 11-27 oltre a leggere
+ i valori di tutte le squadre con due cicli 
+\emph on
+for
+\emph default
+, quello più esterno per i K gironi e quello più interno per le N squadre
+ di ogni girone, si mettono direttamente le squadre più forti di ogni girone
+ nel vettore 
+\emph on
+testeDiSerie
+\emph default
+.
+ Questo obbiettivo lo si raggiunge facilmente con la ricerca del massimo
+ sul vettore: la riga 15 inizializza il massimo mettendo il valore della
+ prima squadra letta nella variabile 
+\emph on
+testa
+\emph default
+, poi il ciclo 
+\emph on
+for
+\emph default
+ scandisce tutte le altre squadre, sostituendo eventualmente il nuovo massimo
+ trovato.
+\end_layout
+
+\begin_layout Standard
+Alla fine di queste operazioni abbiamo quindi due vettori, 
+\emph on
+squadre
+\emph default
+ che contiene tutte le squadre del torneo e 
+\emph on
+testeDiSerie
+\emph default
+ che contiene le K migliori squadre di ogni girone.
+ A questo punto per verificare la condizione di coi sopra dobbiamo ordinare
+ i due vettori e verificare che i primi K elementi di 
+\emph on
+squadre
+\emph default
+ siano uguali ai K elementi di 
+\emph on
+testeDiSerie
+\emph default
+ ed essendo i due vettori ordinati basta scorrerli sequenzialmente.
+ Le righe 28-29 ordinano i vettori utilizzando la funzione 
+\emph on
+sort
+\emph default
+, le righe 30-33 scorrono in maniera parallela i due vettori per vedere
+ se sono uguali: nel caso anche un solo elemento sia diverso, il flag 
+\emph on
+ok
+\emph default
+ viene portato a 0 e la condizione non risulta soddisfatta.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:La-ricerca"
+
+\end_inset
+
+La ricerca
+\end_layout
+
+\begin_layout Standard
+Solitamente quando si parla di ricerca all'interno di un vettore il modello
+ più semplice a cui si fa riferimento è quello di trovare se un certo elemento
+ appartiene o meno al vettore.
+ Esistono ovviamente altri tipi di ricerca (ricerca del massimo, ricerca
+ dell'elemento n-esimo, ricerca dei valori all'interno di un certo range),
+ ma in una certa misura quello che verrà detto per la ricerca di un elemento
+ può essere adattato per altri problemi.
+\end_layout
+
+\begin_layout Standard
+Dovendo trovare all'interno di un vettore se un elemento è presente o meno
+ il primo algoritmo che viene in mente è quello chiamato 
+\emph on
+ricerca sequenziale
+\emph default
+, che non fa altro che scorrere tutto il vettore finché o trova l'elemento
+ cercato
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Si può supporre che ogni elemento compaia una sola volta nel vettore senza
+ ledere alla generalità del problema.
+\end_layout
+
+\end_inset
+
+ oppure arriva alla fine del vettore.
+ Dalla definizione dell'algoritmo ne consegue direttamente che:
+\end_layout
+
+\begin_layout Itemize
+se l'elemento è presente verrà sicuramente trovato
+\end_layout
+
+\begin_layout Itemize
+se l'elemento non è presente sarà necessario scorrere tutto il vettore
+\end_layout
+
+\begin_layout Standard
+Questo algoritmo si implementa con un semplice ciclo che scorre tutti gli
+ elementi del vettore dall'inizio alla fine e per ogni elemento controlla
+ se è uguale all'elemento cercato: in caso positivo esce dal ciclo e comunica
+ l'esito positivo, in caso negativo prosegue sul prossimo elemento.
+ Se il ciclo viene concluso si comunica l'esito negativo della ricerca.
+ 
+\end_layout
+
+\begin_layout Standard
+Il costo medio di questo algoritmo è di tipo lineare, in particolare:
+\end_layout
+
+\begin_layout Itemize
+la ricerca con successo ha costo 
+\begin_inset Formula $\frac{N}{2}$
+\end_inset
+
+, poiché a volte l'elemento cercato si troverà verso l'inizio, altre volte
+ verso il fondo, altre volte verso il centro e quindi mediamente si può
+ dire che il costo sarà la metà della lunghezza del vettore.
+\end_layout
+
+\begin_layout Itemize
+la ricerca senza successo ha costo 
+\begin_inset Formula $N$
+\end_inset
+
+, poiché come detto bisogna scorrere l'intero vettore prima di affermare
+ che l'elemento non è presente.
+\end_layout
+
+\begin_layout Standard
+In generale questo costo è accettabile, anche perché spesso la ricerca è
+ l'ultimo passaggio nella soluzione, come si è visto nell'esempio 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Esempio:Brambillia"
+
+\end_inset
+
+ (anche se in quel caso è la ricerca di un minimo, il costo è sempre lineare)
+ e quindi da un punto di vista computazionale è praticamente indifferente
+ per il costo totale del problema.
+\end_layout
+
+\begin_layout Standard
+Se invece la ricerca fosse la parte più costosa della soluzione esiste un
+ algoritmo efficiente che permette di passare da un costo lineare a uno
+ logaritmico (che ai fini pratici non è molto diverso da un costo costante)
+ e che si chiama 
+\emph on
+ricerca binaria
+\emph default
+ o 
+\emph on
+dicotomica
+\emph default
+.
+ Questo algoritmo per poter essere applicato ha come precondizione l'ordinamento
+ del vettore in cui cercare, quindi può essere applicato solo a vettori
+ ordinati.
+ La conseguenza di questa precondizione è che l'applicazione della ricerca
+ binaria non sempre è conveniente, ma dipende dal tipo di problema: se il
+ vettore in cui devo cercare mantiene il suo contenuto pressoché costante
+ nel tempo e devo effettuare tante ricerche, allora ha senso ordinarlo una
+ volta per poi fare tutte le successive ricerche con la tecnica dicotomica,
+ perché il tempo 
+\begin_inset Quotes eld
+\end_inset
+
+perso
+\begin_inset Quotes erd
+\end_inset
+
+ dall'ordinamento viene ripagato dal tempo 
+\begin_inset Quotes eld
+\end_inset
+
+risparmiato
+\begin_inset Quotes erd
+\end_inset
+
+ nella ricerca.
+ Se viceversa il contenuto del vettore cambia spesso allora il costo per
+ mantenere il vettore ordinato potrebbe facilmente sovrastare il vantaggio
+ della ricerca binaria.
+ 
+\end_layout
+
+\begin_layout Standard
+Chiariti quindi i contesti nei quali utilizzarlo, diamone una semplice descrizio
+ne
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+L'algoritmo di ricerca binaria è uno dei più trattati nei libri di testo,
+ si rimanda ad esempio al libro di J.
+ Bentley in appendice.
+\end_layout
+
+\end_inset
+
+.
+ L'idea è semplice e, anche se non proprio nella stessa forma, è quella
+ che utilizziamo quando cerchiamo un nome all'interno della guida del telefono
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Spero che l'esempio sia comprensibile perché non so quanti ancora cerchino
+ i numeri all'interno della guida telefonica a parte me.
+\end_layout
+
+\end_inset
+
+ Essendo i nomi ordinati non partiamo dal primo nome e li scorriamo ad uno
+ a uno, ma andiamo in un certo punto e vediamo se il nome che cerchiamo
+ si trova prima o dopo rispetto al primo nome della pagina aperta.
+ Quindi cercheremo a destra o a sinistra a seconda che il nome cercato sia
+ prima o dopo a quello della pagina dove ci troviamo, reiterando il procedimento
+ nello stesso modo finché troveremo il numero cercato (oppure troveremo
+ che il nome non è presente).
+ L'implementazione in un programma per computer prevede gli stessi passi,
+ di seguito brevemente riassunti:
+\end_layout
+
+\begin_layout Enumerate
+imposto l'intervallo di ricerca a tutto il vettore
+\end_layout
+
+\begin_layout Enumerate
+calcolo la posizione centrale dell'intervallo 
+\end_layout
+
+\begin_layout Enumerate
+se l'elemento in posizione centrale è uguale all'elemento cercato ritorno
+ l'esito positivo
+\end_layout
+
+\begin_layout Enumerate
+se l'elemento cercato è minore dell'elemento centrale, imposto il nuovo
+ intervallo di ricerca che sarà la prima metà dell'intervallo precedente
+ e reitero dal passo 2
+\end_layout
+
+\begin_layout Enumerate
+se l'elemento cercato è maggiore dell'elemento centrale, imposto il nuovo
+ intervallo di ricerca che sarà la seconda metà dell'intervallo precedente
+ e reitero dal passo 2
+\end_layout
+
+\begin_layout Enumerate
+se gli indici inferiori e superiore dell'intervallo a un certo punto sono
+ 
+\begin_inset Quotes eld
+\end_inset
+
+invertiti
+\begin_inset Quotes erd
+\end_inset
+
+ l'elemento non è presente nel vettore
+\end_layout
+
+\begin_layout Standard
+Pur essendo un algoritmo apparentemente semplice, l'implementazione durante
+ una gara potrebbe dare dei problemi: anche in questo caso, se usiamo il
+ C o il C++, ci vengono in soccorso le librerie standard con l'algoritmo
+\emph on
+ bsearch
+\emph default
+ nel caso del C e con 
+\emph on
+binary_search
+\emph default
+ nel caso del C++.
+ La funzione 
+\emph on
+bsearch
+\emph default
+ può essere usata come nel listato sottostante, che si trova in ricerca.c
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language=C,numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int vettore[10];
+\end_layout
+
+\begin_layout Plain Layout
+
+int cmp(const void *a,const void *b) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return *(int *)a - *(int *)b; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i,n;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (i=0; i<10; i++)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		vettore[i] = rand()%100;
+\end_layout
+
+\begin_layout Plain Layout
+
+	qsort(vettore, 10, sizeof(int), cmp); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (i=0; i<10; i++)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		printf("%d
+\backslash
+n",vettore[i]);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	printf("Inserisci il numero da cercare (-1 per terminare): 
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+	scanf("%d",&n); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (n != -1) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		int *cercato; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		cercato = (int*) bsearch (&n, vettore, 10, sizeof (int), cmp);
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (cercato!=NULL)
+\end_layout
+
+\begin_layout Plain Layout
+
+			printf ("Trovato %d.
+\backslash
+n",*cercato); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		else 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			printf ("Non trovato.
+\backslash
+n"); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		printf("Inserisci il numero da cercare (-1 per terminare): 
+\backslash
+n"); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		scanf("%d",&n); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	}     
+\end_layout
+
+\begin_layout Plain Layout
+
+return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alla riga 11 viene effettuato l'ordinamento del vettore come già visto nel
+ paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:La-funzione-qsort"
+
+\end_inset
+
+, successivamente la ricerca avviene alla riga 19, dove la funzione 
+\emph on
+bsearch
+\emph default
+ ritorna un puntatore all'elemento trovato (o NULL se l'elemento non è stato
+ trovato) e ha bisogno di 4 parametri:
+\end_layout
+
+\begin_layout Itemize
+un puntatore all'elemento da cercare (&n)
+\end_layout
+
+\begin_layout Itemize
+il vettore in cui cercare (vettore)
+\end_layout
+
+\begin_layout Itemize
+la lunghezza del vettore (10)
+\end_layout
+
+\begin_layout Itemize
+la dimensione degli elementi del vettore (sizeof(int))
+\end_layout
+
+\begin_layout Itemize
+la funzione di comparazione degli elementi, come già visto per il qsort
+ (cmp)
+\end_layout
+
+\begin_layout Standard
+La funzione 
+\emph on
+binary_search
+\emph default
+ del C++ è ancora più semplice da utilizzare, come si vede dal listato seguente,
+ che si trova nel file 
+\emph on
+ricerca.cpp
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+vector <int> vettore;
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int n;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i<10; i++)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		vettore.push_back(rand()%100);
+\end_layout
+
+\begin_layout Plain Layout
+
+	sort(vettore.begin(),vettore.end()); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i<10; i++)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		cout << vettore.at(i) << endl;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	cout << "Inserisci il numero da cercare (-1 per terminare): " << endl;
+ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	cin >> n; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (n!= -1) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (binary_search(vettore.begin(), vettore.end(),n))
+\end_layout
+
+\begin_layout Plain Layout
+
+			cout << "Trovato " << n << endl; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		else 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			cout << "Non trovato" << endl; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		cout << "Inserisci il numero da cercare (-1 per terminare): " << endl;
+ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		cin >> n; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	}     
+\end_layout
+
+\begin_layout Plain Layout
+
+return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In questo caso la funzione usata alla riga 14 ritorna TRUE se l'elemento
+ è stato trovato, FALSE altrimenti e come parametri vuole un iteratore all'inizi
+o e alla fine del vettore e l'elemento da cercare.
+ Nel caso non fosse definito l'operatore di < per il confronto tra gli elementi
+ sarebbe necessario o ridefinire l'operatore < o creare una funzione di
+ confronto come visto al paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:L'algoritmo-sort-C++"
+
+\end_inset
+
+ per l'ordinamento.
+\end_layout
+
+\begin_layout Standard
+Va infine detto che l'idea che sta alla base della ricerca binaria non ha
+ come campo di applicazione solo la ricerca di un elemento all'interno di
+ un vettore ordinato, ma può utilmente essere usata per trovare velocemente
+ un valore all'interno di un certo range che soddisfa qualche proprietà,
+ a patto che questa proprietà possa essere confrontata e che vari in maniera
+ crescente o decrescente all'interno del range (vedi ad esempio il problema
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Il-boscaiolo-Mirko"
+
+\end_inset
+
+).
+\end_layout
+
+\end_body
+\end_document

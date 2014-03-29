@@ -1,0 +1,1617 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\date{}
+\end_preamble
+\use_default_options false
+\master guida.lyx
+\maintain_unincluded_children true
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans helvet
+\font_typewriter courier
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Indice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Per-iniziare"
+
+\end_inset
+
+Per iniziare
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+Non fatevi prendere dal panico.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\align right
+
+\shape italic
+Douglas Adams
+\shape default
+, Guida galattica per autostoppisti.
+\end_layout
+
+\begin_layout Standard
+La prima cosa necessaria per affrontare una gara è conoscere la struttura
+ dei problemi proposti, che è abbastanza costante a tutti i livelli e tra
+ tutte le gare online.
+ Come esempio vediamo un testo delle territoriali, precisamente il problema
+ 
+\emph on
+nimbus
+\emph default
+ delle territoriali 2007, mostrato 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "sub:Giri-sulla-Scopa"
+
+\end_inset
+
+.
+ Guardiamo quali sono gli elementi che ne contraddistinguono la struttura
+ e il loro significato:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Titolo
+\series default
+: nella prima riga c'è un titolo lungo (Giri sulla scopa Nimbus3000) e uno
+ breve (nimbus).
+ Il titolo lungo serve solo per 
+\begin_inset Quotes eld
+\end_inset
+
+folklore
+\begin_inset Quotes erd
+\end_inset
+
+, in modo da dare un indizio della storia che seguirà, mentre quello breve
+ è usato per dare il nome al codice sorgente della soluzione che dovremo
+ sottoporre al correttore (in questo caso, supponendo di scrivere il codice
+ in C++, il file si chiamerà nimbus.cpp)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Difficoltà
+\series default
+: l'indicatore della difficoltà ha un duplice scopo.
+ Da una parte permette a chi sta svolgendo la prova di capire quale esercizio
+ è più semplice e orientarsi di conseguenza (ad esempio partendo prima dalla
+ soluzione dell'esercizio più semplice), dall'altra è il coefficiente che
+ viene utilizzato nel meccanismo di valutazione mostrato in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schema-di-valutazione"
+
+\end_inset
+
+, quindi gli esercizi con difficoltà più alta danno un punteggio maggiore,
+ se risolti correttamente.
+ Pur essendo un parametro oggettivo, che quindi rispecchia piuttosto esattamente
+ la difficoltà di ogni problema, può essere che soggettivamente la valutazione
+ di ogni singolo problema possa essere diversa.
+ In questo caso viene posto anche un tempo limite di esecuzione, cioè il
+ tempo massimo entro il quale il programma sottoposto deve dare una risposta
+ al caso di test da risolvere, il cui scopo verrà meglio spiegato nel capitolo
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Complessità-computazionale"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Descrizione del problema
+\series default
+: tutti i problemi, a qualsiasi livello, vengono presentati attraverso una
+ 
+\begin_inset Quotes eld
+\end_inset
+
+storiella
+\begin_inset Quotes erd
+\end_inset
+
+ di fantasia, che spiega quale tipo di problema bisogna risolvere attraverso
+ una prosa in generale leggera e di facile comprensione.
+ Lo scopo di questa spiegazione è quello di chiarire, con un linguaggio
+ il più semplice e chiaro possibile, qual è lo scopo dell'algoritmo che
+ bisogna progettare.
+ Pur con questi obbiettivi non sempre lo scopo viene raggiunto pienamente,
+ quindi anche dopo averla letta possono rimanere dei dubbi sulla comprensione
+ esatta del testo, cosa che è fondamentale per poter avere almeno la possibilità
+ di arrivare alla soluzione corretta del problema (è ovvio che se non si
+ è capito il testo sarà impossibile arrivare a una soluzione corretta).
+ Per evitare questo problema si vedrà poi che vengono aggiunti ulteriori
+ 
+\begin_inset Quotes eld
+\end_inset
+
+indizi
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dati di input
+\series default
+: come già detto la valutazione avverrà dando in pasto al programma dei
+ casi di test che servono a rappresentare un'istanza specifica del problema
+ ed è quindi necessario specificare esattamente cosa dovrà aspettarsi il
+ vostro programma, per permettere al programmatore di acquisire correttamente
+ i dati da elaborare.
+ Questo punto e quello successivo verranno trattati in modo approfondito
+ nel paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Input/output"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dati di output
+\series default
+: anche qui, sempre per le considerazioni espresse al punto precedente,
+ viene spiegato l'esatto formato della risposta che dovrà fornire il programma.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Esempi di input/output
+\series default
+: questa sezione è molto utile per verificare se la descrizione del problema
+ è stata compresa correttamente o, nel caso che non la si sia compresa,
+ per arrivare a una comprensione esatta del problema.
+ Attraverso una tabella vengono fornite una o più istanze (in questo caso
+ una sola) di casi di test del problema, tramite i casi di input (nella
+ colonna input.txt) e le relative soluzioni (nella colonna output.txt).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Nota/e
+\series default
+: quest'ultima sezione contiene delle note di vario genere relative o al
+ problema o ai meccanismi di attribuzione del punteggio (come in questo
+ caso).
+ A volte non è presente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Giri-sulla-Scopa"
+
+\end_inset
+
+Giri sulla Scopa Nimbus3000 (nimbus) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2 (tempo limite 1 sec).
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Al celebre maghetto Harry Potter è stata regalata una scopa volante modello
+ Nimbus3000 e tutti i suoi compagni del Grifondoro gli chiedono di poterla
+ provare.
+ Il buon Harry ha promesso che nei giorni a venire soddisferà le richieste
+ di tutti, ma ogni ragazzo è impaziente e vuole provare la scopa il giorno
+ stesso.
+ Ognuno propone ad Harry un intervallo di tempo della giornata durante il
+ quale, essendo libero da lezioni di magia, può fare un giro sulla scopa,
+ e per convincerlo gli offre una fantastica caramella Tuttigusti+1.
+ Tenendo presente che una sola persona alla volta può salire sulla Nimbus3000
+ in ogni istante di tempo, Harry decide di soddisfare, tra tutte le richieste
+ dei ragazzi, quelle che gli procureranno la massima quantità di caramelle
+ (che poi spartirà coi suoi amici Ron e Hermione).
+ Aiutalo a trovare la migliore soluzione possibile.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt contiene nella prima riga un intero positivo N, che indica
+ il numero di richieste, che sono numerate da 1 a N.
+ Ognuna delle successive N righe contiene una coppia di interi.
+ Ciascuna di tali righe contiene una coppia di interi positivi A e B, separati
+ da uno spazio, a rappresentare la richiesta di poter utilizzare la scopa
+ dall'istante iniziale A fino all'istante finale B, in cambio di una caramella
+ (dove A < B).
+ A tal fine, il tempo è diviso in istanti discreti numerati a partire da
+ 1 in poi.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da una riga contenente un solo intero, che
+ rappresenta il massimo numero di caramelle che Harry può ottenere.
+ Assunzioni
+\end_layout
+
+\begin_layout Plain Layout
+1 < N < 1000 Gli interi nelle N coppie sono distinti l'uno dall'altro (non
+ esistono due interi uguali, anche in coppie diverse).
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="bottom" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\begin_layout Plain Layout
+1 5
+\end_layout
+
+\begin_layout Plain Layout
+3 7
+\end_layout
+
+\begin_layout Plain Layout
+9 11
+\end_layout
+
+\begin_layout Plain Layout
+10 12 
+\end_layout
+
+\begin_layout Plain Layout
+6 13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Nota/e
+\end_layout
+
+\begin_layout Plain Layout
+Un programma che restituisce sempre lo stesso valore, indipendentemente
+ dai dati in input.txt, non totalizza alcun punteggio rilevante.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Input/output su file
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Input/output"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Attualmente il meccanismo di valutazione del correttore prevede che i programmi
+ debbano leggere il proprio input da un file chiamato 
+\emph on
+input.txt
+\emph default
+ e debbano stampare il proprio output su un file chiamato 
+\emph on
+output.txt
+\emph default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In un futuro potrebbe essere tolto questo vincolo, permettendo la lettura
+ direttamente da tastiera, come succede ad esempio nelle gare COCI, ma finchè
+ ci sarà bisogna abituarsi a leggere/scrivere su file.
+\end_layout
+
+\end_inset
+
+.
+ Questa richiesta è molto rigida poiché siccome il correttore è a sua volta
+ un programma, non può gestire errori formali di nessun tipo
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Un mio allievo un anno non si si è classificato ai nazionali perché nella
+ sua soluzione cercava di aprire il file 
+\emph on
+i
+\bar under
+m
+\bar default
+put.txt
+\emph default
+ piuttosto che 
+\emph on
+input.txt, 
+\emph default
+quindi occorre porre attenzione a questi aspetti.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si vedrà comunque come la scrittura/lettura da file abbia davvero poche
+ differenze con i meccanismi normalmente utilizzati per leggere da tastiera
+ e scrivere a video, anche perché nelle Olimpiadi viene usata solo una parte
+ delle possibilità di accesso ai file.
+\end_layout
+
+\begin_layout Standard
+L'I/O su file prevede sempre tre passi:
+\end_layout
+
+\begin_layout Enumerate
+apertura del file
+\end_layout
+
+\begin_layout Enumerate
+operazioni sul file
+\end_layout
+
+\begin_layout Enumerate
+chiusura del file
+\end_layout
+
+\begin_layout Standard
+Dovendo ad esempio leggere da un file di nome 
+\emph on
+input.txt
+\emph default
+ un unico numero intero, in C si farà in questo modo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+FILE *in; 				//puntatore alla struttura FILE
+\end_layout
+
+\begin_layout Plain Layout
+
+int n;
+\end_layout
+
+\begin_layout Plain Layout
+
+in = fopen("input.txt","r");//apertura del file
+\end_layout
+
+\begin_layout Plain Layout
+
+fscanf(in,"%d",&n);		//operazione sul file
+\end_layout
+
+\begin_layout Plain Layout
+
+fclose(in);				//chiusura del file
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vediamo gli aspetti principali di questo breve listato:
+\end_layout
+
+\begin_layout Itemize
+riga 1: ogni file aperto deve avere un 
+\begin_inset Quotes eld
+\end_inset
+
+reference
+\begin_inset Quotes erd
+\end_inset
+
+ che verrà usato nel resto del codice per riferirsi a quel file (nel caso
+ del C questo sarà un puntatore a struttura, mentre nel caso del C++ sarà
+ un oggetto di una classe standard)
+\end_layout
+
+\begin_layout Itemize
+riga 3: l'apertura avviene attraverso la chiamata alla funzione 
+\emph on
+fopen
+\emph default
+, passandogli due parametri: il nome del file completo e la modalità di
+ apertura, che nel caso di lettura sarà 
+\emph on
+r
+\emph default
+ (read), mentre per la scrittura sarà 
+\emph on
+w
+\emph default
+ (write).
+ La funzione ritorna il 
+\begin_inset Quotes eld
+\end_inset
+
+reference
+\begin_inset Quotes erd
+\end_inset
+
+ che viene assegnato al parametro 
+\emph on
+in
+\emph default
+.
+ A questo punto sarebbe buona norma di programmazione controllare se l'apertura
+ del file è andata a buon fine, cosa che potrebbe non essere vera e che
+ porterebbe in generale a comportamenti anomali del programma, ma nel caso
+ di una gara si può omettere questo passaggio perché viene assicurato che
+ il file è presente con il nome dichiarato
+\end_layout
+
+\begin_layout Itemize
+riga 4: vengono effettuate una o più operazioni sul file, utilizzando le
+ funzioni opportune.
+ In questo esempio viene utilizzata la 
+\emph on
+fscanf
+\emph default
+, che ha una sintassi del tutto identica alla 
+\emph on
+scanf
+\emph default
+, a parte il primo parametro che è il 
+\begin_inset Quotes eld
+\end_inset
+
+reference
+\begin_inset Quotes erd
+\end_inset
+
+ acquisito all'apertura del file, per indicargli dove deve andare a leggere.
+ Anche in questo caso non vengono fatti controlli perché viene garantito
+ che quello che ci si aspetta di leggere sia presente davvero nel file.
+\end_layout
+
+\begin_layout Itemize
+riga 5: viene chiuso il file.
+ Questa operazione nelle Olimpiadi può anche essere omessa in quanto alla
+ chiusura del programma comunque eventuali file aperti verranno chiusi correttam
+ente.
+\end_layout
+
+\begin_layout Standard
+Nella parte successiva del capitolo verranno mostrati alcuni esempi concreti
+ di lettura/scrittura da file sia in C che in C++.
+\end_layout
+
+\begin_layout Subsection
+Esempi di I/O 
+\end_layout
+
+\begin_layout Standard
+Partiamo dal caso più semplice, che è forse anche il caso più comune di
+ lettura nei problemi delle Olimpiadi (anche se con qualche variante), nel
+ quale lo schema è quello di avere un numero intero che indica quanti altri
+ numeri dovranno poi essere letti nel seguito del file.
+ Supponiamo quindi che il problema sia quello di sommare una serie di numeri
+ interi e che il file di input contenga come primo intero un valore N che
+ indica quanti sono i numeri da sommare: nelle successive N righe
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+A volte viene data una formulazione equivalente in cui si dice che gli N
+ interi si trovano su una sola linea e sono separati dallo spazio: per quanto
+ riguarda l'imput non c'è alcuna differenza, poichè la fscanf (o l'equivalente
+ C++) interpreta sia gli spazi che gli a capo come separatori.
+\end_layout
+
+\end_inset
+
+ ci saranno quindi gli N numeri che dovranno essere sommati per portare
+ alla soluzione del problema.
+ La lettura avverrebbe quindi in questo modo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+FILE *in; 				//puntatore alla struttura FILE
+\end_layout
+
+\begin_layout Plain Layout
+
+int N, i, temp, somma = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+in = fopen("input.txt","r");//apertura del file
+\end_layout
+
+\begin_layout Plain Layout
+
+fscanf(in,"%d",&N);		//viene letto il primo numero intero
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i=0; i< N ; i++)//ciclo per leggere gli N numeri seguenti
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	fscanf(in,"%d",&temp);	
+\end_layout
+
+\begin_layout Plain Layout
+
+	somma += temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si può vedere non ci sono molte differenze da un programma che legge
+ i suoi dati da tastiera: ovviamente mancano quelle istruzioni di output
+ che solitamente vengono messe per chiarire all'utente quali dati deve inserire,
+ in quanto i dati vengono forniti dal correttore secondo quanto definito
+ nel testo del problema.
+ La scrittura è ancora più semplice, riferendosi allo stesso problema visto
+ sopra verrebbe fatta in questo modo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+FILE *out; 					//puntatore alla struttura FILE
+\end_layout
+
+\begin_layout Plain Layout
+
+out = fopen("output.txt","w");	//apertura del file
+\end_layout
+
+\begin_layout Plain Layout
+
+fprintf(out,"%d
+\backslash
+n",somma);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Anche in questo caso viene usata una funzione, la 
+\emph on
+fprintf
+\emph default
+, del tutto analoga per sintassi e comportamento alla 
+\emph on
+printf
+\emph default
+, a parte la presenza nel primo parametro del 
+\begin_inset Quotes eld
+\end_inset
+
+reference
+\begin_inset Quotes erd
+\end_inset
+
+ al file.
+ 
+\series bold
+Attenzione
+\series default
+: in gara è assolutamente necessario che le funzioni per l'output si limitino
+ a stampare 
+\series bold
+\bar under
+solo
+\series default
+\bar default
+ quanto chiesto, esattamente nel modo richiesto; quindi ad esempio eventuali
+ istruzioni di output ai fini di debug dovranno essere tolte dalla versione
+ definitiva del programma.
+\end_layout
+
+\begin_layout Standard
+Per concludere questo semplice esempio riscriviamo tutto il programma in
+ C++, dove anche in questo caso vedremo che la differenza con la normale
+ lettura/scrittura da tastiera/video è ancora minore.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ifstream in("input.txt"); 	//oggetto per gestire l'input
+\end_layout
+
+\begin_layout Plain Layout
+
+ofstream out("output.txt");	//oggetto per gestire l'output
+\end_layout
+
+\begin_layout Plain Layout
+
+int N, i, temp, somma = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+in >> N;		//viene letto il primo numero intero
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i=0; i< N ; i++) //ciclo per leggere gli N numeri seguenti
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> temp;	
+\end_layout
+
+\begin_layout Plain Layout
+
+	somma += temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+out << somma << endl;	//scrittura del risultato
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un altro modo per aprire i file in C++, usando un costruttore diverso è
+ il seguente
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+fstream in("input.txt",ios::in); 	//oggetto per gestire l'input
+\end_layout
+
+\begin_layout Plain Layout
+
+fstream out("output.txt",ios::out);	//oggetto per gestire l'output
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dove si usa l'oggetto generico 
+\emph on
+fstream
+\emph default
+ e nel costruttore, tramite le costanti 
+\emph on
+ios::in
+\emph default
+ e 
+\emph on
+ios::out
+\emph default
+ si specifica se l'oggetto creato è in lettura o in scrittura.
+\end_layout
+
+\begin_layout Subsection
+Errori comuni
+\end_layout
+
+\begin_layout Standard
+Durante la gara, per esperienza diretta come organizzatore delle territoriali,
+ vengono commessi degli errori banali che però hanno delle conseguenze fatali
+ (in senso relativo, nessuno è mai morto a causa di questi errori).
+\end_layout
+
+\begin_layout Standard
+Finora (anche se la situazione dovrebbe cambiare nei prossimi anni) Windows
+ nelle sue varie versioni è stata la piattaforma più utilizzata (spesso
+ l'unica) a livello delle selezioni territoriali.
+ Alcune sue caratteristiche possono condurre ai seguenti problemi:
+\end_layout
+
+\begin_layout Itemize
+nelle installazioni normali Windows è configurato per non mostrare le estensioni
+ dei file, quindi il file input.txt compare a video solo con il nome input
+ e con la classica icona dei file di testo.
+ Dal punto di vista del vostro programma però il file è sempre input.txt,
+ il fatto che non si veda l'estensione è solo dovuto a una scelta di usabilità
+ per non 
+\begin_inset Quotes eld
+\end_inset
+
+disturbare
+\begin_inset Quotes erd
+\end_inset
+
+ gli utenti con poca dimestichezza con il computer (il 90-95%).
+ Siccome in gara è necessario creare un file input.txt per testare se il
+ programma scritto funziona, il software che si usa di solito è il Blocco
+ Note, che però ha un comportamento maligno, sempre a causa della scelta
+ di cui sopra: nel momento di salvare il file se si sceglie come nome input.txt
+ il Blocco Note aggiungerà di suo l'estensione .txt e il vero nome del file
+ sarà quindi input.txt.txt.
+ Questo farà si che il vostro programma fallirà nell'apertura del file perché
+ il file input.txt non è presente; però guardando nella cartella si vedrà
+ che c'è un file che si chiama input.txt (sempre per il discorso che l'estensione
+ non viene mostrata) e quindi si inizierà a dare la colpa, nell'ordine,
+ al computer di gara, all'ambiente di sviluppo, i più temerari anche al
+ linguaggio di programmazione, mentre se sapete queste cose non dovreste
+ avere problemi.
+ Inoltre è sempre possibile usare direttamente l'ambiente di sviluppo per
+ creare il file input.txt oppure abilitare la visualizzazione delle estensioni
+ attraverso il menù Opzioni cartella che si trova in ogni cartella aperta
+\end_layout
+
+\begin_layout Itemize
+sempre in Windows, i nomi dei file sono case-insensitive, quindi bisogna
+ essere certi nel proprio codice sorgente di indicare i nomi dei file con
+ tutte le lettere minuscole, perché se ad esempio si scrivesse Input.txt,
+ il programma funzionerebbe se testato sotto Windows, ma fallirebbe se testato
+ con Linux (nel quale i file system sono case-sensitive).
+ Siccome dalle territoriali in poi e in tutte le gare online il correttore
+ gira sotto Linux, è bene abituarsi a scrivere i nomi dei file in minuscolo
+\end_layout
+
+\begin_layout Itemize
+il file input.txt che verrà creato per fare delle prove deve trovarsi in
+ una posizione per cui il vostro programma lo riesca ad aprire, quindi non
+ può essere messo dove capita, ma solo in alcuni posti.
+ Siccome il correttore si aspetta che il file sia nella stessa cartella
+ dell'eseguibile, il programma lo cerca nella cartella dove è in esecuzione:
+ gli ambienti di sviluppo di gara in generale permettono anche di metterlo
+ nella stessa cartella del codice sorgente, quindi vale la pena di fare
+ un po' di prove per capire esattamente dove posizionarlo e evitare di scoprire
+ durante la gara che il file non viene letto perché il programma non riesce
+ a trovarlo
+\end_layout
+
+\begin_layout Section
+Le funzioni
+\end_layout
+
+\begin_layout Standard
+In questo paragrafo si farà un breve ripasso sull'utilizzo delle funzioni,
+ che, anche se non strettamente necessarie (se non nella ricorsione), sono
+ estremamente utili nella stesura di codice modulare, caratteristica sicuramente
+ desiderabile anche nella scrittura di programmi di piccole dimensioni.
+ Quello che verrà mostrato sarà inerente all'utilizzo che viene fatto delle
+ funzioni durante le gare e quindi saranno volutamente omessi dettagli su
+ altre modalità di utilizzo che non trovano applicazione nelle Olimpiadi.
+\end_layout
+
+\begin_layout Standard
+Il concetto di 
+\emph on
+funzione
+\emph default
+ è simile a quello che viene presentato in matematica o in altri campi scientifi
+ci, però siccome non tutti i lettori potrebbero averlo presente, verrà presentat
+o a un livello più intuitivo.
+ 
+\end_layout
+
+\begin_layout Standard
+L'idea di base è quella di raggruppare in un solo punto il codice necessario
+ per eseguire un compito specifico (trovare la radice quadrata di un numero,
+ fare il totale di una fattura, stampare un biglietto aereo, ecc.) e isolarlo
+ dal resto del programma, in modo da ottenere una suddivisione dei compiti
+ tra pezzi di codice 
+\begin_inset Quotes eld
+\end_inset
+
+specializzati
+\begin_inset Quotes erd
+\end_inset
+
+, utilizzabili in qualunque punto del programma.
+ I principali vantaggi delle funzioni sono quindi:
+\end_layout
+
+\begin_layout Itemize
+ogni funzione può essere sviluppata indipendentemente dal resto del codice
+ e testata separatamente
+\end_layout
+
+\begin_layout Itemize
+posso riutilizzare algoritmi comuni attraverso la creazione di librerie
+ di funzione (che di fatto è quello che avviene nella libreria del C e del
+ C++)
+\end_layout
+
+\begin_layout Itemize
+il programma nel suo complesso diventa più facile da sviluppare e mantenere,
+ poichè non è più una lunga sequenza di istruzioni di basso livello, ma
+ l'insieme di chiamate di funzioni che svolgono operazioni a un livello
+ di astrazione più elevato
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/funzioni/disegno funzione.eps
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:disegno funzione"
+
+\end_inset
+
+Rappresentazione generale di una funzione
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una rappresentazione grafica del concetto di funzione può essere vista in
+ figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:disegno funzione"
+
+\end_inset
+
+, dove, al contrario di come spesso viene disegnata in altri contesti, la
+ funzione è una 
+\begin_inset Quotes eld
+\end_inset
+
+scatola nera
+\begin_inset Quotes erd
+\end_inset
+
+ che riceve degli input (In
+\begin_inset Formula $_{\text{1}}$
+\end_inset
+
+, In
+\begin_inset Formula $_{\text{2}}$
+\end_inset
+
+, \SpecialChar \ldots{}
+, In
+\begin_inset Formula $_{\text{n}}$
+\end_inset
+
+) a destra e fornisce in uscita un output Out, mostrato a sinistra.
+ La scelta di porre gli input a destra e gli output a sinistra deriva dall'analo
+gia con la sintassi effettiva delle funzioni nei linguaggi C/C++ (e in molti
+ altri), in cui gli input, chiamati 
+\emph on
+parametri
+\emph default
+, si trovano a destra del nome della funzione e l'output, chiamato 
+\emph on
+valore di ritorno
+\emph default
+, si trova a sinistra del nome di funzione.
+ Quella rappresentata è la forma più generale di funzione, poi può essere
+ che alcune funzioni non abbiano parametri o valore di ritorno o manchino
+ di entrambi.
+\end_layout
+
+\begin_layout Standard
+Sintatticamente una funzione viene definita nel seguente modo:
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+valore_di_ritorno nome_funzione(lista_dei_parametri)
+\end_layout
+
+\begin_layout Standard
+dove:
+\end_layout
+
+\begin_layout Description
+valore_di_ritorno: può essere 
+\emph on
+void
+\emph default
+, se non presenta output, oppure un qualsiasi tipo di dato elementare (int,
+ char, float, ecc.) o definito dall'utente (struttura o classe)
+\end_layout
+
+\begin_layout Description
+nome_funzione: è un qualsiasi identificatore valido (come i nomi di variabili)
+ che indica la semantica della funzione, cioè il suo scopo
+\end_layout
+
+\begin_layout Description
+lista_di_parametri: una lista di variabili, elencate con tipo e nome, separate
+ da virgola
+\end_layout
+
+\begin_layout Standard
+Per comprenderne meglio il significato ricorriamo a un esempio semplicissimo:
+ supponiamo di voler sapere quale sia il massimo tra due numeri interi inseriti
+ dall'utente.
+ Un codice possibile
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Il codice è volutamente 
+\begin_inset Quotes eld
+\end_inset
+
+didattico
+\begin_inset Quotes erd
+\end_inset
+
+ per evidenziare alcuni aspetti legati al passaggio di parametri, un'implementaz
+ione più realistica utilizzerebbe una sola riga di codice.
+\end_layout
+
+\end_inset
+
+ per raggiungere lo scopo è quello presentato di seguito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language=C,numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int massimo(int r, int s)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int max;
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (r > s)
+\end_layout
+
+\begin_layout Plain Layout
+
+		max = r;
+\end_layout
+
+\begin_layout Plain Layout
+
+	else
+\end_layout
+
+\begin_layout Plain Layout
+
+		max = s;
+\end_layout
+
+\begin_layout Plain Layout
+
+	return max;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int a, b, c;
+\end_layout
+
+\begin_layout Plain Layout
+
+	scanf("%d",&a);
+\end_layout
+
+\begin_layout Plain Layout
+
+	scanf("%d",&b);
+\end_layout
+
+\begin_layout Plain Layout
+
+	c = massimo(a, b);
+\end_layout
+
+\begin_layout Plain Layout
+
+	printf("Il massimo è %d
+\backslash
+n",c);
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si può vedere dalla figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Passaggio-di-parametri"
+
+\end_inset
+
+ nel programma principale, all'interno del 
+\emph on
+main
+\emph default
+, compaiono tre variabili locali, 
+\emph on
+a
+\emph default
+, 
+\emph on
+b
+\emph default
+ e 
+\emph on
+c
+\emph default
+, e i valori delle prime due vengono inseriti dall'utente tramite le solite
+ funzioni di input.
+ Alla riga 16 il programma principale chiama la funzione 
+\emph on
+massimo
+\emph default
+, passando come parametri le variabili 
+\emph on
+a
+\emph default
+ e 
+\emph on
+b
+\emph default
+ (passaggio 1 in figura).
+ Questo fa si che i valori contenuti in 
+\emph on
+a
+\emph default
+ e 
+\emph on
+b
+\emph default
+ vengano copiati all'interno dei parametri formali 
+\emph on
+r
+\emph default
+ e 
+\emph on
+s
+\emph default
+, che sono a tutti gli effetti delle variabili contenute 
+\begin_inset Quotes eld
+\end_inset
+
+all'interno
+\begin_inset Quotes erd
+\end_inset
+
+ della funzione 
+\emph on
+massimo
+\emph default
+.
+ Detta funzione esegue quindi le operazioni sui valori passati e inserisce
+ il risultato all'interno della variabile 
+\emph on
+max
+\emph default
+, che viene poi 
+\begin_inset Quotes eld
+\end_inset
+
+ritornata
+\begin_inset Quotes erd
+\end_inset
+
+ tramite l'istruzione alla riga 8 (passaggio 2 in figura).
+ Il valore ritornato viene poi assegnato alla variabile 
+\emph on
+c
+\emph default
+, che come già detto è locale al 
+\emph on
+main
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/funzioni/passaggio parametri.eps
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Passaggio-di-parametri"
+
+\end_inset
+
+Passaggio di parametri per copia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Questo semplice schema può essere usato in moltissime situazioni, ne esistono
+ però altre dove non è possibile cavarsela allo stesso modo, basti pensare
+ ad esempio a una funzione che faccia l'ordinamento di un vettore o la ricerca
+ del minimo in una matrice: in questi esempi difatti dover passare un vettore
+ o una matrice a una funzione richiede di comprendere alcuni concetti legati
+ agli indirizzi e ai puntatori che in generale risultano poco intuitivi
+ e che, se usati male, portano a degli errori difficili da individuare.
+ Nelle gare quindi si risolve il problema in un modo che, seppure possa
+ risultare indigesto agli ingegneri del software, permette di gestire i
+ casi indicati (e altri simili) in modo indolore.
+ Il 
+\begin_inset Quotes eld
+\end_inset
+
+trucco
+\begin_inset Quotes erd
+\end_inset
+
+ è quello di lavorare direttamente con le 
+\emph on
+variabili globali
+\emph default
+, che, proprio per questa loro caratteristica, vengono viste da tutte le
+ funzioni, le quali possono agire direttamente su di esse, senza bisogno
+ di ricorrere al passaggio dei parametri, come mostrato nel codice seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language=C,numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#define N 5
+\end_layout
+
+\begin_layout Plain Layout
+
+int V[N];
+\end_layout
+
+\begin_layout Plain Layout
+
+int somma()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int s = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i<N; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		s+=V[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+	return max;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int c;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i<N; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		scanf("%d",&V[i]);
+\end_layout
+
+\begin_layout Plain Layout
+
+	c = somma();
+\end_layout
+
+\begin_layout Plain Layout
+
+	printf("La somma degli elementi del vettore è %d
+\backslash
+n",c);
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si vede esiste un vettore globale V, di lunghezza 5, che viene visto
+ sia dal 
+\emph on
+main
+\emph default
+ che dalla funzione 
+\emph on
+somma
+\emph default
+, le quali lo utilizzano per valorizzarlo (il 
+\emph on
+main
+\emph default
+) e per calcolarne la somma, senza che la funzione 
+\emph on
+somma
+\emph default
+ abbia bisogno del passaggio di parametri
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Si vedrà più avanti che l'utilizzo delle variabili globali comporta altri
+ vantaggi che fanno si che l'uso in gara sia altamente consigliato.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

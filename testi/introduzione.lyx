@@ -1,0 +1,285 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\date{}
+\end_preamble
+\use_default_options false
+\master guida.lyx
+\maintain_unincluded_children true
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans helvet
+\font_typewriter courier
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Indice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter*
+Introduzione
+\end_layout
+
+\begin_layout Standard
+Questa guida è stata scritta come supporto per chi ha intenzione di impegnarsi
+ seriamente per affrontare la competizione delle Olimpiadi di Informatica,
+ in particolare come preparazione al livello delle selezioni territoriali,
+ che è il primo livello in cui gli atleti si misurano nella scrittura di
+ codice per la soluzione di problemi.
+ Viene quindi data per scontata una conoscenza di base del linguaggio C/C++,
+ che comprende almeno l'utilizzo dei costrutti di selezione, iterazione
+ e sequenza e la capacità di scrivere programmi minimali.
+ Questa guida potrebbe quindi essere usata:
+\end_layout
+
+\begin_layout Itemize
+sia in maniera autonoma, per quegli studenti che, proveniendo da istituti
+ in cui la programmazione non è affrontata in maniera approfondita, vogliono
+ comunque conoscere velocemente quanto viene richiesto
+\end_layout
+
+\begin_layout Itemize
+sia come supporto agli insegnanti delle scuole iscritte, che per vari motivi
+ hanno bisogno di una traccia per impostare dei corsi per i propri allievi
+\end_layout
+
+\begin_layout Standard
+Quanto verrà presentato riguarda principalmente aspetti algoritmici e tecniche
+ risolutive che di norma non sono affrontate (o solo in parte) all'interno
+ dei normali curricoli di scuola superiore, in dipendenza anche dal tipo
+ di scuola, ma che sono necessari per ottenere dei buoni risultati in questo
+ tipo di competizioni.
+\end_layout
+
+\begin_layout Standard
+Qualcuno potrebbe domandarsi perché non si faccia cenno al Pascal come linguaggi
+o da conoscere, anche se esso è elencato tra i tre linguaggi (C, C++ e Pascal)
+ che possono essere utilizzati per partecipare alle Olimpiadi.
+ Esistono sostanzialmente due ragioni: la principale è che il materiale
+ presentato si basa sulla mia esperienza di referente per le Olimpiadi e
+ di insegnante di Informatica e in entrambi questi contesti non ho mai fatto
+ uso del Pascal, che quindi di fatto conosco poco; la seconda è che statisticame
+nte il Pascal è poco usato al livello delle selezioni territoriali e praticament
+e sparisce ai livelli superiori (nazionali, internazionali).
+ Questo non vuol dire che chi abbia solo conoscenza del Pascal non possa
+ trarre beneficio dall'utilizzo di questo manuale; è anzi mia convinzione
+ che sia possibile comprendere comunque i fondamenti teorici e con poco
+ sforzo adattare i codici mostrati, traducendoli in Pascal, prendendo anche
+ l'occasione per imparare un nuovo linguaggio.
+\end_layout
+
+\begin_layout Standard
+Il testo è strutturato in capitoli, ognuno dei quali può essere affrontato
+ in maniera indipendente dagli altri, poiché focalizzato su tecniche risolutive
+ diverse.
+ É anche vero che l'ordine dei capitoli è stato pensato per presentare gli
+ argomenti in ordine crescente di difficoltà, quindi chi affronta queste
+ tematiche per la prima volta o vuole approfondirle, potrà trarre beneficio
+ da una lettura sequenziale.
+\end_layout
+
+\begin_layout Standard
+I primi due capitoli sono pensati come un'introduzione agli strumenti e
+ alle tecniche minime per poter svolgere la gara e quindi possono essere
+ saltati da chi ha già esperienza in questo tipo di competizioni.
+ Il terzo capitolo fornisce degli strumenti teorici che possono servire
+ di supporto all'analisi degli algoritmi risolutivi, ma che in senso assoluto
+ non sono necessari per poter affrontare la competizione, almeno a questo
+ livello.
+\end_layout
+
+\begin_layout Standard
+I capitoli dal 4 all'8 sono invece una piccola 
+\begin_inset Quotes eld
+\end_inset
+
+cassetta degli attrezzi
+\begin_inset Quotes erd
+\end_inset
+
+ indispensabile per ottenere buoni piazzamenti nella competizione: si parte
+ dai vettori e dai classici algoritmi di ordinamento e ricerca, per passare
+ poi attraverso tecniche e strutture dati meno note come la 
+\emph on
+ricorsione
+\emph default
+, la tecnica 
+\emph on
+greedy
+\emph default
+, la 
+\emph on
+programmazione dinamica
+\emph default
+ e i 
+\emph on
+grafi
+\emph default
+.
+ Ognuno di questi capitoli presenta una piccola introduzione teorica (per
+ approfondimenti si rimanda alla bibliografia 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Breve-bibliografia"
+
+\end_inset
+
+) e poi vengono affrontati e risolti alcuni problemi delle edizioni passate,
+ spiegandone la strategia risolutiva e mostrando il codice sorgente di una
+ possibile soluzione.
+\end_layout
+
+\begin_layout Standard
+Il capitolo 9 è una raccolta di tutti i problemi territoriali non affrontati
+ in precedenza, completa di suggerimenti, spiegazioni e soluzioni.
+ Il capitolo 10, non presente nella prima edizione, raccoglie altri problemi,
+ sempre dello stesso livello di difficoltà, che raccoglierò man mano avrò
+ il tempo di farlo e che in generale sono stati scelti perchè mostrano qualche
+ aspetto interessante.
+\end_layout
+
+\begin_layout Standard
+Completa il testo una breve Appendice che contiene alcuni suggerimenti pratici
+ per la gara, la classificazione completa di tutti i problemi degli scorsi
+ anni secondo le strutture dati e le tecniche risolutive necessarie per
+ risolverli e una bibliografia essenziale per chi volesse approfondire il
+ materiale trattato, ben oltre allo stretto indispensabile per la gara.
+\end_layout
+
+\begin_layout Standard
+Questo libro è un 
+\emph on
+work in progress
+\emph default
+, nel senso che, sempre nei limiti del tempo che riuscirò a dedicargli,
+ è pensato per essere aggiornato di anno in anno, aggiungendo via via nuovi
+ problemi, sia delle selezioni territoriali che di altre gare, ed eventualmente
+ correzioni e modifiche.
+\end_layout
+
+\begin_layout Standard
+Tutti i codici mostrati in questo libro sono stati scritti da me e testati
+ sul correttore ufficiale delle Olimpiadi di Informatica, passando tutti
+ i casi di test: questo non garantisce in senso assoluto che siano corretti
+ né tantomeno che siano il modo migliore (in un qualche senso) di risolvere
+ il problema.
+ In generale durante la scrittura ho favorito la comprensibilità rispetto
+ ad altre caratteristiche e ovviamente questo dipende dal mio modo di vedere
+ le cose e dalla mia esperienza di programmazione: spero che tutto sia corretto,
+ ma se così non fosse potete contattarmi per correzioni o suggerimenti.
+ Sul mio sito 
+\begin_inset CommandInset href
+LatexCommand href
+name "www.imparando.net"
+target "www.imparando.net"
+
+\end_inset
+
+ troverete una sezione con tutti i codici contenuti nel libro e altri materiali
+ utili.
+\end_layout
+
+\begin_layout Subsection*
+Alcuni ringraziamenti
+\end_layout
+
+\begin_layout Standard
+Dopo la prima edizione vorrei ringraziare in particolare due allievi, Luca
+ dal Veneto e Alfio Emanuele dalla Sicilia, che mi hanno detto che a loro
+ la guida è servita: spero possa essere servita anche ad altri (più timidi),
+ ma anche fosse solo per loro due ne è valsa la pena.
+\end_layout
+
+\begin_layout Standard
+Ringrazio anche i referenti Carlo di Veneto 1 e Lorenzo di Veneto 2, il
+ primo per le precise osservazioni fatte alla prima versione (mi spiace
+ di non aver potuto modificare tutto quanto avevi segnalato, in particolare
+ sulla formalizzazione delle dinamica, ma il tempo è quello che è, appena
+ posso lo farò), il secondo perchè quando ci incontriamo ai Nazionali mi
+ mette sempre di buon umore (lo so che puoi pensare 
+\begin_inset Quotes eld
+\end_inset
+
+Ma che diavolo di ringraziamento è, non sono mica un pagliaccio
+\begin_inset Quotes erd
+\end_inset
+
+, difatti non è un pagliaccio e apprezzo sempre le sue competenze tecniche
+ e didattiche, ma apprezzo ancora di più il suo spirito allegro e positivo).
+\end_layout
+
+\begin_layout Standard
+Ringrazio anche il mio fido amico Roberto Ciroli, eccellente artista che
+ con i suoi acquarelli ha reso almeno la copertina memorabile.
+\end_layout
+
+\begin_layout Standard
+Infine un ringraziamento a mia moglie, per tutto il tempo che le ho rubato
+ nella stesura di questa guida (te ne ruberò ancora un po', ma solo un pochino,
+ ogni tanto...)
+\end_layout
+
+\begin_layout Standard
+\align right
+Buone Olimpiadi a tutti
+\end_layout
+
+\begin_layout Standard
+\align right
+Alessandro Bugatti
+\end_layout
+
+\end_body
+\end_document

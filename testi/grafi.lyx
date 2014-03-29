@@ -1,0 +1,4122 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\date{}
+\end_preamble
+\use_default_options false
+\master guida.lyx
+\maintain_unincluded_children true
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans helvet
+\font_typewriter courier
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Indice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+I grafi
+\end_layout
+
+\begin_layout Quote
+
+\shape italic
+\begin_inset Quotes eld
+\end_inset
+
+Tornare indietro!
+\begin_inset Quotes erd
+\end_inset
+
+ pensò.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Neanche per sogno! Andare di lato? Impossibile! Andare avanti? È la sola
+ cosa da fare! Dunque, in marcia!
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+\align right
+
+\shape italic
+J.R.R.
+ Tolkien
+\shape default
+, Lo Hobbit
+\end_layout
+
+\begin_layout Standard
+I grafi svolgono un ruolo importante in molti problemi di gara, anche a
+ livello delle territoriali, in quei problemi dove i dati sono collegati
+ tra di loro in maniera non lineare, a differenza ad esempio dei dati in
+ una lista, dove ogni dato ha solo una relazione d'ordine con i due vicini
+ (precedente e successivo).
+ 
+\end_layout
+
+\begin_layout Standard
+Il primo passo per poter risolvere problemi utilizzando i grafi sarà quello
+ di vedere come memorizzarne la struttura e successivamente verranno mostrati
+ alcuni algoritmi applicati a problemi concreti delle Olimpiadi.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Definizione-di-grafo"
+
+\end_inset
+
+Definizione di grafo
+\end_layout
+
+\begin_layout Standard
+Un grafo è definito come
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+G=(V,E)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dove 
+\emph on
+V
+\emph default
+ è l'insieme dei 
+\emph on
+vertici
+\emph default
+ di un grafo (detti anche 
+\emph on
+nodi
+\emph default
+) e 
+\emph on
+E
+\emph default
+ è l'insieme dei 
+\emph on
+lati
+\emph default
+ (o 
+\emph on
+archi
+\emph default
+) che uniscono coppie di nodi.
+ Nell'esempio in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esempio-di-grafo"
+
+\end_inset
+
+ si può vedere come il grafo sia formato da 4 vertici (1, 2, 3, 4) e da
+ 4 lati (1-3, 1-2, 1-4, 2-4).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/grafi/esempio001.eps
+	lyxscale 30
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esempio di grafo con 4 vertici e 4 lati
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esempio-di-grafo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per come è stato definito l'insieme 
+\emph on
+E
+\emph default
+ è contenuto nel prodotto cartesiano
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Il prodotto cartesiano di due insiemi è l'insieme delle coppie ottenute
+ prendendo un elemento del primo insieme e associandolo a un elemento del
+ secondo insieme.
+\end_layout
+
+\end_inset
+
+ dell'insieme 
+\emph on
+V 
+\emph default
+con sé stesso
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E\subseteq V\times V
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+cioè gli archi sono descritti dalla coppia di vertici che si trovano ai
+ propri estremi.
+\end_layout
+
+\begin_layout Standard
+Esempi di problemi del mondo reale che possono essere rappresentati attraverso
+ i grafi sono:
+\end_layout
+
+\begin_layout Itemize
+una carta stradale, dove i vertici sono le città e gli archi sono le strade
+ che li uniscono.
+ Un problema tipico che si vuole risolvere è quello di trovare la minima
+ distanza tra due determinate città
+\end_layout
+
+\begin_layout Itemize
+una scheda elettronica stampata dove i vertici sono i fori e le linee che
+ uniscono tra di loro tutti i fori sono gli archi del grafo.
+ Un problema tipico in questo caso è quello di scegliere un insieme di archi
+ la cui somma sia minima (considerando il valore di un arco come la distanza
+ che separa i fori da esso collegati) e che permetta comunque di passare
+ attraverso tutti i vertici
+\end_layout
+
+\begin_layout Itemize
+un insieme di attività da eseguire in un certo ordine per raggiungere uno
+ scopo, dove le attività sono i vertici e le relazioni di precedenza tra
+ le attività sono gli archi del grafo.
+ In questo caso un problema è quello di stabilire quali sono le attività
+ critiche, cioè quelle che se subiscono un ritardo fanno ritardare l'intera
+ fine del progetto
+\end_layout
+
+\begin_layout Itemize
+la rete elettrica nazionale, dove i vertici sono le centrali elettriche
+ e gli archi sono le linee ad alta tensione che le collegano.
+ Qua un problema tipico è di stabilire cosa succede al carico della rete
+ quando una linea viene interrotta
+\end_layout
+
+\begin_layout Standard
+Come si può vedere da questo piccolo insieme di esempi i campi dove trova
+ applicazione la teoria dei grafi sono i più disparati e i problemi che
+ è in grado di risolvere sono di vario genere.
+\end_layout
+
+\begin_layout Standard
+Proseguendo nelle definizioni possiamo dire che un grafo è 
+\emph on
+orientato
+\emph default
+ quando agli archi viene associata una direzione di 
+\begin_inset Quotes eld
+\end_inset
+
+percorrenza
+\begin_inset Quotes erd
+\end_inset
+
+, che viene rappresentata con una freccia e, nell'esempio in cui il grafo
+ rappresenta una carta stradale, può indicare che la strada rappresentata
+ dall'arco è un senso unico.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/grafi/GrafoOrientato.eps
+	lyxscale 30
+	scale 30
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esempio di grafo orientato
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Inoltre un grafo si dice 
+\emph on
+connesso
+\emph default
+ quando, data una qualunque coppia dei suoi vertici, è sempre possibile
+ trovare un 
+\emph on
+cammino
+\emph default
+ che porta da un vertice della coppia verso l'altro.
+ Un 
+\emph on
+cammino
+\emph default
+ è composto da una sequenza di nodi v
+\begin_inset Formula $_{\text{0}}$
+\end_inset
+
+, v
+\begin_inset Formula $_{\text{1}}$
+\end_inset
+
+, ..., v
+\begin_inset Formula $_{\text{n}}$
+\end_inset
+
+ e da una sequenza di archi (v
+\begin_inset Formula $_{\text{0}}$
+\end_inset
+
+-v
+\begin_inset Formula $_{\text{1}}$
+\end_inset
+
+), (v
+\begin_inset Formula $_{\text{1}}$
+\end_inset
+
+-v
+\begin_inset Formula $_{\text{2}}$
+\end_inset
+
+), ..., (v
+\begin_inset Formula $_{\text{n-1}}$
+\end_inset
+
+,v
+\begin_inset Formula $_{\text{n}}$
+\end_inset
+
+) in cui ogni vertice compare una volta sola.
+ Se esiste almeno una coppia di nodi per cui non esiste un cammino che unisce
+ i suoi nodi allora il grafo si dice 
+\emph on
+non connesso
+\emph default
+.
+ Per quanto riguarda la proprietà di connessione l'orientamento degli archi
+ non viene considerato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement !h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/grafi/GrafoConnessoENon.eps
+	lyxscale 10
+	display false
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Grafo connesso (a) e grafo non connesso (b)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Infine un grafo si dice 
+\emph on
+pesato
+\emph default
+ quando sui suoi archi è presente un numero (peso) che, sempre nell'esempio
+ della mappa stradale, potrebbe rappresentare la lunghezza della strada
+ o il tempo di percorrenza o il costo del pedaggio ecc.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement !h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/grafi/GrafoPesato.eps
+	lyxscale 20
+	display false
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Grafo pesato
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Queste proprietà dei grafi sono indipendenti tra di loro quindi esistono
+ grafi connessi orientati pesati e ognuna delle altre possibili combinazioni.
+\end_layout
+
+\begin_layout Section
+Rappresentazione di grafi
+\end_layout
+
+\begin_layout Standard
+Il primo problema che si pone nel momento in cui vogliamo risolvere degli
+ esercizi che fanno uso dei grafi come strutture per l'elaborazione dei
+ dati è quello di decidere come rappresentarli all'interno di un programma.
+ Mentre per tutti i problemi visti in precedenza la struttura fondamentale
+ per la memorizzazione è stato il vettore, nei problemi contenenti i grafi
+ i vettori da soli non sono adeguati
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Va detto che anche un vettore contenente elementi opportuni potrebbe essere
+ utilizzato per rappresentare un grafo, solo che è una rappresentazione
+ in genere poco usata.
+\end_layout
+
+\end_inset
+
+, poiché mentre i vettori sono la scelta naturale per rappresentare sequenze
+ di valori, quando i dati hanno delle relazioni non lineari tra di loro,
+ i vettori non sono d'aiuto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/grafi/GrafoEsempio1.eps
+	display false
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Grafo-di-esempio"
+
+\end_inset
+
+Grafo di esempio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esistono due modi principali di rappresentare un grafo, uno detto 
+\emph on
+matrice di adiacenza
+\emph default
+ e l'altro chiamato 
+\emph on
+liste di adiacenza.
+ 
+\emph default
+In entrambi i modi posso descrivere gli stessi grafi, ognuno ha le sue caratteri
+stiche peculiari che lo rendono più adatto a certi contesti, ma qui non
+ ci si soffermerà su questo quanto sull'implementazione concreta di essi.
+ Partiamo con l'esempio più semplice, dove vogliamo rappresentare il grafo
+ mostrato in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Grafo-di-esempio"
+
+\end_inset
+
+, che non è né pesato né orientato.
+\end_layout
+
+\begin_layout Standard
+In figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Matrice-e-liste"
+
+\end_inset
+
+ (a) si può vedere la rappresentazione tramite 
+\emph on
+matrice di adiacenza
+\emph default
+, che è estremamente semplice: alla casella 
+\emph on
+m[i][j]
+\emph default
+ si inserisce un 1 se esiste un arco tra il nodo 
+\emph on
+i
+\emph default
+ e il nodo 
+\emph on
+j
+\emph default
+, 0 altrimenti.
+ In questo caso, essendo il grafo non orientato, la matrice presenta una
+ simmetria lungo la diagonale maggiore, poiché se c'è una relazione tra
+ 
+\emph on
+i
+\emph default
+ e 
+\emph on
+j
+\emph default
+ c'è anche tra 
+\emph on
+j
+\emph default
+ e 
+\emph on
+i
+\emph default
+.
+ Viceversa, se gli archi avessero un orientamento, questo tipo di simmetria
+ non sarebbe necessariamente presente.
+ Inoltre se dovessimo rappresentare un grafo pesato al posto degli 1 inseriremmo
+ il peso relativo all'arco che stiamo rappresentando.
+\end_layout
+
+\begin_layout Standard
+In figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Matrice-e-liste"
+
+\end_inset
+
+ (b) viene invece mostrato lo stesso grafo rappresentato attraverso 
+\emph on
+liste di adiacenza
+\emph default
+, dove ad ogni nodo del grafo viene associata una lista (qui rappresentata
+ con il classico formalismo della lista concatenata) che contiene i nodi
+ che sono in relazione con il nodo a cui la lista appartiene.
+ Le considerazioni fatte per la matrice rispetto alla rappresentazione di
+ altri tipi di grafo valgono anche per le liste, dove con semplici cambiamenti
+ si possono rappresentare diversi tipi di grafo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/grafi/Matrice e liste.eps
+	display false
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Matrice-e-liste"
+
+\end_inset
+
+Matrice e liste d'adiacenza
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per quanto riguarda il modo con cui queste strutture vengono descritte nei
+ linguaggi C/C++ possiamo subito notare che la 
+\emph on
+matrice d'adiacenza
+\emph default
+ ha una rappresentazione ovvia attraverso una normale matrice del C, mentre
+ le
+\emph on
+ liste di adiacenza
+\emph default
+ hanno una rappresentazione più complessa, che può essere semplificata utilizzan
+do i container della Libreria Standard del C++.
+ Nonostante questo gli algoritmi che vedremo nel prossimo paragrafo usano
+ questa seconda modalità, perché permette di esprimerli in modo più semplice
+ e elegante.
+ Sempre nel paragrafo successivo si vedrà dunque come le 
+\emph on
+liste di adiacenza
+\emph default
+ sono realizzate in C++.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:visite"
+
+\end_inset
+
+Visite in profondità e in ampiezza
+\end_layout
+
+\begin_layout Standard
+In questo manuale introduttivo non verranno affrontati argomenti complessi
+ rispetto ai grafi, ma sicuramente è necessario vedere almeno il problema
+ della visita.
+ Quando in un vettore vogliamo guardare tutti gli elementi ci limitiamo
+ a scorrerlo dall'inizio alla fine, la stessa cosa fatta in un grafo non
+ è altrettanto banale, perché non sembra esserci un percorso ovvio da seguire
+ e, se non si sta attenti, si rischia di ripercorrere più volte le stesse
+ strade e entrare in cicli infiniti.
+ Quindi la prima cosa che bisogna imparare per usare i grafi è di capire
+ come visitarli, cioè passare attraverso tutti i nodi per eventualmente
+ eseguire qualche operazione.
+ É bene notare fin da subito che sebbene gli algoritmi che vedremo sono
+ soltanto due, le idee su cui sono basati, opportunamente modificate, permettono
+ di risolvere molti altri problemi oltre a quelli della visita e quindi
+ le visite fanno di sicuro parte del bagaglio dell'apprendista algoritmico.
+\end_layout
+
+\begin_layout Standard
+I modi con cui un grafo può essere visitato si dividono in due, chiamati
+ 
+\emph on
+visita in profondità
+\emph default
+ e 
+\emph on
+visita in ampiezza
+\emph default
+.
+ Senza approfondire troppo le differenze tra le due strategie, proviamo
+ a darne una definizione intuitiva:
+\end_layout
+
+\begin_layout Itemize
+la 
+\emph on
+visita in profondità (DFS, Depth-First Search)
+\emph default
+ parte da un nodo sorgente, guarda il primo nodo a lui collegato e si 
+\begin_inset Quotes eld
+\end_inset
+
+sposta
+\begin_inset Quotes erd
+\end_inset
+
+ su quello per continuare la visita, riapplicando poi la stessa tecnica.
+ Quando arriva a un nodo che non ha ulteriori collegamenti o che è già stato
+ visitato, si ferma, torna indietro e appena trova un nuovo collegamento
+ che aveva lasciato indietro riparte ad esplorare, ripetendo questi passaggi
+ fino alla visita di tutti i nodi.
+ Questo modo di procedere è a volte paragonato all'esplorazione di un labirinto,
+ in cui si segue una strada e a ogni bivio si sceglie ad esempio la strada
+ più a destra: quando poi si arriva a un vicolo cieco si torna indietro
+ all'ultimo bivio e si prende la seconda strada più a destra e così via
+ (se il labirinto ha un'uscita si ha la certezza di trovarla).
+\end_layout
+
+\begin_layout Itemize
+la 
+\emph on
+visita in ampiezza (BFS, Breadth-First Search)
+\emph default
+ viceversa parte da un nodo sorgente e prima visita tutti i suoi figli e
+ poi passa a visitare tutti i suoi 
+\begin_inset Quotes eld
+\end_inset
+
+nipoti
+\begin_inset Quotes erd
+\end_inset
+
+, allargando di volta in volta il confine dei nodi che visita.
+ Si può dire che prima di visitare un nodo che si trova a distanza 
+\emph on
+i+1
+\emph default
+ dalla sorgente devono prima essere visitati tutti i nodi a distanza
+\emph on
+ i
+\emph default
+.
+ Anche per questa vista esistono delle metafore, una delle quali è quella
+ di un acquedotto dove i tubi sono gli archi e le giunture tra i tubi sono
+ i nodi: facendo uscire l'acqua da una sorgente, questa percorrerà i tubi
+ in tutte le direzioni e il 
+\begin_inset Quotes eld
+\end_inset
+
+fronte
+\begin_inset Quotes erd
+\end_inset
+
+ d'acqua raggiungerà nello stesso istante le giunture che si trovano alla
+ stessa distanza dalla sorgente.
+\end_layout
+
+\begin_layout Standard
+Nonostante il comportamento diverso si potrà notare che gli algoritmi sono
+ praticamente identici, salvo il fatto che la prima visita usa come struttura
+ d'appoggio una pila
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+É possibile per la visita in profondità darne una semplice versione ricorsiva
+ che utilizza lo stack implicito creato dalle chiamate ricorsive.
+\end_layout
+
+\end_inset
+
+, mentre la seconda usa una coda.
+\end_layout
+
+\begin_layout Standard
+Vediamo adesso un'implementazione
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Questa implementazione prevede che il grafo sia 
+\emph on
+connesso
+\emph default
+, ma con delle semplici modifiche la si può adattare a grafi non connessi.
+\end_layout
+
+\end_inset
+
+ in C++ sia della rappresentazione di un grafo tramite 
+\emph on
+liste d'adiacenza
+\emph default
+ sia della 
+\emph on
+visita in profondità
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+list<int> liste[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int visitato[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+stack <int> pila; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int N,M;
+\end_layout
+
+\begin_layout Plain Layout
+
+void visita_profondita(int n) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	pila.push(n);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (!pila.empty())     
+\end_layout
+
+\begin_layout Plain Layout
+
+	{         
+\end_layout
+
+\begin_layout Plain Layout
+
+		int corrente = pila.top();         
+\end_layout
+
+\begin_layout Plain Layout
+
+		pila.pop();         
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (visitato[corrente] == false)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		{             
+\end_layout
+
+\begin_layout Plain Layout
+
+			visitato[corrente] = true;             
+\end_layout
+
+\begin_layout Plain Layout
+
+			cout << corrente << endl;             
+\end_layout
+
+\begin_layout Plain Layout
+
+			for (list <int>::iterator i = liste[corrente].begin(); i!=liste[corrente].end()
+; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+				pila.push(*i);         
+\end_layout
+
+\begin_layout Plain Layout
+
+		}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	fstream in("input.txt",ios::in);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N >> M; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i<N; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		visitato[i] = false;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i<M; i++)     
+\end_layout
+
+\begin_layout Plain Layout
+
+	{         
+\end_layout
+
+\begin_layout Plain Layout
+
+		int a,b;         
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> a >> b;         
+\end_layout
+
+\begin_layout Plain Layout
+
+		liste[a].push_back(b);         
+\end_layout
+
+\begin_layout Plain Layout
+
+		liste[b].push_back(a);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	visita_profondita(1);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alla riga 1 viene definita la struttura per memorizzare le informazioni
+ del grafo e, utilizzando il container 
+\emph on
+list
+\emph default
+ della Libreria Standard, non è necessario preoccuparsi di gestire delle
+ liste concatenate.
+ In questa implementazione dobbiamo conoscere a priori il numero di nodi
+ per dimensionare il vettore di liste, ma questa, come abbiamo già visto,
+ è una condizione sempre vera nelle Olimpiadi (in questo esempio quindi
+ la lista sarebbe in grado di gestire grafi con massimo 100 nodi o 99 se
+ sono numerati a partire da uno).
+ 
+\end_layout
+
+\begin_layout Standard
+L'inserimento dei dati prevede che il file contenga un intero N che rappresenta
+ il numero dei nodi (indicati con interi da 1 a N) e un intero M che rappresenta
+ gli archi presenti e nelle successive M righe si trovano gli archi, rappresenta
+ti ognuno come coppia di nodi che vengono messi in relazione da quell'arco.
+ 
+\end_layout
+
+\begin_layout Standard
+Essendo il grafo non orientato ogni coppia di nodi viene utilizzata per
+ inserire all'interno della lista del primo nodo il secondo nodo (riga 32)
+ e all'interno della lista del secondo nodo il primo nodo (riga 33).
+ Grazie alle 
+\emph on
+list
+\emph default
+ questo operazione implica solo l'utilizzo del metodo 
+\emph on
+push_back
+\emph default
+, che aggiunge alla lista un nuovo elemento.
+ Vengono inoltre inizializzati a 
+\emph on
+false
+\emph default
+ tutti gli elementi del vettore 
+\emph on
+visitato
+\emph default
+ (righe 26-27), che serve a tenere traccia dei nodi che sono già stati visitati
+ per evitare di entrare in cicli infiniti (ogni nodo deve essere visitato
+ una e una sola volta).
+\end_layout
+
+\begin_layout Standard
+La funzione che fa la visita in profondità utilizza una pila come struttura
+ di appoggio ed esegue i seguenti passi:
+\end_layout
+
+\begin_layout Enumerate
+inserisce il nodo sorgente nella pila; ovviamente a nodi diversi corrisponderann
+o diversi ordini di visita (riga 7)
+\end_layout
+
+\begin_layout Enumerate
+finché la pila non è vuota (riga 8)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+estraggo il primo elemento dalla pila (righe 10-11).
+ In C++ questo va fatto in due operazioni perché il metodo 
+\emph on
+top
+\emph default
+ restituisce il valore di quell'elemento e il metodo 
+\emph on
+pop
+\emph default
+ lo elimina
+\end_layout
+
+\begin_layout Enumerate
+se è un nodo non ancora visitato (riga 12)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+segno nel vettore che adesso è stato visitato (riga 14) e in questo caso
+ lo stampo a video, ma potrei fare qualsiasi altra cosa che mi viene chiesta
+ nel problema
+\end_layout
+
+\begin_layout Enumerate
+prendo l'elenco dei nodi che sono in relazione con il nodo corrente e li
+ inserisco tutti nella pila (righe 16-17)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+se la pila non è vuota ripeto dal punto (a)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="5">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="1in">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Profondità
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Ampiezza
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5 5 
+\end_layout
+
+\begin_layout Plain Layout
+1 3 
+\end_layout
+
+\begin_layout Plain Layout
+1 5 
+\end_layout
+
+\begin_layout Plain Layout
+2 3 
+\end_layout
+
+\begin_layout Plain Layout
+2 4 
+\end_layout
+
+\begin_layout Plain Layout
+2 5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Risultati-visite"
+
+\end_inset
+
+Risultati della visita in ampiezza e in profondità
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per la visita in ampiezza il codice è quasi identico, solo che come struttura
+ di appoggio al posto di una pila uso una coda, utilizzando sempre il container
+ standard del C++.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+void visita_ampiezza(int n) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	coda.push(n);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (!coda.empty())     
+\end_layout
+
+\begin_layout Plain Layout
+
+	{         
+\end_layout
+
+\begin_layout Plain Layout
+
+		int corrente = coda.front();         
+\end_layout
+
+\begin_layout Plain Layout
+
+		coda.pop();         
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (visitato[corrente] == false)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		{             
+\end_layout
+
+\begin_layout Plain Layout
+
+			visitato[corrente] = true;             
+\end_layout
+
+\begin_layout Plain Layout
+
+			cout << corrente << endl;             
+\end_layout
+
+\begin_layout Plain Layout
+
+			for (list <int>::iterator i = liste[corrente].begin(); i!=liste[corrente].end()
+;i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+                coda.push(*i);         
+\end_layout
+
+\begin_layout Plain Layout
+
+		}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In tabella 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Risultati-visite"
+
+\end_inset
+
+ è possibile vedere l'esito delle visite sul grafo di esempio mostrato in
+ figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Grafo-di-esempio"
+
+\end_inset
+
+, dove è stato usato il nodo 1 come nodo sorgente.
+ 
+\end_layout
+
+\begin_layout Standard
+Come già detto esistono tanti altri tipi di problemi sui grafi: in alcuni
+ casi bastano delle semplici modifiche a quanto visto sopra per trovare
+ la soluzione, in altri è necessario ricorrere ad algoritmi più sofisticati.
+ Per quanto riguarda il livello delle territoriali quanto visto dovrebbe
+ essere sufficiente per poter affrontare con successo ogni problema che
+ richieda l'utilizzo dei grafi nella strategia risolutiva.
+\end_layout
+
+\begin_layout Section
+Esempio: Sunnydale - territoriali 2005
+\end_layout
+
+\begin_layout Standard
+Questo problema in effetti non richiede l'uso di un grafo così come abbiamo
+ visto finora, ma la sua definizione sembrerebbe implicarlo, sarà quindi
+ interessante vedere come alcune proprietà del problema, se comprese, ne
+ portano a una drastica semplificazione.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsection*
+Sunnydale (sunny) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Sunnydale è una città che - per ragioni storiche e ambientali - ospita un
+ elevatissimo numero di vampiri.
+\end_layout
+
+\begin_layout Plain Layout
+Per ragioni cutanee i vampiri non possono sopportare la luce solare e, storicame
+nte, hanno sempre avuto enormi difficoltà a viaggiare col sole alto nel
+ cielo; l'attraversamento delle gallerie sotterranee di Sunnydale è sempre
+ stato il mezzo preferito dai vampiri per muoversi nella città.
+\end_layout
+
+\begin_layout Plain Layout
+I continui crolli delle gallerie hanno creato dei fori nei soffitti, rendendone
+ alcune troppo luminose per un attraversamento tranquillo e sereno.
+\end_layout
+
+\begin_layout Plain Layout
+Harmony, una ragazza-vampiro, passeggia per le gallerie di Sunnydale quando
+ il suo amico Spike le telefona per invitarla a casa sua.
+\end_layout
+
+\begin_layout Plain Layout
+Purtroppo ella si muove per le gallerie sotterranee secondo una regola tanto
+ semplice quanto tassativa: ad ogni svincolo sceglie sempre e comunque la
+ galleria meno luminosa per paura di rovinare la propria pelle.
+\end_layout
+
+\begin_layout Plain Layout
+Sapendo che non esistono due gallerie egualmente luminose, bisogna determinare
+ se Harmony possa raggiungere la casa sotterranea di Spike e, in caso affermativ
+o, quante gallerie le sono necessarie per arrivare.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga del file input.txt è composta da quattro numeri interi N, M,
+ H e S: il primo rappresenta il numero degli svincoli (numerati da 1 a N),
+ il secondo rappresenta il numero delle gallerie, il terzo rappresenta l'indice
+ dello svincolo in cui si trova Harmony quando riceve la telefonata; il
+ quarto, infine, rappresenta l'indice dello svincolo della casa di Spike.
+\end_layout
+
+\begin_layout Plain Layout
+Ognuna delle successive M righe descrive una galleria e contiene tre numeri
+ interi A, B e L separati da uno spazio: i primi due rappresentano gli svincoli
+ collegati dalla galleria mentre il terzo rappresenta il suo grado di luminosità.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt dovrà contenere un unico numero intero: -1 se Harmony
+ non riuscirà a raggiungere Spike; altrimenti, il numero di gallerie che
+ ella percorrerà prima di raggiungerlo.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Plain Layout
+2 ≤ N ≤ 50000 1 ≤ M ≤ 50000 Non esistono due gallerie con la stessa luminosità
+ L.
+ Per ogni galleria, 1 ≤ L ≤ M.
+ 1 ≤ H, S ≤ N
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5 6 1 5 
+\end_layout
+
+\begin_layout Plain Layout
+1 2 5 
+\end_layout
+
+\begin_layout Plain Layout
+2 3 1 
+\end_layout
+
+\begin_layout Plain Layout
+3 4 3 
+\end_layout
+
+\begin_layout Plain Layout
+4 5 2 
+\end_layout
+
+\begin_layout Plain Layout
+5 1 6 
+\end_layout
+
+\begin_layout Plain Layout
+1 4 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si può vedere dalla lettura del testo gli ingredienti per considerare
+ l'utilizzo di un grafo ci sono tutti: gli svincoli che possono essere rappresen
+tati come nodi, le gallerie che sono gli archi, la luminosità che può essere
+ vista come il peso degli archi, un nodo sorgente (Harmony) e un nodo destinazio
+ne (Spike).
+ Prima però di buttarsi in implementazioni affrettate bisogna notare che
+ c'è una condizione che semplifica drasticamente il problema e rende inutile
+ l'utilizzo di un grafo: ad ogni svincolo Harmony sceglie sempre la galleria
+ meno luminosa (e tutte le gallerie hanno luminosità diversa).
+ Questo vuol dire che già quando viene letto l'input sarà possibile eliminare
+ tutte le gallerie che non soddisfano questa condizione e quindi ci si ritroverà
+ con un grafo in cui ogni nodo ha al massimo un arco uscente e quindi per
+ la sua rappresentazione sarà necessario un vettore contenente per ogni
+ nodo l'indice dell'unico nodo raggiungibile e la luce che illumina questa
+ galleria (quest'ultima informazione sarà usata solo per costruire il contenuto
+ del vettore).
+\end_layout
+
+\begin_layout Standard
+A questo punto basta semplicemente spostarsi da un nodo all'altro, partendo
+ dal nodo di Harmony e seguendo per ogni nodo l'unico arco uscente: solo
+ due condizioni condizioni sono possibili
+\end_layout
+
+\begin_layout Itemize
+arrivo al nodo di Spike e con un contatore posso tenere traccia del numero
+ di gallerie attraversare
+\end_layout
+
+\begin_layout Itemize
+ripasso su di un nodo che ho già attraversato e quindi entro in un ciclo
+ che non mi permetterà di raggiungere mai Spike
+\end_layout
+
+\begin_layout Standard
+Fatte queste considerazioni il codice risulta così
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+struct svincolo{
+\end_layout
+
+\begin_layout Plain Layout
+
+    int svincoloCollegato;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	int luce; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	svincolo():luce(100000){} 
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+svincolo svincoli[50001]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+bool visitato[50001];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	fstream in,out;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	in.open("input.txt",ios::in);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	out.open("output.txt",ios::out);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N >> M >> H >> S;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=1;i<=N;i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		visitato[i] = false;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=1;i<=M;i++)     
+\end_layout
+
+\begin_layout Plain Layout
+
+	{         
+\end_layout
+
+\begin_layout Plain Layout
+
+		int A, B, L;         
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> A >> B >> L;         
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (svincoli[A].luce > L)             
+\end_layout
+
+\begin_layout Plain Layout
+
+		{                 
+\end_layout
+
+\begin_layout Plain Layout
+
+			svincoli[A].luce = L;                 
+\end_layout
+
+\begin_layout Plain Layout
+
+			svincoli[A].svincoloCollegato = B;             
+\end_layout
+
+\begin_layout Plain Layout
+
+		}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (svincoli[B].luce > L)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		{             
+\end_layout
+
+\begin_layout Plain Layout
+
+			svincoli[B].luce = L;             
+\end_layout
+
+\begin_layout Plain Layout
+
+			svincoli[B].svincoloCollegato = A;         
+\end_layout
+
+\begin_layout Plain Layout
+
+		}    
+\end_layout
+
+\begin_layout Plain Layout
+
+	}    
+\end_layout
+
+\begin_layout Plain Layout
+
+	int corrente = H;    
+\end_layout
+
+\begin_layout Plain Layout
+
+	int gallerie = 0;    
+\end_layout
+
+\begin_layout Plain Layout
+
+	while(corrente != S && !visitato[corrente])    
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 	   
+\end_layout
+
+\begin_layout Plain Layout
+
+		visitato[corrente] = true;        
+\end_layout
+
+\begin_layout Plain Layout
+
+		gallerie++;        
+\end_layout
+
+\begin_layout Plain Layout
+
+		corrente = svincoli[corrente].svincoloCollegato;    
+\end_layout
+
+\begin_layout Plain Layout
+
+	}    
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (corrente == S)        
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << gallerie << endl;    
+\end_layout
+
+\begin_layout Plain Layout
+
+	else         
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << "-1" << endl;        
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per memorizzare questo grafo 
+\begin_inset Quotes eld
+\end_inset
+
+semplificato
+\begin_inset Quotes erd
+\end_inset
+
+ si crea una struttura (righe 1-5) che memorizza il nodo collegato e la
+ luce che caratterizza la galleria di collegamento: da notare che il costruttore
+ inizializza la luce ha un valore più alto del massimo possibile in modo
+ che venga aggiornata ogni volta che si trova un valore minore.
+ Il vettore 
+\emph on
+svincoli
+\emph default
+ conterrà le informazioni su ogni svincolo e il vettore 
+\emph on
+visitato
+\emph default
+ servirà per segnare di volta in volta gli svincoli che vengono visitati.
+\end_layout
+
+\begin_layout Standard
+In questo caso la lettura dei dati, in particolare quelli riguardanti le
+ gallerie (righe 17-31) è fondamentale per la risoluzione del problema:
+ man mano che leggo aggiorno i collegamenti tra gli svincoli ogni volta
+ che il valore della luminosità è minore di un valore trovato in precedenza
+ (questa cosa viene fatta sia per il nodo di partenza che per quello di
+ arrivo perché il grafo non è orientato).
+\end_layout
+
+\begin_layout Standard
+A questo punto è sufficiente partire dal nodo di Harmony e, tramite un ciclo
+ (righe 34-39), spostarsi al nodo successivo, continuando questo procedimento
+ fino a quando raggiungo il nodo di Spike o mi accorgo di trovarmi in un
+ modo già visitato (riga 34).
+ In uscita dal ciclo sarà sufficiente vedere se l'ultimo nodo visitato è
+ quello di Spike e stampare il numero di gallerie, oppure stampare -1.
+\end_layout
+
+\begin_layout Section
+Esempio: Depurazione dell'acqua - territoriali 2009
+\end_layout
+
+\begin_layout Standard
+Anche in questo esempio sembra evidente che la struttura dati necessaria
+ per risolverlo sia un grafo, perché ci troviamo nella condizione in cui
+ ci sono delle relazioni tra dati di tipo non lineare.
+ Vedremo che prendendo spunto dalle idee viste in precedenza la soluzione
+ risulta non troppo complessa da raggiungere.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsection*
+Depurazione dell'acqua (depura) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Bisogna realizzare un procedimento chimico per la depurazione dell'acqua,
+ avendo a disposizione un certo numero di sostanze, numerate da 1 in avanti.
+ Per un'efficace depurazione, è necessario inserire nell'acqua la sostanza
+ chimica purificante numero 1, tenendo presente che nell'acqua sono già
+ presenti K sostanze chimiche.
+\end_layout
+
+\begin_layout Plain Layout
+Per quanto riguarda il procedimento adottato, valgono R precise regole per
+ poter inserire le sostanze chimiche nell'acqua.
+ Tali regole prevedono che una certa sostanza A possa essere inserita solo
+ se nell'acqua sono già presenti un dato insieme di sostanze, ad esempio,
+ A1, A2,..., An (dove Ai ≠ A per 1 ≤ i ≤ n).
+ In tal caso, scriviamo tale regola di inserimento nel seguente modo 
+\end_layout
+
+\begin_layout Plain Layout
+A :-- A1, A2,..., An
+\end_layout
+
+\begin_layout Plain Layout
+e diciamo che A compare nella parte sinistra della regola.
+ Al fine di un corretto inserimento delle sostanze, valgono le seguenti
+ osservazioni:
+\end_layout
+
+\begin_layout Itemize
+l'eventuale presenza di ulteriori sostanze non inibisce l'applicabilità
+ della regola suddetta;
+\end_layout
+
+\begin_layout Itemize
+se A compare nella parte sinistra di una regola, allora non può comparire
+ nella parte sinistra di altre regole e non può essere una delle K sostanze
+ già presenti nell'acqua;
+\end_layout
+
+\begin_layout Itemize
+qualora una sostanza sia priva di regole (ossia non compaia mai nella parte
+ sinistra di una qualche regola) e non sia già presente nell'acqua, tale
+ sostanza non può essere inserita;
+\end_layout
+
+\begin_layout Itemize
+non è necessario usare tutte le regole e/o tutte le sostanze a disposizione.
+\end_layout
+
+\begin_layout Plain Layout
+Per esempio, ipotizzando che le sostanze 2 e 3 siano già presenti nell'acqua
+ (K=2) e che valgano le seguenti regole (R=4):
+\end_layout
+
+\begin_layout Plain Layout
+4 :-- 2
+\end_layout
+
+\begin_layout Plain Layout
+5 :-- 2, 3
+\end_layout
+
+\begin_layout Plain Layout
+7 :-- 2, 4
+\end_layout
+
+\begin_layout Plain Layout
+1 :-- 3, 7, 4
+\end_layout
+
+\begin_layout Plain Layout
+possiamo inserire la sostanza 4 perché la sostanza 2 è già presente (prima
+ regola); in seguito, possiamo inserire anche la sostanza 7 perché le sostanze
+ 2 e 4 sono presenti nell'acqua (terza regola); a questo punto, possiamo
+ aggiungere la sostanza 1 perché le sostanze 3, 7 e 4 sono presenti (ultima
+ regola).
+ Quindi abbiamo inserito un totale di S=3 sostanze, ossia 4, 7 e 1 (oltre
+ alle K=2 già presenti), per purificare l'acqua.
+\end_layout
+
+\begin_layout Plain Layout
+Scrivere un programma che calcoli il numero minimo S di sostanze da inserire
+ per purificare l'acqua, conoscendo le K sostanze già presenti nell'acqua
+ e le R regole di inserimento.
+ Tale numero sarà S = 0 se la sostanza 1 è già presente nell'acqua; sarà
+ S = 1 se la sostanza 1 può essere inserita direttamente e non è già presente;
+ in generale, sarà S = m se è necessario inserire m-1 sostanze prima di
+ poter inserire la sostanza 1.
+ Nel caso in cui non sia possibile purificare l'acqua, bisogna restituire
+ il valore S = -1.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt è composto da K+R+1 righe.
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga contiene due interi positivi separati da uno spazio, rispettivamen
+te il numero K delle sostanze chimiche già presenti nell'acqua e il numero
+ R di regole di inserimento.
+\end_layout
+
+\begin_layout Plain Layout
+La successive K righe contengono le K sostanze già presenti nell'acqua,
+ dove ogni riga è composta da un solo intero positivo che rappresenta una
+ di tali sostanze.
+\end_layout
+
+\begin_layout Plain Layout
+Le ultime R righe rappresentano le R regole, al massimo una regola per ciascuna
+ sostanza non presente nell'acqua.
+ Ciascuna riga è composta da n+2 interi positivi A, n, A1, A2,..., An separati
+ da uno spazio (dove Ai ≠ A per 1 ≤ i ≤ n), i quali rappresentano la regola
+ A :-- A1, A2,..., An.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da una sola riga contenente un intero S, il
+ minimo numero di sostanze inserite (oltre alle K già presenti) per purificare
+ l'acqua secondo le regole descritte sopra.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Plain Layout
+1 ≤ K, R ≤ 1000 Il numero di sostanze chimiche a disposizione è al massimo
+ 2000.
+ I casi di prova non contengono mai situazioni cicliche: in tal modo, non
+ accade mai che una sostanza A possa essere inserita solo se A stessa è
+ già presente nell'acqua.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 4 
+\end_layout
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\begin_layout Plain Layout
+3 
+\end_layout
+
+\begin_layout Plain Layout
+4 1 2 
+\end_layout
+
+\begin_layout Plain Layout
+5 2 2 3 
+\end_layout
+
+\begin_layout Plain Layout
+7 2 2 4 
+\end_layout
+
+\begin_layout Plain Layout
+1 3 3 7 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La prima cosa da fare è di nuovo individuare quali elementi verranno rappresenta
+ti da nodi e quali da archi: in questo caso le sostanze faranno la parte
+ dei nodi del nostro grafo e i vincoli che permettono a una sostanza di
+ essere inserita o meno nell'acqua sono gli archi nel grafo.
+ Se ad esempio abbiamo la regola 1 :-- 3, 7, 4, essa verrà rappresentata
+ come il nodo 1 con archi orientati verso i nodi 3, 7 e 4 e quindi la solita
+ rappresentazione mediante 
+\emph on
+liste di adiacenza
+\emph default
+ sempre del tutto appropriata per contenere i dati di ingresso.
+\end_layout
+
+\begin_layout Standard
+A questo punto la risoluzione viene abbastanza semplice se la si vede da
+ un punto di vista ricorsivo
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+La ricorsione è una delle tecniche che ben si adattano ad essere utilizzate
+ sui grafi.
+\end_layout
+
+\end_inset
+
+ in questo modo: 
+\end_layout
+
+\begin_layout Itemize
+data una sostanza, verifico se le sostanze da cui dipende sono già in acqua
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+se lo sono tutte allora anche lei può essere inserita
+\end_layout
+
+\begin_layout Itemize
+se qualcuna non lo è verifico ricorsivamente se può essere inserita
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+La condizione di terminazione della ricorsione si ha quando una sostanza
+ è già in acqua oppure quando non può essere messa in acqua non essendolo
+ già (da un punto di vista del grafo quella sostanza è un nodo
+\emph on
+ pozzo
+\emph default
+, cioè nel quale non ci sono archi uscenti, ma solo entranti).
+ Facendo partire la ricorsione dalla sostanza 1 e vedendo se può essere
+ o meno inserita avremo il risultato desiderato.
+ Inoltre, se può essere inserita, il numero di sostanze necessarie si può
+ calcolare sottraendo al numero di sostanze in acqua dopo la ricorsione
+ il numero di sostanze presenti all'inizio: siamo inoltre sicuri che questo
+ è il numero minimo, poiché la ricorsione 
+\begin_inset Quotes eld
+\end_inset
+
+avanza
+\begin_inset Quotes erd
+\end_inset
+
+ solo attraverso i nodi strettamente necessari a verificare le condizioni,
+ non visitando quelli che non influenzano la scelta.
+\end_layout
+
+\begin_layout Standard
+Vediamo adesso il codice:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+list <int> sostanze[2001]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+set <int> inAcqua;
+\end_layout
+
+\begin_layout Plain Layout
+
+bool scorriRegole(int i) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (inAcqua.find(i) != inAcqua.end()) return true;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	bool flag = true;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (list<int>::iterator j=sostanze[i].begin(); j !=sostanze[i].end(); j++)
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+	{         
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (sostanze[*j].empty() && inAcqua.find(*j) == inAcqua.end())
+\end_layout
+
+\begin_layout Plain Layout
+
+            return false;         
+\end_layout
+
+\begin_layout Plain Layout
+
+		bool verificata = scorriRegole(*j);         
+\end_layout
+
+\begin_layout Plain Layout
+
+		flag *= verificata;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (flag)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		inAcqua.insert(i);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	return flag; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> K >> R; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i<K; i++) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 	    
+\end_layout
+
+\begin_layout Plain Layout
+
+		int temp; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> temp; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		inAcqua.insert(temp); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i<R; i++) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 	    
+\end_layout
+
+\begin_layout Plain Layout
+
+		int A,n; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> A >> n; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		list <int> temp; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j=0; j<n; j++)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		{             
+\end_layout
+
+\begin_layout Plain Layout
+
+			int t;             
+\end_layout
+
+\begin_layout Plain Layout
+
+			in >> t;             
+\end_layout
+
+\begin_layout Plain Layout
+
+			temp.push_back(t);         
+\end_layout
+
+\begin_layout Plain Layout
+
+		}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		sostanze[A] = temp; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (scorriRegole(1))         
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << inAcqua.size() - K << endl;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	else         
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << "-1" << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alla riga 1 viene definita la lista di adiacenza, mentre alla riga 2 è stato
+ usato un container standard, il 
+\emph on
+set
+\emph default
+, per rappresentare l'insieme delle sostanze già presenti in acqua: anche
+ un semplice vettore, come visto nelle visite, sarebbe stato adeguato, il
+ vantaggio del 
+\emph on
+set
+\emph default
+ è che il tempo di ricerca di un elemento è logaritmico contro quello lineare
+ di ricerca in un vettore.
+\end_layout
+
+\begin_layout Standard
+L'input viene fatto in due passi: alle righe 21-29 si inseriscono le sostanze
+ inizialmente presenti in acqua, mentre alle righe 30-42 si creano le liste
+ di adiacenza, come già visto nell'esempio precedente.
+\end_layout
+
+\begin_layout Standard
+Come in tutti i problemi in cui utilizziamo la ricorsione tutto viene svolto
+ nella funzione ricorsiva 
+\emph on
+scorriRegole
+\emph default
+, che prende come parametro d'ingresso il nodo di cui deve verificare la
+ possibilità di essere inserito in acqua.
+ Come già detto abbiamo due condizioni di terminazione: 
+\end_layout
+
+\begin_layout Itemize
+la prima (riga 5) verifica se la sostanza è già in acqua e nel caso ritorna
+ 
+\emph on
+true
+\end_layout
+
+\begin_layout Itemize
+la seconda (riga 9) verifica che una sostanza non presente in acqua
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Attenzione che non basta che la sostanza sia un pozzo, perché se fosse un
+ pozzo ma fosse già presente in acqua non darebbe problemi)
+\end_layout
+
+\end_inset
+
+ non abbia regole per essere inserita (come già detto è un pozzo) e nel
+ caso ritorna 
+\emph on
+false
+\end_layout
+
+\begin_layout Standard
+L'ultima cosa interessante da notare è che, siccome una sostanza per essere
+ inserita necessita che siano presenti in acqua tutte le sostanze da cui
+ dipende, quando nel ciclo (riga 7) scorriamo le varie sostanze, facciamo
+ poi il prodotto (riga 12) dei relativi valori di verità, in modo da ottenere
+ 
+\emph on
+true
+\emph default
+ solo se tutte le condizioni sono rispettate.
+ 
+\end_layout
+
+\begin_layout Section
+Esempio: Le pesate di Bilancino - territoriali 2006
+\end_layout
+
+\begin_layout Standard
+Questo esempio è, secondo la mia impressione, uno dei più complessi per
+ il livello delle territoriali e la soluzione può essere ottenuta anche
+ senza avere conoscenze approfondite sui grafi, facendo una serie di osservazion
+i non del tutto evidenti e sfruttando opportunamente sia le matrici di adiacenze
+ che le liste.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsection*
+Le pesate di Bilancino (bilancino) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 3.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Bilancino è un bambino con una passione maniacale, quella di mettere gli
+ oggetti in ordine crescente di peso.
+ I suoi genitori posseggono un'antica e rara bilancia con due bracci uguali:
+ posti due oggetti, uno per braccio, la bilancia permette di stabilire quale
+ dei due oggetti è più pesante, ma non permette di trovarne il peso assoluto.
+\end_layout
+
+\begin_layout Plain Layout
+Oggi Bilancino vuole mettere in ordine crescente di peso N oggetti e, a
+ tale scopo, ha già effettuato una serie di M pesate, trascrivendone i risultati.
+ Infatti, numerati tali oggetti da 1 a N, egli ha pesato M coppie di oggetti
+ distinti x e y, dove 1 ≤ x, y ≤ N, scrivendo i due interi x e y in quest'ordine
+ su una riga per indicare che x è più leggero di y e, invece, scrivendo
+ y e x in quest'ordine per indicare che y è più leggero di x.
+ Da notare che non esistono due oggetti con lo stesso peso (siano essi stati
+ pesati o meno da Bilancino) e che la stessa coppia di oggetti non può essere
+ pesata più di una volta.
+\end_layout
+
+\begin_layout Plain Layout
+Esaminate le M pesate finora eseguite da Bilancino e aiutatelo a decidere
+ quale, tra le seguenti alternative, consente di stabilire l'ordine crescente
+ di peso tra gli N oggetti:
+\end_layout
+
+\begin_layout Itemize
+le M pesate sono sufficienti; 
+\end_layout
+
+\begin_layout Itemize
+è necessaria un'ulteriore pesata; 
+\end_layout
+
+\begin_layout Itemize
+sono necessarie due o più pesate.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt è composto da M+1 righe.
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga contiene due interi positivi separati da uno spazio: il primo
+ intero rappresenta il numero N di oggetti da ordinare in base al peso mentre
+ il secondo intero rappresenta il numero M di pesate effettuate da Bilancino.
+\end_layout
+
+\begin_layout Plain Layout
+Le successive M righe contengono coppie di interi positivi: la j-esima di
+ tali righe è composta da due interi distinti a e b separati da uno spazio,
+ a rappresentare la j-esima pesata effettuata da Bilancino, in cui egli
+ scopre che l'oggetto a è più leggero dell'oggetto b (dove 1 ≤ j ≤ M e 1
+ ≤ a, b ≤N).
+ Da notare che la stessa pesata non può apparire in più di una riga.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da una riga contenente un solo intero come
+ dalla seguente tabella.
+\end_layout
+
+\begin_layout Plain Layout
+0 : nessuna ulteriore pesata è necessaria per stabilire l'ordine crescente
+ di tutti gli oggetti.
+\end_layout
+
+\begin_layout Plain Layout
+1 : serve e basta un'ulteriore pesata per stabilire l'ordine crescente di
+ tutti gli oggetti.
+\end_layout
+
+\begin_layout Plain Layout
+2 : due o più pesate sono ulteriormente necessarie per stabilire l'ordine
+ crescente di tutti gli oggetti.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+1 < N < 100 
+\end_layout
+
+\begin_layout Itemize
+1 ≤ M ≤ N(N-1)/2 
+\end_layout
+
+\begin_layout Itemize
+I dati in input.txt garantiscono sempre che esiste almeno un ordinamento
+ degli oggetti compatibile con tutte le pesate trascritte da Bilancino.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3 2 
+\end_layout
+
+\begin_layout Plain Layout
+1 2 
+\end_layout
+
+\begin_layout Plain Layout
+3 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La soluzione qui prospettata usa sia una matrice di adiacenza che delle
+ liste di adiacenza per arrivare al risultato finale, perché scompone il
+ problema in due parti e per ogni parte la struttura usata è quella che
+ permette di scrivere la soluzione più facilmente.
+\end_layout
+
+\begin_layout Standard
+Al solito identifichiamo prima chi sono i nodi e chi sono gli archi, cosa
+ piuttosto evidente: i nodi sono gli oggetti pesati e gli archi le relazioni
+ di ordinamento su questi oggetti.
+ Per come è definito il problema, il grafo che rappresenta i dati risulta
+ essere un DAG (Directed Acyclic Graph), un grafo diretto aciclico, che,
+ senza entrare in definizioni tecniche, è un grafo in cui non possono essere
+ presenti cicli e di cui è sempre possibile trovare un ordinamento dei nodi
+ 
+\begin_inset Quotes eld
+\end_inset
+
+adagiandoli
+\begin_inset Quotes erd
+\end_inset
+
+ su una retta in cui gli archi sono tutti nella stessa direzione.
+ Questa osservazione ci permetterebbe di utilizzare tecniche specifiche,
+ ma vedremo come sia possibile arrivare alla soluzione con alcune osservazioni
+ intelligenti
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Attenzione che questo è vero per il livello delle territoriali, lo è molto
+ di meno per i livelli nazionali e internazionali, dove oltre alle osservazioni
+ intelligenti sono spesso necessarie delle tecniche algoritmiche specifiche.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Facendo un po' di esempi e di prove su carta ci si accorge di due cose:
+\end_layout
+
+\begin_layout Enumerate
+dato l'insieme delle pesate di Bilancino è a volte possibile inferire delle
+ nuove relazioni: banalmente se io so che 
+\begin_inset Formula $O_{1}<O_{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $O_{2}<O_{3}$
+\end_inset
+
+ posso dedurre che 
+\begin_inset Formula $O_{1}<O_{3}$
+\end_inset
+
+, anche se questa non è una delle pesate che ho in input.
+ Ovviamente è anche vero che per altri insiemi di pesate non posso dedurre
+ nuove relazioni: facendo un altro esempio se so che 
+\begin_inset Formula $O_{1}<O_{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $O_{1}<O_{3}$
+\end_inset
+
+ non posso dire niente sulla relazione che lega 
+\begin_inset Formula $O_{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $O_{3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+se inserisco la relazione 
+\begin_inset Formula $O_{i}<O_{j}$
+\end_inset
+
+ all'interno della matrice di adiacenza rappresentandola con il valore 1
+ in posizione individuata dagli indici i e j (e per comodità faccio la stessa
+ cosa per gli indici j e i), mi accorgo che 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+posso ordinare gli oggetti solo se, dopo aver dedotto tutte le relazioni
+ possibili come detto in precedenza, la matrice presenta tutti 1
+\end_layout
+
+\begin_layout Enumerate
+mi basta solo un'altra pesata opportuna se nella matrice sono presenti due
+ sole caselle che non contengono un 1
+\end_layout
+
+\begin_layout Enumerate
+mi servono 2 o più pesate se nella matrice sono presenti due o più caselle
+ che non contengono un 1
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+A questo punto l'algoritmo risolutivo è già impostato: per risolvere il
+ punto 1 è sufficiente procedere ricorsivamente sulle relazioni per individuarne
+ di nuove e di volta in volta segnare sulla matrice di adiacenza le nuove
+ relazioni trovare; il punto 2 è banale perché basta esplorare tutta la
+ matrice e contare il numero di 0 presenti (avendo cura di averla inizializzata
+ a 0).
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+list <int> relazioni[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int matrice[100][100];
+\end_layout
+
+\begin_layout Plain Layout
+
+void esplora_nodo(int n, int p) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (relazioni[n].empty()) return; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	list<int>::iterator i; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for ( i = relazioni[n].begin(); i!= relazioni[n].end(); ++i) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		matrice[p][*i] = matrice[*i][p] = 1; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		esplora_nodo(*i,p); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main(){ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i <100 ; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		matrice[i][i] = 1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N >> M; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i <M ; i++) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		int a, b; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> a >> b; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		matrice[a][b] = matrice[b][a] = 1; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		relazioni[a].push_back(b); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 1; i <= N; ++i) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		esplora_nodo(i,i); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int cont = 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; ++i) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j = 0; j < N; ++j) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (matrice[i+1][j+1] == 0) 				
+\end_layout
+
+\begin_layout Plain Layout
+
+				cont++; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (cont == 0) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << 0 << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	else if (cont == 2) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << 1 << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	else 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << 2 << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopo aver dichiarato la lista di adiacenza (riga 1) e la matrice di adiacenza
+ (riga 2), quest'ultima viene inizializzata mettendo degli uno sulla diagonale
+ maggiore (tutte le altre caselle sono a zero perché è una variabile globale
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In C/C++ solo le variabili globali vengono inizializzate a zero, quelle
+ locali necessita di un'inizializzazione esplicita altrimenti il loro valore
+ non è definito.
+\end_layout
+
+\end_inset
+
+).
+ La lettura dell'input (righe 20-26) inserisce le relazioni nella lista
+ di adiacenza e mette a 1 le caselle della matrice in posizione simmetrica
+ rispetto agli indici (si poteva evitare questo 
+\begin_inset Quotes eld
+\end_inset
+
+raddoppio
+\begin_inset Quotes erd
+\end_inset
+
+ di assegnamenti a costo di complicare un po' il codice).
+ 
+\end_layout
+
+\begin_layout Standard
+Per ogni nodo poi si esegue una funzione ricorsiva che prende come parametri
+ un intero che rappresenta il nodo da analizzare e un altro intero che rappresen
+ta il nodo da cui è partita la ricorsione e che rimane costante attraverso
+ tutte le chiamate ricorsive.
+ L'idea ricorsiva in questo caso dice che se un nodo 
+\emph on
+x
+\emph default
+ è in relazione con un nodo 
+\emph on
+y
+\emph default
+ e questo è in relazione con un nodo 
+\emph on
+z
+\emph default
+ allora il nodo di partenza 
+\emph on
+x
+\emph default
+ sarà anche in relazione con 
+\emph on
+z
+\emph default
+ (ovviamente con la ricorsione questo ragionamento viene propagato a tutti
+ i livelli presenti).
+ Procedendo in questo modo segno sulla matrice tutte le nuove relazioni
+ che trovo (riga 9), finché non si esaurisce la ricorsione e poi procedo
+ sul nodo successivo.
+\end_layout
+
+\begin_layout Standard
+Infine controllo il numero di zeri presenti nella matrice e ottengo il risultato
+ come spiegato in precedenza.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec: cammino_minimo"
+
+\end_inset
+
+Il problema del cammino minimo
+\end_layout
+
+\begin_layout Standard
+In questo paragrafo verrà mostrato un algoritmo famoso, non tanto per darne
+ una soluzione in termini di codice, che viene lasciato come esercizio al
+ lettore, quanto piuttosto per far vedere come risolvere in maniera intelligente
+ un problema e come la soluzione, pur non evidente e banale, una volta compresa
+ sia abbastanza semplice.
+\end_layout
+
+\begin_layout Standard
+Uno dei problemi mostrati nel paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Definizione-di-grafo"
+
+\end_inset
+
+ e in generale uno tra i più noti anche tra i non informatici è quello della
+ determinazione del cammino minimo, cioè del cammino di costo minore che
+ porta da un vertice a un altro.
+ Il problema risulta ben definito sia per grafi orientati che non orientati:
+ per grafi orientati può essere possibile che non esista un cammino da un
+ nodo a un altro oppure che a seconda del verso di percorrenza il cammino
+ abbia costo diverso.
+ Il costo del cammino è la somma dei pesi degli archi che compongono il
+ cammino e il cammino minimo tra due nodi è quel cammino (o quei cammini,
+ perché non necessariamente è uno solo) con il costo minore.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/grafi/CamminiPossibili1.eps
+	display false
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Cammini possibili
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cammini-possibili"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La difficoltà del problema risiede nel fatto che il numero di cammini possibili
+ aumenta molto velocemente all'aumentare del numero di nodi e archi e già
+ con grafi piuttosto piccoli diventa talmente grande che non è possibile
+ trovare il cammino minimo tramite una ricerca esaustiva.
+ Per comprendere questo problema prendiamo in considerazione il grafo di
+ figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Cammini-possibili"
+
+\end_inset
+
+che è stato costruito appositamente con una struttura regolare per facilitare
+ il compito di vedere a occhio i cammini possibili.
+ Volendo contare i cammini possibili che vanno dal nodo all'estrema sinistra
+ a quello all'estrema destra è facile notare come dal primo nodo ci siano
+ due possibilità di scelta e nei due nodi successivi altre due possibilità
+ per ognuno (gli ultimi due nodi prima del nodo d'arrivo non hanno possibilità
+ di scelta poiché hanno un solo arco uscente).
+ Quindi il numero di cammini possibili è quattro, a fronte di un numero
+ di nodi pari a sei e un numero di archi pari a otto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/grafi/CamminiPossibili2.eps
+	lyxscale 30
+	display false
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Cammini possibili
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cammini-possibili2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se modifichiamo il grafo in modo da renderlo come in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Cammini-possibili2"
+
+\end_inset
+
+, quindi mantenendo la stessa struttura e semplicemente aggiungendo un 
+\begin_inset Quotes eld
+\end_inset
+
+livello
+\begin_inset Quotes erd
+\end_inset
+
+, otteniamo un numero di cammini possibili, seguendo lo stesso ragionamento
+ di prima pari a otto con un numero di nodi uguale a otto e un numero di
+ archi uguale a dodici.
+\end_layout
+
+\begin_layout Standard
+Indicando con N il numero di nodi di un grafo con questa struttura si può
+ facilmente generalizzare il procedimento visto sopra ottenendo come valore
+ per gli archi 
+\begin_inset Formula $N\times2-4$
+\end_inset
+
+ e come valore per i cammini possibili 
+\begin_inset Formula $2^{N/2-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Tanto per avere una sensazione di cosa voglia significare questo in termini
+ di tempo di calcolo, viene proposta la tabella 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Tabella-tempi"
+
+\end_inset
+
+ nella quale ogni riga contiene le caratteristiche di un grafo con la struttura
+ vista in precedenza e nella colonna Tempo si indica il tempo che impiegherebbe
+ un computer in grado di calcolare la lunghezza di un milione di cammini
+ al secondo per trovare il cammino minimo esplorando tutte le possibili
+ alternative.
+ Si può notare come già per un grafo di dimensioni molto contenute il tempo
+ di una ricerca esaustiva sia improponibile e considerando che i navigatori
+ satellitari odierni risolvono questo genere di problemi con grafi con migliaia
+ di nodi in qualche secondo è ovvio che deve esistere qualche algoritmo
+ più efficiente della ricerca esaustiva.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N.
+ nodi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N.
+ archi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N.
+ cammini
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tempo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+62
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+120
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,1 miliardi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18 min.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+82
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+160
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,1 milioni di milioni
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13 giorni
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+102
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,1 milioni di miliardi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+36 anni
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+122
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+240
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,2 miliardi di miliardi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+37 migliaia di anni
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Tabella per i tempi di ricerca esaustiva
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Tabella-tempi"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'algoritmo di base per risolvere questo tipo di problemi fu scoperto alla
+ fine degli anni '60 da Edsger Dijkstra e da lui prese il nome.
+ Questo algoritmo è in grado di trovare il cammino minimo da ogni nodo verso
+ un nodo predeterminato in tempo quadratico rispetto al numero di nodi (in
+ alcuni casi particolari anche in meno tempo).
+ Una condizione necessaria perché l'algoritmo possa essere applicato è che
+ il grafo non deve contenere archi con peso negativo.
+\end_layout
+
+\begin_layout Standard
+Cerchiamo di capirne intuitivamente il funzionamento tramite l'esempio di
+ figura  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dijkstra1"
+
+\end_inset
+
+ volendo trovare il cammino minimo dal nodo A al nodo H.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/grafi/Dijkstra01.eps
+	lyxscale 40
+	display false
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Problema del cammino minimo da A a H
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dijkstra1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'idea fondamentale dell'algoritmo è quella di potere ad ogni passo trovare
+ un nodo per il quale si possa con certezza dire qual è il cammino minimo
+ da esso verso il nodo di partenza.
+ Al passo successivo se ne troverà un altro che verrà aggiunto all'insieme
+ dei nodi di cui si conosce il cammino minimo e così via fino ad arrivare
+ al nodo di interesse.
+ Nell'esempio in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dijkstra1"
+
+\end_inset
+
+ il primo nodo di cui sappiamo il cammino minimo è banalmente il nodo A,
+ poiché per arrivare da A a sé stesso la distanza è zero.
+ Attenzione che questo in realtà è vero perché avevamo posto che l'algoritmo
+ potesse applicarsi solo a grafi con pesi non negativi, altrimenti non sarebbe
+ necessariamente vero.
+ A questo punto l'algoritmo prevede che da questo nodo vengano aggiornate
+ le distanze che lo separano dai nodi direttamente raggiungibili da esso
+ e solo per quelli, utilizzando i pesi che si trovano sugli archi da esso
+ uscenti (nel caso il grafo non sia orientato qualsiasi arco).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/grafi/Dijkstra02.eps
+	lyxscale 40
+	display false
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Aggiornamento dei pesi partendo da A
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dijkstra2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dijkstra2"
+
+\end_inset
+
+ si nota come il nodo A sia evidenziato perché di quello si sa il cammino
+ minimo ed è un'informazione che non potrà successivamente cambiare, inoltre
+ al suo interno è indicato il numero 0 (il cammino minimo da A verso A)
+ e il nodo di provenienza A.
+ L'aggiornamento prevede poi che per i nodi B e C (gli unici raggiungibili
+ direttamente da A) venga inserito al loro interno il costo per raggiungere
+ A attraverso gli archi che li uniscono ad A e anche l'indicazione del nodo
+ attraverso il quale si è arrivati a quel costo (in questo caso A).
+ A questo punto l'algoritmo prevede di scegliere il nodo con il costo minore
+ (i nodi senza il costo è come se avessero al loro interno un costo infinito
+ e quindi non possono essere scelti).
+ Nel caso in figura verrà quindi scelto il nodo B che ha costo 3 e a quel
+ punto si ripartirà con i passaggi visti in precedenza, ottenendo la figura
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dijkstra3"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/grafi/Dijkstra03.eps
+	lyxscale 40
+	display false
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Aggiornamento dei pesi partendo da B
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dijkstra3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si può vedere nell'aggiornamento è stato trovato un cammino migliore
+ per arrivare a C e quindi il suo contenuto è stato modificato inserendo
+ il nuovo costo (10) e il nuovo nodo dal quale si è arrivati (B).
+ Allo stesso modo sono stati anche aggiornati i nodi D ed E nei quali sono
+ stati inseriti i nuovi valori.
+ Per chiarezza di visualizzazione è stato anche evidenziato l'arco che porta
+ da A a B perché in questo modo alla fine sarà possibile visualizzare facilmente
+ il percorso minimo.
+ A questo punto si tratta di scegliere il nodo con il costo minimo tra C,
+ D e E e verrà scelto D poiché contiene il peso minimo, ottenendo quanto
+ si può vedere in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dijkstra4"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/grafi/Dijkstra04.eps
+	lyxscale 40
+	display false
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Aggiornamento dei pesi partendo da D
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dijkstra4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da notare che a questo punto il nodo di cui ci interessava sapere il cammino
+ minimo che lo separava da A, cioè H, ha già un costo (22) al suo interno,
+ solo che finché non verrà anch'esso incluso nell'insieme dei nodi di cui
+ si conosce con sicurezza il cammino minimo (quelli evidenziati nelle figure),
+ nulla si potrà dire su questo valore, che potrebbe essere quello finale
+ oppure no.
+ Continuando con i passaggi che a questo punto dovrebbero essere chiari
+ arriveremo alla figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dijkstra5"
+
+\end_inset
+
+ nella quale l'algoritmo ha scoperto il costo del cammino minimo e da quali
+ archi è composto, cioè, procedendo a ritroso, H-E, E-C, C-D, D-B e B-A
+ per un costo totale di 19.
+\end_layout
+
+\begin_layout Standard
+Si può notare come anche i nodi che non fanno parte del cammino minimo da
+ A a H (F e G) abbiano comunque al loro interno il costo minimo per arrivare
+ ad A partendo da sé stessi e quindi come conseguenza del funzionamento
+ dell'algoritmo si ottiene il costo minimo da tutti i nodi verso A.
+ Se interessa solo il cammino minimo da A verso uno specifico nodo, per
+ risparmiare risorse computazionali ci si può fermare una volta che il nodo
+ interessato sia stato incluso nell'insieme dei nodi 
+\begin_inset Quotes eld
+\end_inset
+
+stabili
+\begin_inset Quotes erd
+\end_inset
+
+, quelli cioè evidenziati nelle figure (in questo esempio specifico il nodo
+ H era anche l'ultimo ad essere raggiunto quindi in questo caso non ci sarebbe
+ nessuna differenza).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/grafi/Dijkstra05.eps
+	lyxscale 40
+	display false
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Risultato dell'applicazione dell'algoritmo
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dijkstra5"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,487 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\date{}
+\end_preamble
+\use_default_options false
+\master guida.lyx
+\maintain_unincluded_children true
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans helvet
+\font_typewriter courier
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Indice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Prerequisiti
+\end_layout
+
+\begin_layout Quote
+
+\shape italic
+\begin_inset Quotes eld
+\end_inset
+
+Ho aperto i cassetti della scrivania, che contenevano i miei attrezzi da
+ lavoro, le penne, le bottigliette dei vari inchiostri, fogli ancora bianchi
+ (o gialli) di epoche e formati diversi.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+\align right
+
+\shape italic
+Umberto Eco
+\shape default
+, Il cimitero di Praga
+\end_layout
+
+\begin_layout Standard
+Per partecipare con successo alle selezioni territoriali delle Olimpiadi
+ di Informatica è necessario avere delle basi di programmazione che questa
+ dispensa vorrebbe contribuire a rendere più solide e vaste.
+ Inoltre, siccome la gara (e anche tutte le eventuali fasi successive) consiston
+o nella risoluzione di problemi al computer, cioè nella scrittura di codice
+ funzionante per la soluzione di un particolare problema, è necessario fare
+ molta pratica, per capire come applicare concretamente quanto appreso in
+ teoria.
+ Per far ciò bisogna avere a disposizione un ambiente di sviluppo installato
+ e funzionante sul proprio computer, in modo da poter trasformare in codice
+ le idee e gli algoritmi pensati e verificarne la correttezza.
+ Come già detto nell'introduzione, questa dispensa si concentra esclusivamente
+ sui linguaggi C e C++ e quindi anche gli ambienti di sviluppo qui proposti
+ sono quelli relativi a tali linguaggi.
+\end_layout
+
+\begin_layout Section
+Ambienti di sviluppo
+\end_layout
+
+\begin_layout Standard
+Solitamente per ambiente di sviluppo si intende un insieme di strumenti
+ software, tra cui compilatori, editor, debugger e altro che vengono 
+\begin_inset Quotes eld
+\end_inset
+
+impacchettati
+\begin_inset Quotes erd
+\end_inset
+
+ per permettere al programmatore di svolgere i suoi compiti nel modo più
+ agevole e comodo possibile.
+ La scelta di un ambiente di sviluppo dipende fortemente dalle esigenze
+ e anche dalle preferenze di ogni programmatore; per le gare come le Olimpiadi
+ dove i programmi da sviluppare sono molto contenuti in termini di linee
+ di codice scritte, più o meno qualsiasi ambiente può andar bene, l'importante
+ è che si utilizzi un compilatore C/C++ (o Pascal) aderente agli standard.
+\end_layout
+
+\begin_layout Standard
+Tanto per chiarire e per fare in modo che ognuno possa utilizzare correttamente
+ la terminologia legata allo sviluppo software vediamo una breve lista dei
+ termini utilizzati e del loro significato
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Anche se la maggior parte delle definizioni posso essere applicate a vari
+ linguaggi, alcuni particolari sono legati al linguaggio C/C++
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+codice sorgente
+\series default
+: è il codice scritto dal programmatore nel linguaggio scelto, per produrre
+ un programma funzionante deve essere corretto sintatticamente, cioè rispettare
+ le regole del linguaggio usato
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+compilatore
+\series default
+: in C/C++ è il software che prende il codice sorgente e attraverso un processo
+ di 
+\begin_inset Quotes eld
+\end_inset
+
+traduzione
+\begin_inset Quotes erd
+\end_inset
+
+ lo trasforma in un codice oggetto, cioè un file in linguaggio macchina
+ non ancora pronto per essere mandato in esecuzione.
+ Se il codice sorgente presenta degli errori sintattici, viene emesso un
+ messaggio d'errore e non viene prodotto niente
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+linker
+\series default
+: unisce i vari file oggetto, nella forma più semplice il file contenente
+ il 
+\emph on
+main
+\emph default
+ con i file delle librerie, per produrre un eseguibile funzionante.
+ Se mancano dei riferimenti alle librerie produce un messaggio d'errore
+ (tipicamente 
+\emph on
+Undefined reference
+\emph default
+) e non produce l'eseguibile (nelle Olimpiadi un'eventualità del genere
+ non può succedere perché non vengono linkate librerie esterne)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+editor
+\series default
+: è il software che permette di scrivere il codice sorgente.
+ In linea di massima qualsiasi editor di testo, ad esempio il Blocco Note
+ di Windows, può essere usato per questo compito, ma in pratica esistono
+ degli editor specifici per la programmazione, con delle caratteristiche
+ studiate apposta per facilitare il lavoro di sviluppo, come ad esempio
+ il 
+\emph on
+syntax highlighting
+\emph default
+, cioè la possibilità di mostrare le varie parole del codice con colori
+ diversi a seconda del loro significato (parole chiave, variabili, stringhe,
+ ecc.)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+debugger
+\series default
+: è un software che permette di controllare il comportamento del programma
+ sviluppato, ad esempio fermando l'esecuzione in alcuni punti particolari
+ e visualizzando i valori delle variabili in tempo di esecuzione.
+\end_layout
+
+\begin_layout Standard
+Al momento della stesura di questo manuale il sito ufficiale delle Olimpiadi
+ indica come ambienti di gara il DevCpp versione 4.9 per il C/C++ e il DevPascal
+ versione 1.9 per il Pascal, entrambi completi di compilatore e editor (il
+ debugger può essere installato separatamente, ma personalmente lo trovo
+ abbastanza inutile in questo tipo di gare).
+ L'installazione e l'utilizzo sotto Windows sono molto semplici, anche per
+ chi dovesse provenire da ambienti di sviluppo differenti.
+ Ovviamente entrambi gli ambienti sono liberamente scaricabili.
+ Per chi volesse utilizzare il sistema operativo Linux
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Dalle selezioni nazionali 2011 l'ambiente Linux è diventato l'unico ambiente
+ di gara possibile per tale livello e a breve lo potrebbe diventare anche
+ nelle selezioni territoriali.
+\end_layout
+
+\end_inset
+
+ questi due ambienti non sono presenti, ma per il C/C++ è possibile usare
+ CodeBlocks (installabile anche sotto Windows) oppure uno tra i molteplici
+ editor evoluti per programmatori (vi, gedit, geany, ecc.)
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Il-correttore"
+
+\end_inset
+
+Il correttore
+\end_layout
+
+\begin_layout Standard
+In tutte le fasi di gara delle Olimpiadi dalle territoriali in poi (quindi
+ anche le nazionali e le internazionali), è previsto che il punteggio assegnato
+ sia dato in base a quanti casi di test il programma scritto è in grado
+ di risolvere, secondo lo schema in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schema-di-valutazione"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/prerequisiti/sottomissione.eps
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Schema-di-valutazione"
+
+\end_inset
+
+Schema di valutazione
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quindi non viene valutata l'eleganza del codice scritto o la qualità dei
+ commenti o l'organizzazione del codice per renderlo modulare e estendibile,
+ quanto se risolve il problema oppure no (e come vedremo in seguito anche
+ quanto è 
+\begin_inset Quotes eld
+\end_inset
+
+rapido
+\begin_inset Quotes erd
+\end_inset
+
+ a risolverlo).
+ 
+\end_layout
+
+\begin_layout Standard
+Anche se può sembrare strano questo sistema non garantisce che il programma
+ sia corretto in senso assoluto, ma solo che risolva correttamente i casi
+ proposti: nella realtà questa distinzione è più teorica che pratica, in
+ quanto i casi proposti in genere sono scelti per verificare il comportamento
+ del programma su tutte le diverse condizioni in cui si può trovare l'input,
+ compresi casi limite e situazioni particolari.
+\end_layout
+
+\begin_layout Standard
+Perché viene fatto così? Perché in questo modo è possibile dare una valutazione
+ oggettiva, in termini di punti, ad ogni atleta e la modalità di valutazione
+ mostrata in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schema-di-valutazione"
+
+\end_inset
+
+ può essere facilmente automatizzata facendola svolgere a un computer.
+ I programmi che svolgono la valutazione delle prove sono in gergo chiamati
+ 
+\emph on
+correttori
+\emph default
+ e, pur essendo software scritti da persone diverse (a seconda delle nazioni
+ e del livello di gara), svolgono tutti sostanzialmente la stessa attività.
+\end_layout
+
+\begin_layout Standard
+Volendo allenarsi per le Olimpiadi è quindi sensato provare a usare un correttor
+e, sia per testare la correttezza delle proprie soluzioni che per 
+\begin_inset Quotes eld
+\end_inset
+
+simulare
+\begin_inset Quotes erd
+\end_inset
+
+ la situazione di gara.
+ Recentemente l'organizzazione italiana che cura le Olimpiadi ha messo a
+ disposizione un correttore online che si può trovare all'interno del 
+\begin_inset CommandInset href
+LatexCommand href
+name "portale italiano delle Olimpiadi Italiane di Informatica"
+target "www.olimpiadi-informatica.it"
+
+\end_inset
+
+ all'indirizzo 
+\family typewriter
+http://www.olimpiadi-informatica.it
+\family default
+, nella sezione 
+\emph on
+Allenamenti
+\emph default
+.
+ Tramite una semplice registrazione sarà quindi possibile testare la comprension
+e del presente manuale in tempo reale, sottoponendo al correttore le proprie
+ soluzioni e verificandone la correttezza.
+ Allo stato attuale (settembre 2011) l'unico neo di questo correttore è
+ che non è 
+\emph on
+semantico
+\emph default
+, cioè non è in grado di valutare correttamente soluzioni corrette che però
+ non siano esattamente uguali a quelle che si aspetta, come verrà mostrato
+ in seguito con alcuni esempi presi dalle gare territoriali.
+\end_layout
+
+\begin_layout Standard
+L'aspetto sicuramente più importante del correttore italiano è che contiene
+ un insieme di problemi di test che sono presi direttamente dalle selezioni
+ territoriali e nazionali degli anni passati, permettendo quindi di testare
+ il livello a cui ci si troverà di fronte in gara.
+ Oltre a questi sono inclusi anche molti altri problemi divisi in categorie
+ in base alla difficoltà, che ampliano ulteriormente la possibilità di allenarsi.
+\end_layout
+
+\begin_layout Section
+Gare online
+\end_layout
+
+\begin_layout Standard
+Per chi volesse cimentarsi a fare una gara online sulle stile delle Olimpiadi
+ esistono molti siti che permettono di farlo: anche se per la preparazione
+ alla selezione territoriale una gara online può non essere necessaria,
+ si tratta comunque di un buon campo di prova perché viene dato un numero
+ di problemi e un tempo limite di scrittura delle soluzioni che pongono
+ chi le affronta in una situazione di stress più simile a quella che incontrerà
+ durante una gara 
+\begin_inset Quotes eld
+\end_inset
+
+vera
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+I due siti generalmente indicati anche dall'organizzazione italiana per
+ cimentarsi con delle gare online sono i seguenti:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "USACO"
+target "www.usaco.org"
+
+\end_inset
+
+: USA Computing Olympiad, è il sito utilizzato dagli Stati Uniti per selezionare
+ gli atleti che partecipano di anno in anno alla finale internazionale delle
+ Olimpiadi di Informatica.
+ Contiene una sezione per le gare online che vengono tenute di norma un
+ fine settimana al mese e una sezione per gli allenamenti simile al nostro
+ correttore.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "COCI"
+target "www.hsin.hr/coci/"
+
+\end_inset
+
+: Croatian Competition in Informatics, è il sito delle Olimpiadi croate,
+ le gare vengono tenute di norma un sabato al mese, ogni gara è composta
+ da sei problemi di difficoltà crescente in modo molto graduale (i primi
+ tre in genere sono fattibili senza troppo sforzo).
+\end_layout
+
+\begin_layout Standard
+Ovviamente entrambi i siti richiedono una conoscenza basilare dell'inglese
+ in quanto i testi di gara sono in quella lingua (in realtà esistono anche
+ versione dei testi in altre lingue, ma, almeno finora, l'italiano non è
+ contemplato).
+\end_layout
+
+\end_body
+\end_document

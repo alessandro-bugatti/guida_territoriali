@@ -1,0 +1,83 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0063)http://192.168.2.100:8080/ioiManager/_proveSelezione/mappa.html -->
+<HTML 
+xmlns="http://www.w3.org/TR/xhtml1/strict"><HEAD><TITLE>Mappa antica</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY>
+<H4>Selezioni regionali 2008</H4>
+<H1>Mappa antica (<SAMP>mappa</SAMP>)</H1>
+<H2>Difficoltà D = 2. </H2>
+<H3>Descrizione del problema</H3>
+<P>Topolino è in missione per accompagnare una spedizione archeologica che segue 
+un'antica mappa acquisita di recente dal museo di Topolinia. Raggiunta la 
+località dove dovrebbe trovarsi un prezioso e raro reperto archeologico, 
+Topolino si imbatte in un labirinto che ha la forma di una gigantesca scacchiera 
+quadrata di <VAR>N</VAR>x<VAR>N</VAR> lastroni di marmo. </P>
+<P>Nella mappa, sia le righe che le colonne del labirinto sono numerate da 1 a 
+<VAR>N</VAR>. Il lastrone che si trova nella posizione corrispondente alla riga 
+<VAR>r</VAR> e alla colonna <VAR>c</VAR> viene identificato mediante la coppia 
+di interi (<VAR>r</VAR>, <VAR>c</VAR>). I lastroni segnalati da una crocetta '+' 
+sulla mappa contengono un trabocchetto mortale e sono quindi da evitare, mentre 
+i rimanenti sono innocui e segnalati da un asterisco '*'. </P>
+<P>Topolino deve partire dal lastrone in posizione (1, 1) e raggiungere il 
+lastrone in posizione (<VAR>N</VAR>, <VAR>N</VAR>), entrambi innocui. Può 
+passare da un lastrone a un altro soltanto se questi condividono un lato o uno 
+spigolo (quindi può procedere in direzione orizzontale, verticale o diagonale ma 
+non saltare) e, ovviamente, questi lastroni devono essere innocui. </P>
+<P>Tuttavia, le insidie non sono finite qui: per poter attraversare incolume il 
+labirinto, Topolino deve calpestare il minor numero possibile di lastroni 
+innocui (e ovviamente nessun lastrone con trabocchetto). Aiutate Topolino a 
+calcolare tale numero minimo. </P>
+<H3>Dati di input</H3>
+<P>Il file <SAMP>input.txt</SAMP> è composto da <VAR>N</VAR>+1 righe. </P>
+<P>La prima riga contiene un intero positivo che rappresenta la dimensione 
+<VAR>N</VAR> di un lato del labirinto a scacchiera. </P>
+<P>Le successive <VAR>N</VAR> righe rappresentano il labirinto a scacchiera: la 
+<VAR>r</VAR>-esima di tali righe contiene una sequenza di <VAR>N</VAR> caratteri 
+'+' oppure '*', dove '+' indica un lastrone con trabocchetto mentre '*' indica 
+un lastrone sicuro. Tale riga rappresenta quindi i lastroni che si trovano sulla 
+<VAR>r</VAR>-esima riga della schacchiera: di conseguenza, il <VAR>c</VAR>-esimo 
+carattere corrisponde al lastrone in posizione (<VAR>r</VAR>, <VAR>c</VAR>). 
+</P>
+<H3>Dati di output</H3>
+<P>Il file <SAMP>output.txt</SAMP> è composto da una sola riga contenente un 
+intero che rappresenta il minimo numero di lastroni innocui (ossia indicati con 
+'*') che Topolino deve attraversare a partire dal lastrone in posizione (1, 1) 
+per arrivare incolume al lastrone in posizione (<VAR>N</VAR>, <VAR>N</VAR>). 
+Notare che i lastroni (1, 1) e (<VAR>N</VAR>, <VAR>N</VAR>) vanno inclusi nel 
+conteggio dei lastroni attraversati. </P>
+<H3>Assunzioni</H3>
+<UL>
+  <LI>1 ≤ <VAR>N</VAR> ≤ 100.
+  <LI>1 ≤ <VAR>r</VAR>, <VAR>c</VAR> ≤ <VAR>N</VAR>.
+  <LI>E' sempre possibile attraversare il labirinto dal lastrone in posizione 
+  (1, 1) al lastrone in posizione (<VAR>N</VAR>, <VAR>N</VAR>); inoltre tali due 
+  lastroni sono innocui.</LI></UL>
+<H3>Esempi di input/output</H3>
+<P></P>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD style="PADDING-RIGHT: 1em; PADDING-LEFT: 1em; TEXT-ALIGN: center">File 
+      <SAMP>input.txt</SAMP></TD>
+    <TD style="PADDING-RIGHT: 1em; PADDING-LEFT: 1em; TEXT-ALIGN: center">File 
+      <SAMP>output.txt</SAMP></TD></TR>
+  <TR>
+    <TD 
+    style="PADDING-RIGHT: 1em; PADDING-LEFT: 1em; PADDING-BOTTOM: 1em; PADDING-TOP: 1em" 
+    vAlign=top><PRE>4
+*+++
++**+
++*+*
++***
+</PRE></TD>
+    <TD 
+    style="PADDING-RIGHT: 1em; PADDING-LEFT: 1em; PADDING-BOTTOM: 1em; PADDING-TOP: 1em" 
+    vAlign=top><PRE>5
+</PRE></TD></TR></TBODY></TABLE><BR><BR>
+<H3>Nota/e</H3>
+<UL>
+  <LI>Un programma che restituisce sempre lo stesso valore, indipendentemente 
+  dai dati in <SAMP>input.txt</SAMP>, non totalizza alcun 
+punteggio.</LI></UL></BODY></HTML>

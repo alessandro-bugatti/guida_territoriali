@@ -1,0 +1,7 @@
+Change log della terza edizione
+
+-creata una nuova struttura delle cartelle che dovrebbe facilitare la gestione di versioni future
+-aggiunto il paragrafo sul problema Trovaparola territoriali 2013
+-aggiunto il paragrafo sul problema Brisbane territoriali 2013
+-aggiunto il paragrafo sul problema Gardaland territoriali 2013
+-corretto errore di formattazione alla fine del paragrafo 1.13 (un punto che non andava a capo correttamente).

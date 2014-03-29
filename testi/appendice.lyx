@@ -1,0 +1,2441 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\date{}
+\end_preamble
+\use_default_options false
+\master guida.lyx
+\maintain_unincluded_children true
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans helvet
+\font_typewriter courier
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Indice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Appendice
+\end_layout
+
+\begin_layout Section
+Classificazione dei problemi
+\end_layout
+
+\begin_layout Standard
+I problemi territoriali dal 2005 fino al 2011 sono stati classificati dai
+ referenti con la supervisione del prof.
+ Roberto Grossi per poter impostare degli allenamenti articolati per argomento.
+ Questa classificazione non è l'unica possibile, in quanto alcuni problemi
+ permettono più di una strategia risolutiva: in generale si è privilegiata
+ la soluzione più lineare e semplice da implementare.
+ La classificazione si trova nella tabella 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Classificazione-problemi-territoriali"
+
+\end_inset
+
+ in fondo al capitolo.
+\end_layout
+
+\begin_layout Section
+Suggerimenti per le gare
+\end_layout
+
+\begin_layout Standard
+In questo paragrafo ho inserito, in ordine sparso, dei suggerimenti che
+ sono frutto della mia personale esperienza come partecipante di gare online
+ e di quanto mi è stato riferito dai ragazzi nel corso degli anni come referente
+ alle Olimpiadi.
+ 
+\end_layout
+
+\begin_layout Itemize
+provare sempre un piccolo esempio di test, anche per cose banali: può capitare
+ ad esempio di fare degli errori in lettura e quindi non avere i dati corretti
+ (e quindi essere nell'impossibilità di arrivare alla soluzione corretta).
+ A volte una stampa veloce di un vettore a video può garantirci la correttezza
+ di quanto stiamo facendo (ricordarsi poi di toglierla nella versione finale...);
+\end_layout
+
+\begin_layout Itemize
+alle territoriali viene data una mezz'ora prima della competizione per testare
+ le postazioni di gara: può essere una buona idea scrivere già gli header
+ comuni (stdlib.h iostream, ecc.), il main e la parte sull'apertura dei file
+ e fare un piccolo test su un file di prova per vedere se tutto va bene,
+ in modo da potersi concentrare sui problemi una volta finito il test delle
+ postazioni;
+\end_layout
+
+\begin_layout Itemize
+come già detto, usare senza parsimonia le variabili globali: non è un esercizio
+ di ingegneria del software, è una gara in cui bisogna scrivere codice molto
+ intelligente in un tempo molto limitato.
+ Le variabili globali sono automaticamente inizializzate a zero, possono
+ avere la dimensione desiderata (nei limiti imposti dal problema) e non
+ hanno il problema di dover essere passate alle funzioni avendo visibilità
+ globale;
+\end_layout
+
+\begin_layout Itemize
+evitare l'allocazione dinamica di memoria, può solo creare problemi: usare
+ solo vettori statici dimensionati al massimo input possibile e nel caso
+ si abbia la necessità di strutture dinamiche (vedi ad esempio le liste)
+ usare i contenitori standard del C++, che garantiscono una gestione corretta
+ della memoria;
+\end_layout
+
+\begin_layout Itemize
+scrivere esempi su carta e fare esperimenti: questa parte è estremamente
+ importante, soprattutto se non si ha molta esperienza.
+ Poter vedere attraverso tabelle, schemi, grafici e quant'altro dei dati
+ di esempio ci permette di ragionarci sopra meglio e spesso porta a vedere
+ delle regolarità o delle caratteristiche del problema che possono aiutare
+ nella soluzione dello stesso e che sarebbero altrimenti sfuggite;
+\end_layout
+
+\begin_layout Itemize
+leggere molto bene il testo, anche più volte, per comprendere a fondo ciò
+ che vi è scritto.
+ Attenzione a non 
+\begin_inset Quotes eld
+\end_inset
+
+inventarsi
+\begin_inset Quotes erd
+\end_inset
+
+ cose non scritte, solo perchè sembrano plausibili: se nel testo è scritto
+ che A implica B, non è necessariamente vero che B implichi A;
+\end_layout
+
+\begin_layout Itemize
+non basarsi sul contesto della storia per dedurre false assunzioni: le uniche
+ assunzioni valide sono quelle esplicite, che si trovano nell'apposita sezione.
+ Se nella storiella si dice che uno scalatore deve salire su una montagna,
+ non si può dedurre che la montagna al massimo sarà alta 8848 metri solo
+ perchè nella realtà è così: se le assunzioni scritte nel testo portano
+ ad avere montagne alte 100 km e che possono andare nel sottosuolo per altri
+ 100 km, allora quelli sono i dati con cui avrà a che fare il programma
+ risolutivo, indipendentemente da ciò che succede nella realtà;
+\end_layout
+
+\begin_layout Itemize
+utilizzare dei nomi di variabili uguali a quelli usati nel testo del problema:
+ se nel testo una variabile è chiamata N, è inutile chiamarla numeroDiHamtaro
+ poichè un bravo programmatore la chiamerebbe così (forse), in questo caso
+ N è una scelta migliore;
+\end_layout
+
+\begin_layout Itemize
+a volte è comodo adattare gli indici dei vettori ai dati del problema, per
+ evitare confusione: se gli oggetti sono numerati da 1 a N può essere meglio
+ usare gli indici del vettore da 1 a N (e quindi avere un vettore di dimensione
+ N+1), ignorando l'elemento di indice 0, piuttosto che partire da zero e
+ rischiare di dimenticarsi di aggiungere 1 nel risultato;
+\end_layout
+
+\begin_layout Itemize
+a volte, per fare dei test aggiuntivi oltre a quelli proposti nel problema,
+ si aggiungono nuove righe al file di input, dimenticandosi di aggiornare
+ il valore nel numero di righe da leggere, di solito posto a inizio file.
+ Questo causa delle discrepanze nel risultato finale, apparentemente incomprensi
+bili, che possono far perdere anche molto tempo.
+ Attenzione dunque nella creazione di nuovi casi di test che i dati di input
+ siano corretti;
+\end_layout
+
+\begin_layout Itemize
+se si realizza una soluzione che funziona su alcuni casi ma ha dei problemi
+ su altri, farne una copia da usare in caso di emergenza.
+ Se si modifica l'originale e poi si ottiene un risultato ancora peggiore,
+ può essere difficile tornare alla soluzione precedente (CTRL + Z aiuta,
+ ma a volte non è facile identificare il punto in cui la nostra soluzione
+ funzionava);
+\end_layout
+
+\begin_layout Itemize
+attenzione agli errori 
+\begin_inset Quotes eld
+\end_inset
+
+stupidi
+\begin_inset Quotes erd
+\end_inset
+
+: questo consiglio è piuttosto inutile, poiché gli errori stupidi sfuggono
+ al controllo per il fatto di essere tali, però non sarei a posto con la
+ coscienza se non ve lo dicessi.
+ Il classico esempio di errore stupido è l'incremento nel ciclo 
+\emph on
+for
+\emph default
+: di solito si è così abituati a inserire 
+\emph on
+i++
+\emph default
+, che le volte che facciamo un ciclo al contrario, da N a zero, possiamo
+ inserire automaticamente 
+\emph on
+i++
+\emph default
+ al posto di
+\emph on
+ i--
+\emph default
+ e questo può richiedere un sacco di tempo per essere rilevato, perché difficilm
+ente cercheremo l'errore in quel punto.
+ Un altro esempio classico è quando si hanno due cicli 
+\emph on
+for
+\emph default
+ uno dentro l'altro, il primo controllato da 
+\emph on
+i
+\emph default
+ e il secondo da
+\emph on
+ j
+\emph default
+ e si confondono gli indici, inserendo ad esempio nel secondo una condizione
+ contenente 
+\emph on
+i
+\emph default
+ e non
+\emph on
+ j
+\emph default
+.
+ Penso che ognuno abbia avuto esperienza di errori stupidi che hanno richiesto
+ una notevole quantità di tempo per essere scoperti e che una volta individuati
+ hanno fatto esclamare 
+\begin_inset Quotes eld
+\end_inset
+
+Che stupido errore!
+\begin_inset Quotes erd
+\end_inset
+
+ (oppure 
+\begin_inset Quotes eld
+\end_inset
+
+Che stupido che sono!
+\begin_inset Quotes erd
+\end_inset
+
+, dipende da come siete fatti).
+ Porre molta attenzione a ciò che si scrive e non avere troppa fretta sono
+ i modi migliori per evitare questo tipo di errori, che in gara possono
+ avere effetti disastrosi;
+\end_layout
+
+\begin_layout Itemize
+vale la pena imparare le funzioni per l'ordinamento offerte dal linguaggio
+ e l'uso dei container standard del C++: con un sforzo minimo di apprendimento
+ di possono ridurre, in alcuni casi di parecchio, i tempi di scrittura di
+ un programma.
+\end_layout
+
+\begin_layout Section
+Tecniche comuni di problem solving
+\end_layout
+
+\begin_layout Standard
+La tabella 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Tecniche-risolutive"
+
+\end_inset
+
+ in fondo al capitolo riassume alcune indicazioni che possono indirizzare
+ sulla buona strada nella ricerca della soluzione a un problema.
+ Le indicazioni sono poste sotto forma di domande che permettono di esplorare
+ velocemente le varie possibilità di soluzione, e dovrebbero essere usate
+ nella risoluzione di ogni problema per abituarsi a ragionare sulle caratteristi
+che che accomunano problemi simili e che potrebbero non risultare evidenti
+ ad un esame superficiale.
+\end_layout
+
+\begin_layout Standard
+La tabella è stata usata dalla dott.ssa Valentina Ciriani durante gli allenamenti
+ per la fase nazionale ed è parzialmente tratta da Aziz e Prakash, "Algorithms
+ For Interviews".
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Breve-bibliografia"
+
+\end_inset
+
+Breve bibliografia
+\end_layout
+
+\begin_layout Standard
+Questa bibliografia serve per chi ha interesse ad approfondire le proprie
+ conoscenze indipendentemente dalle gare ed è necessaria per chi supera
+ il livello delle territoriali e vuole avere dei buoni risultati nei successivi
+ livelli.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Crescenzi, Gambosi, Grossi
+\series default
+.
+ 
+\shape smallcaps
+Strutture di Dati e Algoritmi
+\shape default
+, 
+\shape italic
+Addison-Wesley Pearson, 2006
+\shape default
+.
+ Ispirato dall'esperienza didattica sperimentata durante le olimpiadi di
+ informatica.
+ Pone attenzione alla programmazione e alla visualizzazione delle tecniche
+ algoritmiche di base.
+ Un ottimo compendio al libro è il programma ALVIE, liberamente scaricabile
+ dal sito 
+\begin_inset CommandInset href
+LatexCommand href
+target "www.algoritmica.org"
+
+\end_inset
+
+, che permette di visualizzare in tempo reale il comportamento degli algoritmi
+ fondamentali trattati in questo manuale e molti altri.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Skiena, Revilla.
+
+\series default
+ 
+\shape smallcaps
+Programming Challenges: The Programming Contest Training Manual
+\shape default
+, 
+\shape italic
+Springer-Verlag New York Inc, 2003
+\shape default
+.
+ Concepito appositamente per le gare delle ACM e delle olimpiadi.
+ Altamente consigliato.
+ Scritto in inglese.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+J.
+ Bentley
+\series default
+.
+ 
+\shape smallcaps
+Programming Pearls
+\shape default
+, seconda edizione, 
+\shape italic
+Addison Wesley, 2000
+\shape default
+.
+ Realmente una perla su come programmare gli algoritmi nella pratica.
+ Scritto in inglese.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+R.
+ Sedgewick
+\series default
+.
+ 
+\shape smallcaps
+Algoritmi in C
+\shape default
+, 
+\shape italic
+Addison-Wesley Pearson 2002
+\shape default
+.
+ Tratta gli algoritmi e le strutture di dati tenendo presente la loro efficiente
+ programmazione.
+ Istruttivo perché collega la teoria alla pratica.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cormen, Leiserson, Rivest, Stein
+\series default
+.
+ 
+\shape smallcaps
+Introduzione agli Algoritmi e alle Strutture Dati
+\shape default
+, 
+\shape italic
+McGraw-Hill, 2005
+\shape default
+.
+ Enciclopedico e impiegato in moltissime università italiane e straniere.
+ Segue un approccio teorico e descrive gli argomenti classici dell'algoritmica.
+ Non può mancare in biblioteca.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Demetrescu, Finocchi, Italiano
+\series default
+.
+ 
+\shape smallcaps
+Algoritmi e strutture dati
+\shape default
+, 
+\shape italic
+McGraw-Hill, 2005
+\shape default
+.
+ Testo di estrema chiarezza e sintesi.
+ Valida alternativa al Cormen, Leiserson, Rivest, Stein.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dasgupta, Papadimitriou, Vazirani
+\series default
+.
+ 
+\shape smallcaps
+Algorithms
+\shape default
+, 
+\shape italic
+McGraw-Hill, 2005
+\shape default
+.
+ Testo interessante per completare la propria preparazione culturale, con
+ un punto di vista alternativo a quello dei libri precedenti.
+ In inglese.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Gritzmann, Brandenberg
+\series default
+.
+ 
+\shape smallcaps
+Alla ricerca della via più breve
+\shape default
+, 
+\shape italic
+Springer-Verlag Berlin 2002
+\shape default
+.
+ Un'introduzione divulgativa alla teoria dei grafi sotto forma di romanzo-raccon
+to.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Peter M.
+ Higgins.
+
+\series default
+ 
+\shape smallcaps
+La matematica dei social network
+\shape default
+, 
+\emph on
+Edizioni Dedalo 2012
+\emph default
+.
+ Nonostante la pessima traduzione dei titolo (
+\emph on
+Nets, Puzzles and Postmen, an exploration of mathematical connections
+\emph default
+ nell'originale), il libro, pur rimanendo un testo divulgativo, presenta
+ in maniera chiara e comprensibile la teoria dei grafi.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+B.
+ W.
+ Kernighan, R.
+ Pike
+\series default
+, 
+\shape smallcaps
+Programmazione nella pratica
+\shape default
+, 
+\emph on
+Addison-Wesley 1999
+\emph default
+.
+ Simile come tipologia al libro di Bentley, offre una serie di spunti su
+ come programmare bene anche in contesti più ampi di quelli delle Olimpiadi.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+B.
+ W.
+ Kernigham, D.
+ M.
+ Ritchie
+\series default
+, 
+\shape smallcaps
+Linguaggio C
+\shape default
+, 
+\emph on
+Pearson, 2004
+\emph default
+.
+ Il manuale sul C scritto dall'inventore del linguaggio.
+ Un modello di chiarezza, utile per una panoramica sul linguaggio C.
+ É il manuale di riferimento del linguaggio.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+B.
+ Stroustrup
+\series default
+, 
+\shape smallcaps
+C++ Linguaggio, libreria standard, principi di programmazione
+\shape default
+, terza edizione, 
+\emph on
+Addison-Wesley, 2000
+\emph default
+.
+ Scritto dal creatore del C++ approfondisce ogni aspetto del linguaggio,
+ molto tecnico.
+ É il manuale di riferimento del linguaggio.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Deitel & Deitel
+\series default
+, 
+\shape smallcaps
+C, corso completo di programmazione
+\shape default
+, 
+\emph on
+Apogeo, 2007
+\emph default
+.
+ Un manuale didattico, ricco di esempi e di semplice comprensione anche
+ per chi non conosca questo linguaggio.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Deitel & Deitel
+\series default
+, 
+\shape smallcaps
+C++, fondamenti di programmazione
+\shape default
+, 
+\emph on
+Apogeo, 2005
+\emph default
+.
+ Come il precedente per il C++, con lo stesso taglio didattico.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="30" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0.8in">
+<column alignment="center" valignment="top" width="0.8in">
+<column alignment="center" valignment="top" width="1.8in">
+<column alignment="center" valignment="top" width="1.8in">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Titolo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Strutture dati
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Algoritmi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Note
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+\size footnotesize
+Territoriali 2011
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Nanga
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Vettori mappe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Ricerca elemento più frequente
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Galattici
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Matrice
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Navigazione in un grafo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Automa a stati finiti
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Domino
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Vettori grafi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Permutazioni / cammino più lungo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Ricorsione
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+\size footnotesize
+Territoriali 2010
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Tamburello
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Vettori
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Ripetizioni / combinatoria
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Quasipal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Matrici
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Permutazioni / Branch and Bound
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Ricorsione con taglio
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Sbarramento
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Matrice - array
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Ordinamento 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Greedy
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+\size footnotesize
+Territoriali 2009
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Depura
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Grafo diretto aciclico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Colorazione di un grafo diretto aciclico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Visita di grafi
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Essenza
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Vettori
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Massimizzazione vettore
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Treno
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Vettori
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Ricorsione
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+\size footnotesize
+Territoriali 2008
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Mappa
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Matrice
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Programmazione dinamica
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Ricorsione controllata
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Missioni
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Tabella
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Programmazione dinamica
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Greedy su intervalli
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Pizzini
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Vettori
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Trasformazioni di chiavi e ordinamento
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+\size footnotesize
+Territoriali 2007
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Lino
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Vettori
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Programmazione dinamica
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Ricorsione
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Nimbus
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Tabella
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Greedy
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Torero
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Grafo diretto aciclico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Visita grafo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Ricorsione
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+\size footnotesize
+Territoriali 2006
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Bilancino
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Grafo diretto aciclico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Visita grafo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Ordinamento parziale
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Brambillia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Vettori
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Ricerca
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Calcolo incrementale del minimo in array circolari
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Serie
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Vettori
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Selezione e ordinamento
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+\size footnotesize
+Territoriali 2005
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Chimico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Vettore
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Ordinamento
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Codice
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Stringhe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Korrot
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Tabella
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Gestione casi particolari
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Automa deterministico a stati finiti
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Sunny
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Vettori
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Navigazione grafo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Classificazione-problemi-territoriali"
+
+\end_inset
+
+Classificazione problemi territoriali
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="16" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="4cm">
+<column alignment="left" valignment="top" width="7cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Tecnica
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Descrizione
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Piccoli esempi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puoi trovare una soluzione a piccole istanze del problema e costruire una
+ soluzione che può essere generalizzata per un'istanza qualsiasi?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Ordinamento
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ordinando i dati del problema puoi trovare una soluzione più efficiente?
+ Oppure puoi sfruttare l'eventuale ordinamento dei dati?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Divide et impera
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puoi dividere il problema in due o più sottoproblemi più piccoli e indipendenti,
+ in modo da risolvere il problema originale usando le soluzioni dei sottoproblem
+i?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Ricorsione e programmazione dinamica
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Se hai la soluzione di istanze più piccole di un problema, puoi facilmente
+ ricostruire la soluzione del tuo problema?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Caching
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puoi memorizzare alcuni risultati intermedi per ridurre il lavoro complessivo?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Analisi dei casi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puoi suddividere l'input o l'esecuzione in alcuni casi da risolvere separatament
+e?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Greedy
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Riesci a dimostrare che le decisioni per trovare un ottimo locale portano
+ anche ad una soluzione ottima globale?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Generalizzazione
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Esiste un problema che generalizza il tuo e può essere risolto più facilmente?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Strutture dati 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Esiste una struttura dati che si mappa direttamente al tuo problema?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Modellazione con grafi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puoi descrivere il tuo problema con un grafo e utilizzare un algoritmo noto?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Riduzione
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puoi usare la soluzione di un problema noto come subroutine?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Uso di equazioni
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puoi esprimere le relazioni del tuo problema in forma di equazioni?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Elementi ausiliari
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puoi aggiungere qualche nuovo elemento al tuo problema per avvicinarti alla
+ soluzione?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Varianti
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puoi risolvere un problema leggermente diverso e mappare la sua soluzione
+ sul tuo?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Simmetria
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+C'è una simmetria nello spazio di input o della soluzione che può essere
+ utilizzata?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Tecniche-risolutive"
+
+\end_inset
+
+Tecniche risolutive
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

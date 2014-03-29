@@ -1,0 +1,1236 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\date{}
+\end_preamble
+\use_default_options false
+\master guida.lyx
+\maintain_unincluded_children true
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans helvet
+\font_typewriter courier
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Indice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Algoritmi greedy
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+I want it all, I want it all, I want it all, and I want it now
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\align right
+
+\shape italic
+Queen
+\end_layout
+
+\begin_layout Standard
+In questo capitolo ci si occuperà di una tecnica di risoluzione dei problemi
+ nota come tecnica 
+\emph on
+greedy
+\emph default
+ (avido in italiano), che, laddove sia possibile applicarla, porta a una
+ soluzione efficiente del problema, scegliendo ad ogni passo la soluzione
+ migliore possibile fino ad arrivare all'ottimo per il problema di partenza.
+\end_layout
+
+\begin_layout Section
+Problemi greedy
+\end_layout
+
+\begin_layout Standard
+L'idea alla base di questa tecnica, che ne costituisce anche il requisito
+ per la sua applicabilità, è che il problema possa essere risolto facendo
+ di volta in volta la scelta migliore localmente e che questa serie di scelte
+ migliori locali, cioè dipendenti solo da quello che si sa al momento della
+ scelta, si rifletta alla fine nella soluzione migliore possibile.
+ Cerchiamo di chiarire con un esempio: supponiamo di dover comprare su Internet
+ dei biglietti per un concerto e che vari siti di vendita vendano gli stessi
+ biglietti a prezzi diversi.
+ Se devo comprare N biglietti cercherò di comprarli dove costano meno, applicand
+o questo semplice algoritmo:
+\end_layout
+
+\begin_layout Enumerate
+scelgo il sito dove i biglietti costano meno
+\end_layout
+
+\begin_layout Enumerate
+compro tutti i biglietti disponibili su quel sito per arrivare ad avere
+ N biglietti
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+se sono arrivato a N ho finito
+\end_layout
+
+\begin_layout Enumerate
+se non ho ancora N biglietti torno al punto 1 e ripeto il procedimento
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Dovrebbe essere evidente che il costo totale per l'acquisto degli N biglietti
+ sarà il minimo possibile, non avendo nessuna convenienza a scegliere i
+ biglietti partendo da un sito in cui il costo non sia il minimo.
+ Quindi viene fatta una scelta locale (prendo tutti i biglietti sul sito
+ che in quel momento costa meno) e ottengo la migliore soluzione globale
+ possibile (pago l'insieme degli N biglietti al prezzo più basso possibile).
+ Inoltre è anche possibile vedere che in questo algoritmo è anche presente
+ un ordinamento, poiché ci si troverà a comprare partendo dal sito meno
+ costoso a quello più costoso fino a quando non si avranno tutti gli N biglietti.
+\end_layout
+
+\begin_layout Standard
+Sembra quindi che questa tecnica sia semplice e inoltre molto efficiente,
+ in quanto il costo più grosso è quello dell'ordinamento che, come già visto
+ al paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ordinamento"
+
+\end_inset
+
+, ha un costo di tipo 
+\begin_inset Formula $N\log N$
+\end_inset
+
+ e poi in genere si scorre il vettore ordinato.
+ Questo è vero, ma il problema è che bisogna essere sicuri che la tecnica
+ 
+\emph on
+greedy
+\emph default
+ possa essere applicata, cosa che è vera solo per alcuni problemi (in molti
+ altri problemi la migliore scelta locale porta a una soluzione globale
+ che è un sub-ottimo, cioè è meno buona di quanto si potrebbe ottenere con
+ altre tecniche, ad esempio con la programmazione dinamica 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Programmazione-dinamica"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Esempio:Nimbus"
+
+\end_inset
+
+Esempio: Giri sulla scopa Nimbus3000 - territoriali 2007
+\end_layout
+
+\begin_layout Standard
+Questo esempio a una prima lettura può sembrare più complicato di quello
+ che è in realtà, poiché non è così chiaro se una scelta locale ottima porta
+ alla soluzione ottima del problema: in realtà questo avviene e nella spiegazion
+e successiva si vedrà perché.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsection*
+Giri sulla Scopa Nimbus3000 (nimbus) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2 (tempo limite 1 sec).
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Al celebre maghetto Harry Potter è stata regalata una scopa volante modello
+ Nimbus3000 e tutti i suoi compagni del Grifondoro gli chiedono di poterla
+ provare.
+ Il buon Harry ha promesso che nei giorni a venire soddisferà le richieste
+ di tutti, ma ogni ragazzo è impaziente e vuole provare la scopa il giorno
+ stesso.
+ Ognuno propone ad Harry un intervallo di tempo della giornata durante il
+ quale, essendo libero da lezioni di magia, può fare un giro sulla scopa,
+ e per convincerlo gli offre una fantastica caramella Tuttigusti+1.
+ Tenendo presente che una sola persona alla volta può salire sulla Nimbus3000
+ in ogni istante di tempo, Harry decide di soddisfare, tra tutte le richieste
+ dei ragazzi, quelle che gli procureranno la massima quantità di caramelle
+ (che poi spartirà coi suoi amici Ron e Hermione).
+ Aiutalo a trovare la migliore soluzione possibile.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt contiene nella prima riga un intero positivo N, che indica
+ il numero di richieste, che sono numerate da 1 a N.
+ Ognuna delle successive N righe contiene una coppia di interi.
+ Ciascuna di tali righe contiene una coppia di interi positivi A e B, separati
+ da uno spazio, a rappresentare la richiesta di poter utilizzare la scopa
+ dall'istante iniziale A fino all'istante finale B, in cambio di una caramella
+ (dove A < B).
+ A tal fine, il tempo è diviso in istanti discreti numerati a partire da
+ 1 in poi.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da una riga contenente un solo intero, che
+ rappresenta il massimo numero di caramelle che Harry può ottenere.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Plain Layout
+1 < N < 1000 Gli interi nelle N coppie sono distinti l'uno dall'altro (non
+ esistono due interi uguali, anche in coppie diverse).
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.2in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5 
+\end_layout
+
+\begin_layout Plain Layout
+1 5 
+\end_layout
+
+\begin_layout Plain Layout
+3 7 
+\end_layout
+
+\begin_layout Plain Layout
+9 11 
+\end_layout
+
+\begin_layout Plain Layout
+10 12 
+\end_layout
+
+\begin_layout Plain Layout
+6 13 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Volendo affrontarlo con una soluzione di tipo 
+\emph on
+greedy
+\emph default
+ verrebbe da ordinare gli intervalli o per il numero di inizio o per quello
+ di fine.
+ Una volta fatto questo si potrebbe procedere nel seguente modo:
+\end_layout
+
+\begin_layout Enumerate
+prendo il primo intervallo e memorizzo il numero di fine in una variabile,
+ ad esempio 
+\emph on
+fine_attuale
+\end_layout
+
+\begin_layout Enumerate
+se l'intervallo successivo ha un inizio maggiore del numero memorizzato
+ in 
+\emph on
+fine_attuale
+\emph default
+ aumento il contatore di caramelle e memorizzo la nuova fine in 
+\emph on
+fine_attuale
+\end_layout
+
+\begin_layout Enumerate
+viceversa se l'intervallo successivo ha un inizio minore del numero memorizzato
+ in 
+\emph on
+fine_attuale
+\emph default
+ non posso prenderlo perché ci sarebbe una sovrapposizione nell'utilizzo
+ della Nimbus 3000 e quindi non faccio niente
+\end_layout
+
+\begin_layout Enumerate
+ripeto dal punto 1 fino a quando ho guardato tutti gli intervalli
+\end_layout
+
+\begin_layout Standard
+Scegliendo di ordinare per numero di inizio si può vedere con un semplice
+ esempio che le migliori scelte locali non permetterebbero di arrivare alla
+ soluzione corretta.
+ Supponendo infatti di avere tre intervalli, A(1,10), B(6,8) e C(2,4), l'ordinam
+ento ci porterebbe nella situazione A, C, B, come si vede in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ordinamento-nimbus"
+
+\end_inset
+
+ (a) e quindi, una volta scelto l'intervallo A, non potremmo più prendere
+ né B né C, trovandoci con una sola caramella anziché con due, che si vede
+ essere la soluzione migliore.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/greedy/nimbus.eps
+	display false
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ordinamento-nimbus"
+
+\end_inset
+
+Ordinamento per istante di inizio (a) e per istante di fine (b)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ordinando per istante di fine sembra invece funzionare, poiché in questo
+ caso gli intervalli risultano essere C, B, A e questo permette di prendere
+ i due intervalli C e B e trascurare A, arrivando alla soluzione corretta.
+ Basta questo esempio per stabilire che l'approccio 
+\emph on
+greedy
+\emph default
+ è corretto? No, però da questo esempio possiamo trarre una giustificazione
+ che, almeno intuitivamente, sembra funzionare.
+ Se di volta in volta scegliamo l'intervallo compatibile con le scelte precedent
+e e avente l'istante di fine minore, non è possibile trovare successivamente
+ un intervallo che abbiamo scartato e che invece sarebbe stato meglio scegliere
+ perché:
+\end_layout
+
+\begin_layout Itemize
+nella migliore delle ipotesi si sostituirebbe all'intervallo precedente,
+ non migliorando il numero di caramelle, ma peggiorando l'istante di fine
+ e quindi potenzialmente peggiorando il numero di intervalli futuri da prendere
+\end_layout
+
+\begin_layout Itemize
+nella peggiore potrebbe, a causa della sua lunghezza, eliminare intervalli
+ già presi in precedenza (come ad esempio prendendo l'intervallo A di figura
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ordinamento-nimbus"
+
+\end_inset
+
+) e quindi peggiorare il numero di caramelle e potenzialmente peggiorare
+ anche il numero di caramelle da prendere negli intervalli futuri.
+ 
+\end_layout
+
+\begin_layout Standard
+Una volta verificata l'applicabilità della tecnica, l'implementazione dell'algor
+itmo è piuttosto immediata.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+struct Intervallo 
+\end_layout
+
+\begin_layout Plain Layout
+
+{      
+\end_layout
+
+\begin_layout Plain Layout
+
+	int inizio, fine;  
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bool compare_intervalli(const Intervallo &a, const Intervallo &b) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{   
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (a.fine < b.fine) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		return true;   
+\end_layout
+
+\begin_layout Plain Layout
+
+	else 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		return false; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int N; 
+\end_layout
+
+\begin_layout Plain Layout
+
+Intervallo giri[1000];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i<N; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> giri[i].inizio >> giri[i].fine;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	}         
+\end_layout
+
+\begin_layout Plain Layout
+
+	sort(giri,giri+N,compare_intervalli);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	int fine_attuale = giri[0].fine; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int caramelle = 1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=1; i<N; i++) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (fine_attuale < giri[i].inizio) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			fine_attuale = giri[i].fine;
+\end_layout
+
+\begin_layout Plain Layout
+
+			caramelle++; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << caramelle << endl ;  
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alle righe 1-4 viene creata una struttura per rappresentare gli intervalli,
+ che verrà successivamente usata alla riga 15 per definire un vettore globale
+ di massimo 1000 elementi (come descritto nelle assunzioni del problema).
+ Dovendo quindi ordinare un vettore di strutture che non sono tipi predefiniti,
+ alle righe 6-12 viene definita la relazione d'ordine tra intervalli (vedi
+ paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:L'algoritmo-sort-C++"
+
+\end_inset
+
+), in cui si usa l'istante di fine come valore per l'ordinamento.
+ Alle righe 19-25 viene fatto l'input da file e alla riga 26 si ordinano
+ gli intervalli.
+ La variabile 
+\emph on
+fine_attuale
+\emph default
+ e il contatore 
+\emph on
+caramelle
+\emph default
+ vengono inizializzati prendendo il primo intervallo e nel ciclo 29-36 si
+ guardano tutti gli intervalli successivi, prendendoli solo se sono compatibili
+ con le scelte fatte in precedenza, usando la condizione alla riga 31.
+\end_layout
+
+\begin_layout Section
+Esempio: La pizza degli Hamtaro - nazionali 2004
+\end_layout
+
+\begin_layout Standard
+Questo esempio, pur facendo parte delle prove della selezione nazionale,
+ è un esempio molto semplice di applicazione della tecnica 
+\emph on
+greedy
+\emph default
+.
+ Anche in questo caso la difficoltà principale (relativa) sta nel riconoscere
+ la sua appartenenza a questa categoria di problemi.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsection*
+La pizza degli Hamtaro (pizza) 
+\end_layout
+
+\begin_layout Subsubsection*
+Livello di difficoltà D = 2.(tempo limite 2 sec.) 
+\end_layout
+
+\begin_layout Plain Layout
+La numerosa famiglia degli Hamtaro, composta da N criceti, ha prenotato
+ un tavolo in una nota pizzeria.
+ I membri si danno appuntamento presso un autonoleggio con M automobili
+ a disposizione per raggiungere successivamente la pizzeria.
+ Purtroppo gli Hamtaro non arrivano al volante e quindi devono pagare generosame
+nte l'unico autista a disposizione dell'autonoleggio in quel momento.
+ Nell'ambiente dei cartoni gli Hamtaro sono notoriamente dei taccagni e
+ vogliono perciò spendere il meno possibile per la serata, pena il passare
+ la cena a pianger miseria.
+ Ogni automobile ha solo il carburante necessario per un viaggio autonoleggio-pi
+zzeria-autonoleggio e non esistono distributori di carburante in zona: per
+ cui dopo un viaggio con un'automobile 
+\emph on
+i
+\emph default
+, l'automobile 
+\emph on
+i
+\emph default
+ rimane a secco e non può più essere usata.
+ L'automobile 
+\emph on
+i
+\emph default
+ permette il trasporto di P
+\begin_inset Formula $_{\text{i}}$
+\end_inset
+
+ membri della famiglia degli Hamtaro, al costo di E
+\begin_inset Formula $_{\text{i}}$
+\end_inset
+
+ euro per criceto.
+ Gli Hamtaro scelgono, ad ogni partenza, un'automobile tra quelle disponibili
+ (tra quelle, cioè, non usate precedentemente) e l'autista la usa per accompagna
+re una parte di loro in pizzeria.
+ Aiuta la famiglia a risparmiare indicandole qual è la minima cifra che
+ dovrà spendere per far arrivare tutti gli N Hamtaro in pizzeria! 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input 
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt contiene sulla prima riga i due interi positivi N e M,
+ separati da uno spazio.
+ Le successive M righe (per i = 1, 2,..., M) contengono ciascuna due numeri
+ interi positivi separati da uno spazio, a rappresentare il costo per criceto
+ e la capacità dell'automobile: il primo intero indica E
+\begin_inset Formula $_{\text{i}}$
+\end_inset
+
+ mentre il secondo intero indica P
+\begin_inset Formula $_{\text{i}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output 
+\end_layout
+
+\begin_layout Plain Layout
+Il programma, dopo aver letto il file di input, deve scrivere una sola riga
+ nel file output.txt contenente un intero positivo che rappresenta la minima
+ quantità di denaro necessaria per far arrivare tutti gli Hamtaro in pizzeria.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni 
+\end_layout
+
+\begin_layout Enumerate
+1≤N≤4000 
+\end_layout
+
+\begin_layout Enumerate
+1≤M≤4000 
+\end_layout
+
+\begin_layout Enumerate
+1≤E
+\begin_inset Formula $_{\text{i}}$
+\end_inset
+
+≤1000 
+\end_layout
+
+\begin_layout Enumerate
+1≤P
+\begin_inset Formula $_{\text{i}}$
+\end_inset
+
+≤1000 
+\end_layout
+
+\begin_layout Enumerate
+È sempre possibile portare tutti gli Hamtaro in pizzeria.
+\end_layout
+
+\begin_layout Subsection*
+Esempio 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 4 
+\end_layout
+
+\begin_layout Plain Layout
+2 1 
+\end_layout
+
+\begin_layout Plain Layout
+2 1 
+\end_layout
+
+\begin_layout Plain Layout
+1 5 
+\end_layout
+
+\begin_layout Plain Layout
+1 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A differenza dell'esempio 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Esempio:Nimbus"
+
+\end_inset
+
+, in questo caso è ancora più semplice riconoscere che la migliore scelta
+ locale non può che portare a una scelta globale ottima: è infatti evidente
+ che gli Hamtaro sceglieranno prima la macchina il cui costo per passeggero
+ è il più basso riempiendola al massimo e poi ripeteranno il procedimento
+ con la seconda macchina con il costo più basso, proseguendo in questo modo
+ fino ad essere arrivati tutti in pizzeria.
+ Modificare questa strategia non può che peggiorare il costo totale e quindi
+ questo è un esempio lampante di come la strategia 
+\emph on
+greedy
+\emph default
+ sia semplice da adottare.
+\end_layout
+
+\begin_layout Standard
+Vediamo come anche il codice sia lineare e di facile scrittura.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+struct macchina
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	int costo; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	int quanti; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+macchina macchine[100000]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int N,M;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int compare_cost(const void *a, const void *b) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	const macchina *c=(const macchina *)a;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	const macchina *d=(const macchina *)b;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (c->costo > d->costo) return 1;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (c->costo < d->costo) return -1;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{   
+\end_layout
+
+\begin_layout Plain Layout
+
+	fstream in("input.txt",ios::in);   
+\end_layout
+
+\begin_layout Plain Layout
+
+	fstream out("output.txt",ios::out);   
+\end_layout
+
+\begin_layout Plain Layout
+
+	int portati=0;   
+\end_layout
+
+\begin_layout Plain Layout
+
+	int spesa=0;   
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i;   
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N;   
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> M;   
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (i=0; i<M; i++)     
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> macchine[i].costo >> macchine[i].quanti;
+\end_layout
+
+\begin_layout Plain Layout
+
+	qsort(macchine,M,sizeof(macchina),compare_cost);    
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (i=0; portati<N; i++)   
+\end_layout
+
+\begin_layout Plain Layout
+
+	{     
+\end_layout
+
+\begin_layout Plain Layout
+
+		portati+=macchine[i].quanti;
+\end_layout
+
+\begin_layout Plain Layout
+
+		spesa+=macchine[i].costo*macchine[i].quanti;   
+\end_layout
+
+\begin_layout Plain Layout
+
+	}    
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (portati>N) 
+\end_layout
+
+\begin_layout Plain Layout
+
+		spesa-= (portati-N)*macchine[i-1].costo;   
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << spesa << endl;   
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopo aver definito la struttura per contenere i dati delle macchine (righe
+ 1-5), usiamo stavolta il 
+\emph on
+qsort
+\emph default
+ del C per ordinare i dati e quindi alle righe 9-16 definiamo la funzione
+ di confronto come visto al paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:La-funzione-qsort"
+
+\end_inset
+
+: da notare che ci interessa semplicemente il costo per passeggero e non
+ il numero di passeggeri trasportati, in quanto se anche due macchine avessero
+ lo stesso costo è indifferente scegliere l'una o l'altra.
+\end_layout
+
+\begin_layout Standard
+Dopo aver letto i dati in input (righe 20-28) e ordinato il vettore (riga
+ 29), è sufficiente un ciclo che ad ogni giro mette tutti gli Hamtaro possibili
+ nella macchina corrente e aggiorna il costo totale, fino a quando tutti
+ gli Hamtaro sono stati portati in pizzeria.
+ Vale la pena notare che per come è stata impostata la condizione di fine
+ ciclo (portati < N) può succedere che vengano portati più Hamtaro di quelli
+ presenti, in quanto l'ultima macchina viene sempre riempita anche se gli
+ Hamtaro da portare sono meno della sua capienza.
+ É quindi necessario (righe 33-34) che vengano tolti gli eventuali Hamtaro
+ in più, calcolando così il nuovo costo totale da mostrare come risultato.
+\end_layout
+
+\end_body
+\end_document

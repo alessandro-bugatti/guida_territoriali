@@ -1,0 +1,3551 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\master guida.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans helvet
+\font_typewriter courier
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Altri problemi
+\end_layout
+
+\begin_layout Standard
+Questo nuovo capitolo, non presente nella prima edizione, contiene una serie
+ di problemi, solitamente provenienti da gare online, che contengono aspetti
+ interessanti e che quindi ho ritenuto potenzialmente utili per l'allenamento.
+ Non sono stati classificati secondo un qualche ordine, ma in generale sono
+ stati inseriti man mano che mi sono trovato a doverli svolgere.
+ A differenza dei problemi del capitolo precedente non vengono proposte
+ delle domande per invitare a riflettere, ma vengono elencati gli aspetti
+ interessanti del problema e poi viene mostrata direttamente la soluzione
+ commentata: questo dovrebbe permettere al lettore di scegliere se affrontare
+ o meno l'esercizio in base a ciò che ritiene più utile al proprio percorso
+ di apprendimento.
+ La difficoltà in genere non appare sul sito di appartenenza, quindi è stata
+ aggiunta da me per poterli confrontare con quelli delle selezioni territoriali.
+ 
+\end_layout
+
+\begin_layout Standard
+Come per tutti gli esercizi di questa guida il lettore è invitato prima
+ a tentare la propria strada risolutiva e solo in un secondo momento a leggere
+ la soluzione proposta, che come già detto dovrebbe sempre mostrare un qualche
+ aspetto interessante.
+\end_layout
+
+\begin_layout Standard
+Le soluzioni di tutti i problemi affrontati sono state sottoposte al correttore
+ automatico della gara dalla quale i problemi sono stati estratti, risolvendo
+ correttamente tutti i casi proposti: ciò non garantisce la correttezza
+ assoluta, ma da una buona confidenza che le soluzioni proposte siano corrette.
+ Come sempre è stata privilegiata la semplicità di scrittura e la linearità
+ della soluzione, compatibilmente con le conoscenze presunte del tipico
+ lettore di questa guida.
+\end_layout
+
+\begin_layout Standard
+Spesso i problemi sono estratti estratti da gare in lingua inglese, il testo
+ è stato tradotto e adattato da me cercando di preservare il messagio trasmesso
+ dall'ideatore originale.
+ Avrei anche potuto lasciare l'originale in inglese, per abituare alla lettura
+ di testi in tale lingua, cosa probabilmente molto utile, ma per non porre
+ in difficoltà nessuno ho optato per la traduzione.
+ Un'altra differenza è che in alcune gare al posto di leggere e scrivere
+ da e verso file si fa l'I/O direttamente da tastiera e su video
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Questo è causato da differenze nei vari sistemi di correzione: di fatto
+ la lettura/scrittura avviene sempre da e verso file, però il correttore
+ può far apparire la cosa diversa usando meccanismi di ridirezione.
+\end_layout
+
+\end_inset
+
+, usando quindi le normali funzioni 
+\emph on
+scanf
+\emph default
+ e 
+\emph on
+printf
+\emph default
+ per il C e 
+\emph on
+cin
+\emph default
+ e 
+\emph on
+cout
+\emph default
+ per il C++.
+\end_layout
+
+\begin_layout Standard
+Dalla terza edizione sono stati aggiunti anche alcuni problemi presenti
+ nelle selezioni nazionali delle Olimpiadi Italiane, con lo scopo di poter
+ offrire un minimo di supporto a chi ha passato i territoriali e si trova
+ a doversi preparare per i nazionali.
+ Vanno però tenute presenti due considerazioni:
+\end_layout
+
+\begin_layout Itemize
+la guida è stata pensata e continua a rimanere un aiuto per la preparazione
+ alle selezioni territoriali, quindi le tecniche risolutive utilizzate rimangono
+ le stesse necessarie alla soluzione dei problemi delle territoriali, il
+ che non garantisce in generale che le soluzioni proposte possano far guadagnare
+ tutti i punti disponibili in un problema
+\end_layout
+
+\begin_layout Itemize
+le soluzioni proposte sono comunque state testate su un correttore ufficiale
+ e quindi viene sempre mostrato il punteggio che è possibile totalizzare
+ con la soluzione illustrata.
+\end_layout
+
+\begin_layout Section
+Gare di formula 7 (f7) - CoCi
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Il Coci (Croatian Open Competition in Informatics) è il sito con il quale
+ la Croazia seleziona gli studenti che formeranno la loro squadra olimpica,
+ ma le gare sono aperte a tutti.
+ Il sito si trova all'indirizzo 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://www.hsin-hr/coci"
+target "http://www.hsin-hr/coci"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ ottobre 2012
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Gare di formula 7 (f7)
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Il campionato del mondo di Formula 7 2012 è caratterizzato da corse mozzafiato
+ e frequenti cambi di posizione al comando della classifica.
+ Antonio ha perso la maggior parte delle gare perchè si stava allenando
+ per le Olimpiadi di Informatica.
+ Ora le sue uniche consolazioni sono le medaglie che ha vinto ed essere
+ il protagonista di questo problema.
+ Lui ha una domanda da farti in qualità di risolutore di questo problema:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Quanti piloti che partecipano al campionato 2012 hanno ancora possibilità
+ di diventare campioni del mondo 
+\series bold
+alla fine dell'ultima gara
+\series default
+?
+\begin_inset Quotes erd
+\end_inset
+
+ Il campione del mondo è ovviamente il pilota con 
+\series bold
+il punteggio più alto
+\series default
+ alla fine (dopo l'ultima corsa).
+\end_layout
+
+\begin_layout Plain Layout
+Ci sono 
+\series bold
+N
+\series default
+ piloti che partecipano al campionato.
+ Tutti prendono dei punti alla fine di ogni gara, incluso l'ultimo arrivato.
+ Al vincitore della gara vengono dati 
+\series bold
+N punti
+\series default
+, al secondo 
+\series bold
+N-1
+\series default
+ punti e così via fino all'ultimo pilota, al quale viene dato 
+\series bold
+1 punto
+\series default
+.
+ Due piloti non possono finire una gara nella stessa posizione.
+\end_layout
+
+\begin_layout Plain Layout
+Scrivi un programma che, dato in input il numero totale di punti che ogni
+ pilota ha guadagnato prima dell'ultima gara, calcoli quanti piloti hanno
+ ancora la possibilità teorica di avere il punteggio più alto dopo l'ultima
+ gara e quindi di vincere il campionato.
+ Se più di un pilota ha il punteggio massimo finale, diventano tutti campioni
+ del mondo.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima linea contiene un intero positivo 
+\series bold
+N
+\series default
+ (
+\begin_inset Formula $3\leq N\leq300000)$
+\end_inset
+
+, il numero totale di piloti che partecipano al campionato.
+\end_layout
+
+\begin_layout Plain Layout
+Ognuna delle successive 
+\series bold
+N
+\series default
+ linee contiene un solo intero 
+\series bold
+B
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\series bold
+i
+\end_layout
+
+\end_inset
+
+
+\series default
+ (
+\begin_inset Formula $0\leq B_{i}\leq2000000,\: i=1,\ldots,N$
+\end_inset
+
+), il numero di punti che il pilota i-esimo ha prima dell'ultima gara.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Un unico intero, che è il numero di piloti che possono ancora vincere il
+ campionato.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\begin_layout Plain Layout
+8 
+\end_layout
+
+\begin_layout Plain Layout
+10 
+\end_layout
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\begin_layout Plain Layout
+12
+\end_layout
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Aspetti interessanti
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Parole chiave
+\series default
+: ordinamento, greedy.
+\end_layout
+
+\begin_layout Standard
+Il problema può essere facilmente risolto con un algoritmo greedy, ma bisogna
+ stare attenti perchè nella formulazione e negli esempi proposti potrebbero
+ non essere subito evidenti alcuni casi che, se non gestiti correttamente,
+ porterebbero alla scrittura di un programma sbagliato.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Soluzione f7"
+
+\end_inset
+
+Soluzione
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int punteggi[300000];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() {     
+\end_layout
+
+\begin_layout Plain Layout
+
+	int N, quanti=0;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	cin >> N;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0; i<N ; i++)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		cin >> punteggi[i];     
+\end_layout
+
+\begin_layout Plain Layout
+
+	sort(punteggi, punteggi + N);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	reverse(punteggi, punteggi+N); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	int minimo = 0;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (punteggi[i] + i + 1 > minimo) 
+\end_layout
+
+\begin_layout Plain Layout
+
+			minimo = punteggi[i] + i + 1;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (punteggi[i]+N >= minimo) quanti++;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	cout << quanti << endl;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un'idea che potrebbe venire da una lettura non attenta del testo e pensando
+ a come funzionano le gare reali di Formula Uno potrebbe essere quella di
+ verificare per ogni pilota se, sommando il punteggio che può ottenere arrivando
+ primo al punteggio che ha prima dell'ultima gara, ottiene un valore superiore
+ al pilota in testa al mondiale.
+ Questo però funzionerebbe solo nelle gare vere, dove la maggior parte dei
+ piloti non prende punti e quindi si può ipotizzare che il primo non prenda
+ punti e per superarlo basti fare un numero adeguato di punti.
+ 
+\end_layout
+
+\begin_layout Standard
+Nel problema proposto, siccome tutti i piloti prendono dei punti alla fine
+ della gara, potrebbe succedere che a un pilota non basti arrivare primo
+ e raggiungere un punteggio superiore a quello che era primo fino alla penultima
+ gara, poichè, data una qualsiasi combinazione di arrivi alle sue spalle,
+ ci potrebbe sempre essere un pilota con più punti che gli preclude la possibili
+tà teorica di arrivare primo.
+ Un caso del genere lo si può vedere bene nel secondo esempio, dove il pilota
+ con 12 punti non ha nessuna possibilità di vincere il campionato del mondo
+ anche arrivando primo all'ultima gara, poichè, data una qualsiasi combinazione
+ dei piloti dietro di lui, ci sarà sempre qualcuno che farà più di 17 punti.
+\end_layout
+
+\begin_layout Standard
+A questo punto per applicare il paradigma greedy bisogna far vedere che
+ esiste un qualche ordinamento dei piloti che è ottimo per il problema.
+ Ragionando sugli esempi e generalizzando si può notare che la configurazione
+ migliore per il problema è quella in cui ogni pilota arriva nell'ordine
+ inverso alla sua posizione in classifica, cioè il primo arriva ultimo,
+ il secondo penultimo, e così via fino all'ultimo che arriverà primo.
+ Perchè questa è la configurazione migliore possibile? Perchè per un qualsiasi
+ pilota garantisce che ogni altro pilota che si trovava davanti a lui prima
+ dell'utlima gara prenda un punteggio che è il minimo possibile compatibilmente
+ con le regole.
+ Come si può vedere dall'esempio mostrato sotto la prima configurazione,
+ quella che potremmo chiamare a 
+\begin_inset Quotes eld
+\end_inset
+
+minima energia
+\begin_inset Quotes erd
+\end_inset
+
+, garantisce al pilota che arriva primo all'ultima gara, quello con punteggio
+ 13, che dietro di lui ogni pilota abbia il minimo punteggio che può avere,
+ poichè qualsiasi altra combinazione di arrivi porta un qualche pilota ad
+ avere un punteggio migliore e quindi a impedire la vittoria ipotetica del
+ pilota con punteggio 13.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lo stesso discorso può essere applicato a uno qualsiasi degli altri piloti,
+ supponendo che lui arrivi primo, il primo arrivi al suo posto e tutti gli
+ altri nella stessa configurazione già mostrata.
+\end_layout
+
+\begin_layout Standard
+A questo punto la soluzione diventa veloce da implementare: come prima cosa
+ si ordina il vettore dei punteggi prima dell'ultima gara (riga 8) e, sempliceme
+nte per comodità, lo si inverte in modo che il primo nel vettore sia quello
+ che aveva più punti prima dell'ultima gara (riga 9).
+ A questo punto si trova il minimo del punteggio della classifica dopo l'ultima
+ gara, classifica calcolata al volo dentro il ciclo for di riga 11 semplicemente
+ aggiungendo a ogni pilota i punti relativi alla sua posizione nell'ultima
+ gara tramite la somma dell'indice i, in modo che l'ordine di arrivo sia
+ l'inverso della posizione in classifica prima dell'ultima gara.
+ Trovato questo minimo basta contare quanti piloti, supponendo che arrivino
+ primi, possano superare questo minimo (righe 14-15), perchè se non ci riescono
+ vuol dire che non hanno possibilità di arrivare primi poichè, come abbia
+ già detto, questa è la configurazione migliore, qualsiasi altra non farebbe
+ che peggiorare le cose.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Il-boscaiolo-Mirko"
+
+\end_inset
+
+Il boscaiolo Mirko (Eko) - CoCi Marzo 2012
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsection*
+Il boscaiolo Mirko (Eko)
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Il boscaiolo Mirko ha bisogno di tagliare 
+\series bold
+M
+\series default
+ metri di legna.
+ Per lui questo è un lavoro molto semplice, poichè ha una nuova macchina
+ taglialegna che è in grado di abbattere foreste con l'efficienza di un
+ incendio.
+ Comunque a Mirko è permesso solo di tagliare una fila di alberi a una certa
+ altezza.
+ Questo perchè la macchina di Mirko funziona così: una volta che Mirko imposta
+ un'altezza 
+\series bold
+H
+\series default
+ (in metri), la macchina aziona la sua gigantesca lama a quell'altezza e
+ taglia tutti le parti degli alberi che superano l'altezza 
+\series bold
+H
+\series default
+ (naturalmente gli alberi alti 
+\series bold
+H
+\series default
+ metri o meno non vengono toccati dalla lama).
+ Mirko poi raccoglie le parti che sono state tagliate.
+ Per esempio, se la fila di alberi ne contiene quattro con altezze 20, 15,
+ 10 e 17 e Mirko imposta l'altezza della lama a 15 metri, l'altezza degli
+ alberi dopo il taglio sarà rispettivamente di 15, 15, 10 e 15 e MIrko potrà
+ raccogliere 5 metri tagliati dal primo albero e 2 dal quarto, per un totale
+ di 7 metri.
+\end_layout
+
+\begin_layout Plain Layout
+Essendo Mirko un 
+\series bold
+ecologista
+\series default
+, non vuole tagliare più metri di legna del necessario e quindi vuole impostare
+ l'altezza della lama il più in alto possibile compatibilmente con le sue
+ necessità.
+ Aiuta Mirko a trovare l'
+\series bold
+altezza massima intera
+\series default
+ a cui impostare la lama in modo che vengano tagliati 
+\series bold
+almeno M
+\series default
+ metri di legna.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima linea contiene due interi positivi separati da uno spazio, 
+\series bold
+N
+\series default
+ (il numero di alberi, 
+\begin_inset Formula $1\leq N\leq1.000.000$
+\end_inset
+
+) e 
+\series bold
+M
+\series default
+ (la quantità di legna che serve a Mirko, 
+\begin_inset Formula $1\leq M\leq2.000.000.000$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Plain Layout
+La seconda linea di input contiene 
+\series bold
+N
+\series default
+ interi separati da spazio minori di 1.000.000.000, l'altezza di ogni albero
+ (in metri).
+ La somma di tutte le altezza sarà sempre maggiore di 
+\series bold
+M
+\series default
+, quindi Mirko sarà sempre in grado di ottenere la quantità di legna che
+ gli serve.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Un unico intero, che è l'altezza a cui deve essere impostata la lama.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4 7
+\end_layout
+
+\begin_layout Plain Layout
+20 15 10 17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5 20
+\end_layout
+
+\begin_layout Plain Layout
+4 42 40 26 46
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+36
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Aspetti interessanti
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Parole chiave
+\series default
+: forza bruta, ricerca binaria, ordinamento.
+\end_layout
+
+\begin_layout Standard
+A una prima analisi superficiale risulta evidente che il problema potrebbe
+ essere risolto molto facilmente utilizzando un approccio a forza bruta:
+ in realtà i limiti sulle dimensioni dei dati di input dovrebbero subito
+ chiarire che un tale approccio non è fattibile all'interno dei limiti di
+ tempo posti dal problema.
+ Uno studio più attento porta invece all'ideazione di due possibili soluzioni,
+ di fatto equivalenti, che sfruttano una l'ordinamento e l'altra la ricerca
+ binaria.
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Per completezza viene fornito il sorgente della soluzione a forza bruta,
+ senza commenti: come si può vedere il codice è estremamente semplice, non
+ richiede più di una decina di minuti per essere scritto, ma nella prova
+ reale delle gare CoCi porta alla soluzione in tempo utile di 4 casi su
+ 10.
+ Il perchè dovrebbe essere evidente considerando che possono esserci fino
+ a 1.000.000 di alberi e l'altezza massima può essere di 1.000.000.000: l'algoritmo
+ a forza bruta esegue un numero di operazioni proporzionale al numero di
+ alberi moltiplicato per l'altezza massima degli alberi, che quindi può
+ andare tranquillamente oltre alle possibilità del calcolatore di risolvere
+ il problema nei tempi stabiliti.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int N, M, alberi[1000000];
+\end_layout
+
+\begin_layout Plain Layout
+
+int legno_tagliato(int altezza) { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int legno = 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (alberi[i] > altezza) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			legno += alberi[i] -  altezza; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+return legno; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int max = 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	cin >> N >> M; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++){ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		cin >> alberi[i]; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (alberi[i] > max) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			max = alberi[i]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = max-1; i >= 0; i--) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (legno_tagliato(i) >= M){ 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			cout << i << endl; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A questo punto si possono avere due idee altrettanto valide e semplici da
+ implementare, con complessità di tipo 
+\begin_inset Formula $n\log n$
+\end_inset
+
+, che quindi risulta adatta alla soluzione di questo problema.
+\end_layout
+
+\begin_layout Subsubsection*
+Soluzione con ricerca binaria
+\end_layout
+
+\begin_layout Standard
+Dove nella soluzione a forza bruta scorriamo tutto il range di altezza degli
+ alberi, partendo dall'altezza massima e scendendo di un metro alla volta
+ (vedi riga 17 dell'approccio a forza bruta), possiamo invece sfruttare
+ l'idea della ricerca binaria (vedi 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:La-ricerca"
+
+\end_inset
+
+) per muoverci velocemente tra i vari valori, dimezzando ad ogni passaggio
+ il range da esplorare, impiegando quindi solo 
+\begin_inset Formula $\log_{2}N$
+\end_inset
+
+ operazioni al posto di N, con N la dimensione del range da esplorare.
+ Il vantaggio è evidente: se poniamo N = 1.000.000.000, il valore peggiore
+ che può capitare nei casi di test, il numero di confronti si riduce al
+ massimo a circa 30.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int main() { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int max = 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	cin >> N >> M; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++){ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		cin >> alberi[i]; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (alberi[i] > max) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			max = alberi[i]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int inizio = 0, fine = max-1, medio; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	long long int legno; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (inizio < fine) 	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		medio = (inizio + fine)/2; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		legno = legno_tagliato(medio); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if ( legno == M) 		{ 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			cout << medio << endl; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (legno > M) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			inizio = medio + 1; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (legno < M) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			fine = medio; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (legno >= M) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		cout << medio << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	else  		
+\end_layout
+
+\begin_layout Plain Layout
+
+		cout << medio - 1 << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si vede nel codice il cuore dell'implementazione è piuttosto semplice
+ ed è contenuto nel ciclo 
+\emph on
+while
+\emph default
+ (righe 11-22): 
+\end_layout
+
+\begin_layout Itemize
+si calcola il punto medio del range corrente e si valuta quanto legname
+ verrebbe tagliato con la lama posta a quell'altezza (la funzione 
+\emph on
+legno_tagliato
+\emph default
+ è la stessa del codice a forza bruta e non è stata inserita per brevità)
+\end_layout
+
+\begin_layout Itemize
+se siamo fortunati e coincide con quanto richiesto stamperemo il valore
+ e il programma terminerà
+\end_layout
+
+\begin_layout Itemize
+altrimenti verifichiamo se la quantità è maggiore o minore rispetto a quella
+ richiesta: se è maggiore allora vuol dire che a quell'altezza viene tagliata
+ troppa legna e quindi si ripartirà a cercare da una quota superiore (cioè
+ il nuovo inizio sarà al di sopra del valore attuale), in caso contrario
+ è stata tagliata una quantità di legna insufficiente e quindi si ripartirà
+ da una quota più bassa (cioè la nuova fine sarà al di sotto del valore
+ attuale)
+\end_layout
+
+\begin_layout Itemize
+a questo punto si riparte da capo con il nuovo range, che rispetto al giro
+ precedente è stato dimezzato
+\end_layout
+
+\begin_layout Standard
+L'ultimo controllo fuori dal ciclo è stato aggiunto perchè ci sono dei casi
+ in cui il valore medio trovato potrebbe essere di un metro troppo in alto,
+ in quanto non è detto che la quantità di legname sia esattamente M: nel
+ caso che il punto sia troppo in alto togliamo un metro (riga 26) e abbiamo
+ la garanzia che stavolta il legno sia sufficiente (il perchè è lasciato
+ come esercizio al lettore).
+\end_layout
+
+\begin_layout Subsubsection*
+Soluzione con ordinamento
+\end_layout
+
+\begin_layout Standard
+Una seconda soluzione che dal punto di vista computazionale è esattamente
+ equivalente a quella vista sopra è quella che sfrutta l'ordinamento: ovviamente
+ risulta equivalente se viene usato un algoritmo di ordinamento con complessità
+ di tipo 
+\begin_inset Formula $n\log n$
+\end_inset
+
+, come le funzioni di ordinamento di libreria, se invece si usasse uno degli
+ algoritmi banali con complessità quadratica le prestazioni degraderebbero.
+\end_layout
+
+\begin_layout Standard
+L'idea è quella di ordinare tutti gli alberi a partire dal più alto al più
+ basso e sfruttare il fatto che a questo punto la quantità di legna tagliata
+ può essere calcolata in tempo lineare partendo dal più alto e scendendo,
+ poichè il calcolo si riduce a una somma e una moltiplicazione e deve essere
+ protratto fino a quando non ho legna a sufficienza.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi nuovi/CoCi/eko/alberi.eps
+	display false
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Soluzione-con-ordinamento-eko"
+
+\end_inset
+
+Soluzione con ordinamento
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Questo algoritmo può essere facilmente compreso osservando figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Soluzione-con-ordinamento-eko"
+
+\end_inset
+
+: impostiamo l'altezza di taglio al livello 1, pari all'altezza dell'albero
+ successivo al primo, e per calcolare la quantità di legna è sufficiente
+ aggiungere la differenza tra l'altezza dell'albero e il livello 1.
+ Poi si imposta la nuova altezza di taglio al livello 2, l'altezza dell'albero
+ successivo, e la nuova quantità, da aggiungere a quella calcolata in precedenza
+, si ottiene come prodotto della differenza tra il livello 1 e il livello
+ 2 moltiplicata per il numero di alberi precedenti (riga 9 del listato),
+ in questo caso 2.
+ Iterando questo procedimento si può calcolare la quantità di legno tagliata
+ ad ogni altezza con costo lineare.
+ Una ulteriore (minima) ottimizzazione si può ottenere sfruttando il fatto
+ che quando ci sono alberi di uguale altezza (nell'esempio in figura 
+\emph on
+c
+\emph default
+ e 
+\emph on
+d
+\emph default
+) prima di fare il calcolo della legna mi sposto fino all'ultimo albero
+ in un colpo solo (riga 8 del listato).
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int main() { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	cin >> N >> M; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	cin >> alberi[i]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	sort(alberi,alberi + N, greater<int>()); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int alberi_tagliati = 1, legno = 0, altezza, i; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (i = 1; i < N && legno < M; i++){ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		while (alberi[i-1] == alberi[i]) i++; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		legno += i * (alberi[i-1] - alberi[i]); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	cout << alberi[i] + (legno - M)/i << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+All'uscita del ciclo (righe 7-10) avrò quindi un'altezza di taglio che è
+ determinata dall'altezza dell'albero a cui mi sono fermato a tagliare,
+ che garantisce che la legna tagliata sarà in quantità sicuramente maggiore
+ o uguale a M: per fornire la risposta corretta dovrò eventualmente aggiungere
+ una quantità che mi permetta di raggiungere un risultato migliore, cosa
+ che posso facilmente ottenere dividendo la quantità di legna eccedente
+ per il numero di alberi tagliati (riga 11).
+\end_layout
+
+\begin_layout Standard
+Va infine fatto notare che dovendo ordinare gli alberi per altezza dal più
+ grande al più piccolo è stata usata la funzione 
+\emph on
+sort
+\emph default
+ passando come ultimo parametro un 
+\emph on
+oggetto funzione
+\emph default
+ o 
+\emph on
+funtore
+\emph default
+ che altro non è che una specie di puntatore a funzione che poi l'algoritmo
+ di ordinamento userà per fare i confronti: in questo modo il funtore 
+\series bold
+greater
+\series default
+ verrà usato dall'algoritmo di ordinamento per confrontare due elementi
+ e verranno eventualmente scambiati in modo tale che alla fine il vettore
+ sarà ordinato al contrario.
+ Una soluzione alternativa era quella usata nell'esercizio 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Soluzione f7"
+
+\end_inset
+
+, in cui veniva ordinato un vettore in modo standard (dal più piccolo al
+ più grande) e poi veniva applicato il metodo 
+\series bold
+reverse
+\series default
+.
+\end_layout
+
+\begin_layout Section
+Sostituzioni (sostituzioni) - ABC Bergamo 2013
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Sostituzioni (sostituzioni)
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Il professor Tarboto, appassionato di numeri, ha inventato un nuovo gioco
+ per i suoi studenti.
+ A partire da un numero M e da una sequenza di numeri interi positivi assegnati
+ A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, …, A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+n
+\end_layout
+
+\end_inset
+
+ bisogna sostituirne alcuni in modo che la somma dei quadrati di tutti i
+ numeri risulti esattamente M.
+ Il gioco prevede un costo per ogni sostituzione di un numero assegnato
+ con un altro.
+ L’obiettivo è trovare l’insieme di sostituzioni con costo minimo.
+ Il costo della sostituzione del numero A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+ con il numero B
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+ è pari a (A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+-B
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+)*( A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+-B
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+).
+ Ogni numero della sequenza iniziale può essere sostituito una volta sola.
+ Ad esempio è possibile sostituire un 3 con un 1 (costo 4) mentre non è
+ possibile sostituire un 3 prima con un 2 e poi con un 1 (costo complessivo
+ 1+1=2).
+\end_layout
+
+\begin_layout Plain Layout
+Determinare il costo minimo necessario per effettuare sostituzioni in modo
+ che la somma dei quadrati di tutti i numeri della sequenza risulti M.
+ Nel caso non fosse possibile ottenere M in alcun modo il risultato è -1.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima linea contiene due interi positivi N (1<= N <=10) e M (1<= M <=10000).
+ Le successive N linee contengono ognuna un intero positivo appartenente
+ alla sequenza A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, …, A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+N
+\end_layout
+
+\end_inset
+
+ (1<= A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+ <=100).
+ Ogni numero A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+ può essere sostituito una volta con un numero B
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+ (1<= B
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+ <=100).
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+La prima e unica linea deve contenere il costo minimo per sostituire abbastanza
+ numeri per ottenere M, o -1 se non esiste soluzione.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+L’esecuzione non deve richiedere più di 1 secondo e 32 MB di RAM.
+ In 5 casi input su 12, viene garantito che M < 100.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="1in">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3 6
+\end_layout
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+\noindent
+Spiegazione dell'esempio
+\end_layout
+
+\begin_layout Plain Layout
+Sostituire un 3 con il valore 2 (costo 1) e l’altro 3 con il valore 1 (costo
+ 4).
+ La somma dei quadrati è 4+1+1=6 come richiesto e il costo è 5.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Aspetti interessanti
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Parole chiave
+\series default
+: ricorsione, ricorsione con memoizzazione, programmazione dinamica top-down
+ e bottom-up..
+\end_layout
+
+\begin_layout Standard
+Questo problema è relativamente facile da risolvere usando opportunamente
+ la ricorsione, ma in questo modo non è possibile raccogliere tutti i punti
+ a disposizione, ma solo una parte di essi.
+ Vengono quindi proposte due versioni migliorate, che sfruttando il paradigma
+ della programmazione dinamica, risolvono correttamente il problema nei
+ casi di test.
+\end_layout
+
+\begin_layout Subsection
+Soluzione ricorsiva semplice
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+#define INT_MAX 1000000000 
+\end_layout
+
+\begin_layout Plain Layout
+
+int a[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int N, M;
+\end_layout
+
+\begin_layout Plain Layout
+
+int costo(int m, int e) { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (m == M && e == N) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		return 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (e == N) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		return INT_MAX; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int min = INT_MAX; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i = -a[e]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(;m + (a[e] + i)*(a[e] + i) <= M;i++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		int ci = costo(m + (a[e] + i)*(a[e] + i), e + 1) + i*i; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if ( ci < min) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			min = ci; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return min; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main(int argc, char** argv) { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N >> M; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> a[i]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int c = costo (0,0) ; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (c == INT_MAX)  		
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << -1 << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	else 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << c << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Soluzione ricorsiva con memoizzazione (o programmazione dinamica top-down)
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int tab[10000][11];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int costo(int m, int e) { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (m == M && e == N) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		return 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (e == N) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		return INT_MAX; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int min = INT_MAX; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i = -a[e]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(;m + (a[e] + i)*(a[e] + i) <= M;i++) { 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		int ci; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (tab[m][e] != -1) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			ci = tab[m][e]; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		else 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			ci = costo(m + (a[e] + i)*(a[e] + i), e + 1) + i*i; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if ( ci < min) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			min = ci; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	tab[m][e] = min; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return min; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Soluzione con programmazione dinamica bottom-up
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int tab[11][10001];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main(int argc, char** argv) { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N >> M; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 1; i <= N; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> a[i]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0 ; i <11;i ++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j = 0 ; j <10001;j ++) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			tab[i][j] = -1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	tab[0][0] = 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i,j,k; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (i = 1; i<=N; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (j=0; j<=M; j++) { 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (tab[i-1][j]!=-1) { 				
+\end_layout
+
+\begin_layout Plain Layout
+
+				k = -a[i]; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+				for (;j + (a[i] + k)*(a[i] + k) <= M;k++){
+\end_layout
+
+\begin_layout Plain Layout
+
+					int b = a[i]+k; 					
+\end_layout
+
+\begin_layout Plain Layout
+
+					if(tab[i-1][j] + k*k < tab[i][j + b*b)]
+\end_layout
+
+\begin_layout Plain Layout
+
+						|| tab[i][j + b*b] == -1)
+\end_layout
+
+\begin_layout Plain Layout
+
+						tab[i][j + b*b)] = tab[i-1][j] + k*k;
+\end_layout
+
+\begin_layout Plain Layout
+
+				}			
+\end_layout
+
+\begin_layout Plain Layout
+
+			} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << tab[N][M] << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Per un pugno di baht (baht) - Nazionali 2010
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Per un pugno di baht (baht)
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+L'incredibile Hulk si trova in Tailandia e purtroppo ha un carattere irascibile:
+ ha rotto diverse macchine automatiche per distribuire le merendine perché
+ non erano in grado di fornirgli il resto.
+ Per prevenire l'ira di Hulk in tali situazioni, la ditta costruttrice ha
+ deciso di predisporre un sistema centrale che sia in grado di calcolare,
+ per ciascuna di tali macchine, il minimo resto che la macchina stessa non
+ è in grado di fornire.
+\end_layout
+
+\begin_layout Plain Layout
+Le monete tailandesi (i baht) che sono presenti nelle macchine possono essere
+ di qualsiasi taglia (1 baht, 2 baht, 3 baht, ecc.) e quantità.
+ Possono essere combinate in qualsiasi modo: ad esempio, il resto di 5 baht
+ non può essere dato se la macchina contiene una moneta da 1 baht e due
+ monete da 3 baht (in questo caso il più piccolo resto che non può essere
+ dato è 2).
+ Con sei monete da 1 baht e due monete da 2 baht, è invece possibile fornire
+ il resto di 5 baht in vari modi (in questo caso il resto più piccolo resto
+ che non può essere dato è 11).
+\end_layout
+
+\begin_layout Plain Layout
+Il tuo compito è di aiutare la ditta a calcolare, per un certo numero di
+ macchine, qual è il minimo resto che ciascuna macchina 
+\series bold
+non
+\series default
+ è in grado di fornire.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt è composto da 2P+1 righe, dove P è il numero di macchine
+ su cui valutare il resto.
+ Per ogni macchina, la ditta presenta la corrispondente sequenza di monete
+ e chiede il minimo resto che la macchina non è in grado di fornire.
+\end_layout
+
+\begin_layout Plain Layout
+Sulla prima riga si trova P, il numero di macchine.
+ Le rimanenti righe sono così composte.
+ Per 1 ≤ i ≤ P, le righe 2i e 2i+1 contengono le informazioni per la i-esima
+ macchina distributrice: la riga 2i contiene N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+, il numero di monete presenti nella macchina; la riga successiva (2i+1),
+ contiene la sequenza di valori M
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+,M
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+,…,M
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ delle monete presenti nella macchina, separati l'un l'altro da uno spazio.
+ I valori delle monete sono interi positivi.
+\end_layout
+
+\begin_layout Plain Layout
+Per esempio, se la seconda riga del file contiene il numero 7 e la terza
+ riga i numeri 10 2 14 1 13 2 3, questo significa che nella prima macchina
+ sono presenti 7 monete.
+ Siccome le monete vanno inserite una alla volta, risulta una moneta da
+ 10 bath, poi una da 2 bath, poi una da 14 baht, una da 1 bath, una da 13
+ bath, ancora una da 2 bath e, infine, una da 3 bath.
+ In tal caso, il minimo resto che la macchina non riesce a restituire è
+ di 9 baht.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da P righe.
+ Sulla i-esima riga (con 1 ≤ i ≤ P) si deve trovare il minimo resto che
+ la i-esima macchina non può fornire.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+1 ≤ P ≤ 1000 
+\end_layout
+
+\begin_layout Itemize
+1 ≤ N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+ ≤ 10 000 per ogni i 
+\end_layout
+
+\begin_layout Itemize
+1 ≤ M
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+j
+\end_layout
+
+\end_inset
+
+ < 2
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+
+ per ogni j 
+\end_layout
+
+\begin_layout Itemize
+Per ciascuna macchina, la somma delle monete nella rispettiva sequenza è
+ sempre inferiore a 2
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+31
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="1in">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\begin_layout Plain Layout
+7 
+\end_layout
+
+\begin_layout Plain Layout
+10 2 14 1 13 2 3 
+\end_layout
+
+\begin_layout Plain Layout
+9 
+\end_layout
+
+\begin_layout Plain Layout
+1 16 2 1 23 18 1 4 3 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9 
+\end_layout
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Aspetti interessanti
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Parole chiave
+\series default
+: ordinamento, greedy.
+\end_layout
+
+\begin_layout Standard
+Non è immediatamente chiaro quale sia la tecnica da adottare per questo
+ tipo di problema, in quanto potrebbe sembrare un problema da risolvere
+ con la programmazione dinamica, poichè assomiglia al problema di 
+\begin_inset Quotes eld
+\end_inset
+
+Lino il giornalaio
+\begin_inset Quotes erd
+\end_inset
+
+ (vedi 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Esempio:-Lino"
+
+\end_inset
+
+).
+ Facendo però qualche prova su carta si può velocemente notare che se si
+ mettono in ordine le monete dalla più piccola alla più grande è immediato
+ verificare in quale situazione non si riesce a dare il resto.
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Per mostrare subito come si arrivi alla soluzione del problema può essere
+ utile guardare la figura , dove vengono mostrati due esempi con insiemi
+ di monete già ordinati.
+ In ogni esempio viene indicato l'insieme M dei valori delle monete contenute
+ nel distributore e ogni riga rappresenta l'insieme dei resti possibili
+ che possono essere dati aggiungendo una nuova moneta, dove la X nella casella
+ indica appunto se il resto può essere dato (se ad esempio ci sono delle
+ X nelle caselle di posizione 1, 2, 3 allora possono essere dati quei tre
+ resti).
+ Come vengono inserite le X nelle righe? 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi nuovi/nazionali/baht/baht.eps
+	display false
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Soluzione-baht"
+
+\end_inset
+
+Soluzione grafica del problema
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il primo passo è notare che vale la seguente osservazione: se posso dare
+ tutti i resti da 1 a R, allora aggiungendo una moneta di valore V potrò
+ dare tutti i resti da 1+V a R+V.
+ Nonostante l'osservazione possa sembrare banale, se i valori delle monete
+ sono ordinati dal più piccolo al più grande, mi permette di trovare facilmente
+ il primo 
+\begin_inset Quotes eld
+\end_inset
+
+buco
+\begin_inset Quotes erd
+\end_inset
+
+ libero dove non posso dare un resto.
+\end_layout
+
+\begin_layout Standard
+Guardando l'esempio 1, dove le monete sono di valore 1, 2, 2, 4 si può vedere
+ che se usiamo solo la moneta 1 possiamo dare un resto di 1 (ovviamente
+ anche di zero, anche se non appare in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Soluzione-baht"
+
+\end_inset
+
+), se aggiungiamo, nella seconda riga, una moneta di valore 2, possiamo
+ ottenere anche i resti 2 e 3, se aggiungiamo l'altra moneta di valore 2
+ otteniamo anche i resti 4 e 5 e se infine raggiungiamo la moneta di valore
+ 4 otteniamo i resti 6, 7, 8, 9.
+ Quindi in questo esempio possiamo dare tutti i resti da 0 a 9 e quindi
+ il primo resto che non può essere dato è quello di valore 10, ovviamente
+ poichè nessuna macchina potrà mai dare un resto superiore alla somma dei
+ valori delle monete che contiene.
+ Il secondo esempio è più interessante, poichè si vede che nel passaggio
+ dalla seconda alla terza riga si crea un 
+\begin_inset Quotes eld
+\end_inset
+
+buco
+\begin_inset Quotes erd
+\end_inset
+
+, che indica che il resto di valore 3 non può essere dato.
+ Da questo esempio dovrebbe essere chiaro come ricavare una regola generale
+ che ci permetta di stabilire qual è il più piccolo resto che non può essere
+ dato con una certa configurazione di monete: supponiamo sia possibile dare
+ tutti i resti usando solo le prime N monete (ordinate dalla più piccola
+ alla più grande) e sia S la somma dei valori di queste monete, allora posso
+ continuare a dare resti 
+\begin_inset Quotes eld
+\end_inset
+
+senza buchi
+\begin_inset Quotes erd
+\end_inset
+
+ se e solo se la nuova moneta aggiunta ha un valore al massimo pari a S+1.
+ Se il valore è superiore, allora non sarà possibile dare il resto di valore
+ S+1, che quindi sarà il più piccolo resto che il distributore non riesce
+ a dare.
+\end_layout
+
+\begin_layout Standard
+Compreso ciò il codice risulta estremamente semplice da scrivere.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int P, N, monete[10000];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> P; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < P; i++) {	 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> N; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		int j; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (j = 0; j < N; j++) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			in >> monete[j]; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		sort (monete, monete + j);	 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		int quante = j; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		int somma = 0; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j = 0; j < quante; j++) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (monete[j] <= somma + 1) 				
+\end_layout
+
+\begin_layout Plain Layout
+
+				somma += monete[j]; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			else 				
+\end_layout
+
+\begin_layout Plain Layout
+
+				break; 		 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << somma + 1 << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il codice che implementa quanto spiegato si trova tra la riga 8 e la riga
+ 20 e viene poi ripetuto P volte per ognuno dei P distributori descritti
+ in input.
+ Dopo aver letto i valori delle monete all'interno del vettore monete (righe
+ 10-11) e averlo ordinato (riga 12), le righe da 15 a 19 sommano di volta
+ in volta una nuova moneta, fino a quando non si trova un valore di una
+ moneta che sia superiore alla somma delle precedenti monete più uno, che
+ è il valore cercato.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,2476 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\date{}
+\end_preamble
+\use_default_options false
+\master guida.lyx
+\maintain_unincluded_children true
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans helvet
+\font_typewriter courier
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Indice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+La ricorsione
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+C'era una volta un re, seduto su un sofà, diceva alla sua serva, raccontami
+ una storia, la serva incominciò: 
+\begin_inset Quotes eld
+\end_inset
+
+C'era una volta un re, seduto su un sofà, diceva alla sua serva, raccontami
+ una storia, la serva incominciò: 
+\begin_inset Quotes eld
+\end_inset
+
+C'era una volta un re...
+\end_layout
+
+\begin_layout Standard
+La ricorsione è più uno strumento concettuale che una tecnica come lo poteva
+ essere quella mostrata nel capitolo precedente, e come tale può essere
+ utilizzata in tanti problemi con caratteristiche molto diverse tra di loro.
+ Tanto per elencare alcuni dei suoi campi di applicazione possiamo indicare:
+\end_layout
+
+\begin_layout Itemize
+problemi di tipo 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+divide et impera
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+, nei quali la soluzione di un problema si ottiene suddividendo il problema
+ in due o più parti che lo compongono, le quali vengono risolte separatamente
+ e poi si rimette insieme quanto ottenuto per avere la soluzione al problema
+ di partenza
+\end_layout
+
+\begin_layout Itemize
+problemi dove è necessario generare tutti i casi possibili rispetto ad alcune
+ scelte che si possono fare e scegliere il caso ottimo per il problema in
+ questione
+\end_layout
+
+\begin_layout Itemize
+problemi di programmazione dinamica (vedi 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Programmazione-dinamica"
+
+\end_inset
+
+), nei quali la soluzione iterativa è applicabile, ma la soluzione ricorsiva
+ è più semplice e/o elegante
+\end_layout
+
+\begin_layout Standard
+In questo capitolo si cercherà di mostrare il concetto e applicarlo ad alcuni
+ casi, delineandone i pregi, i difetti e il campo di applicazione.
+\end_layout
+
+\begin_layout Section
+Cos'è la ricorsione
+\end_layout
+
+\begin_layout Standard
+La ricorsione può essere definita in modi diversi, ma fondamentalmente riguarda
+ la possibilità di poter definire qualcosa in termini di una versione 
+\begin_inset Quotes eld
+\end_inset
+
+più piccola
+\begin_inset Quotes erd
+\end_inset
+
+ di sé stesso.
+ Come al solito un esempio può aiutare a comprendere meglio il concetto
+ e uno degli esempi più utilizzati è quello della funzione 
+\emph on
+fattoriale
+\emph default
+.
+ Il 
+\emph on
+fattoriale
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+A chi si chiedesse l'utilità di una tale funzione sappia che ad esempio
+ è molto utilizzata in matematica combinatoria.
+\end_layout
+
+\end_inset
+
+
+\emph default
+ è una funzione che prende in ingresso un intero e restituisce un intero
+ che viene ottenuto facendo il prodotto di tutti gli interi positivi minori
+ o uguali al numero fornito in ingresso.
+ Da un punto di vista matematico viene definito in questo modo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n!:=\prod_{k=1}^{n}k=1\cdot2\cdot3\cdot\ldots\cdot(n-1)\cdot n
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se ad esempio calcoliamo 
+\begin_inset Formula $4!$
+\end_inset
+
+ otteniamo 
+\begin_inset Formula $1\cdot2\cdot3\cdot4=24$
+\end_inset
+
+.
+ Dovendo scrivere una funzione in C o in C++ per calcolare questa funzione
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Attenzione che il fattoriale è una funzione che aumenta il suo valore molto
+ velocemente all'aumentare del suo argomento, quindi un'implementazione
+ che usa degli interi su macchine a 32 bit il massimo valore di cui riesce
+ a calcolare il fattoriale è 12, per i numeri successivi il risultato è
+ scorretto.
+\end_layout
+
+\end_inset
+
+ risulta piuttosto semplice darne una versione 
+\emph on
+iterativa
+\emph default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+La versione iterativa di un algoritmo è quella a cui sono abituati la maggior
+ parte dei programmatori che usano linguaggi come il C o il C++, dove solitament
+e compaiono cicli, all'opposto della versione ricorsiva dove invece la ripetizio
+ne viene generata dalla ricorsione stessa.
+ 
+\end_layout
+
+\end_inset
+
+ fatta in questo modo
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,language={C++},showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int fattoriale(int n)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int f = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 1; i <= n; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		f *= i;
+\end_layout
+
+\begin_layout Plain Layout
+
+	return f;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si può anche notare che dall'implementazione data 0! risulta uguale a 1,
+ il ché è coerente con la definizione matematica.
+ A questo punto possiamo osservare che vale questa proprietà:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n!=n\cdot(n-1)!
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+che a parole possiamo tradurre come 
+\begin_inset Quotes eld
+\end_inset
+
+Il fattoriale di un numero 
+\emph on
+n
+\emph default
+ è uguale a 
+\emph on
+n
+\emph default
+ moltiplicato per il fattoriale del numero che precede 
+\emph on
+n
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Tornando all'esempio precedente è facile vedere che 
+\begin_inset Formula $4!=4\cdot3!=4\cdot3\cdot2\cdot1=24$
+\end_inset
+
+.
+ Utilizzando questa proprietà e la possibilità, comune a quasi tutti i linguaggi
+, di poter chiamare ricorsivamente una funzione, possiamo definire il fattoriale
+ nel seguente modo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,language={C++},showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int fattoriale_r(int n) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (n == 0) return 1;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	return n * fattoriale_r(n-1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si nota la ricorsione è appunto la possibilità di una funzione di poter
+ richiamare sé stessa all'interno del proprio corpo: anche se apparentemente
+ questo può sembrare un inganno (se il mio scopo è calcolare il fattoriale,
+ che non conosco, come faccio a esprimerlo attraverso il calcolo di un altro
+ fattoriale?), il meccanismo funziona come mostrato in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Fattoriale"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/ricorsione/fattoriale.eps
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Fattoriale"
+
+\end_inset
+
+Fattoriale
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alla prima chiamata la funzione fattoriale rimane in sospeso aspettando
+ di risolvere il calcolo di f(3), il quale si sospende aspettando di risolvere
+ il calcolo di f(2), fino ad arrivare a f(0) che invece restituisce un risultato
+ perché in quel caso si sa la soluzione.
+ A ritroso verranno risolte tutte le moltiplicazioni lasciate in sospeso,
+ fino ad arrivare alla soluzione cercata.
+\end_layout
+
+\begin_layout Standard
+Riassumendo possiamo vedere che le caratteristiche delle funzioni ricorsive
+ sono le seguenti:
+\end_layout
+
+\begin_layout Itemize
+la funzione richiama se stessa su una versione 
+\series bold
+più piccola
+\series default
+ dello stesso problema
+\end_layout
+
+\begin_layout Itemize
+c'è sempre una condizione, a volte chiamata condizione base, di cui si conosce
+ la soluzione e che fa terminare la ricorsione
+\end_layout
+
+\begin_layout Standard
+Se una delle precedenti caratteristiche non venisse rispettata si entrerebbe
+ in una ricorsione infinita, che porterebbe alla terminazione del programma.
+\end_layout
+
+\begin_layout Standard
+A questo punto ci si potrebbe domandare quando convenga usare una modalità
+ iterativa e quando una ricorsiva: l'esperienza mostra che sebbene la maggior
+ parte dei problemi abbia una formulazione iterativa diretta, esiste un
+ insieme di problemi in cui la formulazione ricorsiva risulta più semplice
+ e elegante da esprimere e da implementare, come vedremo anche in alcuni
+ problemi delle Olimpiadi.
+ Purtroppo a volte la ricorsione ha dei problemi di tipo pratico che le
+ permettono di essere applicata solo a casi di input piccoli, come vedremo
+ nel prossimo paragrafo.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Costo-ricorsione"
+
+\end_inset
+
+Problemi della ricorsione
+\end_layout
+
+\begin_layout Standard
+Facciamo una lieve modifica alla funzione fattoriale, dove al posto di fare
+ il prodotto dei primi 
+\emph on
+n
+\emph default
+ numeri naturali ne facciamo la somma, vogliamo cioè calcolare quanto vale
+ la somma dei primi 
+\emph on
+n
+\emph default
+ numeri naturali
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Esiste una nota formula che esprime il risultato senza bisogno di sviluppare
+ tutte le somme, ma per i nostri scopi vedremo il calcolo completo.
+\end_layout
+
+\end_inset
+
+.
+ La definizione ricorsiva, come per il fattoriale, risulta ovvia e se indichiamo
+ la somma dei primi 
+\emph on
+n
+\emph default
+ naturali con 
+\begin_inset Formula $S(n)$
+\end_inset
+
+ ne deriva che 
+\begin_inset Formula $S(n)=n+S(n-1)$
+\end_inset
+
+, la cui l'implementazione è la seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+long long int sommatoria_r(long long int n) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (n == 0) return 0;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	return n + sommatoria_r(n-1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pur sembrando molto simile al fattoriale, nasconde un problema che si può
+ verificare nel momento in cui il numero di input diventa molto grosso
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+L'uso dei long long int, interi a 80 bit, serve appunto ad evidenziare questo
+ effetto.
+\end_layout
+
+\end_inset
+
+.
+ Durante le chiamate ricorsive il programma ha necessità di tenere memoria
+ dei valori 
+\begin_inset Quotes eld
+\end_inset
+
+sospesi
+\begin_inset Quotes erd
+\end_inset
+
+ e per far questo utilizza lo 
+\emph on
+stack
+\emph default
+, un'area di memoria pensata per memorizzare cose come le variabili locali,
+ i parametri, l'indirizzo e il valore di ritorno.
+ Se ad esempio l'input è n=100000 le chiamate ricorsive che devono essere
+ memorizzate sono 100000, prima di poter arrivare alla condizione base e
+ procedere al calcolo a ritroso.
+ Sulla mia macchina a 32 bit con Linux questa funzione provoca il crash
+ del programma che la usa intorno a n=175000, poiché viene esaurito tutto
+ lo spazio dedicato allo 
+\emph on
+stack
+\emph default
+.
+ Nella realtà questo problema si verifica raramente, perché è difficile
+ arrivare a una tale profondità di ricorsione, può però capitare, che per
+ distrazione o altro, la funzione ricorsiva manchi della condizione base
+ o essa sia sbagliata e l'effetto che si ottiene è comunque l'uscita dallo
+ 
+\emph on
+stack
+\emph default
+ e la terminazione anomala del programma.
+\end_layout
+
+\begin_layout Standard
+Un problema invece più serio e che nella pratica limita l'utilizzo della
+ ricorsione si ha quando le chiamate ricorsive non crescono in modo lineare
+ come nel fattoriale, ma in maniera molto più veloce.
+ Ricorriamo anche in questo caso a un esempio e consideriamo il 
+\emph on
+numero di Fibonacci
+\emph default
+: questo numero è l'
+\emph on
+n
+\emph default
+-esimo termine della successione di Fibonacci ed è definito nel seguente
+ modo 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+F(n)=F(n-1)+F(n-2) & per\: n>1\\
+F(1)=1\\
+F(0)=0
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In questo caso, essendo la definizione matematica stessa ricorsiva, il modo
+ più naturale di implementare questa funzione è appunto di usare la ricorsione
+ e si ottiene
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int fibonacci_r(int n)
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (n==0) return 0;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (n==1) return 1;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	return fibonacci_r(n-1) + fibonacci_r(n-2); 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si vede non si è fatto altro che traslare la definizione matematica
+ nella notazione C, ottenendo una funzione perfettamente funzionante.
+ Il problema nascosto è però relativo a una differenza notevole rispetto
+ al fattoriale: stavolta all'interno del corpo della funzione la funzione
+ richiama 2 volte sé stessa, su due versioni più piccole del problema di
+ partenza.
+ Anche se può risultare non immediatamente evidente, questo fa si che il
+ numero di chiamate ricorsive non cresca linearmente all'aumentare di n,
+ ma cresca all'incirca come 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+, assumendo un andamento esponenziale, come si può intuire guardando la
+ figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Numero-di-Fibonacci"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../Syllabus territoriali/ricorsione/fibonacci.eps
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Numero-di-Fibonacci"
+
+\end_inset
+
+Numero di Fibonacci
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il problema qui non è la 
+\emph on
+profondità
+\emph default
+ della ricorsione, che cresce in maniera lineare, quanto l'
+\emph on
+ampiezza
+\emph default
+: ogni versione del problema produce due successive chiamate che quindi
+ rendono la complessità dell'algoritmo di tipo esponenziale e quindi intrattabil
+e per input anche di dimensioni limitate
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Sul mio Pentium 4 a 2.8 GHz il calcolo di F45 in modo ricorsivo impiega circa
+ 26 secondi contro meno di un millesimo di secondo della versione iterativa.
+ 
+\end_layout
+
+\end_inset
+
+.
+ Questo fa si che in alcuni casi, pur essendo la soluzione ricorsiva comoda
+ da implementare, di fatto non possa essere utilizzata per i limiti di performan
+ce che ha.
+\end_layout
+
+\begin_layout Section
+Esempio: Mappa antica - territoriali 2008
+\end_layout
+
+\begin_layout Standard
+Questo problema è un classico esempio di come la ricorsione possa rendere
+ semplice un problema la cui soluzione iterativa non è affatto evidente:
+ è una variante del problema dell'esplorazione di un labirinto e anche se
+ potrebbe sembrare dall'implementazione che abbia un andamento esplosivo
+ in termini di complessità, in realtà si vedrà che la maggior parte dei
+ rami di esecuzione non viene svolta, riducendo notevolmente la mole di
+ operazioni da eseguire.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100text%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Mappa antica (mappa) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Topolino è in missione per accompagnare una spedizione archeologica che
+ segue un'antica mappa acquisita di recente dal museo di Topolinia.
+ Raggiunta la località dove dovrebbe trovarsi un prezioso e raro reperto
+ archeologico, Topolino si imbatte in un labirinto che ha la forma di una
+ gigantesca scacchiera quadrata di NxN lastroni di marmo.
+\end_layout
+
+\begin_layout Plain Layout
+Nella mappa, sia le righe che le colonne del labirinto sono numerate da
+ 1 a N.
+ Il lastrone che si trova nella posizione corrispondente alla riga r e alla
+ colonna c viene identificato mediante la coppia di interi (r, c).
+ I lastroni segnalati da una crocetta '+' sulla mappa contengono un trabocchetto
+ mortale e sono quindi da evitare, mentre i rimanenti sono innocui e segnalati
+ da un asterisco '*'.
+\end_layout
+
+\begin_layout Plain Layout
+Topolino deve partire dal lastrone in posizione (1, 1) e raggiungere il
+ lastrone in posizione (N, N), entrambi innocui.
+ Può passare da un lastrone a un altro soltanto se questi condividono un
+ lato o uno spigolo (quindi può procedere in direzione orizzontale, verticale
+ o diagonale ma non saltare) e, ovviamente, questi lastroni devono essere
+ innocui.
+\end_layout
+
+\begin_layout Plain Layout
+Tuttavia, le insidie non sono finite qui: per poter attraversare incolume
+ il labirinto, Topolino deve calpestare il minor numero possibile di lastroni
+ innocui (e ovviamente nessun lastrone con trabocchetto).
+ Aiutate Topolino a calcolare tale numero minimo.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt è composto da N+1 righe.
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga contiene un intero positivo che rappresenta la dimensione
+ N di un lato del labirinto a scacchiera.
+\end_layout
+
+\begin_layout Plain Layout
+Le successive N righe rappresentano il labirinto a scacchiera: la r-esima
+ di tali righe contiene una sequenza di N caratteri '+' oppure '*', dove
+ '+' indica un lastrone con trabocchetto mentre '*' indica un lastrone sicuro.
+ Tale riga rappresenta quindi i lastroni che si trovano sulla r-esima riga
+ della scacchiera: di conseguenza, il c-esimo carattere corrisponde al lastrone
+ in posizione (r, c).
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da una sola riga contenente un intero che rappresen
+ta il minimo numero di lastroni innocui (ossia indicati con '*') che Topolino
+ deve attraversare a partire dal lastrone in posizione (1, 1) per arrivare
+ incolume al lastrone in posizione (N, N).
+ Notare che i lastroni (1, 1) e (N, N) vanno inclusi nel conteggio dei lastroni
+ attraversati.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Plain Layout
+1 ≤ N ≤ 100.
+ 1 ≤ r, c ≤ N.
+ É sempre possibile attraversare il labirinto dal lastrone in posizione
+ (1, 1) al lastrone in posizione (N, N); inoltre tali due lastroni sono
+ innocui.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+4 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+*+++ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
++**+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
++*+* 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
++***
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Qui la ricorsione va usata per effettuare una ricerca esaustiva all'interno
+ del labirinto, in modo da esplorare tutti i possibili percorsi ed individuare
+ quello migliore.
+ Quando la ricorsione viene usata per generare tutte le possibilità siamo
+ sicuri che arriveremo alla soluzione corretta, l'unico problema è vedere
+ se questo può essere fatto in un tempo ragionevole e vedremo che in questo
+ caso è possibile.
+\end_layout
+
+\begin_layout Standard
+L'algoritmo risolutivo utilizza una matrice ed è in effetti molto semplice:
+ parto da una casella, esploro tutti gli otto vicini (per le caselle di
+ bordo questi vicini sono meno) e per ogni vicino ripeto lo stesso algoritmo.
+ Formulato così però sembra giustamente che dia luogo a una ricorsione infinita:
+ il 
+\begin_inset Quotes eld
+\end_inset
+
+trucco
+\begin_inset Quotes erd
+\end_inset
+
+ è quello di marcare le caselle già esplorate in modo da non ritornarci
+ sopra e arrivare così ad attraversare tutta la griglia in un numero di
+ passi proporzionale alle caselle.
+ Siccome in questo problema bisogna dire quanto è lungo il percorso migliore
+ si fa una piccola modifica: al posto di limitarsi a marcare le caselle
+ già visitate, si scrive al loro interno un numero che indica la distanza
+ di quella casella dalla casella di partenza.
+ In pratica l'algoritmo può essere descritto dai seguenti passaggi:
+\end_layout
+
+\begin_layout Enumerate
+all'inizio tutte le caselle valide vengono poste a zero, mentre le trappole
+ vengono poste a -1 
+\end_layout
+
+\begin_layout Enumerate
+si parte dalla casella 0,0, la si inizializza a uno, poiché il problema
+ dice di contare anche la casella di partenza nel calcolo della lunghezza,
+ e si iniziano a visitare le caselle successive
+\end_layout
+
+\begin_layout Enumerate
+per ogni casella
+\begin_inset Formula $_{\text{i,j}}$
+\end_inset
+
+ si visitano in maniera ricorsiva le 8 caselle vicine valide (si escludono
+ quindi quelle oltre i bordi e quelle con trappole)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+se il valore nella casella visitata è maggiore del valore della casella
+\begin_inset Formula $_{\text{i,j}}$
+\end_inset
+
+ oppure è 0 (cioè non è stata ancora visitata) si aggiorna il valore della
+ casella visitata inserendo il valore della casella
+\begin_inset Formula $_{\text{i,j}}$
+\end_inset
+
+ più uno
+\end_layout
+
+\begin_layout Enumerate
+altrimenti si interrompe la ricorsione
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+quando tutte le caselle sono state visitate nella casella nell'angolo in
+ basso a destra si troverà la lunghezza del percorso migliore
+\end_layout
+
+\begin_layout Standard
+L'implementazione risulta così molto compatta e veloce da scrivere.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int mappa[100][100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int N;
+\end_layout
+
+\begin_layout Plain Layout
+
+void attraversa(int i, int j) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{	 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int r=-1; r<2; r++) 	  
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int s=-1; s<2; s++) 	  
+\end_layout
+
+\begin_layout Plain Layout
+
+		{         
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (i+r<0 || i+r>N-1 || j+s < 0 || j+s > N-1); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+			else if (mappa[i+r][j+s] == 0 || mappa[i+r][j+s] > mappa[i][j] + 1 )
+\end_layout
+
+\begin_layout Plain Layout
+
+			{  			
+\end_layout
+
+\begin_layout Plain Layout
+
+				mappa[i+r][j+s] = mappa[i][j] + 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+				attraversa(i+r,j+s);
+\end_layout
+
+\begin_layout Plain Layout
+
+			} 	  
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	fstream in,out; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in.open("input.txt",ios::in); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	out.open("output.txt",ios::out); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0;i < N;i++) 	   
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j=0;j <N ;j++) 	   
+\end_layout
+
+\begin_layout Plain Layout
+
+		{    		  
+\end_layout
+
+\begin_layout Plain Layout
+
+			char c;  		  
+\end_layout
+
+\begin_layout Plain Layout
+
+			in >> c; 		   
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (c=='*') 
+\end_layout
+
+\begin_layout Plain Layout
+
+				mappa[i][j]=0; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			else 
+\end_layout
+
+\begin_layout Plain Layout
+
+				mappa[i][j]=-1; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	mappa[0][0] = 1;	
+\end_layout
+
+\begin_layout Plain Layout
+
+	attraversa(0,0); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << mappa[N-1][N-1];     
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Le righe 19-32 si occupano di inserire i dati di input: da notare che in
+ generale non c'è nessun vincolo a mantenere i dati nella forma in cui si
+ trovano nel file.
+ In questo esercizio è infatti più comodo trasformare i caratteri * e +
+ in numeri, in modo da utilizzare la matrice direttamente per memorizzare
+ i valori dei percorsi e non aver così bisogno di due matrici, una per descriver
+e le caselle valide e le trappole e l'altra per memorizzare le lunghezze.
+\end_layout
+
+\begin_layout Standard
+Alla riga 33 viene inizializzato il valore della casella di partenza a uno,
+ considerando che il testo del problema dice di contarla per calcolare la
+ lunghezza totale del percorso e alla riga seguente si chiama la funzione
+ ricorsiva che è il cuore del programma ed è definita alle righe 3-15.
+ I due parametri di ingresso rappresentano gli indici della casella di partenza,
+ nel nostro caso (0,0), ma potrebbe essere qualunque altra casella valida.
+ I due cicli alle righe 5 e 6 servono per esplorare le caselle intorno alla
+ casella i,j, includendo sé stessa.
+ Ogni ciclo scandisce il valore precedente, quello corrente e quello successivo
+ dell'indice coinvolto: la prima cosa da fare è escludere gli indici che
+ si trovano all'esterno della matrice
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Un'altra possibilità è quella di aggiungere una 
+\begin_inset Quotes eld
+\end_inset
+
+cornice
+\begin_inset Quotes erd
+\end_inset
+
+ di -1 intorno alla matrice, spostando gli indici dei valori inseriti in
+ basso a destra.
+ In questo modo si evita il controllo sulla validità degli indici poiché
+ le caselle della cornice verranno trattate come trappole e quindi non modifiche
+ranno la soluzione del problema.
+\end_layout
+
+\end_inset
+
+ e questo viene fatto alla riga 8.
+ Se si passa questo controllo si aggiorna il valore nella casella solo se
+ è zero o se si trova un valore migliore di quello già segnato: in questo
+ caso poi si procede ricorsivamente sulle altre caselle confinanti per vedere
+ se si possono trovare nuovi percorsi.
+ 
+\end_layout
+
+\begin_layout Standard
+Apparentemente, siccome ogni chiamata ricorsiva potrebbe dare luogo ad altre
+ 8 chiamate ricorsive, il problema sembra essere di tipo esponenziale, come
+ già spiegato al paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Costo-ricorsione"
+
+\end_inset
+
+: in realtà il fatto di segnare man mano i risultati ottenuti e ripassare
+ su una casella solo se si ottengono dei miglioramenti fa sì che la maggior
+ parte delle chiamate ricorsive vengano tagliate e rende il problema computazion
+almente fattibile.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Esempio:-Domino-massimale"
+
+\end_inset
+
+Esempio: Domino massimale - territoriali 2011
+\end_layout
+
+\begin_layout Standard
+In questo esempio viene usata la ricorsione per generare tutte le possibili
+ permutazioni su di un insieme, che è una tecnica standard e facile da implement
+are.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Domino massimale (domino) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema 
+\end_layout
+
+\begin_layout Plain Layout
+Sono date N tessere di domino, dove ogni tessera contiene due numeri compresi
+ da 0 a 6 in corrispondenza delle sue due estremità.
+ Le tessere possono essere ruotate e la regola impone che due tessere possono
+ essere concatenate se le loro estremità in contatto hanno inciso lo stesso
+ numero.
+ Aiuta a trovare il maggior numero di tessere che si possono concatenare
+ a formare un'unica catena: non è detto che si riescano sempre a usare tutte
+ le tessere; inoltre, possono esserci due o più tessere uguali a meno di
+ rotazioni.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input 
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt è composto da N+1 righe.
+ La prima riga contiene l'intero positivo N, il numero delle tessere a disposizi
+one.
+ Ciascuna delle successive N righe contiene due interi positivi (compresi
+ da 0 a 6) separati da una spazio, che rappresentano i numeri incisi sulle
+ estremità delle tessere.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output 
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da una sola riga contenente il massimo numero
+ di tessere che possono essere concatenate con le regole del domino.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni 
+\end_layout
+
+\begin_layout Plain Layout
+2 ≤ N ≤ 10.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6 
+\end_layout
+
+\begin_layout Plain Layout
+3 0 
+\end_layout
+
+\begin_layout Plain Layout
+4 0 
+\end_layout
+
+\begin_layout Plain Layout
+2 6 
+\end_layout
+
+\begin_layout Plain Layout
+4 4 
+\end_layout
+
+\begin_layout Plain Layout
+0 1 
+\end_layout
+
+\begin_layout Plain Layout
+1 0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Nota/e 
+\end_layout
+
+\begin_layout Plain Layout
+In generale, più configurazioni possono soddisfare i requisti del problema:
+ è sufficiente fornire la lunghezza massima.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La prima idea, la più semplice, che può venire in un caso come questo è
+ quella di utilizzare un approccio a 
+\begin_inset Quotes eld
+\end_inset
+
+forza bruta
+\begin_inset Quotes erd
+\end_inset
+
+, cioè produrre tutte le catene valide con le tessere del domino a disposizione
+ e memorizzare la lunghezza di quella in cui vengono usate il maggior numero
+ di tessere.
+ Sebbene in molti casi l'approccio a 
+\begin_inset Quotes eld
+\end_inset
+
+forza bruta
+\begin_inset Quotes erd
+\end_inset
+
+ non sia computazionalmente sostenibile perché richiede tempi lunghi, in
+ questo caso un indizio convincente del fatto che possa essere la soluzione
+ corretta proviene dal numero massimo di tessere possibili, che come scritto
+ nelle assunzioni è 10.
+ Senza entrare in un'analisi approfondita del costo di questo algoritmo,
+ siccome il numero delle permutazioni di un insieme di n elementi è uguale
+ a 
+\begin_inset Formula $n!$
+\end_inset
+
+, dato che al massimo ci sono 10 tessere il numero totale di permutazioni
+ è 
+\begin_inset Formula $10!=3628800$
+\end_inset
+
+ che è un numero di calcoli che un normale computer può svolgere in tempi
+ dell'ordine del secondo.
+\end_layout
+
+\begin_layout Standard
+Produrre tutte le permutazioni di un insieme è un problema che può essere
+ facilmente messo in forma ricorsiva definendo le permutazioni di un insieme
+ di n elementi come:
+\end_layout
+
+\begin_layout Itemize
+se n>1 allora l'insieme delle permutazioni è uguale all'unione degli insiemi
+ ottenuti tenendo come primo elemento ogni elemento dell'insieme di partenza
+ e concatenando con le permutazioni dell'insieme in cui viene tolto l'elemento
+ messo al primo posto
+\end_layout
+
+\begin_layout Itemize
+se n=1 le permutazioni dell'insieme sono l'unico elemento che lo compone
+\end_layout
+
+\begin_layout Standard
+Vediamo di chiarire meglio questa definizione con un esempio: sia dato l'insieme
+ 
+\begin_inset Formula $S=\{A,B,C\}$
+\end_inset
+
+ e vogliamo produrre le permutazioni 
+\begin_inset Formula $P(S)$
+\end_inset
+
+.
+ Prendiamo quindi l'unione degli insiemi aventi come primo elemento tutti
+ gli elementi di S e concateniamoli con le permutazioni degli elementi rimanenti
+, ottenendo così 
+\begin_inset Formula $P(S)=(AconcP(\{B,C\})\bigcup BconcP(\{A,C\})\bigcup CconcP(\{A,B\}))$
+\end_inset
+
+.
+ Sviluppando ulteriormente le permutazioni degli insiemi con due elementi
+ arriveremo a ottenere le 6 permutazioni dell'insieme di partenza.
+\end_layout
+
+\begin_layout Standard
+Nella procedura risolutiva del problema non basterà produrre tutte le possibili
+ permutazioni, ma bisognerà controllare che vengano rispettate le regole
+ del domino, quindi molti rami della ricorsione verranno fermati ai primi
+ livelli a causa della non aderenza alle regole di concatenazione delle
+ tessere, rendendo quindi la stima vista in precedenza del costo un limite
+ superiore che può essere raggiunto solo in presenza di particolari input.
+\end_layout
+
+\begin_layout Standard
+Per quanto riguarda le strutture dati è comodo definire una 
+\emph on
+struct
+\emph default
+ del C per rappresentare ogni singola tessera, con il valore di sinistra
+ e di destra: in questo modo sarà poi possibile rappresentare l'insieme
+ delle tessere come vettori di questa nuova struttura.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int N;
+\end_layout
+
+\begin_layout Plain Layout
+
+struct tessera{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int s,d;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+tessera t[10]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+tessera r[10]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+bool usata[10]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+tessera permutazione[10]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int lunghezza = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void trova_permutazione(int pos) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (pos > lunghezza)	 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		lunghezza = pos; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (pos == 0 || (permutazione[pos-1].d == t[i].s && usata[i] == false))
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			permutazione[pos] = t[i]; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			usata[i] = true; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			trova_permutazione(pos + 1);
+\end_layout
+
+\begin_layout Plain Layout
+
+			usata[i] = false; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (pos == 0 || (permutazione[pos-1].d == r[i].s && usata[i] == false))
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			permutazione[pos] = r[i]; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			usata[i] = true; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			trova_permutazione(pos + 1); 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			usata[i] = false; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(int i = 0; i < N; i++) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> t[i].s >> t[i].d; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		r[i].s = t[i].d; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		r[i].d = t[i].s; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(int i = 0; i < N; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		usata[i] = false; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	trova_permutazione(0);	
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << lunghezza; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come nell'esempio precedente (e in generale in tutti quelli che utilizzano
+ la ricorsione) il programma principale si occupa solo della lettura dell'input
+ (righe 36-44) e effettua la chiamata alla funzione ricorsiva 
+\emph on
+trova_permutazione
+\emph default
+ che risolve il problema.
+\end_layout
+
+\begin_layout Standard
+Prima di analizzare la funzione ricorsiva riprendiamo il discorso sulle
+ strutture per vedere come sono state implementate: alle righe 2-4 viene
+ definita la struttura per contenere i valori delle due facce di una tessera
+ del domino, poi vengono creati (righe 5-6) due vettori, che conterranno
+ il primo le tessere del domino nella versione fornita nel file di input,
+ il secondo le stesse tessere ma ruotate, in modo da soddisfare le richieste
+ del problema che permette la rotazione delle tessere per ottenere una catena
+ valida.
+ Per creare le permutazioni serve poi un vettore di booleani (riga 7) che
+ memorizza quali tessere sono state già usate nella permutazione che si
+ sta costruendo, in modo da non riutilizzarle.
+ Infine c'è il vettore che contiene le tessere della permutazione corrente
+ e che può servire per la stampa nel caso si voglia fare debug (ai fini
+ di questo problema basterebbe una sola variabile per tenere conto dell'ultima
+ tessera inserita nella catena).
+\end_layout
+
+\begin_layout Standard
+La funzione ricorsiva accetta un unico parametro che indica la posizione
+ corrente dove si cerca di inserire una tessera (la prima posizione ha indice
+ 0) e la sua implementazione riflette quanto detto in precedenza: il ciclo
+ 
+\emph on
+for
+\emph default
+ alle righe 15-31 scorre tutte le caselle e gli 
+\emph on
+if
+\emph default
+ interni usano solo quelle che non sono già state usate (usata[i]==false)
+ e che possono essere accostate all'ultima inserita secondo le regole del
+ domino (permutazione[pos-i].d == t[i].d).
+ Da notare che gli 
+\emph on
+if
+\emph default
+ sono due per prendere in considerazione la versione 
+\begin_inset Quotes eld
+\end_inset
+
+normale
+\begin_inset Quotes erd
+\end_inset
+
+ e la versione 
+\begin_inset Quotes eld
+\end_inset
+
+ruotata
+\begin_inset Quotes erd
+\end_inset
+
+ di ogni tessera.
+ All'interno delle due selezioni si inserisce la tessera nel vettore delle
+ permutazioni (riga 19), la si segna come usata (riga 20) e si effettua
+ la ricorsione su una permutazione più piccola.
+ Attenzione bene all'istruzione alla riga 22 che serve a indicare che adesso
+ la tessera viene tolta per provarne altre
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Questa tecnica di procedere e poi ritornare indietro ripristinando la situazione
+ precedente è nota come 
+\emph on
+backtracking
+\emph default
+.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Esempio-Missioni"
+
+\end_inset
+
+Esempio: Missioni segrete - territoriali 2008
+\end_layout
+
+\begin_layout Standard
+Questo esempio verrà usato solo per mostrare come in alcuni problemi la
+ soluzione ricorsiva scaturisca naturalmente dalla lettura stessa del testo
+ e quindi richieda uno sforzo implementativo molto basso.
+ D'altro canto però, come già mostrato nel paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Costo-ricorsione"
+
+\end_inset
+
+ da un punto di vista prestazionale si vedrà che questa soluzione non è
+ applicabile per risolvere tutti i casi di test, ma funziona solo per esempi
+ con input molto piccoli.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Missioni segrete (missioni) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Il Commissario Basettoni ha presentato a Topolino le missioni che egli dovrà
+ svolgere segretamente nel corso dell'anno.
+ Per ogni missione, oltre al luogo da raggiungere, Basettoni ne indica la
+ durata in giorni e la data massima entro cui deve essere completata.
+ In altri termini, la missione può iniziare in qualunque giorno dell'anno
+ ma deve durare esattamente il numero di giorni indicato e terminare non
+ oltre la data di scadenza.
+\end_layout
+
+\begin_layout Plain Layout
+Topolino, presa la lista delle missioni ricevuta da Basettoni, ordina tali
+ missioni in base alla loro data di scadenza.
+ Quindi, numera i giorni dell'anno da 1 a 365 (non esistono anni bisestili
+ a Topolinia) e trasforma le date di scadenza in numeri secondo tale numerazione.
+ Per esempio, se una missione dura 15 giorni e deve essere svolta entro
+ il 18 febbraio, Topolino la vede semplicemente come una coppia di interi
+ 15 49 (in quanto il 18 febbraio è il quarantanovesimo giorno dell'anno).
+\end_layout
+
+\begin_layout Plain Layout
+Poiché può svolgere una sola missione alla volta, Topolino sa che potrebbe
+ svolgerne solo alcune pur iniziando una missione il giorno immediatamente
+ successivo a quello in cui termina la precedente missione.
+ Vuole perciò sapere il numero massimo di missioni che è in grado di svolgere
+ rispettando i vincoli sulla loro durata e scadenza.
+ Supponendo che Topolino già fornisca le coppie di interi ordinate per scadenza
+ (il secondo membro delle coppie), aiutatelo a calcolare il massimo numero
+ di missioni che può svolgere.
+\end_layout
+
+\begin_layout Plain Layout
+Per esempio, se ci sono quattro missioni, una di tre giorni da terminare
+ entro il 5 gennaio, una di quattro giorni entro l'8 gennaio, una di tre
+ giorni entro il 9 gennaio e una di 6 giorni entro il 12 gennaio, Topolino
+ vi fornisce la lista di quattro coppie 3 5, 4 8, 3 9 e 6 12.
+ Il numero massimo di missioni che può svolgere è pari a tre, ossia le missioni
+ corrispondenti alle coppie 3 5, 3 9 e 6 12: la prima missione inizia il
+ primo di gennaio e termina il 3 gennaio; la seconda inizia il 4 gennaio
+ e termina il 6 gennaio; la terza inizia il 7 gennaio e termina il 12 gennaio.
+ (Notare che, scegliendo la missione corrispondente alla coppia 4 8, Topolino
+ può svolgere al più due missioni.) 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt è composto da N+1 righe.
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga contiene un intero positivo che rappresenta il numero N di
+ missioni presentate da Basettoni a Topolino.
+\end_layout
+
+\begin_layout Plain Layout
+Le successive N righe rappresentano durata e scadenza delle missioni: ciascuna
+ riga è composta da due interi d e s separati da uno spazio, a rappresentare
+ che la corrispondente missione dura d giorni e deve essere completata entro
+ l's-esimo giorno dell'anno.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da una sola riga contenente un intero che rappresen
+ta il massimo numero di missioni che Topolino può svolgere rispettando i
+ vincoli su durata e scadenza.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Plain Layout
+1 ≤ N ≤ 100.
+ 1 ≤ d, s ≤ 365.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4 
+\end_layout
+
+\begin_layout Plain Layout
+3 5 
+\end_layout
+
+\begin_layout Plain Layout
+4 8 
+\end_layout
+
+\begin_layout Plain Layout
+3 9 
+\end_layout
+
+\begin_layout Plain Layout
+6 12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In casi come questo, in cui si può scegliere se prendere o non prendere
+ qualche cosa, l'implementazione ricorsiva risulta banale e può essere descritta
+ nel seguente modo
+\end_layout
+
+\begin_layout Itemize
+dato un insieme di N missioni posso decidere di tenere o non tenere la prima
+\end_layout
+
+\begin_layout Itemize
+se decido di tenerla come prima cosa devo verificare se posso farlo, perché
+ per la scelta fatta in precedenza potrebbe non essere possibile.
+ Se posso prenderla aumento di uno il contatore delle missioni svolte e
+ aggiorno la nuova data di fine prima della quale non posso prendere altre
+ missioni
+\end_layout
+
+\begin_layout Itemize
+se decido di non tenerla, lascio inalterato sia il contatore delle missioni
+ che la data di fine
+\end_layout
+
+\begin_layout Itemize
+in entrambi i casi procedo poi in maniera ricorsiva sull'insieme di N-1
+ missioni
+\end_layout
+
+\begin_layout Itemize
+quando sono arrivato alla fine controllo a ritroso la lunghezza massima
+ trovata e arrivo alla soluzione
+\end_layout
+
+\begin_layout Standard
+Dovrebbe essere abbastanza evidente che questo modo di procedere, provando
+ tutte le combinazioni possibili, porta sicuramente al risultato corretto,
+ il problema è che la sua complessità è di tipo 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ e in pratica funziona solo per input molto piccoli (il valore limite di
+ 100 dato nelle assunzioni è ben oltre la sua portata
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Testata sul correttore nazionale di cui si è parlato al paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Il-correttore"
+
+\end_inset
+
+ la soluzione qui mostrata risolve correttamente i primi quattro casi ma
+ va in timeout sull'ultimo in cui le missioni sono 80.
+\end_layout
+
+\end_inset
+
+).
+ Si vedrà nel capitolo successivo una tecnica che permette risolvere il
+ problema in tempo quadratico, al costo di una maggiore difficoltà implementativ
+a.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+struct Missione{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int durata; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int fine; 
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+Missione missioni[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int N; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int calcola(int missione, int giorno) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (missione == N) return 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int fatta = 0, nonfatta; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if ( giorno + missioni[missione].durata <= missioni[missioni].fine) 	  
+\end_layout
+
+\begin_layout Plain Layout
+
+		fatta = 1 + calcola(missione + 1, giorno + missioni[missioni].durata);
+ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	nonfatta = calcola(missione + 1, giorno);	 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (fatta > nonfatta) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		return fatta; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	else  		
+\end_layout
+
+\begin_layout Plain Layout
+
+		return nonfatta; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	fstream in,out; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in.open("input.txt",ios::in); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	out.open("output.txt",ios::out); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0;i < N;i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> missioni[i].durata >> missioni[i].fine;     
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << calcola(0,0);	 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}	 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Anche in questo caso la soluzione sta tutta nella funzione ricorsiva 
+\emph on
+calcola
+\emph default
+.
+ Questa funzione riceve come parametri di input l'indice della missione
+ corrente e un intero che rappresenta la data di fine dell'ultima missione
+ presa.
+ All'inizio la funzione viene chiamata con i due parametri (0,0) poiché
+ si parte dalla prima missione e siccome non ce ne sono di precedenti il
+ giorno di fine è il giorno 0.
+ La ricorsione finisce quando si arriva all'ultima missione (riga 9).
+ Il primo controllo (riga 11) riguarda il numero di missioni che si possono
+ fare facendo la missione corrente, che può essere fatta solo se il giorno
+ di termine della missione precedente è compatibile con la durata e il giorno
+ massimo di fine della missione corrente.
+ Se si può prendere, il nuovo numero di missioni è uguale a uno più il numero
+ massimo di missioni che si possono fare dopo aver preso quella corrente,
+ calcolato ricorsivamente (riga 12).
+ Da notare che il nuovo valore della data di fine si ottiene aggiungendo
+ al valore precedente di fine la durata della missione presa, non il suo
+ giorno massimo di fine, questo perché, se decido di prendere una missione,
+ non ho nessun vantaggio a posticipare l'inizio di una missione, potrei
+ solo peggiorare il numero di missioni prese.
+\end_layout
+
+\begin_layout Standard
+Nel caso invece che decida di non prenderla, cosa che posso sempre fare
+ e che quindi non prevede la presenza di un controllo, il numero di missioni
+ prese sarà uguale a quelle che potrò prendere poi, calcolate ricorsivamente:
+ stavolta la chiamata ricorsiva riceve come valore di fine delle missione
+ lo stesso che aveva in precedenza poiché, non avendo preso la missione,
+ nulla è cambiato rispetto a prima.
+\end_layout
+
+\begin_layout Standard
+A questo punto viene fatto un controllo per verificare quale delle due scelte
+ si è rivelata migliore e viene restituito quel valore (righe 14-17).
+\end_layout
+
+\begin_layout Standard
+Perché soffermarci sulla soluzione ricorsiva se in questo caso non permette
+ di risolvere tutti i casi di test ma solo quelli con input limitati? Perché
+ durante una gara lo scopo non è quello di arrivare alla soluzione corretta
+ di un problema, ma quello di fare più punti possibile.
+ È chiaro che risolvere correttamente un problema è la via migliore per
+ ottenere un maggior numeri di punti, però nel caso non sia evidente la
+ soluzione, implementare una semplice soluzione ricorsiva permette di raccoglier
+e una certa quantità di punti (in dipendenza dall'input che verrà testato)
+ con un costo realizzativo molto basso (una soluzione come quella appena
+ vista può essere scritta anche da un programmatore non esperto in una mezz'ora
+ o meno).
+ Quindi se non si sa fare altro la ricorsione è meglio di niente...
+\end_layout
+
+\end_body
+\end_document
