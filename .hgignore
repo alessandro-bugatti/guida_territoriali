@@ -1,0 +1,129 @@
+syntax: glob
+materiali/dinamica/fibonacci/a.out
+materiali/dinamica/knapsack/a.out
+materiali/dinamica/knapsack/input.txt
+testi/ricorsione.lyx~
+testi/ricerca_ordinamento.lyx~
+testi/problemi_risolti.lyx~
+testi/problemi_proposti.lyx~
+testi/prerequisiti.lyx~
+testi/per_iniziare.lyx~
+testi/nuovi_problemi.lyx~
+testi/introduzione.lyx~
+testi/guida.pdf
+testi/guida.lyx~
+testi/greedy.lyx~
+testi/grafi.lyx~
+testi/dinamica.lyx~
+testi/complessita.lyx~
+testi/appendice.lyx~
+testi/#problemi_risolti.lyx#
+materiali/ricorsione/sommatoria/a.out
+materiali/ricorsione/fibonacci/a.out
+materiali/ricerca/a.out
+materiali/problemi territoriali/2013_trovaparola/output.txt
+materiali/problemi territoriali/2013_trovaparola/main
+materiali/problemi territoriali/2013_trovaparola/input.txt
+materiali/problemi territoriali/2013_gardaland/output.txt
+materiali/problemi territoriali/2013_gardaland/main
+materiali/problemi territoriali/2013_gardaland/input.txt
+materiali/problemi territoriali/2013_gardaland/gardaland
+materiali/problemi territoriali/2012_turni/turni
+materiali/problemi territoriali/2012_turni/output.txt
+materiali/problemi territoriali/2012_turni/input_old.txt
+materiali/problemi territoriali/2012_turni/input3
+materiali/problemi territoriali/2012_turni/input.txt
+materiali/problemi territoriali/2012_turni/a.out
+materiali/problemi territoriali/2012_turni/Turni di guardia.txt
+materiali/problemi territoriali/2012_grandprix/output.txt
+materiali/problemi territoriali/2012_grandprix/input.txt
+materiali/problemi territoriali/2012_grandprix/a.out
+materiali/problemi territoriali/2012_barbablu/output.txt
+materiali/problemi territoriali/2012_barbablu/input_old.txt
+materiali/problemi territoriali/2012_barbablu/input.txt
+materiali/problemi territoriali/2012_barbablu/barbablu_bfs_finale
+materiali/problemi territoriali/2012_barbablu/barbablu_bfs
+materiali/problemi territoriali/2012_barbablu/a.out
+materiali/problemi territoriali/2011_nanga/output.txt
+materiali/problemi territoriali/2011_nanga/input.txt
+materiali/problemi territoriali/2011_nanga/a.out
+materiali/problemi territoriali/2011_galattici/output.txt
+materiali/problemi territoriali/2011_galattici/input.txt
+materiali/problemi territoriali/2011_galattici/a.out
+materiali/problemi territoriali/2011_domino/output.txt
+materiali/problemi territoriali/2011_domino/input.txt
+materiali/problemi territoriali/2011_domino/a.out
+materiali/problemi territoriali/2010_tamburello/output.txt
+materiali/problemi territoriali/2010_sbarramento/testFile.zip
+materiali/problemi territoriali/2010_sbarramento/output.txt
+materiali/problemi territoriali/2010_sbarramento/input.txt
+materiali/problemi territoriali/2010_quasipal/testFile.zip
+materiali/problemi territoriali/2010_quasipal/output.txt
+materiali/problemi territoriali/2010_quasipal/input.txt
+materiali/problemi territoriali/2010_quasipal/a.out
+materiali/problemi territoriali/2009_treno/output.txt
+materiali/problemi territoriali/2009_treno/out1.txt
+materiali/problemi territoriali/2009_treno/input.txt
+materiali/problemi territoriali/2009_treno/inp1.txt
+materiali/problemi territoriali/2009_treno/a.out
+materiali/problemi territoriali/2009_essenza/output.txt
+materiali/problemi territoriali/2009_essenza/input.txt
+materiali/problemi territoriali/2008_missioni/output.txt
+materiali/problemi territoriali/2008_missioni/missioniexnear.o
+materiali/problemi territoriali/2008_missioni/input.txt
+materiali/problemi territoriali/2008_missioni/a.out
+materiali/problemi territoriali/2008_mappa/output.txt
+materiali/problemi territoriali/2008_mappa/input.txt
+materiali/problemi territoriali/2008_mappa/a.out
+materiali/problemi territoriali/2007_torero/testFile.zip
+materiali/problemi territoriali/2007_torero/output.txt
+materiali/problemi territoriali/2007_torero/input.txt
+materiali/problemi territoriali/2007_torero/a.out
+materiali/problemi territoriali/2007_nimbus/output.txt
+materiali/problemi territoriali/2007_nimbus/input.txt
+materiali/problemi territoriali/2007_nimbus/Nimbus.txt
+materiali/problemi territoriali/2007_lino/output.txt
+materiali/problemi territoriali/2007_lino/a.out
+materiali/problemi territoriali/2007_lino/Lino.txt
+materiali/problemi territoriali/2006_bilancino/input.txt
+materiali/problemi territoriali/2006_bilancino/bilancino.txt
+materiali/problemi territoriali/2006_bilancino/a.out
+materiali/problemi territoriali/2005_sunnydale/a.out
+materiali/problemi territoriali/2005_codice/output.txt
+materiali/problemi territoriali/2005_codice/input.txt
+materiali/problemi territoriali/2005_codice/a.out
+materiali/problemi territoriali/2005_chimico/output.txt
+materiali/problemi territoriali/2005_chimico/input.txt
+materiali/problemi territoriali/2005_chimico/codice.o
+materiali/problemi territoriali/2005_chimico/chimico.o
+materiali/problemi territoriali/2005_chimico/chimico.dev
+materiali/problemi territoriali/2005_chimico/a.out
+materiali/problemi territoriali/2005_chimico/Makefile.win
+materiali/problemi territoriali/2004_poldo_territoriali/output.txt
+materiali/problemi territoriali/2004_poldo_territoriali/input.txt
+materiali/problemi territoriali/2004_poldo_territoriali/input.100.txt
+materiali/problemi territoriali/2004_poldo_territoriali/a.out
+materiali/problemi territoriali/2004_hamtaro_nazionali/input.txt
+materiali/problemi nuovi/nazionali/salti/salti
+materiali/problemi nuovi/nazionali/salti/output.txt
+materiali/problemi nuovi/nazionali/salti/input.txt
+materiali/problemi nuovi/nazionali/baht/output.txt
+materiali/problemi nuovi/nazionali/baht/main
+materiali/problemi nuovi/nazionali/baht/input.txt
+materiali/problemi nuovi/nazionali/baht/bath.c~
+materiali/problemi nuovi/nazionali/baht/baht
+materiali/problemi nuovi/gator/cannoniere/cannoniere
+materiali/problemi nuovi/internazionali/writing/writing
+materiali/problemi nuovi/internazionali/writing/output.txt
+materiali/problemi nuovi/internazionali/writing/input.txt
+materiali/problemi nuovi/gator/sorteggio/sorteggio
+materiali/problemi nuovi/gator/sorteggio/output.txt
+materiali/problemi nuovi/gator/sorteggio/input.txt
+materiali/problemi nuovi/gator/fuorigioco/output.txt
+materiali/problemi nuovi/gator/fuorigioco/input.txt
+materiali/problemi nuovi/gator/fuorigioco/fuorigioco
+materiali/problemi nuovi/gator/fulcrodelgioco/output.txt
+materiali/problemi nuovi/gator/fulcrodelgioco/input.txt
+materiali/problemi nuovi/gator/fulcrodelgioco/fulcrodelgioco
+materiali/problemi nuovi/gator/cannoniere/output.txt
+materiali/problemi nuovi/gator/cannoniere/input.txt
