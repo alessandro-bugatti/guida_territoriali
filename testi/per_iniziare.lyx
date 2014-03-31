@@ -1066,8 +1066,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/funzioni/disegno funzione.eps
-	display false
+	filename ../materiali/funzioni/disegno funzione.eps
 	scale 50
 
 \end_inset
@@ -1414,8 +1413,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/funzioni/passaggio parametri.eps
-	display false
+	filename ../materiali/funzioni/passaggio parametri.eps
 	scale 50
 
 \end_inset

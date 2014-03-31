@@ -717,12 +717,12 @@ soluzioni
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/dinamica/knapsack/knapsack.eps
+	filename ../materiali/dinamica/knapsack/knapsack.eps
 	display false
 	scale 40
 
@@ -1231,7 +1231,7 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
-status open
+status collapsed
 
 \begin_layout Subsection*
 La dieta di Poldo (poldo)
@@ -1480,12 +1480,12 @@ k
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/dinamica/poldo.eps
+	filename ../materiali/dinamica/poldo.eps
 	display false
 	scale 40
 

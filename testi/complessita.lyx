@@ -562,14 +562,12 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/complessita/confronto.eps
+	filename ../materiali/complessita/confronto.eps
 	lyxscale 50
 	display false
 	scale 55
 	scaleBeforeRotation
 	clip
-	rotateAngle 270
-	rotateOrigin center
 
 \end_inset
 
@@ -1014,12 +1012,11 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/complessita/classi.eps
+	filename ../materiali/complessita/classi.eps
 	lyxscale 50
 	display false
 	scale 54
 	scaleBeforeRotation
-	rotateAngle 270
 
 \end_inset
 

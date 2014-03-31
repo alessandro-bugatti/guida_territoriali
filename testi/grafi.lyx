@@ -192,7 +192,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/grafi/esempio001.eps
+	filename ../materiali/grafi/esempio001.eps
 	lyxscale 30
 	scale 20
 
@@ -337,7 +337,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/grafi/GrafoOrientato.eps
+	filename ../materiali/grafi/GrafoOrientato.eps
 	lyxscale 30
 	scale 30
 	clip
@@ -436,7 +436,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/grafi/GrafoConnessoENon.eps
+	filename ../materiali/grafi/GrafoConnessoENon.eps
 	lyxscale 10
 	display false
 	scale 20
@@ -483,7 +483,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/grafi/GrafoPesato.eps
+	filename ../materiali/grafi/GrafoPesato.eps
 	lyxscale 20
 	display false
 	scale 30
@@ -551,7 +551,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/grafi/GrafoEsempio1.eps
+	filename ../materiali/grafi/GrafoEsempio1.eps
 	display false
 	scale 30
 
@@ -681,12 +681,12 @@ liste di adiacenza
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/grafi/Matrice e liste.eps
+	filename ../materiali/grafi/Matrice e liste.eps
 	display false
 	scale 45
 
@@ -3362,7 +3362,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/grafi/CamminiPossibili1.eps
+	filename ../materiali/grafi/CamminiPossibili1.eps
 	display false
 	scale 30
 
@@ -3429,7 +3429,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/grafi/CamminiPossibili2.eps
+	filename ../materiali/grafi/CamminiPossibili2.eps
 	lyxscale 30
 	display false
 	scale 30
@@ -3790,7 +3790,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/grafi/Dijkstra01.eps
+	filename ../materiali/grafi/Dijkstra01.eps
 	lyxscale 40
 	display false
 	scale 30
@@ -3860,7 +3860,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/grafi/Dijkstra02.eps
+	filename ../materiali/grafi/Dijkstra02.eps
 	lyxscale 40
 	display false
 	scale 30
@@ -3935,7 +3935,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/grafi/Dijkstra03.eps
+	filename ../materiali/grafi/Dijkstra03.eps
 	lyxscale 40
 	display false
 	scale 30
@@ -4000,7 +4000,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/grafi/Dijkstra04.eps
+	filename ../materiali/grafi/Dijkstra04.eps
 	lyxscale 40
 	display false
 	scale 30
@@ -4079,12 +4079,12 @@ stabili
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/grafi/Dijkstra05.eps
+	filename ../materiali/grafi/Dijkstra05.eps
 	lyxscale 40
 	display false
 	scale 30

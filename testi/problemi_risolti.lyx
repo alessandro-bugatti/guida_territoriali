@@ -3840,13 +3840,12 @@ reference "fig:Treno-ricorsiva"
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /media/DATI/Alex/Scuola/Olimpiadi Informatica/Syllabus territoriali/problemi territoriali/2009_treno/treno.eps
-	display false
+	filename ../materiali/problemi territoriali/2009_treno/treno.eps
 	scale 50
 
 \end_inset
@@ -5758,7 +5757,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /media/DATI/Alex/Scuola/Olimpiadi Informatica/Syllabus territoriali/problemi territoriali/2010_tamburello/tamburello.eps
+	filename ../materiali/problemi territoriali/2010_tamburello/tamburello.eps
 	display false
 	scale 55
 
@@ -6242,12 +6241,12 @@ a
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /media/DATI/Alex/Scuola/Olimpiadi Informatica/Syllabus territoriali/problemi territoriali/2011_galattici/galattici.eps
+	filename ../materiali/problemi territoriali/2011_galattici/galattici.eps
 	display false
 	scale 50
 
@@ -6897,7 +6896,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /media/DATI/Alex/Scuola/Olimpiadi Informatica/Syllabus territoriali/problemi territoriali/2011_nanga/nanga.eps
+	filename ../materiali/problemi territoriali/2011_nanga/nanga.eps
 	display false
 	scale 50
 
@@ -8394,7 +8393,7 @@ Prima di procedere con le operazioni di recupero ti viene commissionata
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /media/DATI/Alex/Scuola/Olimpiadi Informatica/Syllabus territoriali/problemi territoriali/2012_barbablu/mappa.png
+	filename ../materiali/problemi territoriali/2012_barbablu/mappa.png
 	lyxscale 50
 	scale 60
 
@@ -9229,7 +9228,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /media/DATI/Alex/Scuola/Olimpiadi Informatica/Syllabus territoriali/problemi territoriali/2012_barbablu/esempio cattivo totale.eps
+	filename ../materiali/problemi territoriali/2012_barbablu/esempio cattivo totale.eps
 	display false
 	scale 60
 
@@ -10693,7 +10692,7 @@ Descrizione del problema
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /media/DATI/Alex/Scuola/Olimpiadi Informatica/Syllabus territoriali/problemi territoriali/2013_trovaparola/ruzzle.png
+	filename ../materiali/problemi territoriali/2013_trovaparola/ruzzle.png
 	scale 60
 
 \end_inset
@@ -12138,7 +12137,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /media/DATI/Alex/Scuola/Olimpiadi Informatica/guida/materiali/problemi territoriali/2013_trovaparola/caso pessimo.eps
+	filename ../materiali/problemi territoriali/2013_trovaparola/caso pessimo.eps
 	display false
 	scale 70
 

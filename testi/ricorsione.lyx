@@ -393,7 +393,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/ricorsione/fattoriale.eps
+	filename ../materiali/ricorsione/fattoriale.eps
 	display false
 	scale 50
 
@@ -715,7 +715,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Syllabus territoriali/ricorsione/fibonacci.eps
+	filename ../materiali/ricorsione/fibonacci.eps
 	display false
 	scale 50
 
