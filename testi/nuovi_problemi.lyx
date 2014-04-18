@@ -2970,7 +2970,7 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
-status collapsed
+status open
 
 \begin_layout Subsection*
 Per un pugno di baht (baht)
@@ -3306,7 +3306,7 @@ Per mostrare subito come si arrivi alla soluzione del problema può essere
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3366,7 +3366,7 @@ Guardando l'esempio 1, dove le monete sono di valore 1, 2, 2, 4 si può vedere
  anche di zero, anche se non appare in figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Soluzione-baht"
+reference "fig:Soluzione-con-ordinamento-eko"
 
 \end_inset
 
@@ -3545,6 +3545,703 @@ Il codice che implementa quanto spiegato si trova tra la riga 8 e la riga
  in volta una nuova moneta, fino a quando non si trova un valore di una
  moneta che sia superiore alla somma delle precedenti monete più uno, che
  è il valore cercato.
+\end_layout
+
+\begin_layout Section
+Fulcro del gioco (fulcro) - GATOR 2014
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Questa gara è stata tenuta per la prima volta a marzo 2014 come allenamento
+ per le territoriali in modalità online ed è stata organizzata dal Dipartimento
+ di Informatica dell'Università di Roma Tor Vergata.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Fulcro del gioco (fulcro)
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Una partita di calcio può essere analizzata (anche) in funzione della rete
+ di passaggi che vengono effettuati tra i giocatori.
+ Per esempio, qui sotto vediamo l’analisi della finale dei mondiali 2006:
+ il verso delle frecce rappresenta la direzione dei passaggi, e la dimensione
+ delle frecce è proporzionale al numero di passaggi tra due giocatori.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/xubuntu/Desktop/guida/materiali/problemi nuovi/gator/fulcrodelgioco/worldcup2006bn.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Prandelli, il CT della nazionale italiana, sta studiando il modo di pressare
+ i giocatori avversari quando la palla è in possesso del portiere (avversario).
+ Come dati a disposizione abbiamo lo schema dei passaggi tra i giocatori,
+ e siamo interessati a capire quale sia il giocatore da marcare per impedire
+ al maggior numero di giocatori di ricevere il pallone.
+ Ad esempio, nella figura qui sotto, si vede che se si impedisce al 10 di
+ prendere palla, non ci sono modi di farla arrivare al numero 8, al 9 e
+ all’11.
+ Possiamo pensare alla marcatura come la rimozione del giocatore dal campo:
+ noi siamo interessati a capire chi sia il giocatore avversario che, se
+ rimosso (mediante marcatura) danneggi maggiormente la squadra avversaria,
+ come numero di giocatori che non riescono ad essere raggiunti dal pallone!
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi nuovi/gator/fulcrodelgioco/fontedigiocobn.png
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Il vostro compito è quello di scrivere un programma che aiuti Prandelli
+ a determinare quale giocatore avversario sia il fulcro del gioco.
+ Ad esempio, nello schema qui sopra (ricordandosi che non si può rimuovere
+ il portiere): 
+\end_layout
+
+\begin_layout Itemize
+rimuovendo il numero 2 il numero 7 non è più raggiungibile;
+\end_layout
+
+\begin_layout Itemize
+rimuovendo un solo giocatore qualsiasi, scelto tra i numeri 3, 4, 5, 6,
+ 7, 8, 9, 11 non ci sono conseguenze;
+\end_layout
+
+\begin_layout Itemize
+rimuovendo il numero 10 i numeri 8, 9 e 11 non sono più raggiungibili.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Come detto in precedenza, nel file input.txt M + 1 righe di testo: la prima
+ riga contiene M, il numero di linee di passaggio (ovvero le frecce nella
+ figura!) tra i giocatori.
+ Le successive M linee contengono due interi A e B, a denotare che il giocatore
+ A passa la palla al giocatore B.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Nel file 
+\emph on
+output.txt
+\emph default
+ dovrai stampare un solo intero: il numero del fulcro del gioco della squadra
+ avversaria.
+ Se ci sono due o più giocatori ugualmente importanti (ovvero tali che rimuovend
+oli non è raggiungibile lo stesso numero di giocatori) restituire quello
+ con il numero di maglia più piccolo.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+1 ≤ A,B ≤ 11
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="1in">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21 
+\end_layout
+
+\begin_layout Plain Layout
+1 2 
+\end_layout
+
+\begin_layout Plain Layout
+1 5 
+\end_layout
+
+\begin_layout Plain Layout
+1 3 
+\end_layout
+
+\begin_layout Plain Layout
+3 5 
+\end_layout
+
+\begin_layout Plain Layout
+5 4 
+\end_layout
+
+\begin_layout Plain Layout
+4 2 
+\end_layout
+
+\begin_layout Plain Layout
+2 4 
+\end_layout
+
+\begin_layout Plain Layout
+4 6 
+\end_layout
+
+\begin_layout Plain Layout
+5 6 
+\end_layout
+
+\begin_layout Plain Layout
+6 3 
+\end_layout
+
+\begin_layout Plain Layout
+2 7 
+\end_layout
+
+\begin_layout Plain Layout
+7 6 
+\end_layout
+
+\begin_layout Plain Layout
+6 10 
+\end_layout
+
+\begin_layout Plain Layout
+8 6 
+\end_layout
+
+\begin_layout Plain Layout
+8 10 
+\end_layout
+
+\begin_layout Plain Layout
+7 10 
+\end_layout
+
+\begin_layout Plain Layout
+10 8 
+\end_layout
+
+\begin_layout Plain Layout
+10 9 
+\end_layout
+
+\begin_layout Plain Layout
+10 11 
+\end_layout
+
+\begin_layout Plain Layout
+9 11 
+\end_layout
+
+\begin_layout Plain Layout
+11 9 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Aspetti interessanti
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Parole chiave
+\series default
+: grafi, visita.
+\end_layout
+
+\begin_layout Standard
+Un altro esempio di come la conoscenza di semplici algoritmi sui grafi,
+ in questo caso una semplice visita, permetta agevolmente di risolvere un
+ problema.
+ Che in questo problema l'approccio più semplice sia quello di modellarlo
+ con un grafo appare chiaro fin da subito per via delle figure presenti
+ nel testo, come poi usare una visita per risolverlo richiede solo di applicare
+ qualche semplice considerazione .
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+In questo problema ci si trova di fronte a un grafo orientato, in cui, come
+ è già stato detto altre volte, gli archi sono orientati e quindi potrebbe
+ esserci un arco che va da A verso B ma non un arco che va da B verso A.
+ Per quanto riguarda la visita ciò non è importante, perchè quando il grafo
+ verrà 
+\begin_inset Quotes eld
+\end_inset
+
+mappato
+\begin_inset Quotes erd
+\end_inset
+
+ in una struttura dati in memoria gli archi saranno naturalmente orientati.
+ Come può una visita aiutarci a risolvere il problema? Come visto nel paragrafo
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:visite"
+
+\end_inset
+
+, una visita permette di passare attraverso tutti i nodi senza mai ripassare
+ due volte in un nodo già visitato.
+ Questo vale per un grafo connesso, perchè se il grafo non è connesso allora
+ partendo da alcuni nodi la visita non ci permetterà mai di raggiungere
+ alcuni altri nodi, che detto in modo più preciso vuol dire che esiste almeno
+ una coppia di nodi che non hanno un percorso che li unisce.
+ Perchè è importante fare questa osservazione? Perchè in questo caso la
+ nostra domanda di quale è il giocatore più importante può essere riscritta
+ in questo modo: data una visita che usa come nodo di partenza il nodo etichetta
+to con 1 (richiesta del problema), se eliminiamo un nodo questo ci rende
+ il grafo non connesso? E se sì quanti sono i nodi che risultano non più
+ raggiungibili? In questo modo abbiamo ridotto il problema a una visita,
+ in profondità o in ampiezza è indifferente, di un grafo a cui eliminiamo
+ un nodo.
+ Basta poi ripetere la visita per ognuno dei nodi che eliminiamo e vedere
+ qual è quello che 
+\begin_inset Quotes eld
+\end_inset
+
+stacca
+\begin_inset Quotes erd
+\end_inset
+
+ più nodi dal resto del grafo.
+ Un'ultima osservazione: è necessario eliminare il nodo nel senso di togliere
+ tutti gli archi che lo collegano al grafo? No, nella visita basterà indicare
+ quel nodo come già visitato prima di partire con la visita e questo farà
+ in modo che non possa essere più visitato, cosa di fatto equivalente all'elimin
+azione, ma molto più semplice da implementare.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int M;
+\end_layout
+
+\begin_layout Plain Layout
+
+struct giocatore{ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	list <int> passaggi; 
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+giocatore giocatori[12];
+\end_layout
+
+\begin_layout Plain Layout
+
+bool visitato[12];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int visita(int n) { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int contatore = 0; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	fill(visitato, visitato + 12,false); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	visitato[n] = true; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	stack <int> pila; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	pila.push(1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	while(!pila.empty()){ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		int corrente = pila.top(); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		pila.pop(); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (visitato[corrente] == false){ 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			visitato[corrente] = true; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			list <int>::iterator i; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			for (i = giocatori[corrente].passaggi.begin();
+\end_layout
+
+\begin_layout Plain Layout
+
+						i!=giocatori[corrente].passaggi.end();
+\end_layout
+
+\begin_layout Plain Layout
+
+				++i) 				
+\end_layout
+
+\begin_layout Plain Layout
+
+				pila.push(*i); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 2; i<12; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (visitato[i] == false) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			contatore++; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return contatore; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> M; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < M; i++) 	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		int a, b; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> a >> b; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		giocatori[a].passaggi.push_back(b); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int numero_maglia = 0, giocatori_esclusi = -1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 2; i < 12; i++) 	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		int temp = visita(i); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (temp > giocatori_esclusi) 		{ 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			giocatori_esclusi = temp; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			numero_maglia = i; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << numero_maglia << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si può vedere nel codice (righe 8-29) la visita viene fatta in profondità
+ usando il modello già visto 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "codice:dfs"
+
+\end_inset
+
+, con solo alcune aggiunte interessanti:
+\end_layout
+
+\begin_layout Itemize
+alla riga 10 viene usato l'algoritmo 
+\emph on
+fill
+\emph default
+ per inizializzare il vettore dei nodi visitati, che deve essere reinizializzato
+ ad ogni chiamata di funzione: usare l'algoritmo 
+\emph on
+fill
+\emph default
+ al posto di un più classico ciclo for non dà un grosso vantaggio in termini
+ di risparmio di scrittura di codice, però può essere un modo di abituarsi
+ a sfruttare la liberia standard dove c'è la possibilità.
+\end_layout
+
+\begin_layout Itemize
+alla riga 11 viene segnato come già visitato il nodo n, che per quanto detto
+ qualche riga sopra per i nostri scopi equivale all'eliminazione di quel
+ nodo
+\end_layout
+
+\begin_layout Itemize
+alla riga 13 viene inserito il nodo 1 come nodo di partenza della visita
+ come da testo del problema
+\end_layout
+
+\begin_layout Standard
+Nel programma poi, dopo aver letto l'input (righe 34-39), viene chiamata
+ la visita escludendo ogni giocatore dal 2 all'11 e trovando 
+\begin_inset Quotes eld
+\end_inset
+
+al volo
+\begin_inset Quotes erd
+\end_inset
+
+ il numero massimo di giocatori che rimangono non più raggiungibili (righe
+ 43-46)
 \end_layout
 
 \end_body
