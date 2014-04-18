@@ -11584,13 +11584,13 @@ muovere
 \end_layout
 
 \begin_layout Itemize
-Riesco a implementare i movimenti tramite un apporccio iterativo o viene
- più naturale un apporccio ricorsivo?
+Riesco a implementare i movimenti tramite un approccio iterativo o viene
+ più naturale un approccio ricorsivo?
 \end_layout
 
 \begin_layout Itemize
-Se l'approccio ricorsivo creasse dei problemi nell'implementazione, posso
- sostituirlo con uno iterativo molto semplice che, seppur non mi garantisce
+Se l'approccio ricorsivo creasse dei problemi nell'implementazione, potrei
+ sostituirlo con uno iterativo molto semplice che, seppur non mi garantisca
  la correttezza in tutti i casi, può ragionevolmente portare molti punti
  in saccoccia?
 \end_layout
@@ -12224,6 +12224,575 @@ obbligata
  rendendo il costo poco più che lineare.
  Essendo al livello delle regionali si suppone che questa soluzione sia
  quella che consente di raccogliere tutti punti.
+\end_layout
+
+\begin_layout Section
+La congettura di Collatz - territoriali 2014
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+La congettura di Collatz (collatz) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 1 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Consideriamo il seguente algoritmo, che prende in ingresso un intero positivo
+ N: 
+\end_layout
+
+\begin_layout Enumerate
+Se N vale 1, l’algoritmo termina.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Se N è pari, dividi N per 2, altrimenti (se N è dispari) moltiplicalo per
+ 3 e aggiungi 1.
+\end_layout
+
+\begin_layout Plain Layout
+Per esempio, applicato al valore N = 6, l’algoritmo produce la seguente
+ sequenza (di lunghezza 9, contando anche il valore iniziale N = 6 e il
+ valore finale 1): 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+6, 3, 10, 5, 16, 8, 4, 2, 1.
+\end_layout
+
+\begin_layout Plain Layout
+La congettura di Collatz, chiamata anche congettura 3N+1, afferma che l’algoritm
+o qui sopra termini sempre per qualsiasi valore N; in altri termini, se
+ prendo un qualsiasi numero intero maggiore di 1 applicare la regola numero
+ 2 conduce sempre al numero 1.
+\end_layout
+
+\begin_layout Plain Layout
+È riferendosi a questa celebre congettura che il famoso matematico Erdős
+ ha commentato sul come questioni semplici ma elusive mettono in evidenza
+ quanto poco noi si possa accedere ai misteri del “grande Libro”.
+\end_layout
+
+\begin_layout Plain Layout
+Giovanni sta cercando di dimostrare la congettura, ed è interessato alla
+ lunghezza della sequenza.
+ Il vostro compito è quello di aiutare Giovanni scrivendo un programma che,
+ ricevuto in ingresso un numero N, calcoli la lunghezza della sequenza che
+ si ottiene a partire da N.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file 
+\emph on
+input.txt
+\emph default
+ è composto da una riga contenente N, un intero positivo.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file 
+\emph on
+output.txt
+\emph default
+ è composto da una sola riga contenente un intero positivo L: la lunghezza
+ della sequenza a partire da N.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+2 ≤ N ≤ 1000; 
+\end_layout
+
+\begin_layout Itemize
+E’ noto che, per qualsiasi N minore di 1000, la lunghezza L della sequenza
+ è minore di 200.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+24
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Standard
+Questo problema è molto semplice, perchè chiede solo di implementare una
+ successione di numeri seguendo la regola che permette di calcolare il nuovo
+ elemento della successione in base al valore dell'elemento attuale.
+ L'unica domanda che ci si potrebbe porre è quella se prediligere una soluzione
+ iterativa o una ricorsiva.
+ 
+\end_layout
+
+\begin_layout Itemize
+Riesco a risolverlo sia in modo iterativo che ricorsivo?
+\end_layout
+
+\begin_layout Itemize
+Quali sono i vantaggi o gli svantaggi di entrambe le soluzioni?
+\end_layout
+
+\begin_layout Itemize
+Ai fini della soluzione di questo particolare problema, con i vincoli imposti
+ sulla sua dimensione, sono rilevanti le differenze tra le due implementazioni?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Considerando la semplicità del problema, spenderemo alcune parole solo sulla
+ differenza tra le due possibili implementazioni, mostrate di seguito.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int lunghezza_collatz(int n) { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int lunghezza = 1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (n != 1) 	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (n % 2) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			n = n*3 + 1; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		else 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			n = n/2; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		lunghezza++; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return lunghezza; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int lunghezza_collatz_ric(int n) { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (n == 1) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		return 1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (n % 2) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		return lunghezza_collatz_ric(3*n + 1) + 1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	else 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		return lunghezza_collatz_ric(n/2) + 1; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si può vedere la prima funzione, quella iterativa, non fa altro che
+ riapplicare la regola numero 2 del testo finchè non si verifica la condizione
+ 1: l'unica attenzione è da porre nell'inizializzazione del contatore della
+ lunghezza, che viene messo a 1 per garantire il rispetto dei requisiti
+ del problema (contare tutti gli elemento della successione, compreso il
+ numero di partenza e l'1).
+ La seconda funzione, quella ricorsiva, appare ancora più naturale, essendo
+ una riscrittura pari pari delle due condizioni spiegate nel testo.
+\end_layout
+
+\begin_layout Standard
+Appurato quindi che da un punto di vista della scrittura del codice sono
+ entrambe semplici da scrivere, possiamo vedere che differenze ci sono in
+ termini di prestazioni e occupazione di memoria:
+\end_layout
+
+\begin_layout Itemize
+la funzione ricorsiva richiederà alla peggio 200 chiamate (vedi testo del
+ problema), dove quella iterativa viene chiamata una sola volta, quindi
+ potrebbe esserci un costo maggiore dovuto all'overhead di chiamata di funzione:
+ su test fatti sulla mia macchina usando l'utility 
+\series bold
+time
+\series default
+ presente di default sui sistemi Linux non si nota nessuna differenza significat
+iva tra le due impelementazioni.
+ Per stressare maggiormente le differenze ho quindi modificato il programma
+ per calcolare la lunghezza di tutte le successioni di Collatz da 2 a 100000,
+ ottenendo dei risultati che effettivamente mostrano che la versione iterativa
+ ha delle performance leggermente migliori, come si può vedere dalla seguente
+ tabella (i dati esatti sono differenti tra differenti esecuzioni del comando,
+ ma indicativamente sono sempre intorno ai valori mostrati)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+\size small
+Versione iterativa
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+\size small
+Versione ricorsiva
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+real 0m0.136s 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+user 0m0.020s 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+sys 0m0.072s 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+real 0m0.196s 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+user 0m0.068s 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size small
+sys 0m0.076s 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+per quanto riguarda l'utilizzo della memoria, la versione iterativa potrebbe
+ avere il problema che lo stack cresce a ogni chiamata ricorsiva, ponendo
+ quindi dei problemi di 
+\begin_inset Quotes eld
+\end_inset
+
+sforamento
+\begin_inset Quotes erd
+\end_inset
+
+ dello stack.
+ Considerando però i vincoli del problema lo stack non crescerà mai a sufficienz
+a per presentare un rischio di segmentation fault e anche con le prove fatte
+ con N da 2 a 100000 la successione di Collatz di lunghezza maggiore si
+ ferma a 351, limite ampiamente all'interno della possibilità di crescita
+ dello stack.
+\end_layout
+
+\begin_layout Standard
+Concludendo, pur essendo in generale utile fare delle considerazioni sulle
+ differenze implementative tra diverse soluzioni, in questo caso tali differenze
+ sono irrilevanti.
+\end_layout
+
+\begin_layout Standard
+Come nota di colore voglio aggiungere una simpatica vignetta presa da xckd
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Il sito xckd.com è molto famoso nella comunità nerd e la descrizione che
+ ne dà l'autore è
+\end_layout
+
+\end_inset
+
+, che mostra cosa potrebbe succedere a Giovanni se si impegnasse troppo
+ nella soluzione di questo problema...
 \end_layout
 
 \end_body
