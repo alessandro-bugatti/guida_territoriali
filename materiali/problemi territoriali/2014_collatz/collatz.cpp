@@ -32,15 +32,16 @@ int lunghezza_collatz_ric(int n)
 int main()
 {
 	int N;
-	/*ifstream in("input.txt");
+	ifstream in("input.txt");
 	ofstream out("output.txt");
-	in >> N;*/
-	int vettore[100000];
+	in >> N;
+	/*int vettore[100000];
 	int i = 2;
 	for_each(vettore, vettore+100000,[&i](int &n){n = lunghezza_collatz(i++);});
 	auto m = max_element(vettore,vettore+100000);
 	cout << *m;
 	for (auto i:vettore)
-		cout << i << endl;
+		cout << i << endl;*/
+	out << lunghezza_collatz(N) << endl;
 	return 0;
 }
