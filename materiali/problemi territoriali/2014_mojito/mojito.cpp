@@ -1,8 +1,6 @@
 //Mojito - territoriali 2014
 
 #include <fstream>
-#include <list>
-#include <stack>
 #include <cstdlib>
 
 using namespace std;
@@ -28,7 +26,7 @@ int distanza(coordinate a, coordinate b)
 
 int calcolaProssimo(coordinate posizione)
 {
-	int dmin = 201, d, posmin=-1;
+	int dmin = 2001, d, posmin=-1;
 	for (int i = 0; i < N; i++)
 	{
 		d=distanza(ragazzi[i].posizione, posizione);
@@ -41,7 +39,8 @@ int calcolaProssimo(coordinate posizione)
 		{
 			if (ragazzi[i].posizione.x < ragazzi[posmin].posizione.x)
 				posmin = i;
-			else if (ragazzi[i].posizione.y < ragazzi[posmin].posizione.y)
+			else if (ragazzi[i].posizione.x == ragazzi[posmin].posizione.x &&
+				ragazzi[i].posizione.y < ragazzi[posmin].posizione.y)
 				posmin = i;
 		}
 	}
