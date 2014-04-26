@@ -408,6 +408,23 @@ semantico
 , cioè non è in grado di valutare correttamente soluzioni corrette che però
  non siano esattamente uguali a quelle che si aspetta, come verrà mostrato
  in seguito con alcuni esempi presi dalle gare territoriali.
+ 
+\series bold
+Aggiornamento (gennaio 2014)
+\series default
+: è stato messo online e reso disponibile per gli allenamenti il nuovo correttor
+e CMS, quello sviluppato dal team degli allenatori italiani e usato anche
+ per le Olimpiadi Internazionali.
+ Il nuovo correttore, che si trova all'indirizzo 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://cms.di.unipi.it"
+target "http://cms.di.unipi.it"
+
+\end_inset
+
+, è più completo è più stabile rispetto al precedente e quindi si invitano
+ i ragazzi a usarlo per allenarsi.
 \end_layout
 
 \begin_layout Standard
