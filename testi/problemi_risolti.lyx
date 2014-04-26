@@ -5822,6 +5822,12 @@ tico.
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Eserciti-galattici"
+
+\end_inset
+
 Eserciti galattici - territoriali 2011
 \end_layout
 
@@ -12780,19 +12786,69 @@ Concludendo, pur essendo in generale utile fare delle considerazioni sulle
 \end_layout
 
 \begin_layout Standard
-Come nota di colore voglio aggiungere una simpatica vignetta presa da xckd
+Come nota di colore voglio aggiungere una simpatica vignetta presa da 
+\noun on
+xkcd
+\noun default
+
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
-Il sito xckd.com è molto famoso nella comunità nerd e la descrizione che
- ne dà l'autore è
+\begin_inset CommandInset href
+LatexCommand href
+name "https://xkcd.com"
+target "https://xkcd.com"
+
+\end_inset
+
+ A webcomic of romance, sarcasm, math, and language.
 \end_layout
 
 \end_inset
 
 , che mostra cosa potrebbe succedere a Giovanni se si impegnasse troppo
  nella soluzione di questo problema...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2014_collatz/collatz_conjecture.png
+	display false
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Collatz Conjecture
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -13043,9 +13099,546 @@ File output.txt
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset VSpace medskip
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8 3
+\end_layout
+
+\begin_layout Plain Layout
+5 2
+\end_layout
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\begin_layout Plain Layout
+1 3 6 3
+\end_layout
+
+\begin_layout Plain Layout
+7 1 3 3
+\end_layout
+
+\begin_layout Plain Layout
+4 1 6 1 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Quale tipologia di problema sembrano suggerire il testo e la figura?
+\end_layout
+
+\begin_layout Itemize
+Se hai pensato a un grafo, cosa sono in questo caso i nodi e gli archi?
+\end_layout
+
+\begin_layout Itemize
+Come può essere espresso questo problema in termini di un problema equivalente
+ relativo ai grafi?
+\end_layout
+
+\begin_layout Itemize
+Esistono altri modi per risolvere questo problema oltre che utilizzando
+ i grafi?
+\end_layout
+
+\begin_layout Itemize
+Indipendentemente dal modo usato, quanto costa calcolare la distanza tra
+ Mojito e i ragazzi? Vale la pena precalcolarla oppure, date le dimensioni
+ dell'input, se ne può fare a meno?
+\end_layout
+
+\begin_layout Subsection
+Soluzioni
+\end_layout
+
+\begin_layout Standard
+Come fatto notare nei suggerimenti il problema può essere affrontato usando
+ una modalità risolutiva che utilizzi la teoria dei grafi.
+ In questo caso possiamo vedere i nodi del grafo come i ragazzi e gli archi
+ i passaggi della palla.
+ Si nota facilmente che, siccome Mojito porta la palla sempre al ragazzo
+ più vicino e la palla lanciata da un ragazzo cade sempre nel medesimo posto,
+ questo è equivalente a dire che la palla lanciata da un ragazzo verrà sempre
+ portata allo stesso ragazzo, quindi ogni ragazzo ha un arco uscente che
+ porta a un altro ragazzo (eventualmente anche sé stesso), come è evidenziato
+ nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esempi-Mojito"
+
+\end_inset
+
+ che rappresentata gli esempi dati nel testo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/xubuntu/Desktop/guida/materiali/problemi territoriali/2014_mojito/mojito.eps
+	display false
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esempi-Mojito"
+
+\end_inset
+
+Esempi nel testo del problema
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rispetto ad altri problemi il grafo non viene dato in maniera esplicita
+ nei dati di input, ma deve essere costruito a partire da essi, calcolando
+ la distanza che separa ogni lancio dai ragazzi per vedere dove sono diretti
+ gli archi.
+ Una volta costruito il grafo il problema si ridurrebbere alla solita visita,
+ partendo dal nodo che rappresenta il primo ragazzo che riceve la palla
+ da Mojito e, una volta terminata la visita, basterebbe contare quanti sono
+ i nodi che sono stati raggiunti per rispondere alla domanda posta dal problema.
+ 
+\end_layout
+
+\begin_layout Standard
+Vediamo però un'altra strada risolutiva che utilizza il concetto di macchina
+ a stati finiti, come già visto nel problema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Eserciti-galattici"
+
+\end_inset
+
+ e che quindi non richiede la conoscenza di nessun algoritmo sui grafi
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Ovviamente la conoscenza delle nozioni fondamentali sui grafi mostrate in
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:I-grafi"
+
+\end_inset
+
+ è sicuramente molto utile se si vogliono passare le territoriali e indispensabi
+le se si vuole fare una prestazione significativa alle nazionali.
+\end_layout
+
+\end_inset
+
+.
+ Per l'implementazione della macchina a stati finiti è sufficiente avere
+ una tabella (un vettore) che per ogni stato (il ragazzo che attualmente
+ ha la palla) associa lo stato successivo in cui la palla andrà a finire.
+ Partendo dal primo ragazzo e iterando attraverso il vettore fino a quando
+ non si tornerà a un ragazzo già visto si otterrà la soluzione del problema,
+ contando quanti sono gli stati attraverso cui si è passati.
+ Per stabilire le regole della macchina a stati si potrebbero preventivamente
+ calcolare tutte le distanze oppure, come fatto nella soluzione proposta,
+ calcolare di volta in volta qual è il ragazzo più vicino: questa seconda
+ strada, anche se potrebbe sembrare equivalente, permette di fare meno calcoli
+ quando non tutti i ragazzi verranno raggiunti, evitando di calcolare distanze
+ che non verranno mai usate (per la dimensione dei dati di input comunque
+ questa differenza non è significativa).
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+struct coordinate{ int x,y; };   
+\end_layout
+
+\begin_layout Plain Layout
+
+struct ragazzo{ coordinate posizione, lancio; };
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+coordinate mojito; 
+\end_layout
+
+\begin_layout Plain Layout
+
+ragazzo ragazzi[100];  
+\end_layout
+
+\begin_layout Plain Layout
+
+bool partecipanti[100];
+\end_layout
+
+\begin_layout Plain Layout
+
+int N, R;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int distanza(coordinate a, coordinate b) { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return abs(a.x - b.x) + abs(a.y - b.y); 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+int calcolaProssimo(coordinate posizione) { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int dmin = 2001, d, posmin=-1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++) 	{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		d=distanza(ragazzi[i].posizione, posizione); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (d < dmin) {	 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			dmin = d; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			posmin = i; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		else if (d == dmin) { 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (ragazzi[i].posizione.x < ragazzi[posmin].posizione.x) 				
+\end_layout
+
+\begin_layout Plain Layout
+
+				posmin = i; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			else if (ragazzi[i].posizione.x == ragazzi[posmin].posizione.x &&
+\end_layout
+
+\begin_layout Plain Layout
+
+						ragazzi[i].posizione.y < ragazzi[posmin].posizione.y) 				
+\end_layout
+
+\begin_layout Plain Layout
+
+				posmin = i; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+			} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return posmin; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int X,Y; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> X >> Y; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> mojito.x >> mojito.y; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N, R = 1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> ragazzi[i].posizione.x >> ragazzi[i].posizione.y >> 		
+\end_layout
+
+\begin_layout Plain Layout
+
+			ragazzi[i].lancio.x >> ragazzi[i].lancio.y; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	fill(partecipanti, partecipanti+N, false); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int prossimo = calcolaProssimo(mojito); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	partecipanti[prossimo] = true; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	prossimo = calcolaProssimo(ragazzi[prossimo].lancio); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	while(partecipanti[prossimo] != true) 	{	 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		partecipanti[prossimo] = true; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		R++; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		prossimo = calcolaProssimo(ragazzi[prossimo].lancio); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << R << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La parte più lunga del codice proposto è quella che permette di calcolare
+ chi è il ragazzo più vicino (righe 12-29), che risulta tale a causa dei
+ vincoli imposti nel caso di uguaglianza nelle distanze.
+ Pur essendo semplice, mi sento di evidenziare che possono sfuggire degli
+ errori, dovuti probabilmente al copia/incolla tra controlli simili, come
+ quelli alle righe 21 e 23 e lo dico perché io li ho commessi.
+ Alla prima sottoposizione sul correttore dei dieci casi di test ne risultavano
+ corretti solo 8, a causa di una dimenticanza nel non aver sostituito il
+ < con un == quando ho fatto la copia della riga 21 nella riga 23.
+ Questo tipo di errori, come già detto in altre parti, è difficile da individuar
+e perchè la soluzione risolve i casi di test e fallisce solo in casi particolari
+ in cui l'errore viene sollecitato.
+ Il consiglio è quindi quello di essere sempre molto 
+\begin_inset Quotes eld
+\end_inset
+
+vigili
+\begin_inset Quotes erd
+\end_inset
+
+ anche su quelle parti che sembrano innocue e di routine.
+\end_layout
+
+\begin_layout Standard
+Il programma a questo punto risulta molto semplice: dopo aver letto l'input,
+ viene calcolato il ragazzo a cui verrà portata la palla inizialmente (righe
+ 42-44) e poi si itera il procedimento (righe 45-49) fino a quando non si
+ passerà da un ragazzo già visitato, incrementando il contatore R ad ogni
+ passaggio dell'iterazione.
 \end_layout
 
 \end_body

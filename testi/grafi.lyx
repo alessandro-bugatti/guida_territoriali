@@ -69,6 +69,12 @@
 \begin_body
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:I-grafi"
+
+\end_inset
+
 I grafi
 \end_layout
 
