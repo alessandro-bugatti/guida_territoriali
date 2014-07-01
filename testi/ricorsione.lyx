@@ -440,7 +440,7 @@ Riassumendo possiamo vedere che le caratteristiche delle funzioni ricorsive
 \end_layout
 
 \begin_layout Itemize
-la funzione richiama se stessa su una versione 
+la funzione richiama sé stessa su una versione 
 \series bold
 più piccola
 \series default

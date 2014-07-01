@@ -6,8 +6,8 @@
 
 using namespace std;
 
-char W[5000];
-char S[5000000];
+char W[5001];
+char S[5000001];
 int g,N;
 
 int chiaveW[256];

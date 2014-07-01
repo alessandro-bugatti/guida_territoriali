@@ -12867,7 +12867,7 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
-status open
+status collapsed
 
 \begin_layout Subsection*
 Giochiamo con Mojito (mojito) 
@@ -13639,6 +13639,989 @@ Il programma a questo punto risulta molto semplice: dopo aver letto l'input,
  42-44) e poi si itera il procedimento (righe 45-49) fino a quando non si
  passerà da un ragazzo già visitato, incrementando il contatore R ad ogni
  passaggio dell'iterazione.
+\end_layout
+
+\begin_layout Section
+Corso per sommelier - Territoriali 2014
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Corso per sommelier (sommelier) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Paolo, per festeggiare il suo quarantesimo compleanno, si è iscritto a un
+ corso per sommelier, dove impara a distinguere ed apprezzare le diverse
+ tipologie di vini.
+ Si è accorto però che, nonostante prenda solo un assaggio di ogni tipo
+ di vino, per lui vale la regola fondamentale delle bevande alcoliche: quando
+ le bevi, mai scendere di gradazione.
+ Infatti, se per esempio Paolo assaggia un vino da 9 gradi e poi uno da
+ 7, il giorno dopo si sveglierà con un grosso mal di testa indipendentemente
+ dalle quantità.
+ Per fortuna, in ogni serata del corso è disponibile l’elenco dei vini che
+ verranno portati uno dopo l’altro, e di ogni vino viene riportata la gradazione
+ alcolica.
+ Non è ammesso mettere da parte un vino per berlo in seguito: ogni volta
+ che gli viene passato un vino Paolo può decidere se assaggiarlo o meno,
+ versandone un poco nel suo Tastevin.
+ Inoltre, dal momento che dopo aver assaggiato un vino Paolo deve pulire
+ accuratamente il suo Tastevin con un panno, questa operazione in pratica
+ gli impedisce di assaggiare due vini consecutivi .
+ Paolo desidera assaggiare il maggior numero di vini possibile.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="9">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Cilento
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Barolo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Lambrusco
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Picolit
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Verdicchio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Cannonau
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Chianti
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Pigati
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Donzelle
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Ad esempio, se in una serata serviranno i vini mostrati nella tabella qui
+ sopra, nell’ordine in cui compaiono nella tabella, il numero massimo di
+ vini che Paolo può riuscire ad assaggiare, rispettando la regola, è quattro:
+ può iniziare, indifferentemente, con il Cilento o con il Lambrusco, e poi
+ assaggiare Verdicchio, Chianti e Donzelle.
+ In questa maniera, la sequenza delle gradazioni alcoliche non scende mai:
+ 11 (oppure 10), 12, 13, 13.
+ Ovviamente, come si vede nell’esempio, è possibile bere due o più vini
+ con la stessa gradazione alcolica.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file 
+\emph on
+input.txt
+\emph default
+ è composto da 2 righe.
+ La prima riga contiene N, un intero positivo: il numero di vini che saranno
+ serviti nella serata.
+ La seconda riga contiene N interi positivi: le gradazioni alcoliche dei
+ vini che saranno serviti, nell’ordine in cui saranno serviti.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file 
+\emph on
+output.txt
+\emph default
+ è composto da una sola riga contenente un solo intero positivo: il numero
+ massimo di vini che Paolo può assaggiare nella serata, rispettando la regola
+ di non diminuire la gradazione alcolica nella sequenza e, contemporaneamente,
+ il vincolo di dover pulire il Tastevin, che gli impedisce di assaggiare
+ due vini consecutivi.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+2 ≤ N ≤ 99 
+\end_layout
+
+\begin_layout Itemize
+I vini hanno una gradazione alcolica compresa tra 1 e 99.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\begin_layout Plain Layout
+11 
+\end_layout
+
+\begin_layout Plain Layout
+13 
+\end_layout
+
+\begin_layout Plain Layout
+10 
+\end_layout
+
+\begin_layout Plain Layout
+16 
+\end_layout
+
+\begin_layout Plain Layout
+12 
+\end_layout
+
+\begin_layout Plain Layout
+12 
+\end_layout
+
+\begin_layout Plain Layout
+13 
+\end_layout
+
+\begin_layout Plain Layout
+11 
+\end_layout
+
+\begin_layout Plain Layout
+13 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12
+\end_layout
+
+\begin_layout Plain Layout
+11 
+\end_layout
+
+\begin_layout Plain Layout
+13 
+\end_layout
+
+\begin_layout Plain Layout
+11 
+\end_layout
+
+\begin_layout Plain Layout
+10 
+\end_layout
+
+\begin_layout Plain Layout
+11 
+\end_layout
+
+\begin_layout Plain Layout
+12 
+\end_layout
+
+\begin_layout Plain Layout
+16 
+\end_layout
+
+\begin_layout Plain Layout
+12 
+\end_layout
+
+\begin_layout Plain Layout
+12 
+\end_layout
+
+\begin_layout Plain Layout
+11 
+\end_layout
+
+\begin_layout Plain Layout
+10 
+\end_layout
+
+\begin_layout Plain Layout
+14 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Posso applicare una strategia greedy per risolvere il problema? 
+\end_layout
+
+\begin_layout Itemize
+Dopo aver verificato che la strategia greedy non è applicabile, è possibile
+ risolvere il problema ricorsivamente con un approccio a forza bruta, visitando
+ tutte le possibili scelte che può fare Paolo e individuando quella che
+ gli consente di assaggiare più vini?
+\end_layout
+
+\begin_layout Itemize
+A che classe di complessità computazionale appartiene la soluzione precedente?
+ É possibile applicarla e risolvere tutti i casi di test data la dimensione
+ dell'input imposta dal problema?
+\end_layout
+
+\begin_layout Itemize
+Riesco a vedere che il problema ha una struttura tale per cui posso calcolarmi
+ delle sottosoluzioni e utilizzarle per costruire soluzioni di casi più
+ grandi? In che modo?
+\end_layout
+
+\begin_layout Itemize
+Se ho studiato bene questa guida, quale problema delle territoriali precedenti
+ è molto simile a questo?
+\end_layout
+
+\begin_layout Subsection
+Soluzioni
+\end_layout
+
+\begin_layout Standard
+Anche se questo problema a prima vista potrebbe far venire in mente di usare
+ un approccio greedy si può velocemente verificare, guardando gli esempi,
+ che non può funzionare.
+ Usando la tecnica greedy infatti partirei dal primo vino, che è sempre
+ possibile bere, e poi berrei tutti i vini che riesco nel rispetto delle
+ regole fornite nel testo (mai due vini consecutivi, mai gradazioni più
+ basse di quelle già bevute), ma questo mi porterebbe nella maggior parte
+ dei casi a un risultato scorretto (per alcuni input potrei trovare la soluzione
+, ma dipende appunto da come compaiono i numeri nell'input).
+\end_layout
+
+\begin_layout Standard
+Esclusa quindi questa tecnica, si potrebbe pensare di generare ricorsivamente
+ tutte le possibli sequenze di bevute e contare quella più lunga.
+ Premesso che comunque non è banale scrivere la funzione che implementa
+ questo approccio a forza bruta, guardandone la complessità computazionale
+ e la dimensione dell'input risulta chiaro che non potrebbe risolvere molti
+ casi.
+ Infatti, considerando in prima approssimazione che posso prendere o non
+ prendere un vino e che la sequenza di vini è lunga al massimo 50 (poichè
+ non posso mai bere due vini consecutivi), si può vedere come la generazione
+ di tutte le stringhe binarie di massimo 50 cifre (ovviamente non tutte
+ sono generabili perchè molte violano le regole sui gradi alcolici).
+ Sempre in maniera approssimata possiamo quindi dire che il costo è dell'ordine
+ di 
+\begin_inset Formula $2^{50}\simeq10^{15}$
+\end_inset
+
+, un numero troppo grosso per permettere di arrivare alla soluzione.
+\end_layout
+
+\begin_layout Standard
+A questo punto, guardando bene la struttura del problema, possiamo rilevare
+ che appare essere adatta per utilizzare la programmazione dinamica: come
+ visto in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Programmazione-dinamica"
+
+\end_inset
+
+, si può utilizzare questa tecnica quando la soluzione ottima del problema
+ di dimensione N può essere 
+\begin_inset Quotes eld
+\end_inset
+
+ricostruita
+\begin_inset Quotes erd
+\end_inset
+
+ a partire da sottoproblemi più piccoli di cui si conosce la soluzione.
+ In questo caso i sottoproblemi sono le soluzioni con liste di vini più
+ piccole, prese a partire dal fondo.
+ Quindi se la lista di vini fosse composta solo dall'ultimo vino la soluzione
+ sarebbe 1, cosa vera anche se fosse composta dagli ultimi due vini (poichè
+ non posso bere due vini consecutivi).
+ Se la lista fosse composta dagli ultimi N vini bisognerebbe guardare quali
+ delle soluzioni precedenti possono essere 
+\begin_inset Quotes eld
+\end_inset
+
+prese
+\begin_inset Quotes erd
+\end_inset
+
+ compatibilmente con le regole e fra quelle scegliere quella che mi da il
+ valore maggiore.
+ Formalizzato questo risulta così:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L(N)=1+max_{0<n\leq N-2}\{L(n)\}\;\forall n/G[n]\geq G[N]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dove L(N) è il numero massimo di vini che si riescono a bere data la lista
+ contenente gli ultimi 
+\emph on
+N
+\emph default
+ vini e G[n] e la gradazione alcolica del vino n-esimo.
+\end_layout
+
+\begin_layout Standard
+A questo punto si può procedere utilizzando un approccio 
+\emph on
+top-down
+\emph default
+ oppure 
+\emph on
+bottom-up
+\emph default
+.
+ Siccome questo problema è molto simile al problema Poldo (vedi 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Esempio:Poldo"
+
+\end_inset
+
+) che era stato risolto con la metodologia 
+\emph on
+bottom-up
+\emph default
+, qui vedremo come risolvere lo stesso tipo di problema usando l'approccio
+ 
+\emph on
+top-down
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+La definizione data sopra si presta naturalmente ad essere scritta in forma
+ ricorsiva, avendo l'avvertenza di tabellare i valori già calcolati in modo
+ da non doverli ricalcolare più volte.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int vini[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int sottoproblemi[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int N;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int soluzione(int n) { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (sottoproblemi[n] != -1) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		return sottoproblemi[n]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int max = 1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = n + 1; i < N; i++) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (soluzione(i) + 1 > max && vini[n] <= vini[i]) 				
+\end_layout
+
+\begin_layout Plain Layout
+
+			max = soluzione(i) + 1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	sottoproblemi[n] = max; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return max; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt"); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> vini[i]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	fill(sottoproblemi, sottoproblemi + N, -1); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	sottoproblemi[N-1] = sottoproblemi[N-2] = 1; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	soluzione(0); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << *max_element(sottoproblemi,sottoproblemi + N) << endl; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per tabellare le soluzioni che via via vengono calcolate viene usato il
+ vettore 
+\emph on
+sottoproblemi
+\emph default
+, che inizialmente è riempito di -1 (riga 22), tranne i due sottoproblemi
+ finali, quelli composti da 1 e 2 vini, che come si è già detto hanno come
+ soluzione 1 (riga 23).
+ La funzione ricorsiva 
+\emph on
+soluzione
+\emph default
+ accetta come parametro la posizione del vino da partire per trovare la
+ soluzione, quindi verrà chiamata con il valore 0 (riga 24) per indicare
+ che si vuole calcolare la soluzione a partire dal vino in posizione 0,
+ cioè la soluzione dell'intero problema.
+ La prima operazione che viene svolta è il controllo se la soluzione del
+ particolare sottoproblema è già stata tabulata, nel qual caso viene ritornata
+ (righe 6-7).
+ In caso contrario si guardano tutte le soluzioni dei sottoproblemi a partire
+ da 
+\emph on
+n+1
+\emph default
+ fino alla fine (
+\emph on
+n+1
+\emph default
+ poichè non si può bere il vino subito dopo quello appena scelto) e per
+ ogni sottosoluzione si controlla se è migliore della migliore trovata fino
+ a quel momento e se il vino è compatibile con la regola sulla gradazione
+ alcolica (righe 9-11).
+ Trovata quindi la soluzione migliore questa viene tabulata (riga 12) e
+ il risultato viene ritornato.
+\end_layout
+
+\begin_layout Standard
+Infine si guarda nel vettore 
+\emph on
+sottoproblemi
+\emph default
+, dove sono state tabulate tutte le soluzioni ai vari sottoproblemi e si
+ sceglie quella massima: per trovare il massimo nel codice è stato usato
+ l'algoritmo 
+\emph on
+max_element
+\emph default
+ che, dati gli iteratori all'inizio e alla fine del contenitore (essendo
+ questo un array stile C vengono forniti l'indirizzo iniziale e finale del
+ vettore), restituisce un iteratore all'elemento massimo, che quindi necessita
+ dell'asterisco per 
+\begin_inset Quotes eld
+\end_inset
+
+trasformarlo
+\begin_inset Quotes erd
+\end_inset
+
+ nel valore individuato da esso (riga 25).
 \end_layout
 
 \end_body

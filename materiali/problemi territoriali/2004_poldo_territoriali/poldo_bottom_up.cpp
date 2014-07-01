@@ -24,8 +24,8 @@
 
 using namespace std;
 
-int soluzioni[100];
-int panini[100];
+int soluzioni[10000];
+int panini[10000];
 
 int main(int argc, char *argv[])
 {

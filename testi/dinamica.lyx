@@ -322,9 +322,10 @@ top-down
 \emph default
 , in riferimento al modo in cui agiscono: entrambi permettono di risolvere
  il problema efficientemente, scegliere l'uno o l'altro può dipendere dal
- problema in se, che a volte sembra suggerire un modo piuttosto che l'altro,
+ problema in sé, che a volte sembra suggerire un modo piuttosto che l'altro,
  e anche, ma è una mia opinione, dal modo con cui il cervello del risolutore
- funziona.
+ funziona, nel senso se trova iù naturale usare un approccio piuttosto che
+ l'altro.
 \end_layout
 
 \begin_layout Section
@@ -1209,11 +1210,17 @@ I risultati della tabella fanno riferimento a precisi casi di input, poiché
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Esempio:Poldo"
+
+\end_inset
+
 Esempio: La dieta di Poldo (poldo) - territoriali 2004
 \end_layout
 
 \begin_layout Standard
-Questo esempio, pur non essendo compreso nel corretto, viene qui mostrato
+Questo esempio, pur non essendo compreso nel correttore, viene qui mostrato
  perché è uno dei casi più semplici di programmazione dinamica ed è storicamente
  il primo problema di questo tipo apparso alle selezioni territoriali (che
  al tempo si chiamavano regionali).

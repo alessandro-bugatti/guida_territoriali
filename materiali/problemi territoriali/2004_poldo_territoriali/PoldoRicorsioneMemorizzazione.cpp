@@ -35,6 +35,19 @@ int poldo(int pos, int ultimo)
 	}
 }
 
+int poldoric(int posizione, int ultimo)
+{
+	if (posizione == N) return 0;
+	int mangio=0, nonmangio=0;
+	if (panini[posizione] < ultimo)
+		mangio = 1 + poldoric(posizione + 1, panini[posizione]);
+	nonmangio = poldoric(posizione + 1, ultimo);
+	if (mangio > nonmangio)
+		return mangio;
+	else
+		return nonmangio;
+}
+
 int main(){
 
     in = fopen("input.txt","r");
@@ -44,20 +57,23 @@ int main(){
     for(int i = 0; i < N; i++)  
     {
         fscanf(in,"%d",&panini[i]);
-        printf ("%d %d\n",i, panini[i]);
-        mangiati[i]=-1;
+        //printf ("%d %d\n",i, panini[i]);
+        //mangiati[i]=-1;
     }
+    /*
     for(int i = 0; i < N; i++)  
     {
         printf ("%d %d\n",i, mangiati[i]);
      
     }
-    int appo = poldo(0,PESOMAX+1);
+    
     for(int i = 0; i < N; i++)  
     {
         printf ("%d %d\n",i, mangiati[i]);
      
     }
+    */
+    int appo = poldoric(0,PESOMAX+1);
     fprintf(out,"%d",appo);
     
 }
