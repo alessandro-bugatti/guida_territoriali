@@ -1314,7 +1314,7 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
-status open
+status collapsed
 
 \begin_layout Subsection*
 Il boscaiolo Mirko (Eko)
@@ -4242,6 +4242,831 @@ al volo
 
  il numero massimo di giocatori che rimangono non più raggiungibili (righe
  43-46)
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Teta"
+
+\end_inset
+
+La mensa (teta) - CoCi Marzo 2015
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsection*
+La mensa (teta)
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+C'è una simpatica ragazza che lavora come cassiera alla mensa scolastica.
+ Uno dei tanti motivi per cui questa ragazza è considerata simpatica da
+ tutti gli studenti è la sua attenzione a fargli spendere il meno possibile
+ ogni volta che si servono della mensa.
+\end_layout
+
+\begin_layout Plain Layout
+Come riesce a farlo? In realtà la sua strategia è piuttosto semplice.
+ I vari piatti che possono essere comprati alla mensa e i loro prezzi sono
+ noti.
+ Ogni giorno viene offerto il menù del giorno.
+ Il menù include 4 portate (una zuppa, il piatto principale, un contorno
+ e un dolce), ma il prezzo è minore o uguale alla somma dei prezzi delle
+ portate di cui è composto.
+ Quando la ragazza nota che spenderesti di meno a comprare un menù piuttosto
+ che a comprare le singole portate separatamente, sceglie di farti pagare
+ il menù al posto delle singole portate, in modo che uscirai dalla mensa
+ sazio e con più soldi nel portafoglio .
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Sei di fronte alla cassa con il tuo vassoio e vuoi sapere quanto ti farà
+ pagare la cassiera.
+ Scrivi un programma per scoprirlo!
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Attenzione
+\series default
+: La ragazza può farti comprare più di un menù se questo ti permetterà di
+ risparmiare.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima linea contiene l'intero K (
+\begin_inset Formula $1\leq K\leq20$
+\end_inset
+
+), il numero di portate che possono essere comprate alla mensa.
+ Per semplicità, ogni portata verrà rappresentata da un intero compreso
+ tra 1 e K.
+\end_layout
+
+\begin_layout Standard
+La seconda linea di input contiene K interi, con l'
+\emph on
+i
+\emph default
+-esimo numero che rappresenta il prezzo della portata di indice 
+\emph on
+i
+\emph default
+.
+ I prezzi sono compresi tra 1 e 250.
+\end_layout
+
+\begin_layout Plain Layout
+La terza linea contiene l'intero X (
+\begin_inset Formula $1\leq X\leq1000$
+\end_inset
+
+), il prezzo del menù.
+\end_layout
+
+\begin_layout Plain Layout
+La linea seguente contiene 4 interi, i numeri delle portate contenute nel
+ menù del giorno, diversi tra loro.
+\end_layout
+
+\begin_layout Plain Layout
+La quinta linea contiene l'intero T (
+\begin_inset Formula $1\leq T\leq20$
+\end_inset
+
+), il numero di portate sul tuo vassoio.
+\end_layout
+
+\begin_layout Plain Layout
+L'ultima linea contiene la lista delle T portate che hai preso.
+ Non è detto che tutte le portate siano distinte, la stessa portata può
+ comparire più volte.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Un unico intero che deve contenere il costo totale delle portate acquistate.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7 
+\end_layout
+
+\begin_layout Plain Layout
+10 6 8 9 4 5 3 
+\end_layout
+
+\begin_layout Plain Layout
+14 
+\end_layout
+
+\begin_layout Plain Layout
+1 2 3 4 
+\end_layout
+
+\begin_layout Plain Layout
+5 
+\end_layout
+
+\begin_layout Plain Layout
+1 3 4 6 7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6 
+\end_layout
+
+\begin_layout Plain Layout
+12 5 7 8 9 3 14 
+\end_layout
+
+\begin_layout Plain Layout
+4 3 1 2 
+\end_layout
+
+\begin_layout Plain Layout
+5 
+\end_layout
+
+\begin_layout Plain Layout
+1 2 1 6 6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Chiarimenti sul primo esempio
+\series default
+: le portate 1, 3 e 4 contenute nel tuo vassoio fanno anche parte del menù,
+ così la cassiera ti addebiterà il costo del menù, che è vantaggioso rispetto
+ alla somma dei singoli piatti.
+ Le portate 6 e 7, non facendo parte del menù, vengono pagate il loro prezzo.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Chiarimenti sul secondo esempio
+\series default
+: nel vassoio ci sono due volte la portata 1 (Wiener Schnitzel), così la
+ cassiera di addebiterà il costo di un menù con anche compresa la portata
+ 2 e l'altra portata 1 verrà pagata a prezzo pieno (perchè non conviene
+ che venga pagato un secondo menù).
+ Poi dovrai pagare 2 volte per la portata 6, che non appartiene al menù,
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Aspetti interessanti
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Parole chiave
+\series default
+: matrici, contatori, organizzazione del codice.
+\end_layout
+
+\begin_layout Standard
+Questo problema, pur non essendo particolarmente complesso, richiede di
+ organizzare bene il codice in modo da prendere in considerazione tutti
+ i casi possibili.
+ Definendo opportunamente alcune variabili che agiranno come strutture di
+ supporto alla soluzione del problema, vedremo che il codice risulterà compatto,
+ sfruttando anche l'utilizzo di elementi di vettori come indici per altri
+ vettori/matrici.
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Data la dimensione del problema (di fatto 20x20, considerando il numero
+ totale di portate e il numero di portate che possono essere acquistate)
+ non sembra essere necessario utilizzare nessun algoritmo particolarmente
+ veloce o furbo, ma è sufficiente scrivere un programma ben organizzato
+ che esplori tutti i casi possibili.
+ Una delle prime difficoltà potrebbe essere quella di comprendere bene il
+ testo, in considerazione anche dell'elevato numero di campi di input.
+ Come al solito la lettura dei casi di esempio può aiutare a chiarire la
+ comprensione, in questo caso essendo anche presenti delle chiarificazioni,
+ cosa che non è sempre presente nei problemi di gara, è una buona idea leggerle
+ per migliorare o confermare la comprensione del problema.
+\end_layout
+
+\begin_layout Standard
+La parte 
+\begin_inset Quotes eld
+\end_inset
+
+complicata
+\begin_inset Quotes erd
+\end_inset
+
+ deriva dal fatto che per decidere se prendere o meno un menù è necessario
+ valutare se l'insieme delle portate che voglio prendere e che fanno parte
+ del menù mi costerebbero di meno se prese separatamente oppure all'interno
+ del menù: mentre è evidente che se desidero prendere tutte e quattro le
+ portate del menù mi conviene prendere il menù, in tutti gli altri casi,
+ con un numero di portate comprese nel menù inferiore a 4, devo valutare
+ a seconda dei costi delle singole portate che mi interessano: anche con
+ una portata sola potrebbe convenire prendere il menù se il prezzo di quella
+ portata fosse superiore al prezzo del menù.
+ Un altro problema sorge dal fatto che si possono prendere portate ripetute
+ e quindi potrebbe succedere che convenga prendere più di un menù.
+ Invece ciò che sicuramente non comporta problema sono le portate non presenti
+ nel menù, che ovviamente devono essere comprate a prezzo intero.
+\end_layout
+
+\begin_layout Standard
+Dopo qualche riflessione si può arrivare a un algoritmo 
+\begin_inset Quotes eld
+\end_inset
+
+costruttivo
+\begin_inset Quotes erd
+\end_inset
+
+ che potrebbe essere descritto in questo modo:
+\end_layout
+
+\begin_layout Itemize
+per ogni piatto di portata nel vassoio controlla se è presente nel menù
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+se non è presente lo si compra al suo prezzo
+\end_layout
+
+\begin_layout Itemize
+se è presente lo si tiene da parte, per verificare poi se, da solo o insieme
+ ad altri, convenga prenderlo tramite l'acquisto di un menù
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Per vedere come risolvere il problema di stabilire se è meglio prendere
+ o meno un menù dati uno o più piatti contenuti al suo interno possiamo
+ usare un approccio greedy, nel senso che la cosa migliore che possiamo
+ fare è quella di comporre menù formati dal maggior numero possibili di
+ portate, fino a che compriamo tutte le portate che ci interessano.
+ Per chiarire meglio il concetto si può guardare la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esempio-di-calcolo-teta"
+
+\end_inset
+
+.
+ Nell'esempio si suppone che sul nostro vassoio siano presenti due zuppe,
+ tre polli arrosto e un contorno di verdure, i cui prezzi sono evidenziati
+ sotto il menù.
+ Se li inseriamo nella griglia in figura, possiamo facilmente notare che
+ è possibile risolvere il problema analizzando le righe singolarmente.
+ Partendo dalla riga più in basso, in cui la somma delle portate è uguale
+ a 22, verrà scelto un menù, per la seconda riga, la cui somma dei costi
+ delle portate è uguale a 15 verrà scelto ancora un menù ed infine per la
+ terza riga in cui è presente solo un pollo, lo si acquisterà singolarmente
+ al costo di 10.
+ Nell'esempio non compaiono portate non presenti nel menù perchè abbiamo
+ già detto che il loro costo andrà semplicemente sommato al costo totale.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi nuovi/CoCi/teta/soluzione.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esempio-di-calcolo-teta"
+
+\end_inset
+
+Esempio di calcolo dei menù
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Detto questo il codice traduce esattamente quanto mostrato in figura.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int K; //meals in the canteen
+\end_layout
+
+\begin_layout Plain Layout
+
+int prices[20]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int menu_price;
+\end_layout
+
+\begin_layout Plain Layout
+
+int menu[4];
+\end_layout
+
+\begin_layout Plain Layout
+
+int T; //meals on the tray
+\end_layout
+
+\begin_layout Plain Layout
+
+int meals[20];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int meals_in_menu[20][20];
+\end_layout
+
+\begin_layout Plain Layout
+
+int how_many[20];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int sub_menu_cost(int n)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int tot = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(int i = 0; i < 20; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		tot += meals_in_menu[n][i];
+\end_layout
+
+\begin_layout Plain Layout
+
+	return tot;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bool in_menu(int n)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(int i = 0; i < 4; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (n == menu[i])
+\end_layout
+
+\begin_layout Plain Layout
+
+			return true;
+\end_layout
+
+\begin_layout Plain Layout
+
+	return false;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int cost = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	cin >> K;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(int i = 1; i <= K; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		cin >> prices[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+	cin >> menu_price;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(int i = 0; i < 4; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		cin >> menu[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+	cin >> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(int i = 0; i < T; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		cin >> meals[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (in_menu(meals[i]))
+\end_layout
+
+\begin_layout Plain Layout
+
+			meals_in_menu[how_many[meals[i]]++][meals[i]] = prices[meals[i]];
+\end_layout
+
+\begin_layout Plain Layout
+
+		else
+\end_layout
+
+\begin_layout Plain Layout
+
+			cost += prices[meals[i]];
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	int max_menus = *max_element(how_many, how_many+20);
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(int i = 0; i < max_menus; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (sub_menu_cost(i) < menu_price)
+\end_layout
+
+\begin_layout Plain Layout
+
+			cost += sub_menu_cost(i);
+\end_layout
+
+\begin_layout Plain Layout
+
+		else
+\end_layout
+
+\begin_layout Plain Layout
+
+			cost += menu_price;
+\end_layout
+
+\begin_layout Plain Layout
+
+	cout << cost << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Le prime 6 righe dichiarano le strutture necessarie per contenere i dati
+ di input: da notare che i costi vengono messi nel vettore dei costi partendo
+ dall'indice 1 e non 0, poichè essendo le portate numerate a partire da
+ 1, questo renderà più naturale l'utilizzo degli indici delle portate così
+ come usati negli input successivi.
+ Alla riga 8 viene dichiarata la matrice che corrisponde a quella mostrata
+ in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esempio-di-calcolo-teta"
+
+\end_inset
+
+ e alla riga successiva un vettore di contatori, 
+\emph on
+how_many
+\emph default
+, che servirà a stabilire il numero di portate presenti in ogni colonna.
+ Nell'esempio in figura il vettore avrebbe i valori [2,0,3,0,1,0,0] (per
+ motivi di spazio la figura è più piccola della matrice reale).
+ Nelle linee dalla 29 alla 36 vengono letti tutti i valori di input tranne
+ le portate presenti nel vassoio, che invece vengono lette nel successivo
+ ciclo.
+ Nel leggerle si controlla se la portata è presente nel menu (con la funzione
+ 
+\emph on
+in_menu
+\emph default
+) e se lo è si inserisce nella matrice 
+\emph on
+meals_in_menu
+\emph default
+ un 1 nella prima posizione disponibile, in modo da riempire la matrice
+ come in figura.
+ Il codice è scritto in modo da usare come indice di riga il numero di portate
+ di quel tipo già presenti nella matrice (numero che poi verrà incrementato
+ grazie al ++) e come indice di colonna il numero della portata attuale.
+ Se invece non è presente nel menù basta sommare il suo costo al costo totale.
+\end_layout
+
+\begin_layout Standard
+Una volta riempita la matrice con le portate che appaioni nel menù, basta
+ scorrere la matrice dalla prima riga all'ultima che contiene almeno un
+ 1 (per sapere qual è l'ultima riga che contiene un 1 basta trovare il massimo
+ del vettore 
+\emph on
+how_many
+\emph default
+ cosa che nel codice viene fatta con l'algoritmo 
+\series bold
+max_element
+\series default
+), e, tramite la funzione 
+\emph on
+sub_menu_cost
+\emph default
+ (righe 11-17) calcolare il costo di quella riga: a questo punto un semplice
+ controllo tra il costo calcolato e quello del menù ci dirà quale dei due
+ scegliere.
 \end_layout
 
 \end_body
