@@ -1,3 +1,7 @@
+Change log della quarta edizione
+Non fatto
+
+
 Change log della terza edizione
 
 -creata una nuova struttura delle cartelle che dovrebbe facilitare la gestione di versioni future
