@@ -30,7 +30,7 @@
 \paperfontsize default
 \spacing single
 \use_hyperref false
-\papersize a4paper
+\papersize letterpaper
 \use_geometry true
 \use_amsmath 1
 \use_esint 1
@@ -175,21 +175,36 @@ target "http://www.imparando.net/guida"
 \end_layout
 
 \begin_layout Standard
-o direttamente a questo
-\end_layout
-
-\begin_layout Standard
+o direttamente andando sul sito 
 \begin_inset CommandInset href
 LatexCommand href
-target "http://ilmiolibro.kataweb.it/community.asp?id=93252"
+name "www.lulu.com/it"
+target "lulu.it"
 
 \end_inset
 
+ e facendo una ricerca per autore o titolo.
+\end_layout
 
+\begin_layout Section*
+AGGIUNTA ALLA QUARTA EDIZIONE
 \end_layout
 
 \begin_layout Standard
+Nonostante quanto scritto qua sopra, in tre anni di edizione di questa guida
+ le vendite non hanno mai superato le 5 copie all'anno (nel picco di vendita):
+ quest'anno avevo quindi deciso di non pubblicare più questa guida, ma poi
+ qualcuno mi ha richiesto se era possibile averne una copia 
+\begin_inset Quotes eld
+\end_inset
 
+originale
+\begin_inset Quotes erd
+\end_inset
+
+ e quindi ho cambiato idea: ho deciso di pubblicarla su Lulu.com, perchè
+ mi sembra offra qualche vantaggio in più sui metodi di pagamenti e la qualità
+ del libro, spero possa interessare a qualcuno.
 \end_layout
 
 \begin_layout Verse
