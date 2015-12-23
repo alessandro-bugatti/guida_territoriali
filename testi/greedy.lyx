@@ -483,7 +483,7 @@ greedy
  è corretto? No, però da questo esempio possiamo trarre una giustificazione
  che, almeno intuitivamente, sembra funzionare.
  Se di volta in volta scegliamo l'intervallo compatibile con le scelte precedent
-e e avente l'istante di fine minore, non è possibile trovare successivamente
+i e avente l'istante di fine minore, non è possibile trovare successivamente
  un intervallo che abbiamo scartato e che invece sarebbe stato meglio scegliere
  perché:
 \end_layout

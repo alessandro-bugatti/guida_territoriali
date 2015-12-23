@@ -12761,9 +12761,9 @@ sys 0m0.076s
 \end_layout
 
 \begin_layout Itemize
-per quanto riguarda l'utilizzo della memoria, la versione iterativa potrebbe
- avere il problema che lo stack cresce a ogni chiamata ricorsiva, ponendo
- quindi dei problemi di 
+per quanto riguarda l'utilizzo della memoria, la versione ricorsiva potrebbe
+ avere il problema che lo stack cresce a ogni chiamata, ponendo quindi dei
+ problemi di 
 \begin_inset Quotes eld
 \end_inset
 
