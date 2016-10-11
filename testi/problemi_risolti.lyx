@@ -69,7 +69,7 @@
 \begin_body
 
 \begin_layout Chapter
-Problemi risolti
+Problemi territoriali risolti
 \end_layout
 
 \begin_layout Standard
@@ -6652,7 +6652,7 @@ int main()
 \end_layout
 
 \begin_layout Standard
-La prima soluzione si serve di un vettore in maniera 
+Questa prima soluzione utilizza un vettore in maniera 
 \begin_inset Quotes eld
 \end_inset
 
@@ -6698,6 +6698,70 @@ siccome gli indici del vettore sono solo positivi mentre le quote potrebbero
 offset
 \emph default
  che è stato aggiunto all'inizio per evitare quote negative.
+\end_layout
+
+\begin_layout Standard
+Sebbene questa soluzione sia molto efficiente, avrebbe dei problemi nel
+ caso che le assunzioni fossero diverse e costringessero ad avere vettori
+ più grandi per memorizzare le quote visitate.
+ Se ad esempio il dislivello massimo tra una trasmissione e la successiva
+ fosse di 100000 al posto che di 100, avremmo bisogno di un vettore di 
+\begin_inset Formula $100000\times1000\times2$
+\end_inset
+
+ elementi, cioè 200.000.000 di elementi, che è una dimensione enorme, in genere
+ oltre il limite che viene posto nelle gare e questo nonostante i posti
+ che poi verrebbero utilizzati sarebbero al massimo 999 (poichè per le ipotesi
+ del problema almeno una quota doppia è presente).
+\end_layout
+
+\begin_layout Standard
+Per risolvere il problema si potrebbe utilizzare una 
+\emph on
+map
+\emph default
+, uno dei contenitori standard del C++, chiamato anche 
+\emph on
+array associativo
+\emph default
+, che come un normale array serve a contenere una sequenza di valori omogenei,
+ solo che al posto di poterli indirizzare solo tramite un indice numerico,
+ permette di usare qualsiasi tipo di 
+\begin_inset Quotes eld
+\end_inset
+
+etichetta
+\begin_inset Quotes erd
+\end_inset
+
+ per contrassegnare una posizione nel vettore.
+ 
+\end_layout
+
+\begin_layout Standard
+In questo caso verrebbe ancora utilizzato un indice numerico, solo che a
+ differenza di un vettore normale, solo le caselle corrispondenti a una
+ quota raggiunta verrebbero create e quindi la quantità di spazio utilizzata
+ sarebbe sembre al massimo proporzionale a 999, indipendentemente dalla
+ grandezza dei dislivelli massimi, come si può vedere nell'esempio di figura
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Vettore-mappa"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Le uniche difficoltà in questo tipo di soluzione risiedono nell'utilizzo
+ della 
+\emph on
+map
+\emph default
+, che può risultare poco chiaro per chi non l'ha mai utilizzata.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -6793,6 +6857,16 @@ int main(int argc, char** argv)
 
 \begin_layout Plain Layout
 
+	map<int,int>::iterator i; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	i = m.begin();
+\end_layout
+
+\begin_layout Plain Layout
+
 	int max = i->first; 	
 \end_layout
 
@@ -6847,101 +6921,7 @@ int main(int argc, char** argv)
 \end_layout
 
 \begin_layout Standard
-La prima soluzione proposta è molto efficiente, ma avrebbe dei problemi
- nel caso che le assunzioni fossero diverse e costringessero ad avere vettori
- più grandi per memorizzare le quote visitate.
- Se ad esempio il dislivello massimo tra una trasmissione e la successiva
- fosse di 100000 al posto che di 100, avremmo bisogno di un vettore di 
-\begin_inset Formula $100000\times1000\times2$
-\end_inset
-
- elementi, cioè 200.000.000 di elementi, che è una dimensione enorme, in genere
- oltre il limite che viene posto nelle gare e questo nonostante i posti
- che poi verrebbero utilizzati sarebbero al massimo 999 (poichè per le ipotesi
- del problema almeno una quota doppia è presente).
-\end_layout
-
-\begin_layout Standard
-Per risolvere il problema si potrebbe utilizzare una 
-\emph on
-map
-\emph default
-, uno dei contenitori standard del C++, chiamato anche 
-\emph on
-array associativo
-\emph default
-, che come un normale array serve a contenere una sequenza di valori omogenei,
- solo che al posto di poterli indirizzare solo tramite un indice numerico,
- permette di usare qualsiasi tipo di etichetta per contrassegnare una posizione
- nel vettore.
- 
-\end_layout
-
-\begin_layout Standard
-In questo caso verrebbe ancora utilizzato un indice numerico, solo che a
- differenza di un vettore normale, solo le caselle corrispondenti a una
- quota raggiunta verrebbero create e quindi la quantità di spazio utilizzata
- sarebbe sembre al massimo proporzionale a 999, indipendentemente dalla
- grandezza dei dislivelli massimi, come si può vedere nell'esempio di figura
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Vettore-mappa"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../materiali/problemi territoriali/2011_nanga/nanga.eps
-	display false
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Vettore-mappa"
-
-\end_inset
-
-Confronto tra vettore e mappa
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Le uniche difficoltà in questo tipo di soluzione risiedono nell'utilizzo
- della 
-\emph on
-map
-\emph default
-, che può risultare poco chiaro per chi non l'ha mai utilizzata.
- Come si vede nel codice per ogni dislivello letto viene creata una coppia
+Come si vede nel codice per ogni dislivello letto viene creata una coppia
  tramite il container 
 \emph on
 pair
@@ -6980,6 +6960,48 @@ false
 Terminato l'inserimento è necessario, come per il vettore della soluzione
  precedente, cercare il massimo: in questo caso non è possibile scandire
  la mappa utilizzando un indice, ma bisogna usare un iteratore (righe 20-24).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2011_nanga/nanga.eps
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Vettore-mappa"
+
+\end_inset
+
+Confronto tra vettore e mappa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -14288,7 +14310,7 @@ Se ho studiato bene questa guida, quale problema delle territoriali precedenti
 \end_layout
 
 \begin_layout Subsection
-Soluzioni
+Soluzione
 \end_layout
 
 \begin_layout Standard
