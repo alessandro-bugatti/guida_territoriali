@@ -9888,6 +9888,13 @@ r
  se ci sono ragazzi assenti, con le assenze per ogni nazione (righe 21-23).
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Brisbane - territoriali 2013
 \end_layout
@@ -14644,6 +14651,4251 @@ trasformarlo
 \end_inset
 
  nel valore individuato da esso (riga 25).
+\end_layout
+
+\begin_layout Section
+Numero semiprimo - Territoriali 2015
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Numero semiprimo (semiprimo) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 1
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Gemma ha appena imparato che cos’è un numero semiprimo, e presa dall’euforia
+ non riesce a smettere di parlarne.
+ In particolare, un numero semiprimo è un intero ≥ 2 che si fattorizza come
+ prodotto di due numeri primi (non necessariamente distinti).
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I numeri primi sono tutti quegli interi ≥ 2 divisibili solo per se stessi
+ e per 1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Sono quindi esempi di numeri semiprimi i numeri: 
+\end_layout
+
+\begin_layout Itemize
+15 , prodotto di 3 e 5 .
+ 
+\end_layout
+
+\begin_layout Itemize
+169 , prodotto di 13 e 13 .
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Aiuta Gemma a scrivere un programma che verifichi se un numero N è semiprimo
+ oppure no!
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt contiene l’unico intero N , di cui Gemma vuole verificare
+ la semiprimalità.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt contiene: 
+\end_layout
+
+\begin_layout Itemize
+I due primi che fattorizzano N, stampati su un’unica riga, in ordine non-decresc
+ente, se N è semiprimo.
+ 
+\end_layout
+
+\begin_layout Itemize
+L’unico intero − 1 se N non è semiprimo.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+2 ≤ N ≤ 1 000 000.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+961
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31 31
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+884053
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+101 8753
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Come si può verificare se un numero è primo?
+\end_layout
+
+\begin_layout Itemize
+Quanto costa verificare se un numero è primo?
+\end_layout
+
+\begin_layout Itemize
+Data la dimensione massima dell'input il costo di verificare se un numero
+ è primo creerà dei problemi?
+\end_layout
+
+\begin_layout Itemize
+Se un numero ha un divisore primo D e il numero ottenuto dalla sua divisione
+ per D non lo è, posso dedurre qualcosa di utile alla soluzione del problema?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Sembra evidente che per risolvere questo problema sia necessario prima essere
+ in grado di stabilire se un numero è primo o meno e successivamente usare
+ questa informazione per arrivare alla soluzione richiesta.
+\end_layout
+
+\begin_layout Standard
+Chiunque stia imparando a programmare prima o poi si sarà trovato ad affrontare
+ il problema di verificare se un numero intero è primo o meno.
+ Nonostante il problema sembri a prima vista semplice, non esiste una formula
+ immediata che, buttato dentro il numero, ci dica se è primo o no.
+ La cosa più semplice che si può fare è quindi fare un test a tentativi,
+ provando a dividere il numero per tutti i numeri compresi tra 2 e N-1 e
+ vedere se si trova un divisore, nel qual caso non sarà primo.
+\end_layout
+
+\begin_layout Standard
+Il costo di questo metodo dipende dalla lunghezza di N e il caso peggiore
+ è quando N è primo, perchè in quel caso bisogna provare tutti i numeri
+ prima di potersi fermare, quindi sembrerebbe che siano necessarie circa
+ N divisioni.
+ 
+\end_layout
+
+\begin_layout Standard
+Solitamente tutti si accorgono quasi subito che in effetti non è necessario
+ provare tutti i divisori fino a N-1, dal momento che nessun divisore di
+ N potrà mai essere più grande di N/2, evidentemente.
+ Quello di cui molte meno persone si accorgono è che, se stiamo cercando
+ un divisore, almeno uno deve essere compreso nell'intervallo [2,
+\begin_inset Formula $\left\lfloor \sqrt{N}\right\rfloor $
+\end_inset
+
+], che è un intervallo molto più piccolo dell'intervallo [2, N/2].
+ Quindi se non ci sono divisori minori o uguali alla radice quadrata di
+ N, non ci sono divisori in assoluto
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Si lascia al lettore la dimostrazione del perchè questa affermazione è vera,
+ suggerendo di procedere per assurdo.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Detto questo, trovare se un numero è primo o meno può essere fatto con questo
+ codice
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+bool primo(int n)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int N = sqrt(n);
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 2; i <= N; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (n%i == 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+			return false;
+\end_layout
+
+\begin_layout Plain Layout
+
+	return true;
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il ciclo parte da 2 perchè in questo modo i numeri non primi verranno 
+\begin_inset Quotes eld
+\end_inset
+
+scoperti
+\begin_inset Quotes erd
+\end_inset
+
+ velocemente, dal momento che tutti i pari (che sono la metà di tutti i
+ numeri interi) verranno eliminati dopo un solo passaggio, i multipli di
+ 3 (che sono un terzo degli interi e contando solo quelli dispari sono comunque
+ un sesto) verranno eliminati dopo 2 passaggi e così via.
+ Data la dimensione massima dell'input stabilita dalle assunzioni del problema,
+ che è 1000000, alla peggio serviranno circa 1000 passaggi per stabilire
+ se un certo numero è primo o meno.
+\end_layout
+
+\begin_layout Standard
+A questo punto scoprire se un numero è semiprimo si riduce a provare a dividerlo
+ per un qualche primo e vedere se il risultato della divisione è anch'esso
+ un numero primo.
+ Anche se può sembrare debbano essere fatti molti calcoli questo procedimento
+ termina piuttosto velocemente per quanto detto prima rispetto a dove possono
+ trovarsi i divisori di un numero.
+ Se infatti N fosse fattorizzabile nel prodotto AxB, con A e B entrambi
+ primi, uno dei due sarà per forza minore di 
+\begin_inset Formula $\left\lfloor \sqrt{N}\right\rfloor $
+\end_inset
+
+, che per i vincoli del problema è un numero minore di 1000.
+\end_layout
+
+\begin_layout Standard
+Il codice risulta quindi il seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int N;
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N;
+\end_layout
+
+\begin_layout Plain Layout
+
+	int M = sqrt(N);
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 2; i <= M; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (primo(i) && N%i == 0 && primo(N/i))
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			out << i << " " << N/i << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+			return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << -1 << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dove l'
+\emph on
+if
+\emph default
+ non fa altro che controllare se 
+\emph on
+i
+\emph default
+ è primo, se è un divisore di 
+\emph on
+N
+\emph default
+ e se anche 
+\emph on
+N/i
+\emph default
+ è un numero primo.
+\end_layout
+
+\begin_layout Section
+Rispetta i versi - Territoriali 2015
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Rispetta i versi (disuguaglianze) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Gabriele ha un nuovo rompicapo preferito, chiamato “Rispetta i versi”.
+ Si tratta di un solitario giocato su una griglia formata da N caselle separate
+ da un simbolo di disuguaglianza; in figura è mostrato un esempio con N
+ = 6.
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2015_disuguaglianze/schema.eps
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+L’obiettivo del gioco è quello di riempire le celle vuote con tutti i numeri
+ da 1 a N (ogni numero deve comparire esattamente una volta), in modo da
+ rispettare le disuguaglianze tra caselle adiacenti.
+ Per la griglia della figura, una delle possibili soluzioni al rompicapo
+ è la seguente:
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2015_disuguaglianze/schema_numeri.eps
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt contiene due righe di testo.
+ Sulla prima è presente l’intero N , il numero di caselle del gioco.
+ Sulla seconda è presente una stringa di N − 1 caratteri, ognuno dei quali
+ può essere solo < o >, che descrive i vincoli tra le caselle, da sinistra
+ a destra.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt contiene su una sola riga una qualunque permutazione dei
+ numeri da 1 a N - separati tra loro da uno spazio - che risolve il rompicapo.
+ I numeri corrispondono ai valori scritti nelle caselle, leggendo da sinistra
+ verso destra.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+2 ≤ N ≤ 100 000.
+ 
+\end_layout
+
+\begin_layout Itemize
+Nel 30% dei casi, il valore di N non supera 10.
+\end_layout
+
+\begin_layout Itemize
+Nel 60% dei casi, il valore di N non supera 20.
+ 
+\end_layout
+
+\begin_layout Itemize
+Si garantisce l’esistenza di almeno una soluzione per ciascuno dei casi
+ di test utilizzati nella verifica del funzionamento del programma.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\begin_layout Plain Layout
+<><<>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 5 1 3 6 4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\begin_layout Plain Layout
+>><<
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5 3 1 2 4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\begin_layout Plain Layout
+>><>><>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6 5 4 7 3 2 8 1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Il risultato è la permutazione di N elementi, come si realizza la permutazione
+ di N elementi? Ma soprattutto, quante sono le possibili permutazioni di
+ N elementi? È possibile produrle tutte e controllare quali di queste sono
+ soluzioni? 
+\end_layout
+
+\begin_layout Itemize
+Esclusa la possibilità di produrle, dati i limiti del problema, c'è qualche
+ osservazione che mi permetta di produrre solo una di quelle corrette per
+ via costruttiva e non a forza bruta?
+\end_layout
+
+\begin_layout Itemize
+Cosa succede se tutti i segni di disuguaglianza sono <? Qual è la permutazione
+ che soddisfa una sequenza composta solo da <?
+\end_layout
+
+\begin_layout Itemize
+E se, al posto di tutti <, c'è anche un segno >? Come si può modificare
+ la sequenza per renderla ancora corretta rispetto a tutte le disuguaglianze?
+ La modifica coinvolge molte posizioni o solo alcune?
+\end_layout
+
+\begin_layout Itemize
+E se al posto di un solo segno > ci sono due o più segni di maggiore consecutivi
+? Posso estendere il ragionamento fatto in precedenza?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Come in altri problemi in cui la risposta è una permutazione di elementi,
+ bisogna verificare se sia una strada percorribile quella di produrle tutte
+ per controllare quale sia una di quelle giuste, ma essendo il numero massimo
+ di numeri della sequenza pari a 100000 la risposta è decisamente no.
+ Tanto per aver un confronto, nel problema Domino massimale (vedi 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Esempio:-Domino-massimale"
+
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "sec:Esempio:-Domino-massimale"
+
+\end_inset
+
+) era possibile calcolare tutte le permutazioni perchè N aveva un valore
+ massimo di 10, già solo con 20 il numero di possibili permutazioni diventa
+ dell'ordine dei miliardi di miliardi.
+\end_layout
+
+\begin_layout Standard
+Scartata questa strada conviene fare delle prove per vedere se ci sono delle
+ proprietà o delle regolarità che non sono immediatamente evidenti, anche
+ semplicemente provando delle combinazioni di segni < e > e vedendo come
+ arrivare alla soluzione con carta e penna.
+ Quando si fanno delle prove senza avere ben chiaro dove si vuole andare
+ a parare, può convenire partire da dei casi estremi, perchè spesso sono
+ facili da analizzare e possono, se variati leggermente, suggerire una modalità
+ con cui affrontare il problema generale.
+\end_layout
+
+\begin_layout Standard
+Come suggerito, se si hanno solo segni < (tutto il ragionamento che segue
+ potrebbe essere facilmente invertito nel caso di tutti segni >), la soluzione
+ è banale poichè basta inserire tutti i numeri da 1 a N in ordine crescente
+ e le disuguaglianze sono ovviamente soddisfatte, come si può vedere in
+ fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Soluzione_disuguaglianze"
+
+\end_inset
+
+ (a).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/xubuntu/Desktop/guida/materiali/problemi territoriali/2015_disuguaglianze/schema_soluzione.eps
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Soluzione_disuguaglianze"
+
+\end_inset
+
+Soluzione disuguaglianze
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se si prova a inserire un solo segno di maggiore all'interno della sequenza,
+ come si vede nel caso (b), risulta chiaro che gli unici numeri che vengono
+ 
+\begin_inset Quotes eld
+\end_inset
+
+influenzati
+\begin_inset Quotes erd
+\end_inset
+
+ sono quelli adiacenti al segno cambiato e la situazione può essere rimessa
+ a posto semplicemente scambiandoli.
+ Tutti i numeri alla loro sinistra verificheranno ancora le disugliaglianze,
+ poichè sono minori di entrambi e lo stesso vale per i numeri alla loro
+ destra, che sono maggiori di entrambi.
+\end_layout
+
+\begin_layout Standard
+Il ragionamento a questo punto si può facilmente estendere a un intervallo
+ di lunghezza arbitraria di segni > consecutivi, semplicemente invertendo
+ tutti i numeri all'interno di quell'intervallo e lasciando inalterati quelli
+ prima e quelli dopo, per quanto detto prima, come si vede in (c).
+\end_layout
+
+\begin_layout Standard
+Infine, poichè qualsiasi sequenza di segni di disuguaglianza può essere
+ vista come una serie di segni < intervallati da segni >, si può applicare
+ lo stesso meccanismo a tutta la sequenza e trovare una permutazione che
+ soddisfa tutte le disuguaglianze.
+\end_layout
+
+\begin_layout Standard
+Il codice quindi si riduce a:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+char operatori[100000]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int numeri[100000]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+int N;
+\end_layout
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N;
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> operatori;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (i = 0; i < N; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		numeri[i] = i+1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	i = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (i < N)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		int start = i;
+\end_layout
+
+\begin_layout Plain Layout
+
+		while (operatori[i] == '>') i++;
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (start != i)
+\end_layout
+
+\begin_layout Plain Layout
+
+			reverse(numeri + start, numeri + i + 1);
+\end_layout
+
+\begin_layout Plain Layout
+
+		i++;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	for ( i = 0; i < N; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << numeri[i] << " ";
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alle righe 11-12 viene riempito l'array da tutti i numeri in ordine crescente,
+ che quindi sarebbe la permutazione corretta nel caso tutti i segni di disuguagl
+ianza fossero dei minori.
+ Dopodichè, nel ciclo 
+\emph on
+while
+\emph default
+, si trovano le sequenze consecutive di simboli > (riga 17) e, una volta
+ determinato l'inizio e la fine di una sequenza, si procede a invertire
+ la posizione degli elementi utilizzando l'algoritmo di libreria 
+\emph on
+reverse
+\emph default
+, oppure scrivendo una propria funzione per invertire gli elementi contenuti
+ in un intervallo di un array.
+ Come ultimo passo è quindi sufficiente stampare l'array così modificato.
+ 
+\end_layout
+
+\begin_layout Standard
+Viene lasciato al lettore come esercizio vedere come modificare il programma
+ per evitare di usare un vettore e fare uno scambio effettivo, ma stampare
+ direttamente i numeri ottenuti con il procedimento descritto: questa modifica,
+ ai fini pratici, pur facendo migliorare leggermente le prestazioni, non
+ ha nessun effetto sul punteggio, che in ogni caso sarà il massimo.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Corsa-mattutina"
+
+\end_inset
+
+Corsa mattutina - Territoriali 2015
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsection*
+Corsa mattutina (footing) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+William sta pensando di trasferirsi in una nuova città e vuole selezionare,
+ tra le varie possibilità, quella che si concilia meglio con la sua routine
+ mattutina.
+ Infatti, William è abituato a fare una corsetta attorno al proprio isolato
+ tutte le mattine, e teme che traslocando debba rinunciare a questo hobby,
+ qualora l’isolato in cui verrebbe a trovarsi fosse troppo grande.
+ La mappa della città si può rappresentare come un insieme di strade e di
+ incroci tra queste.
+ A ogni incrocio c’è una casa e le strade possono essere percorse in entrambi
+ i sensi.
+ Le case sono numerate da 1 a N .
+ Per evitare di annoiarsi, William non ha intenzione di fare corsette che
+ passino due volte davanti alla stessa casa, ad eccezione della sua (infatti
+ la corsetta deve necessariamente cominciare e terminare nella stessa casa).
+ Questo tipo di percorso prende il nome di ciclo semplice.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Nonostante i buoni propositi, William è molto pigro; per questo motivo ha
+ intenzione di rendere la sua corsetta mattutina il più breve possibile:
+ aiutalo scrivendo un programma che prenda in input la mappa di una città
+ e determini la lunghezza del ciclo semplice più corto.
+ Con questa informazione, William potrà decidere se trasferirsi nella nuova
+ città, ovviamente solo se riuscirà poi ad andare ad abitare in una delle
+ case che appartengono a questo percorso.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2015_footing/fig1.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Si prenda ad esempio la mappa della città motrata qua sopra (dove il numero
+ a fianco di ogni strada indica la lunghezza della strada), alcuni dei suoi
+ cicli semplici sono i seguenti:
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/xubuntu/Desktop/guida/materiali/problemi territoriali/2015_footing/fig2.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Come si può vedere, i primi due cicli evidenziati hanno una lunghezza totale
+ pari a 9, il terzo invece ha una lunghezza pari a 8 ed è quindi il percorso
+ ottimale per la corsetta mattutina di William: adesso William sa quali
+ sono le case coinvolte nel percorso più breve, e tra quelle potrà cercare
+ la nuova casa in cui andare ad abitare.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt contiene M + 1 righe di testo.
+ Sulla prima sono presenti due interi separati da spazio: N e M , rispettivament
+e il numero di case ed il numero di tratti di strada presenti nella città.
+ Dalla riga 2 fino alla M + 1 troviamo la descrizione degli M tratti di
+ strada.
+ Ciascuna di queste righe contiene tre interi separati da spazio: u, v e
+ w, dove u e v sono due case (quindi sono degli indici compresi tra 1 ed
+ N ) e w è la lunghezza del tratto di strada che le collega.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt contiene un singolo intero: la lunghezza del ciclo semplice
+ più corto presente nella città in input.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+3 ≤ N ≤ 1000.
+ 
+\end_layout
+
+\begin_layout Itemize
+3 ≤ M ≤ 10 000.
+\end_layout
+
+\begin_layout Itemize
+0 < w ≤ 10 000, dove w è la lunghezza di un tratto di strada.
+ 
+\end_layout
+
+\begin_layout Itemize
+È garantito che nella città esiste sempre almeno un ciclo semplice.
+ 
+\end_layout
+
+\begin_layout Itemize
+Nel 40% dei casi di prova tutte le strade hanno lunghezza unitaria.
+ 
+\end_layout
+
+\begin_layout Itemize
+È garantito che una coppia di case adiacenti è collegata da un solo tratto
+ di strada.
+ 
+\end_layout
+
+\begin_layout Itemize
+Una strada non collega mai una casa a se stessa.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+6 10
+\end_layout
+
+\begin_layout Plain Layout
+1 2 1 
+\end_layout
+
+\begin_layout Plain Layout
+3 2 2 
+\end_layout
+
+\begin_layout Plain Layout
+5 2 6
+\end_layout
+
+\begin_layout Plain Layout
+4 5 2 
+\end_layout
+
+\begin_layout Plain Layout
+1 4 2
+\end_layout
+
+\begin_layout Plain Layout
+3 5 1
+\end_layout
+
+\begin_layout Plain Layout
+3 4 7
+\end_layout
+
+\begin_layout Plain Layout
+5 1 5 
+\end_layout
+
+\begin_layout Plain Layout
+2 6 4
+\end_layout
+
+\begin_layout Plain Layout
+3 6 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Quale struttura dati è necessaria per memorizzare i dati di questo problema?
+\end_layout
+
+\begin_layout Itemize
+Cosa vuol dire in termini di algoritmi di base (BFS, DFS) trovare un ciclo
+ semplice? Può essere trovato usando uno di questi algoritmi? Oppure no?
+\end_layout
+
+\begin_layout Itemize
+Un ciclo semplice può essere scomposto in un problema noto di cui si conosce
+ l'algoritmo risolutivo? Se si toglie un arco da un ciclo semplice come
+ può essere ripensato il problema?
+\end_layout
+
+\begin_layout Itemize
+Una delle assunzioni garantisce che il 40% dei casi di test abbia strade
+ di lunghezza unitaria, perchè questa assunzione può essere rilevante per
+ la risoluzione di almeno parte del problema?
+\end_layout
+
+\begin_layout Itemize
+Per la soluzione completa quale algoritmo dovrebbe essere utilizzato?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Anche solo dalle immagini mostrate nel testo si vede subito che il problema
+ fa parte della famiglia dei problemi relativi ai grafi e quindi una struttura
+ dati per memorizzare le informazioni sui singoli problemi può essere la
+ solita utilizzata in questa guida (vedi 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Rappresentazione-di-grafi"
+
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "sec:Rappresentazione-di-grafi"
+
+\end_inset
+
+) o una sua variante.
+\end_layout
+
+\begin_layout Standard
+Questo è il primo problema delle territoriali in cui viene richiesto di
+ trovare dei cicli semplici e quindi potrebbe non essere immediato capire
+ quale degli algoritmi sui grafi mostrati finora sia necessario applicare
+ per risolvere il problema.
+ Un'osservazione interessante che permette di ridefinire il problema in
+ un modo in cui la soluzione diventa più naturale, è la seguente:
+\end_layout
+
+\begin_layout Quote
+un ciclo può essere visto come l'arco che connette i nodi A e B più un percorso
+ semplice tra A e B.
+ Nel caso poi si cerchi il ciclo semplice più corto e ogni coppia di nodi
+ abbia un solo arco che li unisce, la lunghezza di questo ciclo può essere
+ definita come la lunghezza dell'arco che connette i nodi A e B più il percorso
+ più breve che unisce A con B.
+ 
+\end_layout
+
+\begin_layout Standard
+Quest'ultimo problema è uno di quelli che sono già stati mostrati e risolti
+ in precedenza (vedi 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec: cammino_minimo"
+
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "sec: cammino_minimo"
+
+\end_inset
+
+) e quindi è ora possibile risolvere questo problema utilizzando un algoritmo
+ noto.
+\end_layout
+
+\begin_layout Standard
+Siccome lo scopo è quello di trovare il ciclo con lunghezza minima tra tutti
+ quelli presenti nel grafo, basterà trovare il percorso minimo tra ogni
+ coppia di nodi adiacenti A e B, aggiungere per ognuno la lunghezza del
+ tratto che li collega direttamente e tenere da parte il valore più basso.
+ 
+\end_layout
+
+\begin_layout Standard
+Per quanto riguarda l'assunzione sul 40% dei casi con strade di lunghezza
+ unitaria, è stata presumibilmente inserita per permettere a chi non conoscesse
+ l'algoritmo di Dijkstra di poter comunque risolvere una serie di casi,
+ usando una più semplice BFS (ricerca in ampiezza), poichè nel caso di archi
+ di lunghezza unitaria anche la BFS è in grado di trovare il percorso minimo
+ e in generale è più semplice da scrivere.
+\end_layout
+
+\begin_layout Standard
+Detto questo la soluzione che permette di risolvere tutti i casi è la seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+struct tratto{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int arriva;
+\end_layout
+
+\begin_layout Plain Layout
+
+	int lunghezza;
+\end_layout
+
+\begin_layout Plain Layout
+
+	tratto(int a, int b):arriva(a),lunghezza(b){}
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+struct casa{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int distanza;
+\end_layout
+
+\begin_layout Plain Layout
+
+	list <tratto> collegate;
+\end_layout
+
+\begin_layout Plain Layout
+
+	casa():distanza(numeric_limits<int>::max()){}
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+casa casette[1001];
+\end_layout
+
+\begin_layout Plain Layout
+
+set <int> stabili;
+\end_layout
+
+\begin_layout Plain Layout
+
+int N, M;
+\end_layout
+
+\begin_layout Plain Layout
+
+int tratti[10000][3];
+\end_layout
+
+\begin_layout Plain Layout
+
+int percorso_minimo;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void inizializza_djikstra()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i <= N; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		casette[i].distanza = numeric_limits<int>::max();
+\end_layout
+
+\begin_layout Plain Layout
+
+	stabili.clear();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+int djikstra(int begin, int end, int n_case, int interno)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	casette[begin].distanza = interno;
+\end_layout
+
+\begin_layout Plain Layout
+
+	stabili.insert(begin);
+\end_layout
+
+\begin_layout Plain Layout
+
+	casa casa_corrente = casette[begin];
+\end_layout
+
+\begin_layout Plain Layout
+
+	int ultimo_inserito = begin;
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (ultimo_inserito != end)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		list <tratto>::iterator i = casa_corrente.collegate.begin();
+\end_layout
+
+\begin_layout Plain Layout
+
+		for(;i!=casa_corrente.collegate.end();++i)
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			if ((ultimo_inserito != begin || i->arriva != end))
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				int casa_da_aggiornare = i->arriva;
+\end_layout
+
+\begin_layout Plain Layout
+
+				if (casette[casa_da_aggiornare].distanza > 
+\end_layout
+
+\begin_layout Plain Layout
+
+					casette[ultimo_inserito].distanza + i->lunghezza)
+\end_layout
+
+\begin_layout Plain Layout
+
+					casette[casa_da_aggiornare].distanza = 
+\end_layout
+
+\begin_layout Plain Layout
+
+					casette[ultimo_inserito].distanza + i->lunghezza;
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		int min = std::numeric_limits<int>::max();
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int i = 1; i <= n_case; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		{			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (stabili.find(i) == stabili.end() && casette[i].distanza < min)
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				min = casette[i].distanza;
+\end_layout
+
+\begin_layout Plain Layout
+
+				ultimo_inserito = i;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		casa_corrente = casette[ultimo_inserito];
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (min >= percorso_minimo ) return std::numeric_limits<int>::max();
+\end_layout
+
+\begin_layout Plain Layout
+
+		stabili.insert(ultimo_inserito);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	return casette[end].distanza;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N >> M;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < M; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		int u,v,w;
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> u >> v >> w;
+\end_layout
+
+\begin_layout Plain Layout
+
+		casette[u].collegate.push_back(tratto(v,w));
+\end_layout
+
+\begin_layout Plain Layout
+
+		casette[v].collegate.push_back(tratto(u,w));
+\end_layout
+
+\begin_layout Plain Layout
+
+		tratti[i][0] = u;
+\end_layout
+
+\begin_layout Plain Layout
+
+		tratti[i][1] = v;
+\end_layout
+
+\begin_layout Plain Layout
+
+		tratti[i][2] = w;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	percorso_minimo = numeric_limits<int>::max();
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < M; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		inizializza_djikstra();
+\end_layout
+
+\begin_layout Plain Layout
+
+		int temp = djikstra(tratti[i][0],tratti[i][1],N,tratti[i][2]);
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (temp < percorso_minimo)
+\end_layout
+
+\begin_layout Plain Layout
+
+			percorso_minimo = temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << percorso_minimo << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come prima cosa vengono definite le strutture per memorizzare le informazioni,
+ cioè gli archi e i nodi del grafo.
+ 
+\end_layout
+
+\begin_layout Standard
+Alla riga 1 la struttura 
+\emph on
+tratto
+\emph default
+ contiene la variabile 
+\emph on
+arriva 
+\emph default
+che indica quale è il nodo di arrivo di quell'arco e 
+\emph on
+lunghezza 
+\emph default
+che è il peso dell'arco.
+ Il costruttore (riga 4) serve solo a rendere più comoda l'inizializzazione.
+ 
+\end_layout
+
+\begin_layout Standard
+Per quanto riguarda i nodi, alla riga 7 viene definita la struttura 
+\emph on
+casa
+\emph default
+ che contiene la variabile 
+\emph on
+distanza
+\emph default
+, che verrà utilizzata per memorizzare le varie distanze nel calcolo del
+ cammino minimo, la lista dei tratti, 
+\emph on
+collegate
+\emph default
+, che contiene le tratte che collegano questa casa con le case adiacenti,
+ e il costruttore vuoto che inizializza la distanza al valore massimo degli
+ interi (quello che nell'algoritmo di Dijkstra teorico sarebbe il valore
+ infinito): per recuperare il valore massimo degli interi viene utilizzato
+ il template di classe 
+\emph on
+numeric_limits
+\emph default
+, che permette di interrogare il compilatore su varie caratteristiche dei
+ tipi aritmetici, in questo caso appunto il valore massimo degli interi
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Va anche detto che se in gara non ci si ricordasse questa particolare classe,
+ sarebbe sempre possibile inserire un numero molto alto, ad esempio 1000000000.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La funzione 
+\emph on
+inizializza_dijkstra
+\emph default
+ (riga 19) serve a riazzerare tutte le volte le strutture per il calcolo
+ del cammino minimo, perchè, come detto in precedenza, questo calcolo dovrà
+ essere ripetuto per ogni coppia di nodi adiacenti.
+ In questa funzione, oltre a porre la distanza in tutte le case pari al
+ massimo degli interi, viene anche svuotato l'insieme (definito alla riga
+ 14) dei nodi stabili.
+\end_layout
+
+\begin_layout Standard
+Alla riga 26 viene poi definito l'algoritmo di Dijkstra, leggermente modificato
+ rispetto alla versione scritta nel paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "algoritmo-dijkstra1"
+
+\end_inset
+
+.
+ In particolare le modifiche si limitano a:
+\end_layout
+
+\begin_layout Enumerate
+nella lista dei parametri ne viene aggiunto un quarto, che contiene la lunghezza
+ del tratto diretto di strada tra 
+\emph on
+begin 
+\emph default
+e 
+\emph on
+end
+\end_layout
+
+\begin_layout Enumerate
+questo parametro viene usato per inizializzare il valore contenuto nella
+ casa di partenza al posto dello 0 (riga 28): in questo modo il valore finale
+ fornito dalla funzione conterrà già la lunghezza del ciclo anzichè il solo
+ valore del cammino minimo tra i nodi 
+\emph on
+begin
+\emph default
+ e 
+\emph on
+end
+\end_layout
+
+\begin_layout Enumerate
+nel ciclo di aggiornamento delle distanze delle case adiacenti al nodo corrente
+ (riga 35) viene aggiunto un controllo (riga 37) per evitare di includere
+ il tratto diretto da 
+\emph on
+begin
+\emph default
+ a 
+\emph on
+end
+\emph default
+, che, come detto, non deve far parte del cammino minimo ma essere aggiunto
+ a completamento del ciclo.
+\end_layout
+
+\begin_layout Enumerate
+per fare una piccola ottimizazione, viene fatto un controllo (riga 57) per
+ verificare che, se durante il calcolo del cammino minimo, si ottiene un
+ valore già superiore al minimo trovato fino a quel momento in altre chiamate
+ della funzione, si esce direttamente poichè quel ciclo sicuramente non
+ potrà essere il più breve e il valore ritornato sarà il massimo degli interi.
+\end_layout
+
+\begin_layout Standard
+Una curiosità a proposito del controllo indicato al punto 3: la sua scrittura
+ non è del tutto intuitiva, probabilmente sarebbe stato più semplice da
+ leggere nella sua forma equivalente (vedi teoremi di De Morgan):
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},language=C,numbers=left,showstringspaces=false"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+!(ultimo_inserito == begin && i->arriva == end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+che letto suonerebbe come 
+\begin_inset Quotes eld
+\end_inset
+
+Se il nodo di partenza non è begin e contemporaneamente il nodo di arrivo
+ non è end
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Pur essendo logicamente equivalenti, ripetute prove fatte con il correttore
+ hanno evidenziato che mentre la prima versione permette di passare tutti
+ i 10 casi di test, la seconda fallisce costantemente su un caso a causa
+ della violazione dei limiti temporali, seppure di molto poco.
+ Nelle territoriali, come spesso detto, i limiti di tempo non sono un problema,
+ nel senso che durante l'esecuzione dei casi di test vengono lasciati apposta
+ molto larghi, a differenza che nel correttore online: può comunque essere
+ interessante notare che a volte piccole differenze nella scrittura di codice
+ possono comportare differenze apprezzabili nella velocità di esecuzione
+ di un programma.
+\end_layout
+
+\begin_layout Standard
+A questo punto il programma, dopo la fase di lettura dei dati (righe 68-77),
+ esegue un ciclo per ognuno dei tratti di strada (riga 79) e cerca il cammino
+ minimo tra i due nodi che quel tratto collega, ritornando la lunghezza
+ del ciclo che comprende quel tratto.
+ Questa lunghezza verrà poi confrontata con il minimo attuale per eventualmente
+ aggiornarlo.
+\end_layout
+
+\begin_layout Section
+La spartizione di Totò - Territoriali 2016
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+La spartizione di Totò (spartizione) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 1
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Nel film Totò Le Mokò, Totò ha un modo peculiare di dividere le gemme rubate
+ con un suo complice:
+\end_layout
+
+\begin_layout Itemize
+inizia dicendo “una a me” (e se ne prende una),
+\end_layout
+
+\begin_layout Itemize
+poi dice “una a te” (e ne dà una al complice),
+\end_layout
+
+\begin_layout Itemize
+poi dice “due a me” (e se ne prende due),
+\end_layout
+
+\begin_layout Itemize
+poi dice “due a te” (ma ne dà solo una al complice),
+\end_layout
+
+\begin_layout Itemize
+poi dice “tre a me” (e se ne prende tre),
+\end_layout
+
+\begin_layout Itemize
+poi dice “tre a te” (ma ne dà solo una al complice),
+\end_layout
+
+\begin_layout Itemize
+e così via.
+ .
+ .
+\end_layout
+
+\begin_layout Plain Layout
+Totò inizia sempre la spartizione prendendo una gemma per sé.
+ Per esempio, se ci sono 11 gemme da spartire, Totò ne prende 8 e il suo
+ complice 3: la prima volta ne prendono una per uno, poi Totò due e il complice
+ una, poi Totò tre e il complice una, infine Totò prende le due rimanenti
+ (e nessuna gemma per il complice).
+ 
+\end_layout
+
+\begin_layout Plain Layout
+La prima volta che Totò ha fatto questa spartizione il complice ha protestato,
+ ma Totò gli ha mollato un ceffone e gli ha preso le gemme che gli aveva
+ dato; da allora nessuno osa contraddire Totò Le Mokò in una spartizione.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Le regole della spartizione sono le stesse anche se ci sono più complici
+ con cui dividere il bottino: ad esempio, se ci sono 16 gemme da dividere
+ in quattro (Totò e tre complici), Totò ne prende 7 e i tre complici ne
+ prendono 3 ciascuno: la prima volta ne prendono una per uno, poi Totò due
+ e i complici una ciascuno, poi Totò tre e i complici una ciascuno, infine
+ Totò prende la gemma rimanente.
+\end_layout
+
+\begin_layout Plain Layout
+Quando ci sono tante gemme Totò ha paura di sbagliarsi nella spartizione,
+ quindi il vostro compito è quello di scrivere un programma che, ricevuti
+ in ingresso il numero di gemme e il numero di persone (compreso Totò) tra
+ cui spartirle, calcoli il numero di gemme che rimangono a Totò.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt è composto da una riga contenente G e P , due interi positivi
+ rappresentanti rispettivamente il numero di gemme e il numero di persone
+ (compreso Totò) tra cui spartirle.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da una sola riga contenente un intero positivo
+ T : il numero di gemme che rimane a Totò dopo la spartizione.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+10 ≤ G ≤ 1000.
+\end_layout
+
+\begin_layout Itemize
+2 ≤ P ≤ 10.
+\end_layout
+
+\begin_layout Itemize
+Nel 50% dei casi di input P = 2.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+11 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Siccome la descrizione del problema è già di per sè un algoritmo, è sufficiente
+ tradurlo in codice?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Questo è chiaramente un problema molto semplice, nella cui descrizione è
+ già contenuta la soluzione: date le assunzioni del problema è evidente
+ che limitandosi a implementare nel codice il metodo usato da Totò non ci
+ sarà nessun tipo di problema, poichè il numero massimo di gemme (1000)
+ permette agevolmente di effettuare tutte le mosse che farebbe Totò durante
+ la spartizione.
+\end_layout
+
+\begin_layout Standard
+Il codice risulta quindi il seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int G, P, toto_corrente, complici, totale=0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> G >> P;
+\end_layout
+
+\begin_layout Plain Layout
+
+	toto_corrente = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	complici = P-1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (G >= toto_corrente + complici)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		G -= toto_corrente + complici;
+\end_layout
+
+\begin_layout Plain Layout
+
+		totale += toto_corrente;
+\end_layout
+
+\begin_layout Plain Layout
+
+		toto_corrente++;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	totale += G;
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << totale << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alle righe 7 e 8 vengono inizializzate le gemme che prende Totò e il numero
+ dei suoi complici, successivamente, se il numero di gemme è sufficiente
+ a procedere con un giro di spartizione (riga 9), vengono distribuite le
+ gemme (riga 11), vengono incrementate le gemme che ha Totò (riga 12) e
+ viene aumentato il numero di gemme che prenderà Totò al prossimo giro (riga
+ 13).
+ Alla fine del ciclo vengono sommate al totale di gemme possedute da Totò
+ quelle eventualmente avanzate (riga 15) e viene stampato il risultato.
+\end_layout
+
+\begin_layout Section
+Discesa massima - Territoriali 2016
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Discesa massima (discesa) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Come ben sanno gli studenti che hanno passato le selezioni scolastiche delle
+ Olimpiadi di Informatica di quest’anno, data una piramide di numeri, definiamo
+ una 
+\series bold
+discesa
+\series default
+ come 
+\emph on
+una sequenza di numeri ottenuti partendo dalla cima della piramide e passando
+ per uno dei due numeri sottostanti, fino a giungere alla base della piramide
+\emph default
+.
+ Inoltre, il 
+\series bold
+valore
+\series default
+ di una discesa è definito come la somma dei numeri della discesa.
+ La 
+\series bold
+discesa massima
+\series default
+ di una piramide è quella che ha il massimo valore tra tutte le discese
+ della piramide.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Nell’esempio seguente è stata cerchiata la discesa ottenuta partendo dalla
+ cima scendendo prima a sinistra e poi sempre a destra fino alla base.
+ I numeri che compongono tale discesa sono (1, 2, 7, 11) e la loro somma
+ vale 21, che è il valore di questa discesa.
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2016_discesa/discesa.png
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+La discesa massima di questa piramide è quella che si ottiene scendendo
+ a destra, poi a sinistra e poi di nuovo a destra: i numeri di questa discesa
+ sono (1, 9, 7, 11) e la loro somma vale 28, che è il valore della discesa
+ massima.
+ Il vostro compito è quello di scrivere un programma che, ricevuta in ingresso
+ una piramide di numeri, stampi il valore della discesa massima, ovvero
+ il massimo valore tra tutte le possibili discese della piramide.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt è composto da 1 + A righe di testo.
+ La prima riga contiene A, un intero positivo rappresentante l’altezza della
+ piramide.
+ Le seguenti A righe descrivono effettivamente la piramide: l’
+\emph on
+i
+\emph default
+-esima riga (con i compreso tra 1 e A) contiene 
+\emph on
+i
+\emph default
+ interi positivi rappresentanti l’
+\emph on
+i
+\emph default
+-esimo “livello” della piramide.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da una sola riga contenente un intero positivo:
+ il valore della discesa massima.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+1 ≤ A ≤ 10.
+\end_layout
+
+\begin_layout Itemize
+Il valore di ciascun numero nella piramide è un intero positivo non superiore
+ a 100.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+Il primo esempio qui sotto si riferisce all’esempio mostrato nel testo del
+ problema.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4 
+\end_layout
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\begin_layout Plain Layout
+2 9 
+\end_layout
+
+\begin_layout Plain Layout
+3 7 5 
+\end_layout
+
+\begin_layout Plain Layout
+8 4 11 6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6 
+\end_layout
+
+\begin_layout Plain Layout
+42 
+\end_layout
+
+\begin_layout Plain Layout
+11 13 
+\end_layout
+
+\begin_layout Plain Layout
+41 37 38 
+\end_layout
+
+\begin_layout Plain Layout
+5 8 11 9 
+\end_layout
+
+\begin_layout Plain Layout
+22 27 31 18 32 
+\end_layout
+
+\begin_layout Plain Layout
+12 8 9 8 10 11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+145
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Qual è la struttura dati più adatta a memorizzare la piramide?
+\end_layout
+
+\begin_layout Itemize
+Il problema è di tipo greedy? Se parto dal primo livello e ogni volta scelgo
+ di scendere verso destra o verso sinistra a seconda di dove si trova il
+ valore maggiore e poi proseguo da lì, arriverò in fondo con il valore della
+ discesa massima?
+\end_layout
+
+\begin_layout Itemize
+Posso provare tutte le alternative senza escluderne nessuna e scegliere
+ quella di valore massimo? Il numero massimo di livelli è compatibile con
+ questo tipo di soluzione?
+\end_layout
+
+\begin_layout Itemize
+Volendo fare di meglio, posso trovare una soluzione che mi permetta di memorizza
+re risultati intermedi e arrivare così ad un approccio che faccia uso della
+ programmazione dinamica?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+L'immagine che rappresenta la piramide di numeri potrebbe far pensare a
+ una struttura dati ad albero, riflettendo però un attimo è evidente che
+ una matrice è più indicata per mantenere ed elaborare i dati, in quanto
+ più semplice da gestire.
+ Come si può vedere nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:piramide-matrice"
+
+\end_inset
+
+, ogni riga della matrice corrisponde a un livello della piramide e se si
+ indica con 
+\begin_inset Formula $n_{i,j}$
+\end_inset
+
+ il generico elemento di livello 
+\emph on
+i
+\emph default
+ e posizione 
+\emph on
+j
+\emph default
+ nella piramide (ad esempio il numero 9 sarebbe l'elemento 
+\begin_inset Formula $n_{1,1}$
+\end_inset
+
+), allora i suoi 
+\begin_inset Quotes eld
+\end_inset
+
+figli
+\begin_inset Quotes erd
+\end_inset
+
+ sinistro e destro sono gli elementi 
+\begin_inset Formula $n_{i+1,j}$
+\end_inset
+
+ e 
+\begin_inset Formula $n_{i+1,j+1}$
+\end_inset
+
+, che vengono mappati nella matrice usando 
+\emph on
+i
+\emph default
+ e 
+\emph on
+j
+\emph default
+ come indici.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/xubuntu/Desktop/guida/materiali/problemi territoriali/2016_discesa/matrice.eps
+	lyxscale 60
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:piramide-matrice"
+
+\end_inset
+
+Come memorizzare la piramide
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Stabilito il modo con cui vengono memorizzati i dati della piramide bisogna
+ verificare se il problema è di tipo greedy oppure no, poichè questo determina
+ anche l'algoritmo risolutivo.
+ Se il problema fosse greedy si potrebbe, partendo dall'alto, scegliere
+ ad ogni livello qual è la strada migliore: nella figura ad esempio, partendo
+ dal numero 1 in cima, si sceglierebbe il 9 (massimo locale), poi il 7 e
+ infine l'11, per un totale di 28, che è proprio la soluzione del problema.
+ Basta questa prova per stabilire che il problema può essere risolto con
+ un approccio di tipo greedy? No, e per averne una controprova è sufficiente
+ applicare l'algoritmo greedy con il secondo caso di test: la somma in questo
+ caso risulta 144, che non è la soluzione corretta.
+\end_layout
+
+\begin_layout Standard
+Escluso quindi l'approccio greedy, una possibilità che sembra naturale è
+ quella di provare a risolvere il problema in modo ricorsivo.
+ Il primo passo da compiere è quello di riformulare il problema in modo
+ che possa essere descritto ricorsivamente: guardando la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:piramide-ricorsiva"
+
+\end_inset
+
+ si può vedere che la piramide iniziale può essere vista come il numero
+ in alto (l'1) che si 
+\begin_inset Quotes eld
+\end_inset
+
+appoggia
+\begin_inset Quotes erd
+\end_inset
+
+ su due sottopiramidi, quella indicata con i contorni continui (A) e quella
+ indicata con i contorni tratteggiati (B).
+ In questo modo il problema iniziale viene scomposto in due problemi più
+ piccoli e quindi la soluzione ricorsiva può essere formulata così:
+\end_layout
+
+\begin_layout Itemize
+se una piramide ha altezza 0 allora il valore della discesa massima è 0
+\end_layout
+
+\begin_layout Itemize
+altrimenti il valore della discesa della piramide di altezza N è uguale
+ al massimo tra i valori della sottopiramide sinistra di altezza N-1 e della
+ sottopiramide destra di altezza N-1, a cui va sommato il vertice della
+ piramide di altezza N.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2016_discesa/ricorsione.eps
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:piramide-ricorsiva"
+
+\end_inset
+
+Descrizione ricorsiva
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A questo punto l'implementazione non fa altro che seguire la formulazione
+ precedente; rimane però una domanda che è spesso necessario porsi con gli
+ algoritmi ricorsivi: il tempo di soluzione è ragionevole? Data l'assunzione
+ che le piramidi al massimo avranno 10 livelli, la risposta è affermativa,
+ poichè ad ogni livello sarà necessario calcolare ricorsivamente la soluzione
+ di due sottoproblemi e quindi la complessità sarà di tipo 
+\begin_inset Formula $2^{N}$
+\end_inset
+
+, che in generale è pessima, ma essendo al massimo N = 10 non darà nessun
+ tipo di problema.
+\end_layout
+
+\begin_layout Standard
+Il codice può essere quindi scritto in questo modo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int piramide[10][10];
+\end_layout
+
+\begin_layout Plain Layout
+
+int A;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int discesa(int i, int j)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (i == A)
+\end_layout
+
+\begin_layout Plain Layout
+
+		return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	int sinistra = discesa(i+1,j);
+\end_layout
+
+\begin_layout Plain Layout
+
+	int destra = discesa(i+1,j+1);
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (sinistra > destra)
+\end_layout
+
+\begin_layout Plain Layout
+
+		return sinistra + piramide[i][j];
+\end_layout
+
+\begin_layout Plain Layout
+
+	return destra + piramide[i][j];
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> A;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < A; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j = 0; j < i+1; j++)
+\end_layout
+
+\begin_layout Plain Layout
+
+			in >> piramide[i][j];
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << discesa(0,0) << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La funzione ricorsiva 
+\emph on
+discesa
+\emph default
+ prende come parametri la posizione del vertice della piramide di cui si
+ vuole calcolare il valore della discesa, quindi per la soluzione calcola
+ il valore della discesa della sottopiramide sinistra (riga 8), il cui vertice
+ ha indici 
+\emph on
+i+1
+\emph default
+, 
+\emph on
+j
+\emph default
+ e della sottopiramide destra (riga 9), il cui vertice ha indici 
+\emph on
+i+1
+\emph default
+, 
+\emph on
+j+1
+\emph default
+ e ritorna il massimo dei due a cui viene sommato il vertice della piramide.
+ La condizione di terminazione, cioè quella che una piramide di altezza
+ 0 ha valore 0, viene espressa tramite il controllo sul livello raggiunto
+ (riga 6), che se è pari ad A indica che si è arrivati al fondo della piramide.
+\end_layout
+
+\begin_layout Standard
+Anche se questa soluzione sta ampiamente nei tempi risolutivi ammessi (sul
+ correttore online il caso più pesante viene risolto in 0.004 secondi), può
+ comunque essere interessante vedere come potrebbe essere risolto il problema
+ utilizzando la programmazione dinamica.
+ 
+\end_layout
+
+\begin_layout Standard
+Per ogni elemento 
+\begin_inset Formula $n_{i,j}$
+\end_inset
+
+, come è già stato notato, il valore della discesa massima partendo da lì
+ è il maggiore dei valori delle due sottopiramidi sommato al proprio valore:
+ partendo quindi dall'ultimo livello e procedendo a ritroso possono essere
+ calcolati i vari valori per ogni livello e utilizzati per calcolare i valori
+ degli elementi del livello superiore, fino ad arrivare al vertice della
+ piramide.
+\end_layout
+
+\begin_layout Standard
+Espresso con una formula il valore della discesa partendo dall'elemento
+ 
+\begin_inset Formula $n_{ij}$
+\end_inset
+
+ varrà
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V(n_{i,j})=n_{i,j}+Max(V(n_{i+1,j}),V(n_{i+1,j+1}))
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il codice, limitandosi alla funzione dinamica, diventa quindi il seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int discesa_dinamica()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = A - 2; i >= 0; i--)
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int j = 0 ; j< i+1; j++)
+\end_layout
+
+\begin_layout Plain Layout
+
+			piramide[i][j] += piramide[i+1][j] > piramide[i+1][j+1] ? 
+\end_layout
+
+\begin_layout Plain Layout
+
+				piramide[i+1][j] : piramide[i+1][j+1];
+\end_layout
+
+\begin_layout Plain Layout
+
+	return piramide[0][0];
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il ciclo esterno parte dal penultimo livello dal basso e risale fino ad
+ arrivare al livello 0, quello con il vertice della piramide originale.
+ Il ciclo interno, per ogni elemento del livello corrente, modifica il valore
+ dell'elemento aggiungendogli il valore della maggiore tra le sottopiramidi
+ di destra e di sinistra (per comodità di scrittura qui è stato usato l'operator
+e ternario 
+\emph on
+cond?vero:falso
+\emph default
+, la stessa cosa poteva essere fatta con un 
+\emph on
+if-else
+\emph default
+).
+ Come si può vedere è la stessa matrice 
+\emph on
+piramide,
+\emph default
+ che contiene i valori iniziali, che viene modificata per mantenere le sottosolu
+zioni, senza bisogno di altre variabili aggiuntive.
+ In questo modo il risultato desiderato si troverà nella casella 0,0 della
+ variabile 
+\emph on
+piramide
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Un'ultima osservazione: il costo della versione dinamica è di tipo 
+\begin_inset Formula $N^{2}$
+\end_inset
+
+ e per i limiti imposti da questo problema il guadagno è irrilevante rispetto
+ alla versione ricorsiva.
+ Comunque questa versione sarebbe in grado di risolvere problemi con una
+ dimensione di N intorno alle decine di migliaia, dove quella ricorsiva
+ inizierebbe a superare dei tempi ragionevoli anche solo con valori di N
+ intorno a 30.
+\end_layout
+
+\begin_layout Section
+Sentieri bollenti - Territoriali 2016
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Sentieri bollenti (sentieri) 
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 2
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Mojito, il piccolo cane Jack Russell mascotte delle OII, ha accompagnato
+ Monica per la supervisione della sede di gara della finale nazionale delle
+ Olimpiadi 2016, a Catania.
+ Dal momento che non era troppo interessato alla disposizione dei computer,
+ Mojito è andato a farsi una passeggiata.
+ Adesso però il sole si è alzato e, come spesso capita in Sicilia, fa molto
+ caldo e l’asfalto che è stato esposto al sole è bollente.
+ Per fortuna non tutti i sentieri sono esposti al sole.
+ Ad esempio, nella figura sottostante, Mojito parte dal punto 1 e deve arrivare
+ al punto 8.
+ I sentieri bollenti sono quelli in rosso
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Nella versione stampata in bianco e nero i percorsi bollenti sono quelli
+ più chiari
+\end_layout
+
+\end_inset
+
+.
+ Si può vedere che Mojito, per minimizzare il numero di sentieri bollenti
+ può andare dal punto 1 al punto 5, da qui al 3, poi al 4 e infine al punto
+ 8, percorrendo solo l’ultimo sentiero bollente.
+ Altri percorsi equivalenti sono 1 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 5 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 3 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 4 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 6 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 8 (un solo sentiero bollente tra 6 e 8) e 1 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 5 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 3 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 4 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 6 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 7 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 8 (un solo sentiero bollente tra 6 e 7).
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2016_sentieri/esempio.png
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Come si vede dall’esempio, non conta il numero complessivo di sentieri percorsi,
+ ma solo il numero di sentieri bollenti.
+ Il vostro compito consiste nell’aiutare Mojito a trovare una strada per
+ tornare alla sede di gara che abbia il numero minimo di tratti esposti
+ al sole.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt è composto da 
+\emph on
+1 + S
+\emph default
+ righe di testo.
+ La prima riga contiene 
+\emph on
+N
+\emph default
+ , 
+\emph on
+A
+\emph default
+ e 
+\emph on
+B
+\emph default
+, tre interi separati da spazio che rappresentano rispettivamente il numero
+ di incroci (punti nella mappa), il numero di sentieri non bollenti, ed
+ il numero di sentieri bollenti.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Le 
+\emph on
+A + B
+\emph default
+ righe successive contengono due interi positivi per ogni riga, rappresentanti
+ i punti collegati dall’
+\emph on
+i
+\emph default
+-esimo sentiero.
+ Le prime 
+\emph on
+A
+\emph default
+ righe sono quelle che rappresentano i sentieri non bollenti, mentre le
+ successive 
+\emph on
+B
+\emph default
+ righe rappresentano i sentieri bollenti.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da una sola riga contenente un intero positivo:
+ il minimo numero di sentieri bollenti che Mojito deve percorrere per andare
+ dal punto 1 al punto 
+\emph on
+N
+\emph default
+ .
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+Mojito parte sempre dal punto 1 e deve sempre arrivare al punto N .
+\end_layout
+
+\begin_layout Itemize
+Esiste sempre almeno un percorso che collega il punto 1 al punto N .
+\end_layout
+
+\begin_layout Itemize
+5 ≤ N ≤ 100.
+\end_layout
+
+\begin_layout Itemize
+10 ≤ A + B ≤ 1000.
+\end_layout
+
+\begin_layout Itemize
+B potrebbe valere zero.
+\end_layout
+
+\begin_layout Itemize
+Un sentiero può essere percorso in entrambi i versi (informalmente: nessun
+ sentiero è a senso unico).
+\end_layout
+
+\begin_layout Itemize
+Uno stesso sentiero viene indicato al massimo una volta nel file di input.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+Il secondo esempio qui sotto si riferisce all’esempio mostrato nel testo
+ del problema.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7 1 11
+\end_layout
+
+\begin_layout Plain Layout
+1 5
+\end_layout
+
+\begin_layout Plain Layout
+3 5
+\end_layout
+
+\begin_layout Plain Layout
+4 3
+\end_layout
+
+\begin_layout Plain Layout
+4 6
+\end_layout
+
+\begin_layout Plain Layout
+1 2
+\end_layout
+
+\begin_layout Plain Layout
+2 3
+\end_layout
+
+\begin_layout Plain Layout
+3 1
+\end_layout
+
+\begin_layout Plain Layout
+1 6
+\end_layout
+
+\begin_layout Plain Layout
+5 6
+\end_layout
+
+\begin_layout Plain Layout
+5 4
+\end_layout
+
+\begin_layout Plain Layout
+4 7
+\end_layout
+
+\begin_layout Plain Layout
+6 7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8 5 9
+\end_layout
+
+\begin_layout Plain Layout
+1 5
+\end_layout
+
+\begin_layout Plain Layout
+3 5
+\end_layout
+
+\begin_layout Plain Layout
+4 3
+\end_layout
+
+\begin_layout Plain Layout
+4 6
+\end_layout
+
+\begin_layout Plain Layout
+7 8
+\end_layout
+
+\begin_layout Plain Layout
+1 2
+\end_layout
+
+\begin_layout Plain Layout
+2 3
+\end_layout
+
+\begin_layout Plain Layout
+3 1
+\end_layout
+
+\begin_layout Plain Layout
+1 6
+\end_layout
+
+\begin_layout Plain Layout
+5 6
+\end_layout
+
+\begin_layout Plain Layout
+5 4
+\end_layout
+
+\begin_layout Plain Layout
+4 8
+\end_layout
+
+\begin_layout Plain Layout
+6 8
+\end_layout
+
+\begin_layout Plain Layout
+6 7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Quale struttura dati è necessaria per memorizzare i dati di questo problema?
+\end_layout
+
+\begin_layout Itemize
+Si riesce a ricondurre il problema alla soluzione di un problema noto?
+\end_layout
+
+\begin_layout Itemize
+L'assunzione sul fatto che ci siano casi senza sentieri bollenti (B = 0),
+ cosa cambia nella soluzione del problema?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Come per altri problemi delle ultime selezioni territoriali, la figura dell'esem
+pio indica abbastanza chiaramente che il problema riguarda i grafi e pertanto
+ verrà utilizzata la solita struttura con nodi contenenti una lista di archi
+ già usata in precedenza.
+\end_layout
+
+\begin_layout Standard
+Il problema principale è individuare che tipo di problema sui grafi bisogna
+ andare a risolvere, poichè a prima vista non sembra essere nessuno di quelli
+ già incontrati e che richiedevano uno dei classici algoritmi BFS, DFS e
+ Dijkstra.
+ Prima però di tentare altre strade conviene riflettere meglio e vedere
+ se una qualche osservazione permette di ricondurre il problema a qualcosa
+ di noto.
+\end_layout
+
+\begin_layout Standard
+In effetti il problema assomiglia a quello della ricerca del cammino minimo,
+ solo che al posto dei pesi sugli archi quello che interessa è minimizzare
+ il numero di archi di un certo tipo.
+ Se il problema fosse solo quello di minimizzare il numero di archi percorsi,
+ era già stato evidenziato nel problema 
+\emph on
+footing 
+\emph default
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Corsa-mattutina"
+
+\end_inset
+
+) che basterebbe fare una BFS, tenendo conto del numero di livelli attraversati
+ a partire dal nodo sorgente fino ad arrivare al nodo che interessa.
+ Nel caso quindi ci siano solo sentieri bollenti, questo algoritmo permetterebbe
+ di trovare la soluzione.
+ A questo punto l'assunzione che esistano dei casi con B = 0 suona un po'
+ strana, nel senso che se A fosse stato uguale a 0 in alcuni casi questo
+ avrebbe indicato la possibilità di usare la BFS per questi casi, con B
+ = 0 invece vuol dire che se il programma stampa sempre come soluzione 0
+ prenderà alcuni punti comunque.
+ 
+\end_layout
+
+\begin_layout Standard
+Lasciando quindi perdere questa soluzione e affrontando il problema per
+ poterlo risolvere completamente, è necessario fare un'osservazione di tipo
+ 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+Aha!
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+, come la chiamerebbe J.
+ Bentley
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Nel suo libro Programming Pearls con questa espressione vengono indicate
+ quelle osservazioni che una volta fatte rendono un problema apparentemente
+ complesso molto più semplice da affrontare.
+\end_layout
+
+\end_inset
+
+.
+ Nel problema i sentieri non hanno un peso e sono divisi in due tipi, quelli
+ bollenti e quelli no: dei sentieri normali se ne possono percorrere quanti
+ se ne vuole e il costo sarà sempre 0, mentre bisogna minimizzare il numero
+ di sentieri bollenti percorsi, poichè ognuno di essi incrementerà di 1
+ il costo totale.
+ Messa in questo modo, cosa può venire in mente? Dovrebbe essere abbastanza
+ naturale associare dei pesi particolari ai sentieri e far tornare questo
+ problema alla ricerca di un cammino minimo: infatti se ad ogni sentiero
+ normale viene associato il peso 0 e a ogni sentiero bollente il peso 1,
+ è facile notare che l'algoritmo di Dijkstra fornisce la risposa cercata
+ con un costo ottimale, sia in termini di semplicità di scrittura (è comunque
+ un algoritmo noto e già utilizzato in altre situazioni) che di prestazioni.
+ 
+\end_layout
+
+\begin_layout Standard
+Il codice a questo punto risulta il seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+struct sentiero{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int arriva;
+\end_layout
+
+\begin_layout Plain Layout
+
+	int lunghezza;
+\end_layout
+
+\begin_layout Plain Layout
+
+	sentiero(int a, int b):arriva(a),lunghezza(b){}
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+struct incrocio{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int distanza;
+\end_layout
+
+\begin_layout Plain Layout
+
+	list <sentiero> collegati;
+\end_layout
+
+\begin_layout Plain Layout
+
+	incrocio():distanza(numeric_limits<int>::max()){}
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+incrocio incroci[101];
+\end_layout
+
+\begin_layout Plain Layout
+
+set <int> stabili;
+\end_layout
+
+\begin_layout Plain Layout
+
+int N, A, B;
+\end_layout
+
+\begin_layout Plain Layout
+
+int percorso_minimo;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int dijkstra(int begin, int end, int n_incroci)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	incroci[begin].distanza = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	stabili.insert(begin);
+\end_layout
+
+\begin_layout Plain Layout
+
+	incrocio incrocio_corrente = incroci[begin];
+\end_layout
+
+\begin_layout Plain Layout
+
+	int ultimo_inserito = begin;
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (ultimo_inserito != end)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		auto i = incrocio_corrente.collegati.begin();
+\end_layout
+
+\begin_layout Plain Layout
+
+		for(;i!=incrocio_corrente.collegati.end();++i)
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			int incrocio_da_aggiornare = i->arriva;
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (incroci[incrocio_da_aggiornare].distanza > 
+\end_layout
+
+\begin_layout Plain Layout
+
+				incroci[ultimo_inserito].distanza + i->lunghezza)
+\end_layout
+
+\begin_layout Plain Layout
+
+					incroci[incrocio_da_aggiornare].distanza = 
+\end_layout
+
+\begin_layout Plain Layout
+
+						incroci[ultimo_inserito].distanza + i->lunghezza;
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		int min = std::numeric_limits<int>::max();
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int i = 1; i <= n_incroci; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		{			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (stabili.find(i) == stabili.end() && incroci[i].distanza < min)
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				min = incroci[i].distanza;
+\end_layout
+
+\begin_layout Plain Layout
+
+				ultimo_inserito = i;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		incrocio_corrente = incroci[ultimo_inserito];
+\end_layout
+
+\begin_layout Plain Layout
+
+		stabili.insert(ultimo_inserito);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	return incroci[end].distanza;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N >> A >> B;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < A; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		int u,v;
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> u >> v;
+\end_layout
+
+\begin_layout Plain Layout
+
+		incroci[u].collegati.push_back(sentiero(v,0));
+\end_layout
+
+\begin_layout Plain Layout
+
+		incroci[v].collegati.push_back(sentiero(u,0));
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < B; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		int u,v;
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> u >> v;
+\end_layout
+
+\begin_layout Plain Layout
+
+		incroci[u].collegati.push_back(sentiero(v,1));
+\end_layout
+
+\begin_layout Plain Layout
+
+		incroci[v].collegati.push_back(sentiero(u,1));
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	out << dijkstra(1, N, N) << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La parte del calcolo del cammino minimo è sostanzialmente uguale a quella
+ già vista nel problema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Corsa-mattutina"
+
+\end_inset
+
+ e ricalca l'algoritmo spiegato in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "algoritmo-dijkstra1"
+
+\end_inset
+
+ e quindi non verrà qui spiegata, da notare solo l'introduzione della parola
+ chiave 
+\series bold
+auto
+\series default
+ (riga 26), che nello standard C++11 può essere usata per semplificare quelle
+ dichiarazioni che altrimenti sarebbero prolisse, come in questo caso per
+ l'iteratore: nel caso si voglia utilizzare questa caratteristica del linguaggio
+ è necessario indicarlo nella fase di compilazione, spuntando il checkbox
+ opportuno se si usa un ambiente grafico come CodeBlocks oppure aggiungendo
+ il flag 
+\series bold
+-std=c++11
+\series default
+ alla riga di compilazione, se si compila utilizzando la riga di comando.
+\end_layout
+
+\begin_layout Standard
+Infine per l'assegnazione dei pesi le righe dalla 56 alla 62 mettono il
+ peso 0 ai sentieri normali, mentre le righe dalla 63 alla 69 mettono il
+ peso 1 ai sentieri bollenti.
 \end_layout
 
 \end_body

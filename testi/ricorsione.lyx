@@ -558,11 +558,11 @@ long long int sommatoria_r(long long int n)
 Pur sembrando molto simile al fattoriale, nasconde un problema che si può
  verificare nel momento in cui il numero di input diventa molto grosso
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
-L'uso dei long long int, interi a 80 bit, serve appunto ad evidenziare questo
- effetto.
+L'uso dei long long int, interi a 8 byte (64 bit), serve appunto ad evidenziare
+ questo effetto.
 \end_layout
 
 \end_inset

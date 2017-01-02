@@ -8,6 +8,9 @@
 \end_preamble
 \use_default_options false
 \master guida.lyx
+\begin_modules
+logicalmkup
+\end_modules
 \maintain_unincluded_children true
 \language italian
 \language_package default
@@ -523,6 +526,13 @@ Queste proprietà dei grafi sono indipendenti tra di loro quindi esistono
 
 \begin_layout Section
 Rappresentazione di grafi
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Rappresentazione-di-grafi"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2737,7 +2747,7 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
-status open
+status collapsed
 
 \begin_layout Subsection*
 Le pesate di Bilancino (bilancino) 
@@ -3049,7 +3059,7 @@ A questo punto l'algoritmo risolutivo è già impostato: per risolvere il
 \begin_inset listings
 lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
 inline false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -3338,11 +3348,23 @@ Il problema del cammino minimo
 \end_layout
 
 \begin_layout Standard
-In questo paragrafo verrà mostrato un algoritmo famoso, non tanto per darne
- una soluzione in termini di codice, che viene lasciato come esercizio al
- lettore, quanto piuttosto per far vedere come risolvere in maniera intelligente
- un problema e come la soluzione, pur non evidente e banale, una volta compresa
- sia abbastanza semplice.
+In questo paragrafo verrà mostrato un algoritmo famoso per far vedere come
+ risolvere in maniera intelligente un problema e come la soluzione, pur
+ non evidente e banale, una volta compresa sia abbastanza semplice.
+ Al termine verrà anche mostrata una possibile implementazione
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Nelle precedenti edizioni di questa guida non era compresa l'implementazione
+ poichè fino al 2015 non era mai stato proposto alle territoriali un problema
+ che richiedesse necessariamente l'utilizzo di questo algoritmo.
+\end_layout
+
+\end_inset
+
+ che, pur non essendo forse la migliore o la più elegante possibile, segue
+ in maniera fedele la spiegazione fornita dell'algoritmo.
 \end_layout
 
 \begin_layout Standard
@@ -3360,9 +3382,69 @@ reference "sec:Definizione-di-grafo"
  per grafi orientati può essere possibile che non esista un cammino da un
  nodo a un altro oppure che a seconda del verso di percorrenza il cammino
  abbia costo diverso.
- Il costo del cammino è la somma dei pesi degli archi che compongono il
- cammino e il cammino minimo tra due nodi è quel cammino (o quei cammini,
- perché non necessariamente è uno solo) con il costo minore.
+ Qui verrà mostrato un esempio con un grafo orientato, per un grafo non
+ orientato è sufficiente sostituire a ogni arco una coppia di archi orientati
+ nei due versi e con peso uguale a quello dell'arco originale per ricondursi
+ a un equivalente grafo orientato, come si può vedere in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Equivalenza-grafi"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/xubuntu/Desktop/guida/materiali/grafi/equivalenza.eps
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Equivalenza-grafi"
+
+\end_inset
+
+Equivalenza grafi non orientati e orientati
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il costo del cammino è la somma dei pesi degli archi che compongono il cammino
+ e il cammino minimo tra due nodi è quel cammino (o quei cammini, perché
+ non necessariamente è uno solo) con il costo minore.
 \end_layout
 
 \begin_layout Standard
@@ -4129,6 +4211,643 @@ name "fig:Dijkstra5"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+A questo punto viene proposta una possibile implementazione della soluzione
+ proposta che, come detto, cerca di riprodurre nel modo più fedele possibile
+ la spiegazione appena mostrata.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "algoritmo-dijkstra1"
+
+\end_inset
+
+
+\lang italian
+
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+struct Arco_orientato{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int peso; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	int nodo_destinazione; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	Arco_orientato(int a, int b):nodo_destinazione(a), peso(b){};
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+struct Nodo{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int precedente; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	list <Arco_orientato> archi; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	int distanza;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Nodo():precedente(-1),distanza(std::numeric_limits<int>::max()){};
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Nodo nodi[100]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+set <int> stabili;
+\end_layout
+
+\begin_layout Plain Layout
+
+int N,M;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int dijkstra(int begin, int end, int n_nodi)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	nodi[begin].distanza = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	stabili.insert(begin);
+\end_layout
+
+\begin_layout Plain Layout
+
+	Nodo nodo_corrente = nodi[begin];
+\end_layout
+
+\begin_layout Plain Layout
+
+	int ultimo_inserito = begin;
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (stabili.size() != n_nodi)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		list <Arco_orientato>::iterator i = nodo_corrente.archi.begin();
+\end_layout
+
+\begin_layout Plain Layout
+
+		for(;i!=nodo_corrente.archi.end();++i)
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			int nodo_da_aggiornare = i->nodo_destinazione;
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (nodi[nodo_da_aggiornare].distanza > nodi[ultimo_inserito].distanza
+ + i->peso)
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				nodi[nodo_da_aggiornare].distanza = nodi[ultimo_inserito].distanza + i->peso;
+\end_layout
+
+\begin_layout Plain Layout
+
+				nodi[nodo_da_aggiornare].precedente = ultimo_inserito;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		int min = std::numeric_limits<int>::max();
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int i = 1; i <= n_nodi; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		{			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (stabili.find(i) == stabili.end() && nodi[i].distanza < min)
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				min = nodi[i].distanza;
+\end_layout
+
+\begin_layout Plain Layout
+
+				ultimo_inserito = i;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		nodo_corrente = nodi[ultimo_inserito];
+\end_layout
+
+\begin_layout Plain Layout
+
+		stabili.insert(ultimo_inserito);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	return nodi[end].distanza;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void stampa_percorso(int begin, int end)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (begin == end) return;
+\end_layout
+
+\begin_layout Plain Layout
+
+	stampa_percorso(begin,nodi[end].precedente);
+\end_layout
+
+\begin_layout Plain Layout
+
+	cout << (char)(end + 'A' - 1) << " ";
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main(int argc, char *argv[])
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    fstream in("input.txt",ios::in);
+\end_layout
+
+\begin_layout Plain Layout
+
+    in >> N >> M;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int i=0; i<M; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        int a,b,c;
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> a >> b >> c;
+\end_layout
+
+\begin_layout Plain Layout
+
+		Arco_orientato temp(b,c);
+\end_layout
+
+\begin_layout Plain Layout
+
+        nodi[a].archi.push_back(temp);
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+	dijkstra(1,N,N);
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 1; i<=N; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		cout << "La distanza minima tra A e " << (char)(i +'A' -1)
+\end_layout
+
+\begin_layout Plain Layout
+
+		<< " vale " << nodi[i].distanza << " con percorso ";
+\end_layout
+
+\begin_layout Plain Layout
+
+		stampa_percorso(1,i);
+\end_layout
+
+\begin_layout Plain Layout
+
+		cout << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Le strutture dati che verranno utilizzate sono 
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Arco_orientato
+\end_layout
+
+\end_inset
+
+ e 
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Arco_orientato
+\end_layout
+
+\end_inset
+
+ contiene il 
+\emph on
+peso
+\emph default
+, il 
+\emph on
+nodo
+\emph default
+ verso il quale si dirige e il costruttore che inizializza questi due attributi
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+
+ contiene il 
+\emph on
+precedente
+\emph default
+, che rappresenta il nodo dal quale si arriva e servirà per ricostruire
+ il cammino minimo, la 
+\emph on
+lista degli archi orientati
+\emph default
+ che escono da quel nodo e la 
+\emph on
+distanza
+\emph default
+ che separa quel nodo dal nodo di partenza, che verrà aggiornata fino a
+ quando non si troverà il valore minimo.
+ Il costruttore si occupa di inizializzare il precedente a -1 per indicare
+ che il nodo al momento della creazione non ha un precedente e la distanza
+ viene inizializzata al valore massimo degli interi usando la funzione del
+ template di classe numeric_limits 
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+max()
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Il grafo verrà rapresentato da un vettore di nodi (in questo esempio al
+ massimo 100) e si utilizzerà un insieme di nodi (riga 15), nel senso dei
+ numeri che li rappresentano, per contenere quali nodi sono diventati stabili.
+\end_layout
+
+\begin_layout Standard
+La funzione 
+\emph on
+dijkstra 
+\emph default
+riceve come parametri il nodo di partenza, il nodo di arrivo e il numero
+ di nodi che compongono il grafo.
+ La distanza del nodo di partenza viene inizializzata a 0 e lo stesso viene
+ inserito nell'insieme dei nodi stabili (righe 20 e 21).
+ La variabile 
+\emph on
+nodo_corrente 
+\emph default
+viene poi settata al nodo di partenza e l'indice di questo nodo viene inserito
+ nella variabile 
+\emph on
+ultimo_inserito.
+\end_layout
+
+\begin_layout Standard
+A questo punto inizia il ciclo che ad ogni giro aggiungerà un nuovo nodo
+ all'insieme dei nodi stabili: in questa versione il ciclo si fermerà quanto
+ tutti i nodi saranno diventati stabili, come detto ci si potrebbe fermare
+ una volta raggiunto il nodo finale.
+\end_layout
+
+\begin_layout Standard
+Alla riga 27 il ciclo 
+\emph on
+for 
+\emph default
+permette di scorrere la lista degli archi uscenti dal nodo corrente per
+ aggiornare la distanza se viene trovato un percorso più breve (riga 30):
+ oltre a aggiornare la distanza viene anche segnato l'indice del nodo precedente
+ (riga 33), per poter successivamente ricostruire il percorso se fosse richiesto
+ (ovviamente questa riga può essere saltata nel momento in cui fosse richiesta
+ solo la lunghezza del cammino e non il cammino stesso).
+\end_layout
+
+\begin_layout Standard
+All'uscita di questo ciclo tutti i nodi sono stati aggiornati e, come spiegato,
+ adesso va scelto il nodo con distanza minore per renderlo il nuovo nodo
+ corrente da cui fare ripartire l'algoritmo.
+ Per questo vengono fatti scorrere tutti i nodi (riga 37), cercando quale
+ ha la distanza minore tra quelli non ancora inclusi nell'insieme dei nodi
+ stabili (riga 39).
+ Per verificare se un nodo (o meglio il suo indice) è incluso nel 
+\emph on
+set 
+\emph default
+dei nodi stabili, viene utilizzato il metodo 
+\emph on
+find
+\emph default
+, che ritorna un iteratore all'elemento cercato e nel caso che non lo trovi,
+ che è ciò che interessa, ritorna l'iteratore 
+\emph on
+end
+\emph default
+, che indica appunto che non è stato trovato.
+ 
+\end_layout
+
+\begin_layout Standard
+Il nodo con distanza minore viene quindi inserito nell'insieme dei nodi
+ stabili e diventerà il nuovo nodo corrente.
+\end_layout
+
+\begin_layout Standard
+La funzione poi termina ritornando il valore della distanza del nodo 
+\emph on
+end
+\emph default
+, che quindi è la lunghezza del cammino minimo da 
+\emph on
+begin 
+\emph default
+a 
+\emph on
+end
+\emph default
+.
+ Inoltre nelle strutture che contengono i nodi sono presenti le informazioni
+ per poter ricostruire tutti i cammini minimi da 
+\emph on
+begin
+\emph default
+ verso ogni altro nodo.
+\end_layout
+
+\begin_layout Standard
+Nel listato inoltre, alle righe 51-56, è presente una funzione che permette
+ di stampare il cammino minimo da 
+\emph on
+begin 
+\emph default
+a 
+\emph on
+end
+\emph default
+, che in maniera ricorsiva ricostruisce il percorso a ritroso e lo stampa
+ correttamente da 
+\emph on
+begin 
+\emph default
+a 
+\emph on
+end
+\emph default
+, grazie al fatto che la stampa (riga 55) è stata inserita dopo la chiamata
+ ricorsiva.
+ Da notare che questa funzione può essere chiamata con qualsiasi valore
+ per il parametro 
+\emph on
+end
+\emph default
+, ma il valore di 
+\emph on
+begin 
+\emph default
+dovrà essere per forza quello usato nella chiamata alla funzione 
+\emph on
+dijkstra
+\emph default
+, poichè i valori dei cammini calcolati sono corretti se il nodo iniziale
+ è 
+\emph on
+begin
+\emph default
+, per qualsiasi altro nodo iniziale non avrebbero senso.
 \end_layout
 
 \end_body

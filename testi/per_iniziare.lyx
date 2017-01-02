@@ -934,9 +934,23 @@ Durante la gara, per esperienza diretta come organizzatore delle territoriali,
 \end_layout
 
 \begin_layout Standard
-Finora (anche se la situazione dovrebbe cambiare nei prossimi anni) Windows
- nelle sue varie versioni è stata la piattaforma più utilizzata (spesso
- l'unica) a livello delle selezioni territoriali.
+Finora (anche se la situazione dovrebbe cambiare nei prossimi anni
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In effetti dal 2015 è cambiata e allo stato attuale (fine 2016) quasi tutte
+ le sedi territoriali effettuano la gara su una macchina virtuale Linux
+ Ubuntu.
+ Ritengo comunque utile lasciare questa parte in quanto inizialmente molti
+ ragazzi hanno Windows come piattaforma di allenamento.
+ 
+\end_layout
+
+\end_inset
+
+) Windows nelle sue varie versioni è stata la piattaforma più utilizzata
+ (spesso l'unica) a livello delle selezioni territoriali.
  Alcune sue caratteristiche possono condurre ai seguenti problemi:
 \end_layout
 
@@ -994,6 +1008,137 @@ il file input.txt che verrà creato per fare delle prove deve trovarsi in
  un po' di prove per capire esattamente dove posizionarlo e evitare di scoprire
  durante la gara che il file non viene letto perché il programma non riesce
  a trovarlo
+\end_layout
+
+\begin_layout Subsection
+Utilizzo di Linux
+\end_layout
+
+\begin_layout Standard
+Dall'edizione 2014-2015 l'organizzazione nazionale ha invitato le sedi territori
+ali che avevano la possibilità di farlo a proporre agli studenti il sistema
+ operativo Linux, con la suite di compilazione 
+\emph on
+gcc
+\emph default
+ e i normali strumenti di programmazione (CodeBlocks, Geany, Vim, ecc.),
+ come piattaforma di gara.
+ Per uniformità tra le varie sedi e nel tentativo di creare il minor disagio
+ possibile agli organizzatori si è optato per utilizzare una macchina virtuale
+ VirtualBox, basata sulla distribuzione Ubuntu.
+\end_layout
+
+\begin_layout Standard
+Questa nuova modalità, almeno per quanto riguarda le selezioni territoriali,
+ non ha un forte impatto sulla conduzione della gara, in quanto la maggior
+ parte degli allievi, nella mia esperienza, usano ancora CodeBlocks come
+ avrebbero fatto su un sistema Windows e si limitano a usare i normali strumenti
+ grafici di gestione dei file per tutte le operazioni che coinvolgono spostament
+o/copia/cancellazione di file.
+\end_layout
+
+\begin_layout Standard
+Chiaramente chi volesse potrebbe anche pensare di approfondire la propria
+ conoscenza di questo ambiente e dei vari strumenti, da linea di comando
+ e non solo, che le distribuzioni Linux normalmente metteno a disposizione
+ e che possono essere utilizzati per alcune attività 
+\begin_inset Quotes eld
+\end_inset
+
+collaterali
+\begin_inset Quotes erd
+\end_inset
+
+ (ad esempio creazione di casi di test di grandi dimensioni).
+ La mia opinione è che l'allenamento sulla piattaforma di gara ufficiale,
+ che solitamente viene comunicata e messa a disposizione per il download
+ intorno a febbraio-marzo, sia assolutamente indispensabile, ulteriori approfond
+imenti possono invece essere lasciati a dopo l'eventuale passaggio alla
+ finale nazionale.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Subtask-e-template"
+
+\end_inset
+
+Subtask e template di soluzione
+\end_layout
+
+\begin_layout Standard
+Un'altra novità che è stata aggiunta negli ultimi anni è quella di dividere
+ i casi di test in una serie di gruppi denominati 
+\series bold
+subtask
+\series default
+.
+ Sebbene a livello delle territoriali questo non sia stato ancora fatto,
+ sapere cosa sono può essere interessante poiche moltissimi dei problemi
+ a disposizione per allenarsi sul correttore contengono subtask, le ultime
+ edizioni delle Olimpiadi a squadre contengono problemi strutturati in questo
+ modo e le finali nazionali e internazionali delle Olimpiadi sono strutturate
+ usando questa modalità.
+\end_layout
+
+\begin_layout Standard
+Un problema contiene normalmente 5-6 subtask, ognuno dei quali contiene
+ una serie di casi di test che hanno delle caratteristiche in comune, tipicament
+e delle limitazioni sulle dimensioni o sul tipo dei dati di input (per un
+ esempio si veda il problema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Anno-luce"
+
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "sec:Anno-luce"
+
+\end_inset
+
+).
+ Il punteggio a questo punto non è più dato in base al numero di casi di
+ test che vengono risolti, ma per ogni subtask vengono dati una serie di
+ punti solo se tutti i casi del subtask vengono risolti correttamente.
+ Può quindi capitare che dato un subtask contenente ad esempio 5 casi di
+ test, 4 di essi siano risolti correttamente e 1 no, e quindi i punti assegnati
+ siano 0.
+\end_layout
+
+\begin_layout Standard
+La differenza sostanziale è che, essendo i subtask relativi a certe limitazioni
+ particolari, ci si può concentrare a risolvere solo alcuni casi del problema,
+ evitando di cercare la soluzione che permette di risolvere in maniera completa
+ il problema.
+ In molti casi questa può essere una condotta di gara più fruttuosa, soprattutto
+ se si riesce fin da subito a valutare la difficoltà della soluzione generale
+ del problema e invece la relativa facilità nella soluzione di alcuni subtask.
+\end_layout
+
+\begin_layout Standard
+Insieme a questa nuova impostazione dei casi di test, nelle ultime edizioni
+ delle Nazionali e delle Olimpiadi a squadre viene fornito un 
+\emph on
+template di soluzione,
+\emph default
+ cioè uno o più file in cui sono già presenti dei frammenti di codice che
+ possono essere utilizzati per scrivere la propria soluzione.
+ Tipicamente il file contiene già il 
+\emph on
+main
+\emph default
+, nel quale è presente la lettura dell'input e la scrittura dell'output
+ e una funzione senza corpo, che deve essere completata per implementare
+ l'algoritmo risolutivo.
+ Sebbene non sia obbligatorio utilizzare il template fornito, risulta molto
+ comodo in quanto non è più necessario scrivere il codice di I/O, che risulta
+ già ottimizzato ed è garantito essere corretto.
+ Per il resto, nel codice possono essere aggiunte funzioni, variabili, definizio
+ni di strutture o classi o qualunque altra cosa si ritenga necessaria.
 \end_layout
 
 \begin_layout Section

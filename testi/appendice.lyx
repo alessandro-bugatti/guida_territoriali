@@ -236,7 +236,11 @@ i++
 \emph default
  al posto di
 \emph on
- i--
+ i-
+\begin_inset space \thinspace{}
+\end_inset
+
+-
 \emph default
  e questo può richiedere un sacco di tempo per essere rilevato, perché difficilm
 ente cercheremo l'errore in quel punto.

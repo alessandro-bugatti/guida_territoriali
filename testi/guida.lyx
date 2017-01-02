@@ -32,7 +32,19 @@ logicalmkup
 \index_command default
 \paperfontsize default
 \spacing single
-\use_hyperref false
+\use_hyperref true
+\pdf_title "Olimpiadi di Informatica quinta edizione"
+\pdf_author "Alessandro Bugatti"
+\pdf_subject "Olmpiadi di Informatica - Selezioni territoriali"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize letterpaper
 \use_geometry true
 \use_amsmath 1
@@ -83,15 +95,15 @@ Alessandro Bugatti
 \end_layout
 
 \begin_layout Verse
-© 2014 Alessandro Bugatti
+© 2017 Alessandro Bugatti
 \end_layout
 
 \begin_layout Verse
-alessandro.bugatti@istruzione.it
+alessandro.bugatti@gmail.com
 \end_layout
 
 \begin_layout Verse
-Quarta edizione: maggio 2014
+Quinta edizione: gennaio 2017
 \end_layout
 
 \begin_layout Verse
@@ -189,6 +201,27 @@ target "lulu.it"
  e facendo una ricerca per autore o titolo.
 \end_layout
 
+\begin_layout Standard
+\begin_inset VSpace 7cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename isbn_barcode.pdf
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section*
 AGGIUNTA ALLA QUARTA EDIZIONE
 \end_layout
@@ -208,6 +241,17 @@ originale
  e quindi ho cambiato idea: ho deciso di pubblicarla su Lulu.com, perchè
  mi sembra offra qualche vantaggio in più sui metodi di pagamenti e la qualità
  del libro, spero possa interessare a qualcuno.
+\end_layout
+
+\begin_layout Section*
+AGGIUNTA ALLA QUINTA EDIZIONE
+\end_layout
+
+\begin_layout Standard
+Rispetto alla quarta edizione questa contiene le soluzioni delle ultime
+ due edizioni delle territoriali, una serie di nuovi problemi nel capitolo
+ finale e qualche aggiornamento rispetto alle modalità di gara.
+ 
 \end_layout
 
 \begin_layout Verse

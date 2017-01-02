@@ -3578,7 +3578,7 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
-status collapsed
+status open
 
 \begin_layout Subsection*
 Fulcro del gioco (fulcro)
@@ -4604,10 +4604,9 @@ Data la dimensione del problema (di fatto 20x20, considerando il numero
  che esplori tutti i casi possibili.
  Una delle prime difficoltà potrebbe essere quella di comprendere bene il
  testo, in considerazione anche dell'elevato numero di campi di input.
- Come al solito la lettura dei casi di esempio può aiutare a chiarire la
- comprensione, in questo caso essendo anche presenti delle chiarificazioni,
- cosa che non è sempre presente nei problemi di gara, è una buona idea leggerle
- per migliorare o confermare la comprensione del problema.
+ Come al solito la lettura dei casi di esempio può aiutare: in questo caso,
+ essendo presenti delle chiarificazioni, è una buona idea leggerle per migliorar
+e o confermare la comprensione del problema.
 \end_layout
 
 \begin_layout Standard
@@ -4628,7 +4627,11 @@ complicata
  a seconda dei costi delle singole portate che mi interessano: anche con
  una portata sola potrebbe convenire prendere il menù se il prezzo di quella
  portata fosse superiore al prezzo del menù.
- Un altro problema sorge dal fatto che si possono prendere portate ripetute
+ 
+\end_layout
+
+\begin_layout Standard
+Un altro problema sorge dal fatto che si possono prendere portate ripetute
  e quindi potrebbe succedere che convenga prendere più di un menù.
  Invece ciò che sicuramente non comporta problema sono le portate non presenti
  nel menù, che ovviamente devono essere comprate a prezzo intero.
@@ -4663,7 +4666,7 @@ se è presente lo si tiene da parte, per verificare poi se, da solo o insieme
 \end_deeper
 \begin_layout Standard
 Per vedere come risolvere il problema di stabilire se è meglio prendere
- o meno un menù dati uno o più piatti contenuti al suo interno possiamo
+ o meno un menù, dati uno o più piatti contenuti al suo interno, possiamo
  usare un approccio greedy, nel senso che la cosa migliore che possiamo
  fare è quella di comporre menù formati dal maggior numero possibili di
  portate, fino a che compriamo tutte le portate che ci interessano.
@@ -5417,5 +5420,1339 @@ reference "sec:Esempio:-Domino-massimale"
 e della soluzione.
 \end_layout
 
+\begin_layout Standard
+Come in altri casi dello stesso tipo la ricorsione permette di scrivere
+ una soluzione diretta, usando la tecnica del backtracking.
+ L'idea è quella di provare tutti i modi possibili di inserire l'operatore
+ di somma, tenendo traccia delle posizioni nelle quali è stato inserito.
+ Data una serie di possibili posizioni è poi necessario 
+\begin_inset Quotes eld
+\end_inset
+
+creare
+\begin_inset Quotes erd
+\end_inset
+
+ i numeri composti dalle cifre comprese tra la posizione 
+\emph on
+i
+\emph default
+ e la posizione 
+\emph on
+i+1
+\emph default
+.
+ Se ad esempio venisse inserito un 
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
++
+\end_layout
+
+\end_inset
+
+ in posizione 1 e un 
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
++
+\end_layout
+
+\end_inset
+
+ in posizione 3, bisognerebbe comporre la seconda e la terza cifra date
+ in input per formare il numero da sommare.
+ Questo si ottiene facilmente con un ciclo che va a pesare le cifre secondo
+ la propria posizione.
+\end_layout
+
+\begin_layout Standard
+Per stabilire poi se si è trovata una soluzione basterà confrontare la somma
+ parziale con il totale, se coincidono si è in presenza di una soluzione,
+ altrimenti si continua a cercare.
+ Una semplice miglioria, lasciata al lettore come esercizio, è quella di
+ fermarsi quando il parziale è maggiore del totale, perchè in quel caso
+ non sarà possibile trovare una soluzione essendo tutti i numeri positivi.
+\end_layout
+
+\begin_layout Standard
+Il codice sarà quindi:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int operatori[10];
+\end_layout
+
+\begin_layout Plain Layout
+
+int quanti;
+\end_layout
+
+\begin_layout Plain Layout
+
+int cifre[9];
+\end_layout
+
+\begin_layout Plain Layout
+
+int N, totale;
+\end_layout
+
+\begin_layout Plain Layout
+
+ofstream out;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int componi(int inizio, int fine)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int totale = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = inizio; i <= fine; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		totale = totale*10 + cifre[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+	return totale;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void cercasomme(int start, int parziale)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (start == N)
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (parziale == totale)
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			for (int i = 0; i < N; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				if (operatori[i] == 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+					out << i << " ";
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+			out << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+			return;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = start; i < N ; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		operatori[i+1] = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+		cercasomme(i+1,parziale + componi(start,i));
+\end_layout
+
+\begin_layout Plain Layout
+
+		operatori[i+1] = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	out.open("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> N;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < N; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> cifre[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> totale;
+\end_layout
+
+\begin_layout Plain Layout
+
+	cercasomme(0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Le due strutture dati principali sono i vettori delle cifre e quello degli
+ operatori (che contiene un elemento in più in modo da poter partire da
+ uno anzichè da zero).
+\end_layout
+
+\begin_layout Standard
+La funzione 
+\emph on
+componi
+\emph default
+, come già detto, si occupa semplicemente di creare un numero componendo
+ le cifre da 
+\emph on
+inizio
+\emph default
+ a 
+\emph on
+fine
+\emph default
+, estremi compresi.
+ Per far questo la funzione considera che ogni numero 
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+N
+\end_layout
+
+\end_inset
+
+ composto da 
+\emph on
+n+1
+\emph default
+ cifre in base 10, essendo scritto in notazione posizionale, è equivalente
+ al numero
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+N=c_{n}\cdot10^{n}+c_{n-1}\cdot10^{n-1}+\ldots+c_{1}\cdot10^{1}+c_{o}\cdot10^{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+e quindi un modo comodo per calcolarlo è quello di considarlo nella seguente
+ forma equivalente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+N=((\ldots((c_{n}\cdot10+c_{n-1})\cdot10+c_{n-2})\cdot10+\ldots)+c_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La funzione principale, ricorsiva, ha come condizione di terminazione un
+ controllo sul fatto che siano state prese in considerazione tutte le cifre,
+ poichè la somma deve includerle tutte.
+ Nel caso questa condizione sia soddisfatta si controlla se la somma corrente
+ sia uguale a quella richiesta e, nel caso lo sia, vengono stampate le posizioni
+ dei segni +, memorizzate nel vettore operatori.
+\end_layout
+
+\begin_layout Standard
+In tutti gli altri casi vuol dire che non sono state utilizzate ancora tutte
+ le cifre e quindi bisogna proseguire: i parametri della funzione sono il
+ valore 
+\emph on
+parziale
+\emph default
+ calcolato fine alla posizione 
+\emph on
+start
+\emph default
+, e da lì in poi si sommano a 
+\emph on
+parziale
+\emph default
+ tutti i possibili modi di sommare le cifre rimanenti, uno per volta utilizzando
+ il backtracking.
+ Il vettore di backtracking è quello che memorizza al suo interno le possibili
+ scelte su dove vengono messi gli operatori, scandendo tutte le posizioni
+ rimaste da testare (riga 28): per ogni possibile scelta si inserisce un
+ segno + in quella posizione (riga 30), si procede in maniera ricorsiva
+ sulle cifre rimaste, e poi si toglie il segno + (riga 32) per provare le
+ altre possibilità.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Anno-luce"
+
+\end_inset
+
+Anno luce (annoluce) - OIS 2015/2016
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Anno luce (annoluce) 
+\end_layout
+
+\begin_layout Plain Layout
+Grazie ad una recente ricerca che ha confermato l’esistenza delle onde gravitazi
+onali, sempre più persone si stanno interessando allo spazio.
+ Purtroppo però, lo spazio è ancora una realtà poco accessibile alle persone
+ comuni.
+ Sebbene sia un po’ demoralizzato da questo fatto, William è convinto che
+ sia possibile sfruttare la recente attenzione mediatica delle onde gravitaziona
+li per pubblicizzare un business: ha deciso infatti di aprire una startup
+ di viaggi interstellari.
+ C’è da dire però che, a parte il Sole che è la stella a noi più vicina,
+ le altre stelle sono piuttosto distanti.
+ Proxima Centauri, la “seconda stella più vicina”, dista dal Sole ben 4.24
+ anni luce: questo vuol dire che sarebbero necessari più di quattro anni
+ per raggiungere questa stella! (supponendo di poter viaggiare alla velocità
+ della luce).
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/xubuntu/Desktop/guida/materiali/problemi nuovi/squadre/annoluce/starts.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+William pensa di riuscire a costruire un’astronave in grado di viaggiare
+ alla velocità della luce (ha trovato un tutorial su YouTube che gli sembra
+ piuttosto convincente) e ha perciò acquistato un telescopio per tracciare
+ una mappa 3D della Via Lattea.
+ Ogni stella è indicata nella mappa 3D mediante un punto (x, y, z) dello
+ spazio.
+ Il Sole è sempre presente nella mappa ed è sempre identificato dal punto
+ (0, 0, 0).
+ Scrivi un programma che data la mappa stellare sia in grado di rispondere
+ a Q query: ogni query fornisce un numero intero D e chiede quante sono
+ le stelle raggiungibili avendo a disposizione D anni di viaggio.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input 
+\end_layout
+
+\begin_layout Plain Layout
+Il file input.txt è composto da N + Q + 2 righe.
+ La prima riga contiene l’unico intero N .
+ Le successive N righe contengono le coordinate X i , Y i , Z i dell’i-esima
+ stella, separate da spazio.
+ La successiva riga contiene l’unico intero Q.
+ Le successive Q righe contengono i valori di D delle relative query.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output 
+\end_layout
+
+\begin_layout Plain Layout
+Il file output.txt è composto da Q righe contenente un intero ciascuna: la
+ risposta alla relativa query.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni 
+\end_layout
+
+\begin_layout Itemize
+1 ≤ N, Q ≤ 100 000.
+ 
+\end_layout
+
+\begin_layout Itemize
+0 ≤ X i , Y i , Z i < 
+\begin_inset Formula $2^{30}$
+\end_inset
+
+ per ogni i = 0 .
+ .
+ .
+ N − 1.
+ 
+\end_layout
+
+\begin_layout Itemize
+L’unità degli assi x, y, z è l’anno luce.
+ 
+\end_layout
+
+\begin_layout Itemize
+0 ≤ D < 
+\begin_inset Formula $2^{31}$
+\end_inset
+
+ per ogni chiamata a query(D).
+ 
+\end_layout
+
+\begin_layout Itemize
+Il valore D è espresso in anni luce.
+\end_layout
+
+\begin_layout Subsubsection*
+Assegnazione del punteggio 
+\end_layout
+
+\begin_layout Plain Layout
+Il tuo programma verrà testato su diversi test case raggruppati in subtask.
+ Per ottenere il punteggio relativo ad un subtask, è necessario risolvere
+ correttamente tutti i test relativi ad esso.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Subtask 1 [10 punti]
+\end_layout
+
+\end_inset
+
+: Casi d’esempio.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Subtask 2 [20 punti]
+\end_layout
+
+\end_inset
+
+: Y[i] = Z[i] = 0 per ogni i.
+ Invece che nello spazio tridimensionale, le stelle sono tutte su una retta!
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Subtask 3 [20 punti]
+\end_layout
+
+\end_inset
+
+: Z[i] = 0 per ogni i.
+ Invece che nello spazio tridimensionale, siamo su un piano bidimensionale!
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Subtask 4 [10 punti]
+\end_layout
+
+\end_inset
+
+: N, Q, D ≤ 10.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Subtask 5 [10 punti]
+\end_layout
+
+\end_inset
+
+: N ≤ 100; D < 10 000.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Subtask 6 [10 punti]
+\end_layout
+
+\end_inset
+
+: Q ≤ 100; D < 10 000.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Subtask 7 [20 punti]
+\end_layout
+
+\end_inset
+
+: Nessuna limitazione specifica.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="1in">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3 
+\end_layout
+
+\begin_layout Plain Layout
+0 0 0 
+\end_layout
+
+\begin_layout Plain Layout
+1 1 1 
+\end_layout
+
+\begin_layout Plain Layout
+2 2 2 
+\end_layout
+
+\begin_layout Plain Layout
+5 
+\end_layout
+
+\begin_layout Plain Layout
+0 
+\end_layout
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\begin_layout Plain Layout
+3 
+\end_layout
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="1in">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5 
+\end_layout
+
+\begin_layout Plain Layout
+1 2 3
+\end_layout
+
+\begin_layout Plain Layout
+4 5 6
+\end_layout
+
+\begin_layout Plain Layout
+0 0 0
+\end_layout
+
+\begin_layout Plain Layout
+9 9 9
+\end_layout
+
+\begin_layout Plain Layout
+7 1 1
+\end_layout
+
+\begin_layout Plain Layout
+3 
+\end_layout
+
+\begin_layout Plain Layout
+20 
+\end_layout
+
+\begin_layout Plain Layout
+8 
+\end_layout
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Spiegazione
+\end_layout
+
+\begin_layout Plain Layout
+Nel 
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+primo caso di esempio
+\end_layout
+
+\end_inset
+
+, le 3 stelle distano dal sole rispettivamente: 0 anni luce, 
+\begin_inset Formula $\sqrt{3}$
+\end_inset
+
+ anni luce e 2
+\begin_inset Formula $\sqrt{3}$
+\end_inset
+
+ anni luce.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Nel 
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+secondo caso di esempio
+\end_layout
+
+\end_inset
+
+, le 5 stelle distano dal sole rispettivamente: 
+\begin_inset Formula $\sqrt{14}$
+\end_inset
+
+ anni luce, 
+\begin_inset Formula $\sqrt{77}$
+\end_inset
+
+ anni luce, 0 anni luce, 9
+\begin_inset Formula $\sqrt{3}$
+\end_inset
+
+ anni luce e 
+\begin_inset Formula $\sqrt{51}$
+\end_inset
+
+ anni luce.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Aspetti interessanti
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Parole chiave
+\end_layout
+
+\end_inset
+
+: ordinamento, ricerca binaria, upper_bound, interi lunghi, teorema di Pitagora,
+ subtasks.
+\end_layout
+
+\begin_layout Standard
+Questo problema ha una soluzione ovvia che però non permette di prendere
+ l'intero punteggio, implementando invece la soluzione che prevede l'ordinamento
+ e la ricerca binaria è possibile ottenere il punteggio massimo e se si
+ utilizzano gli algoritmi della Libreria Standard del C++ bastano poche
+ righe di codice.
+ Un'attenzione particolare va poi posta nei calcoli perchè i numeri possono
+ diventare molto grandi.
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+La soluzione banale al problema consiste nel calcolare la distanza
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Per calcolare la distanza si usa il teorema di Pitagora, che vale in qualsiasi
+ spazio n-dimensionale.
+\end_layout
+
+\end_inset
+
+ di ogni stella dal centro e poi, per ogni singola query, scorrere le distanze
+ delle stelle e confrontarle con il valore D di ogni query.
+ Chiaramente questo approccio richiede un costo di N confronti per ogni
+ query (uno per ogni stella) e siccome le query sono Q il numero totale
+ di confronti risulta essere 
+\begin_inset Formula $NxQ$
+\end_inset
+
+.
+ Dati i limiti sui valori di N e Q, entrambi con un massimo di 100000, risulta
+ evidente che non è possibile con questo approcio fare punteggio pieno,
+ anche se comunque si possono fare un bel po' di punti.
+ In questo esercizio difatti, a differenza dei normali problemi delle territoria
+li, nel testo vengono descritti dei sottocasi  con limiti che semplificano
+ la soluzione del problema (ad esempio garantendo che in alcuni sottocasi
+ N e Q siano minori di 10): in questo modo anche soluzioni semplici possono
+ far guadagnare diversi punti
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+A mio avviso può essere che nelle edizioni future questa diventi la modalità
+ standard
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una soluzione migliore prevede che si proceda ordinando le stelle in base
+ alla loro distanza: una volta ordinate è possibile effettuare una ricerca
+ binaria per trovare velocemente la prima stella con una distanza appena
+ superiore alla distanza D assegnata nella query: siccome tutte le stelle
+ con distanza minore nell'array ordinato saranno prima di essa, l'indice
+ di questa stella equivale al numero di stelle per cui la distanza è minore
+ di D e quindi alla risposta cercata.
+ 
+\end_layout
+
+\begin_layout Standard
+In questo modo si ha un costo di 
+\begin_inset Formula $N\log_{2}N$
+\end_inset
+
+ per l'ordinamento, che viene effettuato una volta soltanto all'inizio di
+ ogni test, e un costo di 
+\begin_inset Formula $\log_{2}N$
+\end_inset
+
+per ogni query, quindi il costo totale risulta di 
+\begin_inset Formula $N\log_{2}N+Q\log_{2}N$
+\end_inset
+
+, che con N e Q entrambi pari a 100.000 fornisce un valore di circa 3.3 milioni
+ contro i 10 miliardi della soluzione banale.
+\end_layout
+
+\begin_layout Standard
+Applicando quest'idea si ottiene il seguente codice:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+long long int distanza[100000];
+\end_layout
+
+\begin_layout Plain Layout
+
+int pianeti;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void mappatura(int N, int X[], int Y[], int Z[]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	pianeti = N;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int i = 0; i < N; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		distanza[i] = (long long int)X[i]*X[i] + 
+\end_layout
+
+\begin_layout Plain Layout
+
+		(long long int)Y[i]*Y[i] + (long long int)Z[i]*Z[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+	sort(distanza, distanza + N);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int query(int D) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return upper_bound(distanza, distanza + pianeti, 
+\end_layout
+
+\begin_layout Plain Layout
+
+		(long long int)D*D) - distanza;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pur essendo composto sostanzialmente da 4 linee di codice ci sono una serie
+ di aspetti interessanti che vale la pena notare:
+\end_layout
+
+\begin_layout Itemize
+negli ultimi anni è stata inserita in alcune competizioni una 
+\begin_inset Quotes eld
+\end_inset
+
+nuova
+\begin_inset Quotes erd
+\end_inset
+
+ modalità di scrittura delle soluzioni, che prevede vengano forniti dei
+ template (modelli) di soluzione, in cui il codice per l'acquisizione dell'input
+ e la stampa dell'output siano già presenti e lo studente debba solo scrivere
+ il codice dentro ad alcune funzioni, che verranno chiamate nel main, anch'esso
+ già presente.
+ Il vantaggio è che non bisogna preoccuparsi di input/output, con un certo
+ risparmio di tempo ed evitando la possibilità di commettere errori banali,
+ in cambio bisogna 
+\begin_inset Quotes eld
+\end_inset
+
+adeguarsi
+\begin_inset Quotes erd
+\end_inset
+
+ alle modalità pensate dagli autori del template per l'utilizzo delle funzioni.
+ Premesso che comunque rimane la possibilità di scriversi il codice da zero,
+ l'utilizzo del template è in effetti molto comodo e potrebbe diventare
+ una modalità standard anche alle selezioni territoriali (lo è già ad esempio
+ alle selezioni nazionali e nelle Olimpiadi di Informatica a squadre).
+ Un'altra novità presente da qualche anno alle nazionali e che potrebbe
+ arrivare alle territoriali, è la presenza esplicita nel testo di una serie
+ di sottocasi, di difficoltà crescente, in cui viene garantito il guadagno
+ di una serie di punti alla soluzione di tutti i casi di test dello specifico
+ sottocaso
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Per una discussione più approfondita si veda 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Subtask-e-template"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+come si può vedere nel testo della soluzione è stato usato un tipo, il 
+\emph on
+long long int
+\emph default
+, che non appare nei problemi precedenti, di cui si era discusso brevemente
+ solo nel paragrafo sulla ricorsione (si veda 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Costo-ricorsione"
+
+\end_inset
+
+).
+ Il problema in questo caso è dovuto al fatto che le coordinate possono
+ assumere valori fino a 
+\begin_inset Formula $2^{30}$
+\end_inset
+
+, il che, una volta che vengono elevate al quadrato per calcolare la distanza
+ con il teorema di Pitagora, porta a dei valori massimi di 
+\begin_inset Formula $2^{60}$
+\end_inset
+
+, che non possono essere memorizzati all'interno di un int normale senza
+ una drammatica perdita di precisione (tutti i bit che si trovano oltre
+ il 32-esimo bit vengono eliminati).
+ S potrebbe pensare di risolvere il problema considerando che una volta
+ applicata la radice quadrata il numero tornerà ad avere un valore compatibile
+ con la memorizzazione all'interno di un numero intero a 32 bit, ma, riflettendo
+ un attimo, ci si accorge che comunque la somma dei quadrati dovrà essere
+ memorizzata da qualche parte prima di poter calcolare la radice quadrata,
+ quindi in ogni caso bisogna passare dalla trasformazione in long long int.
+ Questo viene fatto utilizzando il 
+\emph on
+casting
+\emph default
+, cioè scrivendo davanti al nome della variabile una coppia di parentesi
+ tonde che contengono il tipo di dati che si intende utilizzare, in modo
+ da dire al compilatore che tipo di operazione svolgere, in questo caso
+ di usare interi a 64 bit.
+ Un'altra soluzione che poteva venire in mente era quella di fare un casting
+ verso il tipo double.
+ Mentre questo tipo è adatto per memorizzare numeri grandi (tra 
+\begin_inset Formula $10^{-308}$
+\end_inset
+
+ e 
+\begin_inset Formula $10^{308}$
+\end_inset
+
+), la sua possibilità di rappresentare esattamente i numeri è limitata alla
+ quantità di cifre della mantissa, e quindi potrebbe introdurre errori di
+ approssimazione che renderebbero scorretto il risultato.
+ Per chi fosse interessato al perchè i double non sono precisi come gli
+ interi si rimanda alla 
+\begin_inset CommandInset href
+LatexCommand href
+name "voce di wikipedia"
+target "https://en.wikipedia.org/wiki/Double-precision_floating-point_format"
+
+\end_inset
+
+ (
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://en.wikipedia.org/wiki/Double-precision_floating-point_format
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+guardando il codice si può notare che in effetti, pur parlando del teorema
+ di Pitagora per il calcolo della distanza, non compare la funzione sqrt,
+ che in C viene utilizzata per ottenere il valore della radice quadrata
+ di un numero.
+ Siccome interessa solamente verificare se una certa quantità positiva è
+ minore di un'altra, non è necessario calcolare davvero la radice quadrata,
+ è sufficiente confrontare tra loro i quadrati delle distanze, evitando
+ così l'operazione di estrazione della radice quadrata.
+\end_layout
+
+\begin_layout Itemize
+infine nel codice sono state usate due funzioni della Libreria Standard
+ del C++, 
+\emph on
+sort
+\emph default
+ e 
+\emph on
+upper_bound.
+ 
+\emph default
+Mentre la prima è già stata utilizzata in molti problemi e spiegata in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:L'algoritmo-sort-C++"
+
+\end_inset
+
+, la seconda serve quando si ha la necessità di trovare, all'interno di
+ un vettore ordinato, la posizione del primo numero che è maggiore del numero
+ passato come parametro.
+ Il costo di questa operazione è garantito essere logaritmico in media (si
+ basa essenzialmente sulla ricerca binaria) ed è molto comoda perchè, a
+ differenza della ricerca binaria, non cerca un numero all'interno di un
+ vettore, ma il primo numero maggiore del numero cercato.
+ I parametri passati sono tre: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+un iteratore alla posizione del vettore dalla quale si intende partire:
+ quando il vettore è un array standard del C e si vuole partire dalla prima
+ posizione, allora basta inserire il nome dell'array, in questo caso 
+\emph on
+distanza
+\end_layout
+
+\begin_layout Itemize
+un iteratore alla posizione finale dell'intervallo in cui si intende fare
+ la ricerca: quando il vettore è un array standard del C basta sommare alla
+ posizione di partenza la lunghezza dell'intervallo, in questo caso 
+\emph on
+pianeti
+\emph default
+ 
+\end_layout
+
+\begin_layout Itemize
+infine il terzo parametro è il valore con il quale si vuole fare il confronto,
+ in questo caso D*D, poichè come detto in precedenza viene fatto un confronto
+ con il quadrato della distanza
+\end_layout
+
+\begin_layout Standard
+Il valore di ritorno non è una posizione in senso stretto, cioè un numero,
+ ma un iteratore.
+ Anche in questo caso, avendo usato un array standard, il valore di ritorno
+ è sostanzialmente un indirizzo, per trasformarlo in un indice viene sottratto
+ l'indirizzo di partenza dell'array, cioè 
+\emph on
+distanza
+\emph default
+.
+ Esiste anche una funzione 
+\emph on
+lower_bound
+\emph default
+ che trova la posizione del primo valore non minore del valore passato come
+ parametro.
+\end_layout
+
+\end_deeper
 \end_body
 \end_document
