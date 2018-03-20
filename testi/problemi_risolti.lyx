@@ -20198,13 +20198,13 @@ Soluzione
 Una prima idea che potrebbe venire, considerato che il numero di carte è
  al massimo 99, è quella di provare tutti modi possibili di eliminare coppie
  di carte e vedere di volta in volta quale carta rimane in tavola.
- Questo approcio però, oltre a non essere di semplice implementazione, è
- sicuramente molto oneroso da un punto di vista computazionale: senza entrare
- troppo nel dettaglio, il numero di modi con cui possono essere estratte
- le coppie sono decisamente troppi, in quanto per ogni valore di N ci sono
- al massimo N/2 coppie che possono essere estratte, scegliendone una per
- iniziare, ne rimangono N/2 - 1 e continuando così si arriva a una complessità
- che alla peggio è di tipo 
+ Questo approccio però, oltre a non essere di semplice implementazione,
+ è sicuramente molto oneroso da un punto di vista computazionale: senza
+ entrare troppo nel dettaglio, il numero di modi con cui possono essere
+ estratte le coppie sono decisamente troppi, in quanto per ogni valore di
+ N ci sono al massimo N/2 coppie che possono essere estratte, scegliendone
+ una per iniziare, ne rimangono N/2 - 1 e continuando così si arriva a una
+ complessità che alla peggio è di tipo 
 \begin_inset Formula $O(N!)$
 \end_inset
 
@@ -20214,15 +20214,18 @@ Una prima idea che potrebbe venire, considerato che il numero di carte è
 
 \begin_layout Standard
 Come in altri casi, un'analisi attenta degli esempi e delle assunzioni permette
- invece di individuare un algoritmo ad-hoc di complessità lineare, che permette
- di risolvere tutti i casi di test.
+ invece di individuare un algoritmo 
+\emph on
+ad-hoc
+\emph default
+ di complessità lineare, che permette di risolvere tutti i casi di test.
 \end_layout
 
 \begin_layout Standard
 Il fatto che i numeri siano in quantità dispari e che siano compresi tra
  0 e N-1, con ogni numero che compare una e una sola volta, permette di
- derivare che nell'insieme ci saranno sempre (N-1)/2 numeri pari e (N-1)/2
- - 1 numeri dispari.
+ derivare che nell'insieme ci saranno sempre (N-1)/2 + 1 numeri pari e (N-1)/2
+ numeri dispari.
  Questo garantisce che, qualunque sia l'ordine con cui verranno estratte
  le coppie, rimarrà sempre un numero sul tavolo e che questo sarà per forza
  un numero pari.
@@ -20230,8 +20233,12 @@ Il fatto che i numeri siano in quantità dispari e che siano compresi tra
 \begin_inset Formula $C_{i}$
 \end_inset
 
- potrà rimanere se e solo se sia alla sua destra che alla sua sinistra ci
- saranno la stessa quantità di numeri pari e dispari.
+ potrà rimanere 
+\series bold
+se e solo se
+\series default
+ sia alla sua destra che alla sua sinistra ci saranno la stessa quantità
+ di numeri pari e dispari.
  Difatti se questo non fosse vero, eliminando via via le coppie si arriverebbe
  a una situazione in cui da una parte e dall'altra rimarrebbero numeri non
  più accoppiabili e quindi sarebbe necessario usare il numero 
@@ -20247,15 +20254,15 @@ reference "fig:Controesempio-di-carta"
 
 \end_inset
 
-, in cui ci si domanda se il numero 6 potrà rimanere sul tavolo.
- Come si vede la quantità di numeri pari a sinistra è 2 mentre i numeri
- dispari sono 1, mentre i numeri pari a destra del 6 sono 3 i i dispari
- sono 4.
- Eliminando le coppie in figura evidenziate con le freccie che le uniscono,
- rimane a sinistra un pari (il 2) e a destra un dispari (il 7) e quindi
- il 6 dovrà essere messo insieme al 7 e non potrà rimanere come ultima carta
- (è facile notare che le coppie scelte, che avrebbero anche potuto essere
- differenti, non influenzano il risultato finale).
+, in cui ci si domanda se il numero 4 potrà rimanere sul tavolo.
+ Come si vede la quantità di numeri pari a sinistra è 3 mentre i numeri
+ dispari sono 1, laddove i numeri pari alla sua destra sono 2 e i numeri
+ dispari sono 4.
+ Eliminando le coppie in figura, evidenziate con le freccie che le uniscono,
+ rimangono a sinistra due pari (il 2 e il 6) e a destra due dispari (il
+ 5 e il 7) e quindi il 4 dovrà essere messo insieme al 5 e non potrà rimanere
+ come ultima carta (è facile notare che le coppie scelte, che avrebbero
+ anche potuto essere differenti, non influenzano il risultato finale).
  Provando con qualsiasi altro numero pari in questo esempio si nota che
  solo il 2 e l'8, che soddisfano la condizione richiesta, hanno la possibilità
  di rimanere sul tavolo una volta tolte tutte le coppie possibili.
@@ -20302,10 +20309,24 @@ Controesempio di carta rimasta
 \end_layout
 
 \begin_layout Standard
+Quindi il problema si riduce, scelto un certo elemento 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+, a stabilire il numero di elementi pari e dispari alla sua sinistra e alla
+ sua destra e verificare se soddisfano la condizione richiesta, risolvendo
+ così il problema con un algoritmo di complessità lineare.
+\end_layout
+
+\begin_layout Standard
+La soluzione potrebbe essere quindi implementata in questo modo:
+\end_layout
+
+\begin_layout Standard
 \begin_inset listings
 lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
 inline false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -20324,7 +20345,6 @@ int main()
 
 \begin_layout Plain Layout
 
-	
 \end_layout
 
 \begin_layout Plain Layout
@@ -20364,22 +20384,12 @@ int main()
 
 \begin_layout Plain Layout
 
-		int pari = N/2 + 1;
+		int pari_dx = N/2 + 1, dispari_dx = N/2;
 \end_layout
 
 \begin_layout Plain Layout
 
-		int dispari = N/2;
-\end_layout
-
-\begin_layout Plain Layout
-
-		int pari_prima = 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-		int dispari_prima = 0;
+		int pari_sx = 0, dispari_sx = 0;
 \end_layout
 
 \begin_layout Plain Layout
@@ -20404,17 +20414,12 @@ int main()
 
 \begin_layout Plain Layout
 
-			if (n%2 == 0){
+			if (n%2 == 0)
 \end_layout
 
 \begin_layout Plain Layout
 
-				pari--;
-\end_layout
-
-\begin_layout Plain Layout
-
-			}
+				pari_dx--;
 \end_layout
 
 \begin_layout Plain Layout
@@ -20424,12 +20429,12 @@ int main()
 
 \begin_layout Plain Layout
 
-				dispari--;
+				dispari_dx--;
 \end_layout
 
 \begin_layout Plain Layout
 
-			if (pari == dispari && pari_prima == dispari_prima)
+			if (n%2 == 0 && pari_dx == dispari_dx && pari_sx == dispari_sx)
 \end_layout
 
 \begin_layout Plain Layout
@@ -20439,17 +20444,12 @@ int main()
 
 \begin_layout Plain Layout
 
-			if (n%2 == 0){
+			if (n%2 == 0)
 \end_layout
 
 \begin_layout Plain Layout
 
-				pari_prima++;
-\end_layout
-
-\begin_layout Plain Layout
-
-			}
+				pari_sx++;
 \end_layout
 
 \begin_layout Plain Layout
@@ -20459,7 +20459,7 @@ int main()
 
 \begin_layout Plain Layout
 
-				dispari_prima++;
+				dispari_sx++;
 \end_layout
 
 \begin_layout Plain Layout
@@ -20514,6 +20514,37 @@ int main()
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Come si vede nel codice, per ogni caso di test (ciclo alla riga 8), viene
+ letto il numero di carte che verranno usate nella partita e con questo
+ valore si inizializzano la quantità di numeri pari e dispari alla destra
+ della posizione corrente (riga 12) e alla sua sinistra (riga 13), che inizialme
+nte sono 0.
+ Successivamente si leggono i valori delle N carte e per ognuno si aggiornano
+ le quantità alla sua destra (righe 18-21), si verifica se vengono soddisfatte
+ le condizioni perchè la carta rimanga come ultima carta sul tavolo (riga
+ 22, il valore deve essere pari e la quantità di numeri pari e dispari a
+ destra e a sinistra della posizione che si sta analizzando devono essere
+ uguali).
+ Se la condizione è soddisfatta allora il numero viene inserito nel vettore
+ 
+\emph on
+esclusi
+\emph default
+ e poi viene aggiornato il valore degli elementi pari a dispari alla sinistra
+ del prossimo numero da analizzare.
+\end_layout
+
+\begin_layout Standard
+Dopo aver letto tutti i numeri che compongono il caso di test non rimane
+ altro da fare che stampare i numeri memorizzati all'interno del vettore
+ 
+\emph on
+esclusi
+\emph default
+ (righe 29-33).
 \end_layout
 
 \end_body
