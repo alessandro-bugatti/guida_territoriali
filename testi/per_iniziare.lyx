@@ -1,5 +1,5 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
 \textclass book
@@ -16,13 +16,13 @@
 \font_roman palatino
 \font_sans helvet
 \font_typewriter courier
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
-
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -33,15 +33,24 @@
 \use_hyperref false
 \papersize a4paper
 \use_geometry true
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 0
 \index Indice
 \shortcut idx
@@ -356,9 +365,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="bottom" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -441,7 +450,609 @@ Un programma che restituisce sempre lo stesso valore, indipendentemente
 \end_layout
 
 \begin_layout Section
-Input/output su file
+Nuova modalità di sottomissione (a partire dalle Territoriali 2018)
+\end_layout
+
+\begin_layout Standard
+In questo paragrafo viene presentata la nuova modalità di sottoposizione
+ delle soluzioni, che diventerà ufficiale dalle territoriali 2018.
+\end_layout
+
+\begin_layout Standard
+Una premessa: perchè si è scelta questa nuova modalità? Una delle critiche
+ più frequenti che venivano fatte dai referenti e dagli studenti rispetto
+ alla modalità di sottoposizione era quella di non avere nessun tipo di
+ feedback rispetto ai codici sottoposti, se non che l'upload avesse funzionato
+ e che i nomi dei file fossero quelli giusti.
+ Questo in qualche caso portava alla non qualificazione a causa di errori
+ banali (vedi ad esempio 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "attenzione-agli-errori"
+
+\end_inset
+
+ ), che probabilmente sarebbero stati corretti se lo studente avesse avuto
+ accesso a qualche tipo di feedback, come succede ai Nazionali.
+ Purtroppo però non era possibile utilizzare il correttore delle selezioni
+ Nazionali, per due ordini di motivi:
+\end_layout
+
+\begin_layout Itemize
+utilizzo da remoto su un server centrale: difficoltà per le scuole a isolare
+ le postazioni degli atleti da Internet e, cosa peggiore, nel caso di non
+ funzionamento del collegamento a Internet il giorno della prova nella scuola
+ sede di gara, la gara non si sarebbe potuta disputare
+\end_layout
+
+\begin_layout Itemize
+utilizzo in locale su un server della scuola: pur non essendo particolarmente
+ complesso, il software CMS non è semplicissimo da usare nella parte di
+ gestione/amministrazione, quindi poteva comportare dei problemi durante
+ la gara se si fosse dovuto intervenire.
+ Inoltre la struttura di correzione prevede comunque un certo carico di
+ lavoro sul server: se la macchina o il network di macchine che fungono
+ da correttore sono abbastanza potenti non ci sono problemi perchè è progettato
+ per scalare bene, ma dovendo girare su una macchina virtuale nelle sedi
+ territoriali, avrebbe presumibilmente creato problemi.
+ Fa ricordato infatti che i limiti sul tempo di esecuzione dei problemi
+ del livello territoriale sono fissati a 5 minuti, quindi le soluzioni non
+ corrette che al proprio interno creassero dei cicli infiniti, andrebbero
+ a utilizzare le risorse del server in maniera molto pesante.
+ 
+\end_layout
+
+\begin_layout Standard
+Il team di supporto alle Olimpiadi ha così pensato di risolvere i problemi
+ creando un software che utilizzasse un meccanismo già presente in altre
+ competizioni, ad esempio 
+\begin_inset CommandInset href
+LatexCommand href
+name "Google Code Jam"
+target "https://code.google.com/codejam/"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+L'idea di base è quella di dare allo studente un file di input contenente
+ tutti i test case e permettergli di creare, tramite il proprio programma,
+ un file di output con tutte le risposte.
+ 
+\end_layout
+
+\begin_layout Standard
+Il file di input che l'utente dovrà scaricare sarà fatto ad esempio in questo
+ modo e dovrà produrre un file di output strutturalmente simile a quello
+ mostrato:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/per_iniziare/nuova_sottomissione.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Nuova modalità di sottoposizione
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Successivamente il file di output verrà caricato sul server che risponderà
+ con il numero di punti ottenuti, indicando anche quali test case hanno
+ avuto una risposta corretta e quali no
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Al momento della scrittura di questo paragrafo (19/02/2018) esiste una piattafor
+ma di prova all'indirizzo 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://territoriali.olinfo.it/"
+target "https://territoriali.olinfo.it/"
+
+\end_inset
+
+ su cui si possono fare dei test relativi ai problemi dei territoriali 2017.
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Nel caso di risposte non corrette o solo parzialmente corrette, lo studente
+ avrà quindi la possibilità di individuare gli errori attraverso l'analisi
+ dei casi che non hanno dato una risposta corretta e correggere il proprio
+ programma.
+ Una volta arrivato a una soluzione soddisfacente, lo studente chiederà
+ al sistema un altro file di input, con una serie di test case differenti
+ dai precedenti e lo risolverà con il nuovo programma, spedendo il nuovo
+ file di output, iterando il processo fino a che arriverà alla soluzione
+ del problema (o comunque al massimo di punti che riesce a ottenere).
+\end_layout
+
+\begin_layout Standard
+In questo modo è possibile fornire allo studente un feedback preciso su
+ quanto fatto e allo stesso tempo fornire alle varie sedi territoriali una
+ macchina virtuale su cui fare girare il server, che a questo punto non
+ ha più problemi di carico, dovendosi sostanzialmente limitare a creare
+ e confrontare file, senza dover far eseguire le soluzioni dei concorrenti
+ in una sandbox locale.
+\end_layout
+
+\begin_layout Standard
+Questa nuova modalità prevede sostanzialmente due modi per poter ottenere
+ delle soluzioni da sottoporre:
+\end_layout
+
+\begin_layout Enumerate
+il programma utilizza l'input/output da file, come nella precedente modalità
+\end_layout
+
+\begin_layout Enumerate
+il programma sfrutta la ridirezione di I/O messa a disposizione dai terminali
+ dei sistemi operativi (anche in quello di Windows, che notoriamente ha
+ delle funzionalità molto limitate).
+\end_layout
+
+\begin_layout Subsection
+Lettura/scrittura da codice
+\end_layout
+
+\begin_layout Standard
+Come nella modalità in uso fino al 2017, il programma si occupa di aprire
+ il file 
+\emph on
+input.txt
+\emph default
+, che è quello che il sistema permette di scaricare.
+ Questo file, a differenza della modalità precedente, contiene generalmente
+ un primo intero T che rappresenta il numero di test case, dopodichè seguono
+ i dati di input di ognuno dei singoli test case, come se i casi che una
+ volta venivano dati su file separati fossero stati tutti accodati nello
+ stesso file.
+\end_layout
+
+\begin_layout Standard
+Per fare un esempio si faccia riferimento al testo del problema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Crittografia-LWF"
+
+\end_inset
+
+, di cui qua vengono riportati per brevità le definizioni degli input/output.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga del file di input contiene un intero 
+\series bold
+T
+\series default
+, il numero di testcase.
+ Le successive 
+\series bold
+T
+\series default
+ righe contengono un intero ciascuna: il valore intero 
+\series bold
+N
+\series default
+ del relativo testcase.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file di output deve essere composto da 
+\series bold
+T
+\series default
+ righe, ciascuna delle quali contenente la dicitura 
+\family typewriter
+Case #x: y
+\family default
+ dove 
+\family typewriter
+x
+\family default
+ è il numero del testcase (a partire da 1) e 
+\family typewriter
+y
+\family default
+ è una sequenza di cifre binarie corrispondente al valore di N del testcase,
+ che termina con '1'.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+2
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+19
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #1: 1011001 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #2: 11101
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dovendo leggere un file di input definito nel modo precedente è necessario
+ scrivere del codice simile al seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int T, N;
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < T; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+        //Esegue le elaborazioni richieste
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << "Case #" << i+1 << ": ";
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << "Risultati dell'algoritmo ..." << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si può vedere la soluzione del problema si trova all'interno del ciclo
+ 
+\emph on
+for
+\emph default
+ e viene eseguita T volte su casi di input diversi contenuti all'interno
+ del file 
+\emph on
+input.txt
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Ridirezione dell'I/O
+\end_layout
+
+\begin_layout Standard
+La seconda possibilità è quella di leggere/scrivere come se si lavorasse
+ normalmente con 
+\emph on
+scanf/printf
+\emph default
+ o 
+\emph on
+cin/cout
+\emph default
+ e passare il file utilizzando la ridirezione in questo modo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=bash,showstringspaces=false"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+./mio_programma < input.txt > output.txt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I segni di minore e maggiore indicano rispettivamente che il file 
+\emph on
+input.txt
+\emph default
+ verrà utilizzato per fornire l'input e il file 
+\emph on
+output.txt
+\emph default
+ conterrà l'output.
+ Facendo sempre riferimento all'esempio del paragrafo precedente, il codice
+ che permette di creare il file che dopo dovrà essere sottoposto al server
+ sarà simile al seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int T, N;
+\end_layout
+
+\begin_layout Plain Layout
+
+	cin >> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < T; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+        //Esegue le elaborazioni richieste
+\end_layout
+
+\begin_layout Plain Layout
+
+        cout << "Case #" << i+1 << ": ";
+\end_layout
+
+\begin_layout Plain Layout
+
+        cout << "Risultati dell'algoritmo ..." << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si può notare la lettura/scrittura avviene attraverso i normali canali
+ di I/O e tramite il comando indicato sopra viene creato il file di output
+ da sottoporre.
+ L'unica difficoltà può essere quella di sapere dove scrivere quel comando,
+ per chi non fosse avvezzo all'utilizzo del terminale.
+ Come prima cosa è necessario portarsi nella cartella dove è contenuto l'eseguib
+ile, nell'esempio 
+\family typewriter
+mio_programma
+\family default
+, copiare nella stessa cartella il file di input e dopo aver eseguito il
+ comando apparirà il file di output (se queste istruzioni risultassero incompren
+sibili si consiglia di chiedere al proprio professore o utilizzare la prima
+ modalità).
+\end_layout
+
+\begin_layout Section
+Input/output su file (valido fino alle Territoriali 2017)
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Input/output"
@@ -452,8 +1063,54 @@ name "sec:Input/output"
 \end_layout
 
 \begin_layout Standard
-Attualmente il meccanismo di valutazione del correttore prevede che i programmi
- debbano leggere il proprio input da un file chiamato 
+Sebbene dalle territoriali 2018 il meccanismo di sottomissione cambierà,
+ questo paragrafo è stato mantenuto per giustificare il modo con cui sono
+ gestiti input e output fino ai problemi del 2016
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+I problemi del 2017 sono stati proposti in gara con la modalità 
+\begin_inset Quotes eld
+\end_inset
+
+vecchia
+\begin_inset Quotes erd
+\end_inset
+
+, ma su questa guida vengono risolti utilizzando la nuova modalità, per
+ far vedere almeno un esempio concreto di come saranno i problemi dal 2018
+ in poi.
+ 
+\end_layout
+
+\end_inset
+
+, che altrimenti risulterebbe incomprensibile ai nuovi lettori.
+ Viene lasciato il tempo presente nel testo perchè renderlo adeguato al
+ fatto che è una modalità ormai passata avrebbe richiesto un lavoro che
+ ritengo inutile.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family sans
+\series bold
+ATTENZIONE: rimane solo come riferimento 
+\begin_inset Quotes eld
+\end_inset
+
+storico
+\begin_inset Quotes erd
+\end_inset
+
+, adesso non è più così.
+\end_layout
+
+\begin_layout Standard
+Il meccanismo di valutazione del correttore prevede che i programmi debbano
+ leggere il proprio input da un file chiamato 
 \emph on
 input.txt
 \emph default
@@ -1220,7 +1877,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -1567,7 +2224,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
