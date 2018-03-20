@@ -1,5 +1,5 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
 \textclass book
@@ -16,13 +16,13 @@
 \font_roman palatino
 \font_sans helvet
 \font_typewriter courier
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
-
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -33,15 +33,24 @@
 \use_hyperref false
 \papersize a4paper
 \use_geometry true
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 0
 \index Indice
 \shortcut idx
@@ -223,7 +232,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top" width="2.5in">
 <column alignment="center" valignment="top" width="2.7in">
 <row>
@@ -825,7 +834,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top" width="1.5in">
 <row>
@@ -1418,7 +1427,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -1593,7 +1602,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -2073,9 +2082,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -2598,9 +2607,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -3088,9 +3097,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -3558,8 +3567,8 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="0">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top">
 <column alignment="left" valignment="top" width="1in">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
@@ -3854,7 +3863,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -4093,7 +4102,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top" width="1in">
 <row>
@@ -4791,9 +4800,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -5321,9 +5330,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -5767,7 +5776,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -5936,9 +5945,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -6262,7 +6271,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -6385,9 +6394,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -6982,7 +6991,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -7126,9 +7135,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -7935,9 +7944,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -8519,9 +8528,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -8596,9 +8605,9 @@ File output.txt
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -9266,7 +9275,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -9562,7 +9571,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top" width="1.3in">
 <row>
@@ -10112,7 +10121,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top" width="1.3in">
 <row>
@@ -10748,13 +10757,13 @@ Visto il successo del gioco Ruzzle©, che riprende il noto paroliere, i giochi
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="7">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
@@ -11339,9 +11348,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -11456,9 +11465,9 @@ DDBDBDBB
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -12041,7 +12050,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -12182,7 +12191,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -12386,9 +12395,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -12452,9 +12461,9 @@ File output.txt
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -12697,7 +12706,7 @@ iva tra le due impelementazioni.
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="5cm">
 <column alignment="left" valignment="top" width="5cm">
 <row>
@@ -12860,7 +12869,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Collatz Conjecture
@@ -13058,9 +13067,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -13138,9 +13147,9 @@ File output.txt
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -13288,7 +13297,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -13727,16 +13736,16 @@ Paolo, per festeggiare il suo quarantesimo compleanno, si è iscritto a un
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="9">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -14077,9 +14086,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -14177,9 +14186,9 @@ File output.txt
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -14701,8 +14710,8 @@ Gemma ha appena imparato che cos’è un numero semiprimo, e presa dall’eufori
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="1">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -14790,9 +14799,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -15288,9 +15297,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -15505,7 +15514,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -15903,9 +15912,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -16916,9 +16925,9 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -17295,9 +17304,9 @@ Il primo esempio qui sotto si riferisce all’esempio mostrato nel testo del
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -17521,7 +17530,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -17613,7 +17622,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -17953,6 +17962,10 @@ Un'ultima osservazione: il costo della versione dinamica è di tipo
  dimensione di N intorno alle decine di migliaia, dove quella ricorsiva
  inizierebbe a superare dei tempi ragionevoli anche solo con valori di N
  intorno a 30.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -18195,9 +18208,9 @@ Il secondo esempio qui sotto si riferisce all’esempio mostrato nel testo
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -18896,6 +18909,1611 @@ auto
 Infine per l'assegnazione dei pesi le righe dalla 56 alla 62 mettono il
  peso 0 ai sentieri normali, mentre le righe dalla 63 alla 69 mettono il
  peso 1 ai sentieri bollenti.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Crittografia-LWF"
+
+\end_inset
+
+Crittografia LWF
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+I problemi del 2017 non sono nella loro formulazione originaria, ma sono
+ stati modificati i dati di input/output in modo da riflettere la nuova
+ impostazione della sottomissione che verrà utilizzata per la prima volta
+ nelle territoriali del 18 aprile 2018.
+ Al momento della scrittura è possibile testare questa nuova modalità all'indiri
+zzo 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://territoriali.olinfo.it"
+target "https://territoriali.olinfo.it"
+
+\end_inset
+
+, usando come token il proprio username dopo essersi loggati al sito principale
+ degli allenamenti 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://training.olinfo.it/"
+target "https://training.olinfo.it/"
+
+\end_inset
+
+.
+ Una descrizione della nuova modalità si trova al paragrafo 
+\end_layout
+
+\end_inset
+
+ - Territoriali 2017
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsection*
+Crittografia LWF (lwf)
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà D = 1
+\end_layout
+
+\begin_layout Subsubsection*
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Luca e William devono sovente scambiarsi delle segretissime informazioni
+ riguardo alle selezioni territoriali, sotto forma di numeri interi N.
+ Per evitare di essere scoperti, hanno quindi deciso di inventare un nuovo
+ codice crittografico, che hanno chiamato codice Luca-William-Fibonacci
+ (LWF).
+ In questo codice, ogni numero intero N viene tradotto in una sequenza 
+\begin_inset Formula $s_{0}s_{1}\ldots s_{k}$
+\end_inset
+
+ di cifre binarie ‘0’ e ‘1’, di cui l’ultima è un ‘1’, in maniera tale che:
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Formula 
+\[
+N=\sum_{i=0}^{k}s_{i}\cdotp F_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+dove 
+\begin_inset Formula $F_{i}$
+\end_inset
+
+ è il numero di Fibonacci 
+\emph on
+i
+\emph default
+-esimo.
+ Più informalmente, una cifra 1 in posizione 
+\emph on
+i
+\emph default
+ nella sequenza indica che il numero di Fibonacci 
+\emph on
+i
+\emph default
+-esimo fa parte della somma che ricostruisce il numero N .
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Doublebox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "90col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+La sequenza dei numeri di Fibonacci è definita in maniera ricorsiva: i primi
+ due termini della sequenza sono 
+\begin_inset Formula $F_{0}=1$
+\end_inset
+
+ e 
+\begin_inset Formula $F_{1}=1$
+\end_inset
+
+, mentre ognuno dei successivi viene calcolato sommando i due precedenti
+ 
+\begin_inset Formula $F_{i}=F_{i-1}+F_{i-2}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Per esempio, consideriamo la sequenza 
+\family typewriter
+1011001
+\family default
+ di lunghezza 
+\emph on
+k
+\emph default
+ = 7.
+ Visto che i primi 7 numeri di Fibonacci sono:
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+1
+\begin_inset space \quad{}
+\end_inset
+
+1
+\begin_inset space \quad{}
+\end_inset
+
+2
+\begin_inset space \quad{}
+\end_inset
+
+3
+\begin_inset space \quad{}
+\end_inset
+
+5
+\begin_inset space \quad{}
+\end_inset
+
+8
+\begin_inset space \quad{}
+\end_inset
+
+13
+\end_layout
+
+\begin_layout Plain Layout
+il numero 
+\emph on
+N
+\emph default
+ corrispondente è pari a 1 + 2 + 3 + 13 = 19.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Luca ha già implementato l’algoritmo di decodifica (descritto come sopra),
+ che da una sequenza di cifre binarie ricostruisce il numero 
+\emph on
+N
+\emph default
+.
+ Tuttavia William è ancora in alto mare con l’algoritmo di codifica, che
+ dato un numero 
+\emph on
+N
+\emph default
+ dovrebbe produrre una sequenza di cifre binarie corrispondente.
+ Implementalo tu!
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga del file di input contiene un intero 
+\series bold
+T
+\series default
+, il numero di testcase.
+ Le successive 
+\series bold
+T
+\series default
+ righe contengono un intero ciascuna: il valore intero 
+\series bold
+N
+\series default
+ del relativo testcase.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file di output deve essere composto da 
+\series bold
+T
+\series default
+ righe, ciascuna delle quali contenente la dicitura 
+\family typewriter
+Case #x: y
+\family default
+ dove 
+\family typewriter
+x
+\family default
+ è il numero del testcase (a partire da 1) e 
+\family typewriter
+y
+\family default
+ è una sequenza di cifre binarie corrispondente al valore di N del testcase,
+ che termina con '1'.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+1 ≤ T ≤ 20.
+\end_layout
+
+\begin_layout Itemize
+1 ≤ N ≤ 1 000 000.
+ 
+\end_layout
+
+\begin_layout Itemize
+Potrebbero esserci più sequenze di cifre ugualmente valide.
+\end_layout
+
+\begin_layout Subsubsection*
+Esempi di input/output 
+\end_layout
+
+\begin_layout Plain Layout
+Il secondo esempio qui sotto si riferisce all’esempio mostrato nel testo
+ del problema.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+2
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+19
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #1: 1011001 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #2: 11101
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Il 
+\series bold
+primo caso di esempio
+\series default
+ è quello discusso nel testo.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Nel 
+\series bold
+secondo caso di esempio
+\series default
+, 9 può essere ottenuto sia come 1+1+2+5 (come nell’output di esempio),
+ oppure come 1+3+5 (
+\family typewriter
+10011
+\family default
+) e 1+8 (
+\family typewriter
+100001
+\family default
+).
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Data la dimensione massima dell'input, che tipo di algoritmo può essere
+ utilizzato (quadrato, lineare, logaritmico, ecc.)?
+\end_layout
+
+\begin_layout Itemize
+Per produrre i numeri di Fibonacci è meglio utilizzare una funzione ricorsiva
+ oppure no?
+\end_layout
+
+\begin_layout Itemize
+Si può pensare di procedere per forza bruta, provando tutte le possibili
+ sequenze di 0 e 1 di dimensione opportuna, fino a trovare quella che da
+ come somma il valore richiesto?
+\end_layout
+
+\begin_layout Itemize
+Guardando come è composta la sequenza dei numeri di Fibonacci, è possibile
+ fare qualche osservazione che velocizzi la soluzione?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Inizialmente si può cercare di dare una stima del costo di codifica di un
+ numero N, però questa stima non è così semplice, perchè il costo è determinato
+ dal costo del calcolo della sequenza di Fibonacci e non è evidente fino
+ a che valore di Fibonacci è necessario spingersi per poter calcolare i
+ termini della somma che produrrà N.
+ Procedendo per tentativi e calcolando i primi termini della sequenza (eventualm
+ente scrivendo anche un programmino per visualizzarli) si può pensare che
+ i primi 40 termini siano sufficienti per produrre una somma che arriva
+ al massimo a un milione, poichè F(40) = 102334155.
+\end_layout
+
+\begin_layout Standard
+A questo punto, se si è utilizzato un programma di test per provare a produrre
+ i numeri di Fibonacci, esso può essere utilizzato ad esempio per precalcolare
+ i primi 40 termini e poi inserirli direttamente nel codice sotto forma
+ di vettore, per non doverli ricalcolare per ogni testcase: sebbene quella
+ del precalcolo sia una soluzione che in generale può far risparmiare tempo
+ di esecuzione nella soluzione del problema vero e proprio, in questo caso
+ non è strettamente necessaria, quindi è lasciata al lettore una sua eventuale
+ implementazione.
+\end_layout
+
+\begin_layout Standard
+Si ricorda comunque che per un calcolo efficiente dei numeri di Fibonacci
+ è da evitare assolutamente la versione ricorsiva dell'algoritmo, come spiegato
+ 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "fibonacci-ricorsivo"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A questo punto, avendo i primi 40 termini della sequenza di Fibonacci, si
+ potrebbe pensare di creare tutte le possibili combinazioni di 40 valori
+ 
+\begin_inset Formula $a_{1}a_{2}...a_{40}$
+\end_inset
+
+, dove 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ può valere 0 o 1 se il termine 
+\emph on
+i
+\emph default
+-esimo della sequenza di Fibonacci è presente (1) o non è presente (0) nella
+ somma che potrebbe dare N.
+ In effetti non è necessario crearle tutte, ma è possibile fermarsi appena
+ se ne trova una in cui, sommati i termini corrispondenti ai posti in cui
+ 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ vale 1, si ottiene il numero N cercato.
+ Il numero di differenti combinazioni di 40 valori è pari a 
+\begin_inset Formula $2^{40}$
+\end_inset
+
+, che è un numero decimale dell'ordine di 1000 miliardi: a seconda dei casi
+ di test, nonostante sia indubbiamente un valore grosso, potrebbe anche
+ portare a fare tutti i punti, poichè una soluzione potrebbe essere trovata
+ anche in una fase iniziale della ricerca e inoltre va ricordato che ai
+ territoriali il limite di tempo di esecuzione è di 5 minuti
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Con al nuova modalità che verrà inaugurata alle selezioni 2018 sarebbe addirittu
+ra ipoteticamente possibile scrivere un programma nella prima mezz'ora,
+ mandarlo in esecuzione sulla propria macchina con il file di test scaricato
+ dal server, e sperare che finisca entro le successive due ore e mezza,
+ per poi spedire la soluzione al server e nel frattempo proseguire con la
+ soluzione degli altri problemi.
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Si può comunque scrivere una soluzione più efficiente notando che ogni numero
+ di Fibonacci 
+\begin_inset Quotes eld
+\end_inset
+
+contiene
+\begin_inset Quotes erd
+\end_inset
+
+ solo altri numeri di Fibonacci sommati tra di loro, quindi tra le varie
+ soluzioni possibili dello stesso problema N, ne esiste sicuramente una
+ che può essere ottenuta aggiungendo in maniera greedy di volta in volta
+ il maggiore tra i numeri di Fibonacci minori o uguali di N, ottenendo così
+ un sottoproblema 
+\begin_inset Formula $N-F_{max}$
+\end_inset
+
+, dove 
+\begin_inset Formula $F_{max}$
+\end_inset
+
+ è appunto il più grande numero di Fibonacci minore o uguale a N.
+ Questo fatto lo si può vedere anche nell'esempio che compare nel testo
+ relativo a N=9 e come conseguenza la soluzione così trovata è quella con
+ il minor numero di termini, che in questo caso non era richiesto, ma che
+ viene comunque garantito dall'approccio greedy.
+ 
+\end_layout
+
+\begin_layout Standard
+Per finire ci si potrebbe domandare se qualsiasi numero N possa essere costruito
+ come somma di alcuni termini della sequenza di Fibonacci e la risposta
+ è affermativa, poichè, essendo i primi due termini uguali a 1, per come
+ vengono costruiti i successivi termini, si potrà sempre scomporre la somma
+ in una serie opportuna di somme di termini unitari per ottenere il valore
+ desiderato.
+\end_layout
+
+\begin_layout Standard
+Il codice che risolve il problema è il seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+const int MAX = 40;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int risultato[MAX];
+\end_layout
+
+\begin_layout Plain Layout
+
+int numeri_fibonacci[MAX];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void inizializza_numeri()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	numeri_fibonacci[0] = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	numeri_fibonacci[1] = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 2; i < MAX; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		numeri_fibonacci[i] = numeri_fibonacci[i-1] + numeri_fibonacci[i-2];
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int calcola_codice(int N)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i = MAX - 1, lunghezza;
+\end_layout
+
+\begin_layout Plain Layout
+
+	std::fill_n(risultato, MAX, 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (numeri_fibonacci[i] > N) i--;
+\end_layout
+
+\begin_layout Plain Layout
+
+	lunghezza = i;
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (N > 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (numeri_fibonacci[i] <= N){
+\end_layout
+
+\begin_layout Plain Layout
+
+			N -= numeri_fibonacci[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+			risultato[i] = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		i--;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	return lunghezza;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int T, N;
+\end_layout
+
+\begin_layout Plain Layout
+
+	cin >> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+	inizializza_numeri();
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 0; i < T; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+        cin >> N;
+\end_layout
+
+\begin_layout Plain Layout
+
+        cout << "Case #" << i+1 << ": ";
+\end_layout
+
+\begin_layout Plain Layout
+
+        int lunghezza = calcola_codice(N);
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (int i = 0; i <= lunghezza; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+            cout << risultato[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+        cout << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I due vettori 
+\emph on
+risultati 
+\emph default
+e 
+\emph on
+numeri_fibonacci
+\emph default
+ conterranno rispettivamente la soluzione e i numeri precalcolati della
+ sequenza di Fibonacci (il precalcolo viene svolto dalla funzione 
+\emph on
+inizializza_numeri
+\emph default
+, righe 6-12).
+\end_layout
+
+\begin_layout Standard
+La funzione 
+\emph on
+calcola_codice
+\emph default
+ implementa la soluzione greedy così come descritta nel testo: inizialmente
+ reimpie di zeri il vettore dei risultati (riga 17) e questo è fondamentale
+ nella nuova modalità di sottoposizione, in cui il programma calcola tante
+ soluzioni quanti sono i casi di test contenuti nell'unico file di input
+ e quindi ogni volta bisogna garantire che le variabili siano inizializzate
+ correttamente.
+ Alla riga 18 viene trovato il primo numero di Fibonacci minore o uguale
+ alla cifra da codificare, poichè ovviamente numeri più grandi non possono
+ fare parte della codifica.
+ Il suo indice sarà anche il numero di cifre che comporranno la codifica
+ del numero N, che quindi sarà ritornato dalla funzione per stampare successivam
+ente la soluzione richiesta.
+ Il ciclo 
+\series bold
+while
+\series default
+ (righe 20-27) scorre a ritroso la sequenza di Fibonacci e include il numero
+ nella codifica solo se è minore della parte di N non ancora codificata,
+ segnando anche nel vettore 
+\emph on
+risultato
+\emph default
+ un 1 nella posizione corrispondente all'i-esimo numero di Fibonacci incluso
+ nella codifica.
+\end_layout
+
+\begin_layout Standard
+A questo punto nel 
+\emph on
+main
+\emph default
+ è necessario leggere il numero di casi di test, cosa che viene fatta alla
+ riga 34, e ripetere la chiamata alla funzione 
+\emph on
+calcola_codice
+\emph default
+ per ogni caso di test, stampando il numero del caso di test (riga 39) e
+ la soluzione (righe 41-42).
+\end_layout
+
+\begin_layout Section
+Sport intellettuali - Territoriali 2017
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsection*
+Sport intellettuali (scommessa)
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà: 2
+\end_layout
+
+\begin_layout Subsubsection*
+\noindent
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Romeo è un grande appassionato di sport intellettuali, e adora ritrovarsi
+ con gli amici per seguire le competizioni internazionali più avvincenti
+ di questo tipo.
+ Di recente, il gruppo di amici si è appassionato a uno sport molto particolare.
+ In questo gioco, un mazzo di carte numerate da 0 a N −1 (dove N è dispari)
+ viene prima mescolato, e poi le carte vengono affiancate in linea retta
+ sul tavolo.
+ Ai telespettatori, per aumentare la suspence, vengono mostrati i numeri
+ delle carte 
+\begin_inset Formula $C_{0},C_{1},\ldots,C_{i},\ldots,C_{N-1}$
+\end_inset
+
+ nell’ordine così ottenuto.
+ A questo punto i giocatori
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+ possono scoprire due carte disposte consecutivamente sul tavolo, e prenderle
+ nel solo caso in cui queste due carte abbiano somma dispari.
+ Se queste carte vengono prese, le altre vengono aggiustate quanto basta
+ per riempire il buco lasciato libero.
+ Il gioco prosegue quindi a questo modo finché nessun giocatore può più
+ prendere carte.
+ Romeo e i suoi amici, per sentirsi più partecipi, hanno oggi deciso di
+ fare un “gioco nel gioco”: all’inizio della partita, scommettono su quali
+ carte pensano rimarranno sul tavolo una volta finita la partita.
+ Aiuta Romeo, determinando quali carte potrebbero rimanere sul tavolo alla
+ fine del gioco!
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Doublebox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "90col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+Una carta potrebbe rimanere sul tavolo a fine gioco, se esiste una sequenza
+ di mosse (rimozioni di coppie di carte consecutive con somma dispari) tale
+ per cui dopo di esse nessuna altra mossa è possibile (il gioco e finito)
+ e la carta suddetta è ancora sul tavolo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga del file di input contiene un intero 
+\series bold
+T
+\series default
+, il numero di testcase.
+ Seguono 
+\series bold
+T
+\series default
+ testcase, ognuno dei quali composto da due righe:
+\end_layout
+
+\begin_layout Itemize
+Riga 1: l'unico intero 
+\series bold
+N
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Riga 2: gli 
+\series bold
+N
+\series default
+ interi 
+\series bold
+
+\begin_inset Formula $C_{i}$
+\end_inset
+
+
+\series default
+ separati da spazio, nell'ordine in cui sono disposti sul tavolo.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file di output deve essere composto da tre righe per ciascun testcase:
+\end_layout
+
+\begin_layout Itemize
+Riga 1: la dicitura 
+\series bold
+Case #x:
+\series default
+ dove 
+\series bold
+x
+\series default
+ è il numero del testcase (a partire da 1).
+ 
+\end_layout
+
+\begin_layout Itemize
+Riga 2: il numero di diverse carte 
+\series bold
+K
+\series default
+ che potrebbero rimanere sul tavolo a fine partita.
+ 
+\end_layout
+
+\begin_layout Itemize
+Riga 3: i 
+\series bold
+K
+\series default
+ interi che identificano le carte che potrebbero rimanere sul tavolo a fine
+ partita.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+1≤T≤10.
+ 
+\end_layout
+
+\begin_layout Itemize
+1≤N≤100.
+ 
+\end_layout
+
+\begin_layout Itemize
+N è sempre un numero dispari.
+ 
+\end_layout
+
+\begin_layout Itemize
+0≤
+\series bold
+
+\begin_inset Formula $C_{i}$
+\end_inset
+
+
+\series default
+​​≤N−1 per ogni i=0...N−1.
+ 
+\end_layout
+
+\begin_layout Itemize
+Ogni numero tra 0 e N−1 compare esattamente una volta nella sequenza dei
+ 
+\series bold
+
+\begin_inset Formula $C_{i}$
+\end_inset
+
+
+\series default
+​​.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.5in">
+<column alignment="left" valignment="top" width="5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+2 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+3 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+1 2 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+11 1 0 2 6 4 5 3 9 8 10 7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #1: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #2: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+2 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1.
+ Seguendo un elaborato ordine di gioco che non rientra nei margini di questo
+ problema.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Quanto costa provare ad abbinare in vari modi tutti i numeri della sequenza
+ per vedere chi rimane? Quanto è complicato da scrivere?
+\end_layout
+
+\begin_layout Itemize
+Il fatto che i numeri siano in quantità dispari e che siano esattamente
+ i primi N-1 numeri naturali (0 compreso), quali tipi di considerazioni
+ solleva?
+\end_layout
+
+\begin_layout Itemize
+Provando su un foglio di carta il secondo esempio, quali caratteristiche
+ condividono il numero 2 e il numero 8 che non hanno gli altri numeri della
+ sequenza? 
+\end_layout
+
+\begin_layout Itemize
+Se un numero 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ può rimanere sulla tavola, che caratteristiche deve avere la sottosequenza
+ di sinistra 
+\begin_inset Formula $C_{0}\ldots C_{i-1}$
+\end_inset
+
+ e quella di destra 
+\begin_inset Formula $C_{i+1}\ldots C_{N-1}$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Una prima idea che potrebbe venire, considerato che il numero di carte è
+ al massimo 99, è quella di provare tutti modi possibili di eliminare coppie
+ di carte e vedere di volta in volta quale carta rimane in tavola.
+ Questo approcio però, oltre a non essere di semplice implementazione, è
+ sicuramente molto oneroso da un punto di vista computazionale: senza entrare
+ troppo nel dettaglio, il numero di modi con cui possono essere estratte
+ le coppie sono decisamente troppi, in quanto per ogni valore di N ci sono
+ al massimo N/2 coppie che possono essere estratte, scegliendone una per
+ iniziare, ne rimangono N/2 - 1 e continuando così si arriva a una complessità
+ che alla peggio è di tipo 
+\begin_inset Formula $O(N!)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Come in altri casi, un'analisi attenta degli esempi e delle assunzioni permette
+ invece di individuare un algoritmo ad-hoc di complessità lineare, che permette
+ di risolvere tutti i casi di test.
+\end_layout
+
+\begin_layout Standard
+Il fatto che i numeri siano in quantità dispari e che siano compresi tra
+ 0 e N-1, con ogni numero che compare una e una sola volta, permette di
+ derivare che nell'insieme ci saranno sempre (N-1)/2 numeri pari e (N-1)/2
+ - 1 numeri dispari.
+ Questo garantisce che, qualunque sia l'ordine con cui verranno estratte
+ le coppie, rimarrà sempre un numero sul tavolo e che questo sarà per forza
+ un numero pari.
+ Inoltre un numero 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ potrà rimanere se e solo se sia alla sua destra che alla sua sinistra ci
+ saranno la stessa quantità di numeri pari e dispari.
+ Difatti se questo non fosse vero, eliminando via via le coppie si arriverebbe
+ a una situazione in cui da una parte e dall'altra rimarrebbero numeri non
+ più accoppiabili e quindi sarebbe necessario usare il numero 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ per continuare a formare coppie, che, come detto, è sempre possibile formare
+ fino a quando non rimane un numero solo.
+ Per verificarlo basta vedere figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Controesempio-di-carta"
+
+\end_inset
+
+, in cui ci si domanda se il numero 6 potrà rimanere sul tavolo.
+ Come si vede la quantità di numeri pari a sinistra è 2 mentre i numeri
+ dispari sono 1, mentre i numeri pari a destra del 6 sono 3 i i dispari
+ sono 4.
+ Eliminando le coppie in figura evidenziate con le freccie che le uniscono,
+ rimane a sinistra un pari (il 2) e a destra un dispari (il 7) e quindi
+ il 6 dovrà essere messo insieme al 7 e non potrà rimanere come ultima carta
+ (è facile notare che le coppie scelte, che avrebbero anche potuto essere
+ differenti, non influenzano il risultato finale).
+ Provando con qualsiasi altro numero pari in questo esempio si nota che
+ solo il 2 e l'8, che soddisfano la condizione richiesta, hanno la possibilità
+ di rimanere sul tavolo una volta tolte tutte le coppie possibili.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2017_scommessa/esempio.eps
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Controesempio-di-carta"
+
+\end_inset
+
+Controesempio di carta rimasta
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int T, N;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int k = 0; k < T; k++)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		vector <int> esclusi;
+\end_layout
+
+\begin_layout Plain Layout
+
+		in >> N;
+\end_layout
+
+\begin_layout Plain Layout
+
+		int pari = N/2 + 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+		int dispari = N/2;
+\end_layout
+
+\begin_layout Plain Layout
+
+		int pari_prima = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+		int dispari_prima = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int i = 0; i < N; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			int n;
+\end_layout
+
+\begin_layout Plain Layout
+
+			in >> n;
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (n%2 == 0){
+\end_layout
+
+\begin_layout Plain Layout
+
+				pari--;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+			else
+\end_layout
+
+\begin_layout Plain Layout
+
+				dispari--;
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (pari == dispari && pari_prima == dispari_prima)
+\end_layout
+
+\begin_layout Plain Layout
+
+				esclusi.push_back(n);
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (n%2 == 0){
+\end_layout
+
+\begin_layout Plain Layout
+
+				pari_prima++;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+			else
+\end_layout
+
+\begin_layout Plain Layout
+
+				dispari_prima++;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << "Case #" << k+1 << ":" << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << esclusi.size() << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (auto i: esclusi)
+\end_layout
+
+\begin_layout Plain Layout
+
+			out << i << " ";
+\end_layout
+
+\begin_layout Plain Layout
+
+		out << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
