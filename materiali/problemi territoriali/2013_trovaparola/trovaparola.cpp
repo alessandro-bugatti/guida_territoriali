@@ -33,7 +33,7 @@ stack <char> percorso;
 
 bool naviga(int i, int j, int l)
 {
-	if (l == strlen(parola)-1 && matrice[i][j] == parola[l] )
+	if (l == strlen(parola))
 		return true;
 	if (matrice[i][j] != parola[l])
 		return false;
@@ -47,6 +47,7 @@ bool naviga(int i, int j, int l)
 		percorso.push('D');
 		return true;
 	}
+	return false;
 }
 
 int main()
