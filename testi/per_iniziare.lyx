@@ -1673,8 +1673,21 @@ Utilizzo di Linux
 
 \begin_layout Standard
 Dall'edizione 2014-2015 l'organizzazione nazionale ha invitato le sedi territori
-ali che avevano la possibilità di farlo a proporre agli studenti il sistema
- operativo Linux, con la suite di compilazione 
+ali che avevano la possibilità di farlo
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Va comunque verificato cosa verrà usato nella propria sede di gara, poichè
+ l'utilizzo di Linux non è obbligatorio e alcune sedi potrebbero ancora
+ utilizzare Windows.
+ 
+\end_layout
+
+\end_inset
+
+ a proporre agli studenti il sistema operativo Linux, con la suite di compilazio
+ne 
 \emph on
 gcc
 \emph default
