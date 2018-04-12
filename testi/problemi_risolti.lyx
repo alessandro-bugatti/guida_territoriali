@@ -20078,7 +20078,13 @@ File output.txt
 \begin_layout Plain Layout
 
 \family typewriter
-11 1 0 2 6 4 5 3 9 8 10 7
+11 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+1 0 2 6 4 5 3 9 8 10 7
 \end_layout
 
 \end_inset
@@ -20313,9 +20319,15 @@ Quindi il problema si riduce, scelto un certo elemento
 \begin_inset Formula $C_{i}$
 \end_inset
 
-, a stabilire il numero di elementi pari e dispari alla sua sinistra e alla
- sua destra e verificare se soddisfano la condizione richiesta, risolvendo
- così il problema con un algoritmo di complessità lineare.
+, a stabilire quanti elementi pari e dispari si trovano alla sua sinistra
+ e verificare se soddisfano la condizione richiesta, risolvendo così il
+ problema con un algoritmo di complessità lineare.
+ Si può notare che è sufficiente contare gli elementi alla sinistra di 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+, perchè se viene soddisfatta la condizione su quegli elementi è per forza
+ soddisfatta anche per quelli alla sua destra.
 \end_layout
 
 \begin_layout Standard
@@ -20326,7 +20338,7 @@ La soluzione potrebbe essere quindi implementata in questo modo:
 \begin_inset listings
 lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
 inline false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -20384,12 +20396,7 @@ int main()
 
 \begin_layout Plain Layout
 
-		int pari_dx = N/2 + 1, dispari_dx = N/2;
-\end_layout
-
-\begin_layout Plain Layout
-
-		int pari_sx = 0, dispari_sx = 0;
+		int pari = 0, dispari = 0;
 \end_layout
 
 \begin_layout Plain Layout
@@ -20414,27 +20421,7 @@ int main()
 
 \begin_layout Plain Layout
 
-			if (n%2 == 0)
-\end_layout
-
-\begin_layout Plain Layout
-
-				pari_dx--;
-\end_layout
-
-\begin_layout Plain Layout
-
-			else
-\end_layout
-
-\begin_layout Plain Layout
-
-				dispari_dx--;
-\end_layout
-
-\begin_layout Plain Layout
-
-			if (n%2 == 0 && pari_dx == dispari_dx && pari_sx == dispari_sx)
+			if (n%2 == 0 && pari == dispari)
 \end_layout
 
 \begin_layout Plain Layout
@@ -20449,7 +20436,7 @@ int main()
 
 \begin_layout Plain Layout
 
-				pari_sx++;
+				pari++;
 \end_layout
 
 \begin_layout Plain Layout
@@ -20459,7 +20446,7 @@ int main()
 
 \begin_layout Plain Layout
 
-				dispari_sx++;
+				dispari++;
 \end_layout
 
 \begin_layout Plain Layout
@@ -20507,10 +20494,6 @@ int main()
 }
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -20518,15 +20501,13 @@ int main()
 
 \begin_layout Standard
 Come si vede nel codice, per ogni caso di test (ciclo alla riga 8), viene
- letto il numero di carte che verranno usate nella partita e con questo
- valore si inizializzano la quantità di numeri pari e dispari alla destra
- della posizione corrente (riga 12) e alla sua sinistra (riga 13), che inizialme
-nte sono 0.
- Successivamente si leggono i valori delle N carte e per ognuno si aggiornano
- le quantità alla sua destra (righe 18-21), si verifica se vengono soddisfatte
- le condizioni perchè la carta rimanga come ultima carta sul tavolo (riga
- 22, il valore deve essere pari e la quantità di numeri pari e dispari a
- destra e a sinistra della posizione che si sta analizzando devono essere
+ letto il numero di carte che verranno usate nella partita e si inizializzano
+ la quantità di numeri pari e dispari alla sinistra della posizione corrente
+ a 0 (riga 12).
+ Successivamente si leggono i valori delle N carte e per ognuno si verifica
+ se vengono soddisfatte le condizioni perchè la carta rimanga come ultima
+ carta sul tavolo (riga 17, il valore deve essere pari e le quantità di
+ numeri pari e dispari alla sinistra del numero appena letto devono essere
  uguali).
  Se la condizione è soddisfatta allora il numero viene inserito nel vettore
  
@@ -20544,7 +20525,1082 @@ Dopo aver letto tutti i numeri che compongono il caso di test non rimane
 \emph on
 esclusi
 \emph default
- (righe 29-33).
+ (righe 24-28).
+\end_layout
+
+\begin_layout Section
+Appetito aracnide - Territoriali 2017
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Subsection*
+Appetito aracnide (tecla)
+\end_layout
+
+\begin_layout Subsubsection*
+Difficoltà: 2
+\end_layout
+
+\begin_layout Subsubsection*
+\noindent
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Ape Maya è rimasta intrappolata in un nodo della tela di Tecla, un ragno
+ molto temuto tra le api dell’alveare.
+ Tecla si affretta ad afferrarla ma, quando giunge su quel nodo, si accorge
+ di non avere appetito, e dice “BLEAH”.
+ Va detto che l’appetito dei ragni è molto particolare: ogni volta che percorron
+o un filamento della loro rete, essi invertono lo stato del loro stomaco
+ tra “SLURP” e “BLEAH”.
+ Tecla deve quindi farsi un giretto nella rete sperando di tornare da Maya
+ in stato “SLURP”.
+\end_layout
+
+\begin_layout Plain Layout
+La tela di Tecla è composta da 
+\emph on
+N
+\emph default
+ nodi (numerati da 
+\emph on
+0
+\emph default
+ a 
+\emph on
+N - 1
+\emph default
+) connessi tra loro da 
+\emph on
+M
+\emph default
+ filamenti.
+ Tecla e Ape Maya all’inizio si trovano entrambe nel nodo 
+\emph on
+0
+\emph default
+, e ogni filamento può essere attraversato da Tecla in entrambe le direzioni.
+ Aiuta Tecla ad individuare una passeggiata funzionale al buon appetito!
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga del file di input contiene un intero 
+\series bold
+T
+\series default
+, il numero di testcase.
+ Seguono 
+\series bold
+T
+\series default
+ testcase, ognuno dei quali composto da 
+\series bold
+M+1
+\series default
+ righe:
+\end_layout
+
+\begin_layout Itemize
+Riga 1: gli interi 
+\series bold
+N
+\series default
+ ed 
+\series bold
+M
+\series default
+, il numero di nodi e di filamenti della tela..
+ 
+\end_layout
+
+\begin_layout Itemize
+Righe 2…
+\series bold
+M+1
+\series default
+: due interi separati da spazio 
+\emph on
+u, v
+\emph default
+, dove 
+\emph on
+u
+\emph default
+ e 
+\emph on
+v
+\emph default
+ identificano i due nodi ai capi del filamento 
+\emph on
+i
+\emph default
+-esimo.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file di output deve essere composto da tre righe per ciascun testcase:
+\end_layout
+
+\begin_layout Itemize
+Riga 1: la dicitura 
+\series bold
+Case #x:
+\series default
+ dove 
+\series bold
+x
+\series default
+ è il numero del testcase (a partire da 1).
+ 
+\end_layout
+
+\begin_layout Itemize
+Riga 2: il numero di spostamenti 
+\series bold
+L
+\series default
+ che Tecla deve compiere nella sua passeggiata.
+\end_layout
+
+\begin_layout Itemize
+Riga 3: 
+\series bold
+L+1
+\series default
+ numeri separati da uno spazio, di cui il primo e l’ultimo devono essere
+ 0 (nodo di partenza e di arrivo), e gli altri sono i nodi come visitati
+ da Tecla nell’ordine (e possono avere ripetizioni).
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+1≤T≤50.
+\end_layout
+
+\begin_layout Itemize
+1≤N≤30.
+\end_layout
+
+\begin_layout Itemize
+1≤M≤100.
+ 
+\end_layout
+
+\begin_layout Itemize
+In ogni filamento, 
+\emph on
+u≠v
+\emph default
+ e sono entrambi compresi tra 0 e N - 1.
+\end_layout
+
+\begin_layout Itemize
+Si garantisce l’esistenza di una soluzione: Ape Maya è spacciata!
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.5in">
+<column alignment="left" valignment="top" width="5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+2 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+3 3 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0 1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+1 2 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+2 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+8 12 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0 1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+1 2 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+2 3 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+3 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+2 4 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+3 4 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+4 5 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+5 6 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+6 7 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+7 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0 5 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+6 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #1: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+3 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0 2 1 0
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #2: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+7 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0 5 6 3 4 2 3 0 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Spiegazione
+\end_layout
+
+\begin_layout Plain Layout
+Nel 
+\series bold
+primo caso di esempio
+\series default
+, la tela di Tecla è come nella figura seguente, dove il percorso da seguire
+ è evidenziato in rosso (con le frecce per stampa in B/N):
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2017_tecla/esempio_1_testo.png
+	lyxscale 25
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Nel 
+\series bold
+secondo caso di esempio
+\series default
+, la tela e il percorso sono:
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2017_tecla/esempio_2_testo.png
+	lyxscale 25
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Sembra evidente che il problema riguardi i grafi, in particolare quale algoritmo
+ sembra appropriato per risolverlo (visite, cammino minimo, altro)?
+\end_layout
+
+\begin_layout Itemize
+Rispetto a un percorso 
+\begin_inset Quotes eld
+\end_inset
+
+standard
+\begin_inset Quotes erd
+\end_inset
+
+, in cui ogni nodo viene attraversato una volta sola, quante volte può essere
+ attraversato un nodo appartenente alla soluzione (esattamente una, più
+ di una, al massimo ....)?
+\end_layout
+
+\begin_layout Itemize
+Lo stato di Tecla è un'informazione che riguarda solo Tecla oppure in qualche
+ modo deve essere memorizzata anche nel grafo?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Per arrivare alla soluzione si può partire da un paio di osservazioni:
+\end_layout
+
+\begin_layout Itemize
+usando una visita in profondità si può costruire un percorso chiuso, con
+ qualche modifica alla normale visita in cui ogni nodo viene visitato una
+ volta sola
+\end_layout
+
+\begin_layout Itemize
+un nodo può essere attraversato al massimo due volte, in particolare viene
+ visitato un nodo se:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+non è mai stato visto prima
+\end_layout
+
+\begin_layout Itemize
+è stato visto prima, ma ripassandoci lo stato di Tecla cambia rispetto alla
+ visita precedente.
+ Chiaramente passare per un nodo una terza volta porterebbe per forza Tecla
+ in uno stato con cui aveva già effettuato la visita in precedenza, quindi
+ in una situazione indistinguibile dalla precedente e come conseguenza porterebb
+e a una ricorsione infinita.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Da queste due osservazioni segue che utilizzando una visita in profondità
+ con backtracking e applicando le considerazioni sopra esposte verrà trovata
+ una soluzione (che è garantito esserci).
+ Il backtracking è necessario perchè, come detto, bisogna provare più percorsi
+ e quindi lo stesso nodo può essere riutilizzato all'interno di percorsi
+ diversi.
+ L'implementazione scelta è quella ricorsiva, per la semplicità di scrittura.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+enum tipo{BLEAH,SLURP};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+struct Nodo{
+\end_layout
+
+\begin_layout Plain Layout
+
+    list <int> nodi_collegati;
+\end_layout
+
+\begin_layout Plain Layout
+
+    int tipo;
+\end_layout
+
+\begin_layout Plain Layout
+
+    int passaggi = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Nodo nodi[30];
+\end_layout
+
+\begin_layout Plain Layout
+
+list<int> soluzione;
+\end_layout
+
+\begin_layout Plain Layout
+
+bool finito;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void inizializza()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    soluzione.clear();
+\end_layout
+
+\begin_layout Plain Layout
+
+    finito = false;
+\end_layout
+
+\begin_layout Plain Layout
+
+    soluzione.push_back(0);
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int i = 0; i < 30; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        nodi[i].passaggi = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+        nodi[i].nodi_collegati.clear();
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void naviga(int i)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (auto n: nodi[i].nodi_collegati)
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (nodi[n].passaggi == 0 || 
+\end_layout
+
+\begin_layout Plain Layout
+
+			(nodi[n].passaggi == 1 && nodi[i].tipo == nodi[n].tipo))
+\end_layout
+
+\begin_layout Plain Layout
+
+        {
+\end_layout
+
+\begin_layout Plain Layout
+
+            if (n == 0 && nodi[i].tipo == BLEAH)
+\end_layout
+
+\begin_layout Plain Layout
+
+            {
+\end_layout
+
+\begin_layout Plain Layout
+
+                finito = true;
+\end_layout
+
+\begin_layout Plain Layout
+
+                return;
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+            soluzione.push_back(n);
+\end_layout
+
+\begin_layout Plain Layout
+
+            nodi[n].passaggi++;
+\end_layout
+
+\begin_layout Plain Layout
+
+            if (nodi[i].tipo == BLEAH)
+\end_layout
+
+\begin_layout Plain Layout
+
+                nodi[n].tipo = SLURP;
+\end_layout
+
+\begin_layout Plain Layout
+
+            else
+\end_layout
+
+\begin_layout Plain Layout
+
+                nodi[n].tipo = BLEAH;
+\end_layout
+
+\begin_layout Plain Layout
+
+            naviga(n);
+\end_layout
+
+\begin_layout Plain Layout
+
+            if (finito) return;
+\end_layout
+
+\begin_layout Plain Layout
+
+            soluzione.pop_back();
+\end_layout
+
+\begin_layout Plain Layout
+
+            nodi[n].passaggi--;
+\end_layout
+
+\begin_layout Plain Layout
+
+            if (nodi[n].tipo == BLEAH)
+\end_layout
+
+\begin_layout Plain Layout
+
+                nodi[n].tipo = SLURP;
+\end_layout
+
+\begin_layout Plain Layout
+
+            else
+\end_layout
+
+\begin_layout Plain Layout
+
+                nodi[n].tipo = BLEAH;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int T, N;
+\end_layout
+
+\begin_layout Plain Layout
+
+	ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int k = 0; k < T; k++)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+        int N, M;
+\end_layout
+
+\begin_layout Plain Layout
+
+        inizializza();
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> N >> M;
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << "Case #" << k+1 << ":" << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (int i = 0; i < M; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+        {
+\end_layout
+
+\begin_layout Plain Layout
+
+            int parte, arriva;
+\end_layout
+
+\begin_layout Plain Layout
+
+            in >> parte >> arriva;
+\end_layout
+
+\begin_layout Plain Layout
+
+            nodi[parte].nodi_collegati.push_back(arriva);
+\end_layout
+
+\begin_layout Plain Layout
+
+            nodi[arriva].nodi_collegati.push_back(parte);
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        naviga(0);
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << soluzione.size() << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (auto i: soluzione)
+\end_layout
+
+\begin_layout Plain Layout
+
+            out << i << " ";
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << "0" << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il nodo in questo programma viene definito, oltre che dalla solita lista
+ dei nodi collegati (riga 4), anche dal 
+\emph on
+tipo
+\emph default
+, che rappresenta lo stato che aveva Tecla l'ultima volta che è passata
+ in quel nodo (BLEAH o SLURP), e dal numero di 
+\emph on
+passaggi
+\emph default
+, che saranno 0 se il nodo non è mai stato visitato, 1 se è stato visitato
+ solo una volta e 2 se Tecla è passata due volte: come detto in precedenza
+ questo valore non sarà mai maggiore di 2.
+\end_layout
+
+\begin_layout Standard
+Il grafo sarà quindi rappresentato da un vettore di nodi (riga 9), la soluzione
+ sarà la lista di interi che rappresenta i nodi ordinati attraverso cui
+ deve passare Tecla (riga 10) e inoltre si farà uso della variabile booleana
+ 
+\emph on
+finito
+\emph default
+ (riga 11), che, come si vedrà, verrà utilizzata all'interno della funzione
+ ricorsiva per terminare la ricerca una volta trovata una soluzione.
+\end_layout
+
+\begin_layout Standard
+La funzione 
+\emph on
+inizializza
+\emph default
+ (riga 13 e seguenti) ha il solo scopo di 
+\begin_inset Quotes eld
+\end_inset
+
+pulire
+\begin_inset Quotes erd
+\end_inset
+
+ le varie strutture dati utilizzate, sempre per il motivo che, avendo nel
+ file di input più casi di test, ogni volta si calcola la soluzione bisogna
+ reinizializzare tutte le variabili necessarie al funzionamento dell'algoritmo
+ risolutivo.
+\end_layout
+
+\begin_layout Standard
+Il nocciolo della soluzione si trova all'interno della funzione ricorsiva
+ 
+\emph on
+naviga
+\emph default
+ (riga 25), che come unico parametro utilizza il nodo che andrà a visitare.
+ Data quindi la visita del nodo 
+\emph on
+i
+\emph default
+-esimo, vengono iterati con un 
+\series bold
+for
+\series default
+ (riga 27) tutti i nodi ad esso collegati e, tramite l'
+\series bold
+if
+\series default
+ successivo, si procede con la visita se:
+\end_layout
+
+\begin_layout Itemize
+il nodo non è mai stato visitato prima da Tecla (riga 29), oppure
+\end_layout
+
+\begin_layout Itemize
+il nodo è già stato visitato una volta in precedenza, ma la nuova visita
+ porta Tecla in uno stato diverso da quello in cui era entrata precedentemente
+ (riga 30)
+\end_layout
+
+\begin_layout Standard
+Il primo 
+\series bold
+if
+\series default
+ controlla quindi se si è arrivati alla soluzione, cioè se il nodo che si
+ sta andando a visitare sarà il nodo 0 e se si entrerà con Tecla in stato
+ SLURP (quindi la condizione è che nel nodo corrente 
+\emph on
+i
+\emph default
+-esimo lei sia nello stato BLEAH).
+ Nel caso questa condizione sia verificata si va ad impostare a true il
+ flag 
+\emph on
+finito
+\emph default
+ e si esce dalla chiamata ricorsiva corrente.
+\end_layout
+
+\begin_layout Standard
+Altrimenti si prosegue con la ricorsione, andando a inserire il nodo che
+ si andrà a visitare nella ipotetica soluzione e andando a settare i suoi
+ parametri, cioè il tipo e il numero di passaggi, nelle righe dalla 37 alla
+ 42.
+ Alla riga 43 viene avviata la ricorsione sul nuovo nodo e nelle righe successiv
+e, a cui si ritornerà una volta finita la visita ricorsiva del nodo 
+\emph on
+n
+\emph default
+, viene 
+\begin_inset Quotes eld
+\end_inset
+
+smontato
+\begin_inset Quotes erd
+\end_inset
+
+ lo stato del nodo 
+\emph on
+n
+\emph default
+ per riportarlo alla situazione precedente alla visita (quindi viene fatto
+ backtracking).
+ Da notare l'
+\series bold
+if
+\series default
+ alla riga 44 che, controllando il flag 
+\emph on
+finito
+\emph default
+, interrompe la ricorsione evitando che la lista che contiene la soluzione
+ venga svuotata come conseguenza della terminazione della ricorsione.
+\end_layout
+
+\begin_layout Standard
+Infine il 
+\emph on
+main
+\emph default
+ si occuperà solo della lettura dei dati, inserendo gli archi, che non sono
+ orientati, sia nel nodo di partenza che in quello di arrivo (righe 71-72),
+ chiamando la funzione ricorsiva sul nodo 0 e successivamente stampando
+ il contenuto della lista 
+\emph on
+soluzione
+\emph default
+, che, come visto, verrà riempita dalla funzione 
+\emph on
+naviga
+\emph default
+.
 \end_layout
 
 \end_body
