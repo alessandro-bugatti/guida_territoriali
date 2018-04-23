@@ -211,7 +211,16 @@ target "lulu.it"
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset VSpace 7cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename isbn_barcode_quinta.jpg
+	lyxscale 50
+	scale 30
+
 \end_inset
 
 
@@ -219,12 +228,6 @@ target "lulu.it"
 
 \begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename isbn_barcode_quinta.pdf
-
-\end_inset
-
-
 \begin_inset Newpage pagebreak
 \end_inset
 
