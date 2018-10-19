@@ -3321,7 +3321,7 @@ La soluzione più ovvia di questo problema è piuttosto banale: dopo aver
  tutti i giorni in cui può essere acquistata l'essenza (ciclo esterno alla
  riga 11) e si prova a fare la differenza con i valori nei giorni successivi
  fino a un massimo di K giorni, stando anche attenti a non uscire dal vettore.
- É interessante notare che il controllo sula non uscita dal vettore (
+ É interessante notare che il controllo sulla non uscita dal vettore (
 \begin_inset Formula $i+j<N$
 \end_inset
 
@@ -17044,7 +17044,7 @@ Il codice risulta quindi il seguente:
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+lstparams "language={C++},numbers=left,basicstyle={\small\ttfamily},showstringspaces=false,tabsize=4,frame=lr"
 inline false
 status collapsed
 
@@ -17984,7 +17984,7 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
-status collapsed
+status open
 
 \begin_layout Subsection*
 Sentieri bollenti (sentieri) 
@@ -18010,14 +18010,7 @@ Mojito, il piccolo cane Jack Russell mascotte delle OII, ha accompagnato
  Ad esempio, nella figura sottostante, Mojito parte dal punto 1 e deve arrivare
  al punto 8.
  I sentieri bollenti sono quelli in rosso
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Nella versione stampata in bianco e nero i percorsi bollenti sono quelli
- più chiari
-\end_layout
-
+\begin_inset Formula $^{1}$
 \end_inset
 
 .
@@ -18384,6 +18377,38 @@ File output.txt
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1.
+ Nella versione stampata in bianco e nero i percorsi bollenti sono quelli
+ più chiari
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotetext{Nella versione stampata in bianco e nero i percorsi bollenti
+ sono quelli più chiari}
 \end_layout
 
 \end_inset
@@ -19340,7 +19365,7 @@ Suggerimenti
 
 \begin_layout Itemize
 Data la dimensione massima dell'input, che tipo di algoritmo può essere
- utilizzato (quadrato, lineare, logaritmico, ecc.)?
+ utilizzato (quadratico, lineare, logaritmico, ecc.)?
 \end_layout
 
 \begin_layout Itemize
@@ -19372,7 +19397,7 @@ Inizialmente si può cercare di dare una stima del costo di codifica di un
  Procedendo per tentativi e calcolando i primi termini della sequenza (eventualm
 ente scrivendo anche un programmino per visualizzarli) si può pensare che
  i primi 40 termini siano sufficienti per produrre una somma che arriva
- al massimo a un milione, poichè F(40) = 102334155.
+ al massimo a un milione, poichè F(40) = 102.334.155.
 \end_layout
 
 \begin_layout Standard
@@ -19757,7 +19782,7 @@ La funzione
 calcola_codice
 \emph default
  implementa la soluzione greedy così come descritta nel testo: inizialmente
- reimpie di zeri il vettore dei risultati (riga 17) e questo è fondamentale
+ riempie di zeri il vettore dei risultati (riga 17) e questo è fondamentale
  nella nuova modalità di sottoposizione, in cui il programma calcola tante
  soluzioni quanti sono i casi di test contenuti nell'unico file di input
  e quindi ogni volta bisogna garantire che le variabili siano inizializzate
@@ -19778,8 +19803,11 @@ while
 \emph on
 risultato
 \emph default
- un 1 nella posizione corrispondente all'i-esimo numero di Fibonacci incluso
- nella codifica.
+ un 1 nella posizione corrispondente all'
+\emph on
+i
+\emph default
+-esimo numero di Fibonacci incluso nella codifica.
 \end_layout
 
 \begin_layout Standard
@@ -20202,15 +20230,15 @@ Soluzione
 
 \begin_layout Standard
 Una prima idea che potrebbe venire, considerato che il numero di carte è
- al massimo 99, è quella di provare tutti modi possibili di eliminare coppie
- di carte e vedere di volta in volta quale carta rimane in tavola.
+ al massimo 99, è quella di provare tutti i modi possibili di eliminare
+ coppie di carte e vedere di volta in volta quale carta rimane in tavola.
  Questo approccio però, oltre a non essere di semplice implementazione,
  è sicuramente molto oneroso da un punto di vista computazionale: senza
  entrare troppo nel dettaglio, il numero di modi con cui possono essere
  estratte le coppie sono decisamente troppi, in quanto per ogni valore di
- N ci sono al massimo N/2 coppie che possono essere estratte, scegliendone
- una per iniziare, ne rimangono N/2 - 1 e continuando così si arriva a una
- complessità che alla peggio è di tipo 
+ N ci sono al massimo N-1 coppie che possono essere estratte, scegliendone
+ poi una per iniziare, ne rimangono (N-2) - 1 e continuando così si arriva
+ a una complessità che alla peggio è di tipo 
 \begin_inset Formula $O(N!)$
 \end_inset
 
@@ -20219,7 +20247,7 @@ Una prima idea che potrebbe venire, considerato che il numero di carte è
 \end_layout
 
 \begin_layout Standard
-Come in altri casi, un'analisi attenta degli esempi e delle assunzioni permette
+Come in altri casi, un'attenta analisi degli esempi e delle assunzioni permette
  invece di individuare un algoritmo 
 \emph on
 ad-hoc
@@ -20251,8 +20279,8 @@ se e solo se
 \begin_inset Formula $C_{i}$
 \end_inset
 
- per continuare a formare coppie, che, come detto, è sempre possibile formare
- fino a quando non rimane un numero solo.
+ per continuare a formare coppie, che, come detto nele ipotesi, è sempre
+ possibile formare fino a quando non rimane un numero solo.
  Per verificarlo basta vedere figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -21540,8 +21568,11 @@ if
 i
 \emph default
 -esimo lei sia nello stato BLEAH).
- Nel caso questa condizione sia verificata si va ad impostare a true il
- flag 
+ Nel caso questa condizione sia verificata si va ad impostare a 
+\emph on
+true
+\emph default
+ il flag 
 \emph on
 finito
 \emph default
@@ -21571,7 +21602,11 @@ smontato
 n
 \emph default
  per riportarlo alla situazione precedente alla visita (quindi viene fatto
- backtracking).
+ 
+\emph on
+backtracking
+\emph default
+).
  Da notare l'
 \series bold
 if
