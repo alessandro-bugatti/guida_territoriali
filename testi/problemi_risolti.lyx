@@ -21879,15 +21879,25 @@ Descrizione del problema
 Mojito, il cane di Monica, vuole organizzare una festa con i suoi amici.
  Aiutalo a scegliere quali invitare e quali escludere in modo da rendere
  la festa più bella possibile.
- Mojito ha N amici, ognuno dei quali ha un grado di amicizia A
+ Mojito ha 
+\series bold
+N
+\series default
+ amici, ognuno dei quali ha un grado di amicizia 
+\series bold
+A
 \begin_inset script subscript
 
 \begin_layout Plain Layout
+
+\series bold
 i
 \end_layout
 
 \end_inset
 
+
+\series default
  che indica quanto Mojito apprezzi la sua presenza.
  Ovviamente nella lista c'è anche qualche antipatico che quindi ha un grado
  di amicizia negativo.
@@ -22136,6 +22146,230 @@ secondo caso d'esempio
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Gli antipatici potranno mai rendere una festa più bella?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Quelle del 2018 sono state le prime selezioni territoriali nelle quali è
+ stata utilizzata la nuova modalità di sottoposizione (si veda 
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "sec:Nuova-mod_sottoposizione"
+
+\end_inset
+
+), quindi immagino che l'idea degli autori fosse quella di fornire un semplice
+ problema per testare la modalità di sottoposizione, che non avesse difficoltà
+ risolutive, ma permettesse altresì di verificare se si era in grado di
+ gestire la nuova modalità.
+ Detto questo, il problema in sè è piuttosto semplice: poichè gli antipatici
+ non possono mai aumentare il valore della bellezza di una festa, avendo
+ valori di amicizia negativi, basta invitare alla festa solo gli amici simpatici
+ che hanno un grado di amicizia maggiore di 0.
+ Una soluzione quindi può essere scritta nel modo seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+    ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+    int T;
+\end_layout
+
+\begin_layout Plain Layout
+
+    in >> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int test = 1; test <= T; test++)
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << "Case #" << test << ": ";
+\end_layout
+
+\begin_layout Plain Layout
+
+        int n, bellezza = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> n;
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (int i = 0; i < n; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+        {
+\end_layout
+
+\begin_layout Plain Layout
+
+            int valore;
+\end_layout
+
+\begin_layout Plain Layout
+
+            in >> valore;
+\end_layout
+
+\begin_layout Plain Layout
+
+            if (valore > 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+                bellezza += valore;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << bellezza << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La soluzione vera e propria si trova quindi tra le righe 10-19 e non fa
+ altro che leggere il numero 
+\series bold
+n 
+\series default
+di amici (riga 11), fare un ciclo per leggere i valori di amicizia degli
+ 
+\series bold
+n 
+\series default
+amici (riga 12 e seguenti), e sommare nella variabile 
+\series bold
+bellezza 
+\series default
+solo i gradi di amicizia positivi, concludendo con la stampa del valore
+ di 
+\series bold
+bellezza
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Ritengo utile soffermarmi un attimo ancora sulle peculiarità del nuovo sistema
+ di sottoposizione:
+\end_layout
+
+\begin_layout Itemize
+il sistema fornisce un file di input (
+\emph on
+input.txt
+\emph default
+), che deve essere letto secondo le istruzioni del testo e che in generale
+ contiene più di una istanza del problema.
+ Questo implica che ci sarà sempre un ciclo esterno come quello alla riga
+ 7, che permette di ripetere il procedimento risolutivo per ognuna delle
+ istanze del problema.
+\end_layout
+
+\begin_layout Itemize
+una conseguenza ovvia, ma che durante la gara può essere dimenticata
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Lo dico per esperienza personale
+\end_layout
+
+\end_inset
+
+, è che ogni volta devono essere reinizializzate eventuali variabili che
+ ne abbiano necessità, ad esempio in questo problema la variabile 
+\series bold
+bellezza 
+\series default
+(riga 10)
+\end_layout
+
+\begin_layout Itemize
+il vantaggio del nuovo sistema è che, una volta eseguito sul proprio computer
+ il programma e prodotto il file di output (
+\emph on
+output.txt
+\emph default
+ in questo esempio, ma il nome è irrilevante), la sottoposizione al correttore
+ restituisca immediatamente il numero di casi di test risolti correttamente,
+ dando quindi un feedback istantaneo sulla bontà della soluzione proposta
+ e, di conseguenza, sul numero di punti guadagnati.
 \end_layout
 
 \end_body
