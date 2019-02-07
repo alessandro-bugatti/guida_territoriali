@@ -101,7 +101,7 @@ status open
 \end_layout
 
 \begin_layout Section
-Festa canina - Territoriali 2018
+Antivirus - Territoriali 2018
 \end_layout
 
 \begin_layout Standard
@@ -124,11 +124,11 @@ backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
-Festa canina (party)
+Antivirus (antivirus)
 \end_layout
 
 \begin_layout Subsubsection*
-Punteggio massimo: 6
+Punteggio massimo: 12
 \end_layout
 
 \begin_layout Subsubsection*
@@ -137,37 +137,167 @@ Descrizione del problema
 \end_layout
 
 \begin_layout Plain Layout
-Mojito, il cane di Monica, vuole organizzare una festa con i suoi amici.
- Aiutalo a scegliere quali invitare e quali escludere in modo da rendere
- la festa più bella possibile.
- Mojito ha 
+Il nuovo sistema di gara delle Selezioni Territoriali funziona alla grande,
+ ma Mojito non è così convinto...
+ sembra infatti che la nota mascotte delle Olimpiadi abbia fiutato un 
 \series bold
-N
+virus
 \series default
- amici, ognuno dei quali ha un grado di amicizia 
-\series bold
-A
+ nascosto fra i file inviati da un partecipante!
+\end_layout
+
+\begin_layout Plain Layout
+Conosciamo la lunghezza del virus e sappiamo che si ripete uguale nei quattro
+ file che abbiamo ricevuto, ma non sappiamo dove.
+ Aiutaci ad individuare il virus!
+\end_layout
+
+\begin_layout Plain Layout
+I quattro file F
 \begin_inset script subscript
 
 \begin_layout Plain Layout
+1
+\end_layout
 
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+ sono dati in input, rappresentati come quattro stringhe di caratteri di
+ lunghezza rispettivamente N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Il virus è una stringa di caratteri 
+\emph on
+V
+\emph default
+ di lunghezza 
+\emph on
+M
+\emph default
+.
+ La lunghezza 
+\emph on
+M
+\emph default
+ è data in input, ma non si conosce il contenuto della stringa 
+\emph on
+V
+\emph default
+ del virus.
+\end_layout
+
+\begin_layout Plain Layout
+Sappiamo con certezza che il virus 
+\emph on
+V
+\emph default
+ appare all'interno di tutti e quattro i file, come sottostringa di caratteri
+ consecutivi.
+ Sappiamo inoltre che 
 \series bold
+NON
+\series default
+ ci sono altre sottostringhe consecutive di lunghezza 
+\emph on
+M
+\emph default
+ che si ripetono uguali in tutti e quattro i file.
+\end_layout
+
+\begin_layout Plain Layout
+Le posizioni dei caratteri nelle stringhe sono numerati a partire da 
+\emph on
+0
+\emph default
+.
+ Per ciascuno dei quattro file F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
 i
 \end_layout
 
 \end_inset
 
-
-\series default
- che indica quanto Mojito apprezzi la sua presenza.
- Ovviamente nella lista c'è anche qualche antipatico che quindi ha un grado
- di amicizia negativo.
-\end_layout
+, trova la posizione in cui è inserito il virus, ovvero la posizione dove
+ appare il primo carattere del virus 
+\emph on
+V
+\emph default
+ all'interno della stringa F
+\begin_inset script subscript
 
 \begin_layout Plain Layout
-La bellezza della festa è definita come la somma del grado di amicizia degli
- invitati.
- Quanto può valere al massimo questa somma?
+i
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -176,44 +306,112 @@ Dati di input
 
 \begin_layout Plain Layout
 La prima riga del file di input contiene un intero 
-\series bold
+\emph on
 T
-\series default
+\emph default
 , il numero di casi di test.
  Seguono 
-\series bold
+\emph on
 T
-\series default
+\emph default
  casi di test, numerati da 1 a 
-\series bold
-T
-\series default
-.
+\emph on
+T.
+
+\emph default
  Ogni caso di test è preceduto da una riga vuota.
- In ciascun caso di test, la prima riga contiene l'unico intero 
-\series bold
-N
-\series default
-.
- La seconda riga contiene gli 
-\series bold
-N
-\series default
- interi separati da spazi, 
-\series bold
-A
+\end_layout
+
+\begin_layout Plain Layout
+In ciascun caso di test:
+\end_layout
+
+\begin_layout Itemize
+La prima riga contiene quattro interi, N
 \begin_inset script subscript
 
 \begin_layout Plain Layout
-
-\series bold
-i
+1
 \end_layout
 
 \end_inset
 
+, N
+\begin_inset script subscript
 
-\series default
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+, separati da uno spazio, che corrispondono alla lunghezza di ciascuno dei
+ quattro file.
+\end_layout
+
+\begin_layout Itemize
+La seconda riga contiene un solo intero 
+\emph on
+M
+\emph default
+, che corrisponde alla lunghezza del virus.
+\end_layout
+
+\begin_layout Itemize
+Le successive 4 righe contengono rispettivamente le quattro stringhe F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
 .
 \end_layout
 
@@ -225,24 +423,26 @@ Dati di output
 Il file di output deve contenere la risposta ai casi di test che sei riuscito
  a risolvere.
  Per ogni caso di test che hai risolto, il file di output deve contenere
- una riga con la dicitura: 
+ una riga con la dicitura
 \end_layout
 
 \begin_layout Verbatim
 
-Case #t: k 
+Case #t: p1 p2 p3 p4
 \end_layout
 
 \begin_layout Plain Layout
 dove 
-\series bold
+\emph on
 t
-\series default
- è il numero del caso di test (a partire da 1) e 
-\series bold
-k
-\series default
- è il massimo valore di bellezza ottenibile.
+\emph default
+ è il numero del caso di test (a partire da 1) e i valori 
+\emph on
+p1, p2, p3, p4
+\emph default
+ sono le posizioni in cui si trova il virus in ciascuno dei quattro file.
+ Con posizione si intende l'indice del primo carattere del virus, il primo
+ carattere del file ha indice zero.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -250,30 +450,108 @@ Assunzioni
 \end_layout
 
 \begin_layout Itemize
-T=6, sono presenti 6 casi di input (nell'esempio per brevità ne sono mostrati
- solo 2)
+
+\emph on
+T
+\emph default
+=12, sono presenti 12 casi di input.
 \end_layout
 
 \begin_layout Itemize
-1≤N≤10.000, il numero di amici di Mojito.
-\end_layout
-
-\begin_layout Itemize
-−100≤A
+2 ≤ N
 \begin_inset script subscript
 
 \begin_layout Plain Layout
-i
+1
 \end_layout
 
 \end_inset
 
- ≤100, il grado di amicizia dell'i-esimo amico.
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+ ≤ 100, i file non sono più lunghi di 100 caratteri.
 \end_layout
 
 \begin_layout Itemize
-È anche possibile che Mojito festeggi senza amici, in tal caso la festa
- ha valore 0.
+2≤M≤20, il virus non è più lungo di 20 caratteri.
+\end_layout
+
+\begin_layout Itemize
+M≤min(N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+), il virus non è più lungo del file più corto.
+\end_layout
+
+\begin_layout Itemize
+Tutti i caratteri dei file sono lettere minuscole dell'alfabeto inglese
+ (dalla a alla z), 
+\series bold
+NON
+\series default
+ sono presenti spazi.
+\end_layout
+
+\begin_layout Itemize
+È garantito che il virus esiste ed è unico.
 \end_layout
 
 \begin_layout Plain Layout
@@ -313,7 +591,18 @@ File output.txt
 \begin_layout Plain Layout
 
 \family typewriter
-2 
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+2
 \end_layout
 
 \begin_layout Plain Layout
@@ -326,13 +615,87 @@ File output.txt
 \begin_layout Plain Layout
 
 \family typewriter
-8 
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+8 12 10 7
+4
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
-1 -4 5 -2 -1 8 0 1 
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+ananasso
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+associazione
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+tassonomia
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+massone
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -345,13 +708,103 @@ File output.txt
 \begin_layout Plain Layout
 
 \family typewriter
-3 
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+6 9 11 10
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
--1 -2 -4 
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+3
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+simone
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+ponessimo
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+milionesimo
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+cassonetto
 \end_layout
 
 \end_inset
@@ -362,13 +815,13 @@ File output.txt
 \begin_layout Plain Layout
 
 \family typewriter
-Case #1: 15
+Case #1: 4 0 1 1
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
-Case #2: 0
+Case #2: 3 1 4 4
 \end_layout
 
 \end_inset
@@ -390,18 +843,67 @@ Nel
 \series bold
 primo caso d'esempio
 \series default
- la soluzione si ottiene invitando il primo, il terzo, il sesto, il settimo
- e l'ottavo amico, totalizzando una somma di 15.
- 
+ il virus è 
+\series bold
+asso
+\series default
+: anan
+\series bold
+asso
+\series default
+, 
+\series bold
+asso
+\series default
+ciazione, t
+\series bold
+asso
+\series default
+nomia, m
+\series bold
+asso
+\series default
+ne
 \end_layout
 
 \begin_layout Plain Layout
+\noindent
 Nel 
 \series bold
 secondo caso d'esempio
 \series default
- la soluzione si ottiene non invitando alcun amico, totalizzando quindi
- 0.
+ il virus è 
+\series bold
+one
+\series default
+: sim
+\series bold
+one
+\series default
+, p
+\series bold
+one
+\series default
+ssimo, mili
+\series bold
+one
+\series default
+simo, cass
+\series bold
+one
+\series default
+tto.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Nota che 
+\series bold
+sim
+\series default
+ è presente nei primi tre file ma non nel quarto, quindi non è il virus
+ cercato.
 \end_layout
 
 \end_inset
@@ -413,39 +915,15 @@ secondo caso d'esempio
 Suggerimenti
 \end_layout
 
-\begin_layout Itemize
-Gli antipatici potranno mai rendere una festa più bella?
-\end_layout
-
 \begin_layout Subsection
 Soluzione
-\end_layout
-
-\begin_layout Standard
-Quelle del 2018 sono state le prime selezioni territoriali nelle quali è
- stata utilizzata la nuova modalità di sottoposizione (si veda 
-\begin_inset CommandInset ref
-LatexCommand pageref
-reference "sec:Nuova-mod_sottoposizione"
-
-\end_inset
-
-), quindi immagino che l'idea degli autori fosse quella di fornire un semplice
- problema per testare la modalità di sottoposizione, che non avesse difficoltà
- risolutive, ma permettesse altresì di verificare se si era in grado di
- gestire la nuova modalità.
- Detto questo, il problema in sè è piuttosto semplice: poichè gli antipatici
- non possono mai aumentare il valore della bellezza di una festa, avendo
- valori di amicizia negativi, basta invitare alla festa solo gli amici simpatici
- che hanno un grado di amicizia maggiore di 0.
- Una soluzione quindi può essere scritta nel modo seguente:
 \end_layout
 
 \begin_layout Standard
 \begin_inset listings
 lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
 inline false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -494,17 +972,57 @@ int main()
 
 \begin_layout Plain Layout
 
-        int n, bellezza = 0;
+        int trash;
 \end_layout
 
 \begin_layout Plain Layout
 
-        in >> n;
+        int l_virus;
 \end_layout
 
 \begin_layout Plain Layout
 
-        for (int i = 0; i < n; i++)
+        string F[4];
+\end_layout
+
+\begin_layout Plain Layout
+
+        vector<string> viruses;
+\end_layout
+
+\begin_layout Plain Layout
+
+        string soluzione;
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> trash >> trash >> trash >> trash;
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> l_virus;
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> F[0] >> F[1] >> F[2] >> F[3];
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (int i = 0; i < F[0].size() - l_virus; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+            viruses.push_back(F[0].substr(i, l_virus));
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (auto virus: viruses)
 \end_layout
 
 \begin_layout Plain Layout
@@ -514,22 +1032,32 @@ int main()
 
 \begin_layout Plain Layout
 
-            int valore;
+            bool trovato = true;
 \end_layout
 
 \begin_layout Plain Layout
 
-            in >> valore;
+            for (int j = 1; j < 4; j++)
 \end_layout
 
 \begin_layout Plain Layout
 
-            if (valore > 0)
+                if (F[j].find(virus) == string::npos)
 \end_layout
 
 \begin_layout Plain Layout
 
-                bellezza += valore;
+                    trovato = false;
+\end_layout
+
+\begin_layout Plain Layout
+
+            if (trovato)
+\end_layout
+
+\begin_layout Plain Layout
+
+                soluzione = virus;
 \end_layout
 
 \begin_layout Plain Layout
@@ -539,7 +1067,17 @@ int main()
 
 \begin_layout Plain Layout
 
-        out << bellezza << endl;
+        for (auto i: F)
+\end_layout
+
+\begin_layout Plain Layout
+
+            out << i.find(soluzione) << " ";
+\end_layout
+
+\begin_layout Plain Layout
+
+        out <<  endl;
 \end_layout
 
 \begin_layout Plain Layout
@@ -560,77 +1098,6 @@ int main()
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-La soluzione vera e propria si trova quindi tra le righe 10-19 e non fa
- altro che leggere il numero 
-\series bold
-n 
-\series default
-di amici (riga 11), fare un ciclo per leggere i valori di amicizia degli
- 
-\series bold
-n 
-\series default
-amici (riga 12 e seguenti), e sommare nella variabile 
-\series bold
-bellezza 
-\series default
-solo i gradi di amicizia positivi, concludendo con la stampa del valore
- di 
-\series bold
-bellezza
-\series default
-.
-\end_layout
-
-\begin_layout Standard
-Ritengo utile soffermarmi un attimo ancora sulle peculiarità del nuovo sistema
- di sottoposizione:
-\end_layout
-
-\begin_layout Itemize
-il sistema fornisce un file di input (
-\emph on
-input.txt
-\emph default
-), che deve essere letto secondo le istruzioni del testo e che in generale
- contiene più di una istanza del problema.
- Questo implica che ci sarà sempre un ciclo esterno come quello alla riga
- 7, che permette di ripetere il procedimento risolutivo per ognuna delle
- istanze del problema.
-\end_layout
-
-\begin_layout Itemize
-una conseguenza ovvia, ma che durante la gara può essere dimenticata
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Lo dico per esperienza personale
-\end_layout
-
-\end_inset
-
-, è che ogni volta devono essere reinizializzate eventuali variabili che
- ne abbiano necessità, ad esempio in questo problema la variabile 
-\series bold
-bellezza 
-\series default
-(riga 10)
-\end_layout
-
-\begin_layout Itemize
-il vantaggio del nuovo sistema è che, una volta eseguito sul proprio computer
- il programma e prodotto il file di output (
-\emph on
-output.txt
-\emph default
- in questo esempio, ma il nome è irrilevante), la sottoposizione al correttore
- restituisca immediatamente il numero di casi di test risolti correttamente,
- dando quindi un feedback istantaneo sulla bontà della soluzione proposta
- e, di conseguenza, sul numero di punti guadagnati.
 \end_layout
 
 \end_body
