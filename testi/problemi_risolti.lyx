@@ -22372,5 +22372,1239 @@ output.txt
  e, di conseguenza, sul numero di punti guadagnati.
 \end_layout
 
+\begin_layout Section
+Antivirus - Territoriali 2018
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Subsection*
+Antivirus (antivirus)
+\end_layout
+
+\begin_layout Subsubsection*
+Punteggio massimo: 12
+\end_layout
+
+\begin_layout Subsubsection*
+\noindent
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Il nuovo sistema di gara delle Selezioni Territoriali funziona alla grande,
+ ma Mojito non è così convinto...
+ sembra infatti che la nota mascotte delle Olimpiadi abbia fiutato un 
+\series bold
+virus
+\series default
+ nascosto fra i file inviati da un partecipante!
+\end_layout
+
+\begin_layout Plain Layout
+Conosciamo la lunghezza del virus e sappiamo che si ripete uguale nei quattro
+ file che abbiamo ricevuto, ma non sappiamo dove.
+ Aiutaci ad individuare il virus!
+\end_layout
+
+\begin_layout Plain Layout
+I quattro file F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+ sono dati in input, rappresentati come quattro stringhe di caratteri di
+ lunghezza rispettivamente N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Il virus è una stringa di caratteri 
+\emph on
+V
+\emph default
+ di lunghezza 
+\emph on
+M
+\emph default
+.
+ La lunghezza 
+\emph on
+M
+\emph default
+ è data in input, ma non si conosce il contenuto della stringa 
+\emph on
+V
+\emph default
+ del virus.
+\end_layout
+
+\begin_layout Plain Layout
+Sappiamo con certezza che il virus 
+\emph on
+V
+\emph default
+ appare all'interno di tutti e quattro i file, come sottostringa di caratteri
+ consecutivi.
+ Sappiamo inoltre che 
+\series bold
+NON
+\series default
+ ci sono altre sottostringhe consecutive di lunghezza 
+\emph on
+M
+\emph default
+ che si ripetono uguali in tutti e quattro i file.
+\end_layout
+
+\begin_layout Plain Layout
+Le posizioni dei caratteri nelle stringhe sono numerati a partire da 
+\emph on
+0
+\emph default
+.
+ Per ciascuno dei quattro file F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+, trova la posizione in cui è inserito il virus, ovvero la posizione dove
+ appare il primo carattere del virus 
+\emph on
+V
+\emph default
+ all'interno della stringa F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga del file di input contiene un intero 
+\emph on
+T
+\emph default
+, il numero di casi di test.
+ Seguono 
+\emph on
+T
+\emph default
+ casi di test, numerati da 1 a 
+\emph on
+T.
+
+\emph default
+ Ogni caso di test è preceduto da una riga vuota.
+\end_layout
+
+\begin_layout Plain Layout
+In ciascun caso di test:
+\end_layout
+
+\begin_layout Itemize
+La prima riga contiene quattro interi, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+, separati da uno spazio, che corrispondono alla lunghezza di ciascuno dei
+ quattro file.
+\end_layout
+
+\begin_layout Itemize
+La seconda riga contiene un solo intero 
+\emph on
+M
+\emph default
+, che corrisponde alla lunghezza del virus.
+\end_layout
+
+\begin_layout Itemize
+Le successive 4 righe contengono rispettivamente le quattro stringhe F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file di output deve contenere la risposta ai casi di test che sei riuscito
+ a risolvere.
+ Per ogni caso di test che hai risolto, il file di output deve contenere
+ una riga con la dicitura
+\end_layout
+
+\begin_layout Verbatim
+
+Case #t: p1 p2 p3 p4
+\end_layout
+
+\begin_layout Plain Layout
+dove 
+\emph on
+t
+\emph default
+ è il numero del caso di test (a partire da 1) e i valori 
+\emph on
+p1, p2, p3, p4
+\emph default
+ sono le posizioni in cui si trova il virus in ciascuno dei quattro file.
+ Con posizione si intende l'indice del primo carattere del virus, il primo
+ carattere del file ha indice zero.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+T
+\emph default
+=12, sono presenti 12 casi di input.
+\end_layout
+
+\begin_layout Itemize
+2 ≤ N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+ ≤ 100, i file non sono più lunghi di 100 caratteri.
+\end_layout
+
+\begin_layout Itemize
+2≤M≤20, il virus non è più lungo di 20 caratteri.
+\end_layout
+
+\begin_layout Itemize
+M≤min(N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+), il virus non è più lungo del file più corto.
+\end_layout
+
+\begin_layout Itemize
+Tutti i caratteri dei file sono lettere minuscole dell'alfabeto inglese
+ (dalla a alla z), 
+\series bold
+NON
+\series default
+ sono presenti spazi.
+\end_layout
+
+\begin_layout Itemize
+È garantito che il virus esiste ed è unico.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.5in">
+<column alignment="left" valignment="top" width="5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+2
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+8 12 10 7
+4
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+ananasso
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+associazione
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+tassonomia
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+massone
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+6 9 11 10
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+3
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+simone
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+ponessimo
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+milionesimo
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+cassonetto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #1: 4 0 1 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #2: 3 1 4 4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Spiegazione
+\end_layout
+
+\begin_layout Plain Layout
+Nel 
+\series bold
+primo caso d'esempio
+\series default
+ il virus è 
+\series bold
+asso
+\series default
+: anan
+\series bold
+asso
+\series default
+, 
+\series bold
+asso
+\series default
+ciazione, t
+\series bold
+asso
+\series default
+nomia, m
+\series bold
+asso
+\series default
+ne
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Nel 
+\series bold
+secondo caso d'esempio
+\series default
+ il virus è 
+\series bold
+one
+\series default
+: sim
+\series bold
+one
+\series default
+, p
+\series bold
+one
+\series default
+ssimo, mili
+\series bold
+one
+\series default
+simo, cass
+\series bold
+one
+\series default
+tto.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Nota che 
+\series bold
+sim
+\series default
+ è presente nei primi tre file ma non nel quarto, quindi non è il virus
+ cercato.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Meglio stringhe C o C++?
+\end_layout
+
+\begin_layout Itemize
+Come si cerca una stringa all'interno di un'altra stringa?
+\end_layout
+
+\begin_layout Itemize
+Come può aiutare il fatto di sapere già la dimensione del virus?
+\end_layout
+
+\begin_layout Itemize
+Date le dimensioni del problema, è fattibile una soluzione a forza bruta?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Il passo elementare nella soluzione di questo problema prevede di cercare
+ una stringa all'interno di un'altra, cosa che può essere fatta in due modi:
+\end_layout
+
+\begin_layout Itemize
+implementando una piccola funzione che risolva il problema
+\end_layout
+
+\begin_layout Itemize
+usando la funzionalità presente nelle librerie di C e C++, 
+\emph on
+strstr
+\emph default
+ e 
+\emph on
+find
+\emph default
+, rispettivamente.
+\end_layout
+
+\begin_layout Standard
+Sapendo verificare la presenza di una stringa all'interno di un'altra, ci
+ si può iniziare a domandare come fare a scoprire quale stringa in particolare
+ è il virus cercato, dal momento che se ne conosce la dimensione, ma non
+ il contenuto.
+\end_layout
+
+\begin_layout Standard
+Un semplice algoritmo risolutivo consiste nel prendere tutte le sottostringhe
+ di caratteri consecutivi di lunghezza 
+\emph on
+M
+\emph default
+ all'interno di uno dei quattro file, il primo per semplicità, e avere quindi
+ una lista di candidati ad essere virus: tra tutti questi candidati solo
+ uno sarà presente contemporaneamente nei tre file rimanenti, quindi basterà
+ provare con tutti fino a trovare quello che soddisfa questa proprietà.
+\end_layout
+
+\begin_layout Standard
+Prima di guardare l'implementazione può valere la pena soffermarsi sul costo
+ computazionale della soluzione proposta.
+ La prima domanda riguarda il numero di virus candidati: quanti possono
+ essere al massimo? Essendo i file lunghi al massimo 100 e i virus lunghi
+ al minimo 2, il numero massimo di virus candidati è 99, che è il numero
+ di stringhe di 2 caratteri consecutivi all'interno di una stringa di lunghezza
+ 100.
+\end_layout
+
+\begin_layout Standard
+Anche avendo 99 stringhe candidate a essere virus, la ricerca di ognuna
+ di esse all'interno dei 3 file rimasti ha un costo basso, in generale proporzio
+nale a
+\family typewriter
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+O(3*numero\_candidati*numero\_confronti)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dove 
+\family typewriter
+numero_confronti
+\family default
+ è il numero di confronti che devono essere fatti all'interno di ogni stringa
+ per vedere se contiene o meno il virus.
+ Siccome anche ogni altra stringa (file) al massimo è lunga 100, il numero
+ di confronti che un algoritmo di ricerca banale fa è di nuovo proporzionale
+ a 100.
+ Questa analisi ci conforta sul fatto che, date le dimensioni del problema,
+ non serve andare a cercare una soluzione più sofisticata di quella descritta,
+ e quindi una possibibile inplementazione è la seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+    ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+    int T;
+\end_layout
+
+\begin_layout Plain Layout
+
+    in >> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int test = 1; test <= T; test++)
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << "Case #" << test << ": ";
+\end_layout
+
+\begin_layout Plain Layout
+
+        int trash;
+\end_layout
+
+\begin_layout Plain Layout
+
+        int l_virus;
+\end_layout
+
+\begin_layout Plain Layout
+
+        string F[4];
+\end_layout
+
+\begin_layout Plain Layout
+
+        vector<string> viruses;
+\end_layout
+
+\begin_layout Plain Layout
+
+        string soluzione;
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> trash >> trash >> trash >> trash;
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> l_virus;
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> F[0] >> F[1] >> F[2] >> F[3];
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (int i = 0; i < F[0].size() - l_virus; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+            viruses.push_back(F[0].substr(i, l_virus));
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (auto virus: viruses)
+\end_layout
+
+\begin_layout Plain Layout
+
+        {
+\end_layout
+
+\begin_layout Plain Layout
+
+            bool trovato = true;
+\end_layout
+
+\begin_layout Plain Layout
+
+            for (int j = 1; j < 4; j++)
+\end_layout
+
+\begin_layout Plain Layout
+
+                if (F[j].find(virus) == string::npos)
+\end_layout
+
+\begin_layout Plain Layout
+
+                    trovato = false;
+\end_layout
+
+\begin_layout Plain Layout
+
+            if (trovato)
+\end_layout
+
+\begin_layout Plain Layout
+
+                soluzione = virus;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (auto file: F)
+\end_layout
+
+\begin_layout Plain Layout
+
+            out << file.find(soluzione) << " ";
+\end_layout
+
+\begin_layout Plain Layout
+
+        out <<  endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La soluzione si trova tra la riga 9 e la 31 e utilizza le stringhe C++ per
+ raggiungere il risultato richiesto.
+ Tra le variabili utilizzate vale la pena notare il vettore 
+\emph on
+F
+\emph default
+ di quattro 
+\family typewriter
+string
+\family default
+ per contenere i quattro file, il 
+\emph on
+vector
+\emph default
+ di 
+\emph on
+string
+\emph default
+ 
+\family typewriter
+viruses
+\family default
+ per contenere i virus candidati e
+\family typewriter
+ l_virus
+\family default
+ che rappresenta la lunghezza del virus.
+\end_layout
+
+\begin_layout Standard
+Utilizzando le stringhe C++ (ma probabilmente lo stesso discorso si sarebbe
+ potuto fare con le stringhe C), i primi quattro interi che rappresentano
+ la lunghezza delle stringhe sono di fatto inutili e quindi vengono letti,
+ perchè ovviamente non si può non farlo, ma i loro valori vengono 
+\begin_inset Quotes eld
+\end_inset
+
+buttati via
+\begin_inset Quotes erd
+\end_inset
+
+ nella variabile 
+\family typewriter
+trash
+\family default
+ (riga 15).
+ Dopo aver letto le quattro stringhe (file), viene presa la prima e viene
+ utilizzata per inserire nel vettore viruses tutti i virus candidati (righe
+ 18-19), stando attenti a prendere solo sottostringhe di lunghezza 
+\family typewriter
+l_virus
+\family default
+ e non più corte: questo spiega perchè 
+\family typewriter
+i
+\family default
+ viene fermato a 
+\family typewriter
+F[0].size() - l_virus
+\family default
+ e non a 
+\family typewriter
+F[0].size()
+\family default
+, altrimenti la 
+\emph on
+substring
+\emph default
+ avrebbe generato in coda stringhe di lunghezza via via più corta, portando
+ a un errore nell'algoritmo.
+\end_layout
+
+\begin_layout Standard
+Una volta creato il vettore dei possibili virus, viene fatta un'iterazione
+ per ognuno di essi, usando il costrutto 
+\emph on
+foreach
+\emph default
+ del C++ 2011 (riga 20) e, per ognuno di essi, si utilizza il metodo find
+ per verificare se 
+\series bold
+non
+\series default
+ compare, poichè in quel caso non è sicuramente il virus cercato.
+ Per verificare la condizione 
+\begin_inset Quotes eld
+\end_inset
+
+la sottostringa non è presente nella stringa
+\begin_inset Quotes erd
+\end_inset
+
+ si confronta il valore di ritorno di 
+\emph on
+find
+\emph default
+ con 
+\emph on
+string::npos
+\emph default
+, che è ciò che ritorna 
+\emph on
+find
+\emph default
+ quando non trova la stringa, altrimenti ritorna la sua posizione.
+ La stringa dell'insieme 
+\family typewriter
+viruses
+\family default
+ che viene trovata in tutti e tre i file viene memorizzata nella variabile
+ 
+\family typewriter
+soluzione
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+A questo punto non rimane che stampare la posizione all'interno delle quattro
+ stringhe utilizzando ancora il metodo 
+\emph on
+find
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Un'ultima osservazione: per ridurre il numero di virus candidati si sarebbe
+ potuta scegliere tra le quattro stringhe F quella di lunghezza minore,
+ ma, come osservato durante l'analisi del costo del problema, non ci sarebbero
+ stati vantaggi significativi.
+\end_layout
+
 \end_body
 \end_document
