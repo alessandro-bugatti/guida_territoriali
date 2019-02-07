@@ -915,8 +915,108 @@ sim
 Suggerimenti
 \end_layout
 
+\begin_layout Itemize
+Meglio stringhe C o C++?
+\end_layout
+
+\begin_layout Itemize
+Come si cerca una stringa all'interno di un'altra stringa?
+\end_layout
+
+\begin_layout Itemize
+Come può aiutare il fatto di sapere già la dimensione del virus?
+\end_layout
+
+\begin_layout Itemize
+Date le dimensioni del problema, è fattibile una soluzione a forza bruta?
+\end_layout
+
 \begin_layout Subsection
 Soluzione
+\end_layout
+
+\begin_layout Standard
+Il passo elementare nella soluzione di questo problema prevede di cercare
+ una stringa all'interno di un'altra, cosa che può essere fatta in due modi:
+\end_layout
+
+\begin_layout Itemize
+implementando una piccola funzione che risolva il problema
+\end_layout
+
+\begin_layout Itemize
+usando la funzionalità presente nelle librerie di C e C++, 
+\emph on
+strstr
+\emph default
+ e 
+\emph on
+find
+\emph default
+, rispettivamente.
+\end_layout
+
+\begin_layout Standard
+Sapendo verificare la presenza di una stringa all'interno di un'altra, ci
+ si può iniziare a domandare come fare a scoprire quale stringa in particolare
+ è il virus cercato, dal momento che se ne conosce la dimensione, ma non
+ il contenuto.
+\end_layout
+
+\begin_layout Standard
+Un semplice algoritmo risolutivo consiste nel prendere tutte le sottostringhe
+ di caratteri consecutivi di lunghezza 
+\emph on
+M
+\emph default
+ all'interno di uno dei quattro file, il primo per semplicità, e avere quindi
+ una lista di candidati ad essere virus: tra tutti questi candidati solo
+ uno sarà presente contemporaneamente nei tre file rimanenti, quindi basterà
+ provare con tutti fino a trovare quello che soddisfa questa proprietà.
+\end_layout
+
+\begin_layout Standard
+Prima di guardare l'implementazione può valere la pena soffermarsi sul costo
+ computazionale della soluzione proposta.
+ La prima domanda riguarda il numero di virus candidati: quanti possono
+ essere al massimo? Essendo i file lunghi al massimo 100 e i virus lunghi
+ al minimo 2, il numero massimo di virus candidati è 99, che è il numero
+ di stringhe di 2 caratteri consecutivi all'interno di una stringa di lunghezza
+ 100.
+\end_layout
+
+\begin_layout Standard
+Anche avendo 99 stringhe candidate a essere virus, la ricerca di ognuna
+ di esse all'interno dei 3 file rimasti ha un costo basso, in generale proporzio
+nale a
+\family typewriter
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+O(3*numero\_candidati*numero\_confronti)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dove 
+\family typewriter
+numero_confronti
+\family default
+ è il numero di confronti che devono essere fatti all'interno di ogni stringa
+ per vedere se contiene o meno il virus.
+ Siccome anche ogni altra stringa (file) al massimo è lunga 100, il numero
+ di confronti che un algoritmo di ricerca banale fa è di nuovo proporzionale
+ a 100.
+ Questa analisi ci conforta sul fatto che, date le dimensioni del problema,
+ non serve andare a cercare una soluzione più sofisticata di quella descritta,
+ e quindi una possibibile inplementazione è la seguente:
 \end_layout
 
 \begin_layout Standard
@@ -1067,12 +1167,12 @@ int main()
 
 \begin_layout Plain Layout
 
-        for (auto i: F)
+        for (auto file: F)
 \end_layout
 
 \begin_layout Plain Layout
 
-            out << i.find(soluzione) << " ";
+            out << file.find(soluzione) << " ";
 \end_layout
 
 \begin_layout Plain Layout
@@ -1098,6 +1198,140 @@ int main()
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+La soluzione si trova tra la riga 9 e la 31 e utilizza le stringhe C++ per
+ raggiungere il risultato richiesto.
+ Tra le variabili utilizzate vale la pena notare il vettore 
+\emph on
+F
+\emph default
+ di quattro 
+\family typewriter
+string
+\family default
+ per contenere i quattro file, il 
+\emph on
+vector
+\emph default
+ di 
+\emph on
+string
+\emph default
+ 
+\family typewriter
+viruses
+\family default
+ per contenere i virus candidati e
+\family typewriter
+ l_virus
+\family default
+ che rappresenta la lunghezza del virus.
+\end_layout
+
+\begin_layout Standard
+Utilizzando le stringhe C++ (ma probabilmente lo stesso discorso si sarebbe
+ potuto fare con le stringhe C), i primi quattro interi che rappresentano
+ la lunghezza delle stringhe sono di fatto inutili e quindi vengono letti,
+ perchè ovviamente non si può non farlo, ma i loro valori vengono 
+\begin_inset Quotes eld
+\end_inset
+
+buttati via
+\begin_inset Quotes erd
+\end_inset
+
+ nella variabile 
+\family typewriter
+trash
+\family default
+ (riga 15).
+ Dopo aver letto le quattro stringhe (file), viene presa la prima e viene
+ utilizzata per inserire nel vettore viruses tutti i virus candidati (righe
+ 18-19), stando attenti a prendere solo sottostringhe di lunghezza 
+\family typewriter
+l_virus
+\family default
+ e non più corte: questo spiega perchè 
+\family typewriter
+i
+\family default
+ viene fermato a 
+\family typewriter
+F[0].size() - l_virus
+\family default
+ e non a 
+\family typewriter
+F[0].size()
+\family default
+, altrimenti la 
+\emph on
+substring
+\emph default
+ avrebbe generato in coda stringhe di lunghezza via via più corta, portando
+ a un errore nell'algoritmo.
+\end_layout
+
+\begin_layout Standard
+Una volta creato il vettore dei possibili virus, viene fatta un'iterazione
+ per ognuno di essi, usando il costrutto 
+\emph on
+foreach
+\emph default
+ del C++ 2011 (riga 20) e, per ognuno di essi, si utilizza il metodo find
+ per verificare se 
+\series bold
+non
+\series default
+ compare, poichè in quel caso non è sicuramente il virus cercato.
+ Per verificare la condizione 
+\begin_inset Quotes eld
+\end_inset
+
+la sottostringa non è presente nella stringa
+\begin_inset Quotes erd
+\end_inset
+
+ si confronta il valore di ritorno di 
+\emph on
+find
+\emph default
+ con 
+\emph on
+string::npos
+\emph default
+, che è ciò che ritorna 
+\emph on
+find
+\emph default
+ quando non trova la stringa, altrimenti ritorna la sua posizione.
+ La stringa dell'insieme 
+\family typewriter
+viruses
+\family default
+ che viene trovata in tutti e tre i file viene memorizzata nella variabile
+ 
+\family typewriter
+soluzione
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+A questo punto non rimane che stampare la posizione all'interno delle quattro
+ stringhe utilizzando ancora il metodo 
+\emph on
+find
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Un'ultima osservazione: per ridurre il numero di virus candidati si sarebbe
+ potuta scegliere tra le quattro stringhe F quella di lunghezza minore,
+ ma, come osservato durante l'analisi del costo del problema, non ci sarebbero
+ stati vantaggi significativi.
 \end_layout
 
 \end_body
