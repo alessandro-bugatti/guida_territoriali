@@ -1,0 +1,4 @@
+# Artifatti dei progetti codeblocks
+*.layout
+*.depend
+*.cbp
