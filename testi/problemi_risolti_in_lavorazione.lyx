@@ -456,7 +456,6 @@ File output.txt
 \noun off
 \color none
 100 0 1 1
-
 \end_layout
 
 \end_inset
@@ -545,6 +544,7 @@ Graficamente:
 
 \begin_layout Verbatim
 \noindent
+
 .
  x x .
  <-- azionamento 1
@@ -552,11 +552,13 @@ Graficamente:
 
 \begin_layout Verbatim
 \noindent
+
 x x x x <-- azionamento 2
 \end_layout
 
 \begin_layout Verbatim
 \noindent
+
 .
  .
  x .
@@ -565,11 +567,13 @@ x x x x <-- azionamento 2
 
 \begin_layout Verbatim
 \noindent
+
 -------
 \end_layout
 
 \begin_layout Verbatim
 \noindent
+
 1 2 3 1 <-- totale radiazione accumulata
 \end_layout
 
@@ -803,14 +807,145 @@ Nel caso (
 \emph on
 a
 \emph default
-),
+), la macchina a 
+\emph on
+raggi x
+\emph default
+ non può irraggiare dal primo all'ultimo centimetro per 4 volte, perchè
+ altrimenti anche i centimetri 2 e 3 riceverebbero una dose non corretta,
+ in quanto quelle parti non devono ricevere proprio nessuna dose: quindi
+ l'unica possibilità è quella di irraggiare 4 volte il centimetro 1 e altre
+ 4 volte il centimetro 4, per un totale di 8 irraggiamenti.
+ Invece nel caso (
+\emph on
+b
+\emph default
+), siccome ogni centimetro deve ricevere la stessa dose, si può irraggiare
+ tutto l'osso per 4 volte, usando quindi solo 4 irraggiamenti.
+ Sembra quindi evidente che:
+\end_layout
+
+\begin_layout Itemize
+ogni centimetro di osso non può ricevere più irraggiamenti della quantità
+ massima a lui assegnata
+\end_layout
+
+\begin_layout Itemize
+se si riescono a raggruppare centimetri adiacenti che hanno necessità della
+ stessa quantità di raggi x si risparmia sul numero di irraggiamenti, irraggiand
+o per una lunghezza maggiore
+\end_layout
+
+\begin_layout Standard
+Combinando queste due semplici informazioni si può realizzare un algoritmo
+ che, per ogni 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+livello
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+, cerchi tutti gli N intervalli contigui di osso che devono essere irraggiati
+ con la stessa quantità di radiazioni e quindi effettui N irraggiamenti.
+ Per 
+\emph on
+livello
+\emph default
+ si intende la quantità di radiazioni, come indicato nella figura
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:soluzione-x-ray"
+
+\end_inset
+
+: la figura rappresenta il caso d'esempio a cui è stato aggiunto un altro
+ centimetro da irraggiare con tre unità, per renderlo più significativo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2018_radioanalisi fossile/soluzione.eps
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:soluzione-x-ray"
+
+\end_inset
+
+Esempio grafico di algoritmo risolutivo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si vede la macchina partirà dal livello 3, nel quale ci sono due intervalli
+ da irraggiare, quello del centimetro 3 e del centimetro 5.
+ Successivamente si 
+\begin_inset Quotes eld
+\end_inset
+
+sposterà
+\begin_inset Quotes erd
+\end_inset
+
+ al livello 2, dove gli intervalli sono ancora due, quelli dei centimetri
+ 2-3 e quello del centimetro 5.
+ Infine si sposterà al livello 1, dove l'intervallo va dal centimetro 1
+ al centimetro 5, arrivando quindi a un totale di 5 irraggiamenti, che è
+ la soluzione, essendo il minimo possibile.
+\end_layout
+
+\begin_layout Standard
+Volendo implementare l'algoritmo nel modo più simile a quanto mostrato in
+ figura, si può utilizzare una matrice in cui le caselle vengano 
+\begin_inset Quotes eld
+\end_inset
+
+colorate
+\begin_inset Quotes erd
+\end_inset
+
+ per colonne come mostrato nelle figure e successivamente muoversi per livelli
+ per implementare la ricerca di intervalli contigui che contengono caselle
+ da irraggiare, ottenendo questo codice.
 \end_layout
 
 \begin_layout Standard
 \begin_inset listings
 lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
 inline false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -1095,6 +1230,178 @@ int main()
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+La funzione 
+\emph on
+inizializza
+\emph default
+ pone esplicitamente a zero tutti gli elementi della matrice globale 
+\emph on
+osso
+\emph default
+ e serve perchè la matrice deve essere resettata ad ogni nuovo caso di test.
+ La funzione 
+\emph on
+riempi_colonna
+\emph default
+ si occupa invece di riempire la colonna 
+\emph on
+c
+\emph default
+ con 
+\emph on
+n
+\emph default
+ caselle poste a 1, che nelle figure sono rappresentate dai quadrati grigi.
+ 
+\end_layout
+
+\begin_layout Standard
+L'algoritmo viene di fatto svolto interamente dalla funzione 
+\emph on
+intervalli
+\emph default
+, i cui due parametri 
+\series bold
+r 
+\series default
+e 
+\series bold
+n 
+\series default
+rappresentano rispettivamente la riga (livello) sulla quale viene conteggiato
+ il numero di intervallo e la lunghezza della riga, cioè nel problema la
+ lunghezza dell'osso.
+ L'implementazione non è ottimizzata e segue quanto esposto sopra: come
+ prima cosa, alla riga 20, si scorre fino ad arrivare al primo centimetro
+ di osso che necessita di essere irradiato: nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:soluzione-x-ray"
+
+\end_inset
+
+, se stessimo analizzando il livello 2, corrisponderebbe al centimetro 2.
+ Successivamente il ciclo 
+\emph on
+while
+\emph default
+ dalla riga 21 alla riga 26 contiene due ulteriori cicli, il primo per scorrere
+ un intero intervallo di 1 adiacenti, il secondo per un intervallo di 0
+ adiacenti, con lo scopo di trovare un intervallo e posizionare 
+\emph on
+i
+\emph default
+ in modo che sia pronto per la ricerca dell'intervallo successivo.
+ Da notare che entrambi i cicli, oltre a contenere la condizione che verifica
+ se la casella 
+\emph on
+i
+\emph default
+-esima contiene un 1 o uno 0, contengono anche il controllo sul non superamento
+ della lunghezza massima 
+\emph on
+n
+\emph default
+: se così non fosse 
+\emph on
+i
+\emph default
+ potrebbe uscire dalla lunghezza massima della riga con risultati imprevedibili
+ (nella migliore delle ipotesi terminazione del programma, nella peggiore
+ risultati non corretti).
+ È inoltre indispensabile notare che il controllo 
+\emph on
+i < n
+\emph default
+ deve essere inserito come prima condizione dell'operatore di AND, poichè
+ in questo modo se la condizione fallisce non viene considerata l'altra
+ condizione
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Questa caratteristica di alcuni operatori booleani in alcuni linguaggi di
+ programmazione viene tecnicamente chiamata 
+\emph on
+short-circuit evaluation
+\emph default
+, e consiste nel valutare il secondo argomento solo se la valutazione del
+ primo non è sufficiente a determinare il valore dell'intera espressione.
+\end_layout
+
+\end_inset
+
+, che non avrebbe un valore corretto per valori di 
+\emph on
+i
+\emph default
+ maggiori o uguali a 
+\emph on
+n.
+
+\emph default
+ 
+\end_layout
+
+\begin_layout Standard
+Alla riga 25 si incrementa il contatore solo se 
+\emph on
+i
+\emph default
+ è minore di 
+\emph on
+n
+\emph default
+, questo per tenere conto del fatto che esiste almeno un intervallo (difatti
+ la funzione ritorna 
+\emph on
+conta + 1
+\emph default
+) e che l'ultimo non deve essere contato, per evitare di dover differenziare
+ tra righe che finiscono con 1 oppure con 0.
+\end_layout
+
+\begin_layout Standard
+A questo punto il programma, dopo aver inizializzato la matrice che rappresenta
+ le radiazioni che dovrà subire l'osso (righe 40-49), si limiterà a chiamare
+ questa funzione su tutti i livelli dell'intervallo (righe 50-51), sommando
+ i vari movimenti che dovrà fare per ogni livello.
+\end_layout
+
+\begin_layout Standard
+Viene lasciato al lettore l'esercizio di sostituire la matrice con un vettore
+ di interi, dove ogni valore rappresenta la quantità di radiazioni che deve
+ subire l'
+\emph on
+i
+\emph default
+-esimo centimetro di osso, ottenendo un miglioramento nell'occupazione di
+ memoria (da 
+\begin_inset Formula $N^{2}$
+\end_inset
+
+a 
+\begin_inset Formula $N$
+\end_inset
+
+) e anche delle prestazioni, che su dei test fatti permettono al programma
+ con i vettori di essere circa tre volte più veloce, pur mantenendo la stessa
+ complessità computazionale
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+La versione qui mostrata comunque in gara permetteva di prendere l'intero
+ punteggio
+\end_layout
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \end_body
