@@ -101,7 +101,7 @@ status open
 \end_layout
 
 \begin_layout Section
-Radioanalisi fossile - Territoriali 2018
+Escursione - Territoriali 2018
 \end_layout
 
 \begin_layout Standard
@@ -124,11 +124,11 @@ backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
-Radioanalisi fossile (xray)
+Escursione (escursione)
 \end_layout
 
 \begin_layout Subsubsection*
-Punteggio massimo: 19
+Punteggio massimo: 27
 \end_layout
 
 \begin_layout Subsubsection*
@@ -137,111 +137,87 @@ Descrizione del problema
 \end_layout
 
 \begin_layout Plain Layout
-È stato appena ritrovato un fossile della rarissima specie 
-\emph on
-Canis mojitus albus
-\emph default
-, ritenuta antenata della più comune 
-\emph on
-Canis mojitus familiaris
-\emph default
-.
- Per analizzarlo, gli scienziati devono trattarlo con delle radiazioni:
- ogni centimetro dell'osso deve riceverne una precisa quantità.
- La macchina che fa il trattamento può applicare radiazioni in modo uniforme
- su un qualsiasi segmento contiguo: calcola quante volte deve essere azionata
- la macchina per ottenere la giusta quantità di radiazioni su ogni punto
- dell'osso.
+Mojito vuole pianificare un'escursione sulle colline di Volterra.
+ Ha a disposizione una mappa rettangolare, in cui è indicata l'altitudine
+ della zona.
+ Mojito vuole fare un percorso che parte dall'angolo in alto a sinistra
+ della mappa e raggiunge l'angolo in basso a destra, in modo tale che il
+ dislivello massimo che è costretto a fare ad ogni spostamento sia il mimimo
+ possibile.
+ Aiuta Mojito a calcolare questo dislivello!
 \end_layout
 
 \begin_layout Plain Layout
-L'osso da trattare è lungo 
-\series bold
-N
-\series default
- centimetri, numerati da 1 a 
-\series bold
-N
-\series default
-.
- Il centimetro 
+La mappa è una tabella di numeri interi: ciascuno esprime l'altitudine in
+ metri nel corrispondente punto della mappa.
+ La tabella è composta di 
 \emph on
-i
+H
 \emph default
- deve ricevere una quantità di radiazioni specificata da un numero naturale
- R
-\begin_inset script subscript
-
-\begin_layout Plain Layout
-i
-\end_layout
-
-\end_inset
-
-.
- Il numero 
-\series bold
-N
-\series default
- ed i numeri 
-\begin_inset Formula $R_{1}\ldots R_{N}$
-\end_inset
-
- sono dati in input.
-\end_layout
-
-\begin_layout Plain Layout
-La macchina viene azionata specificando due numeri interi positivi 
+ righe e 
 \emph on
-a
+W
 \emph default
- e 
+ colonne, numerate rispettivamente da 
 \emph on
-b
-\emph default
-, che indicano gli estremi del segmento di osso su cui la macchina opera
- (
-\begin_inset Formula $a\leq b$
-\end_inset
-
-).
- Dopo tale azionamento, tutti i centimetri da 
-\emph on
-a
+1
 \emph default
  a 
 \emph on
-b
+H
 \emph default
- dell'osso accumulano 1 unità di radiazioni.
-\end_layout
-
-\begin_layout Plain Layout
-Dopo aver azionato la macchina un certo numero di volte, la quantità di
- radiazioni ricevute sul centimetro 
+ e da 
+\emph on
+1
+\emph default
+ a 
+\emph on
+W
+\emph default
+.
+ Nella cella di coordinate 
+\emph on
+(i,j)
+\emph default
+, ovvero in corrispondenza della riga 
 \emph on
 i
 \emph default
- si può conoscere contando quante volte una radiazione ha operato su quella
- zona (ovvero, quante volte la macchina è stata azionata con valori tali
- per cui 
-\begin_inset Formula $a\leq i\leq b$
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Plain Layout
-Calcola il numero minimo di volte in cui è necessario azionare la macchina
- affinché ciascuna zona 
+ e della colonna 
 \emph on
-i
+j
 \emph default
- riceva esattamente la quantità di radiazioni richiesta 
-\begin_inset Formula $R_{i}$
+, è indicato il valore dell'altitudine 
+\begin_inset Formula $A_{i,j}$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Plain Layout
+Mojito inizia l'escursione dalla cella di coordinate (1,1), in alto a sinistra,
+ ed arriva alla cella di coordinate (H,W), in basso a destra.
+ Ogni minuto si sposta di esattamente una cella, in una della quattro possibili
+ direzioni (in alto, in basso, a destra o a sinistra).
+ Non può però uscire dalla mappa.
+\end_layout
+
+\begin_layout Plain Layout
+Stabilito un percorso lungo la mappa, il 
+\series bold
+pericolo
+\series default
+ associato a quel percorso è 
+\emph on
+il massimo dislivello tra due celle consecutive lungo il percorso
+\emph default
+, ovvero la differenza di altitudine fra due celle consecutive: non cambia
+ nulla se lo spostamento è in salita o in discesa.
+\end_layout
+
+\begin_layout Plain Layout
+Calcola il pericolo minimo, fra tutti i percorsi possibili che partono dalla
+ cella (1,1) e arrivano alla cella (H,W).
 \end_layout
 
 \begin_layout Subsubsection*
@@ -249,27 +225,72 @@ Dati di input
 \end_layout
 
 \begin_layout Plain Layout
-La prima riga del file di input contiene un intero T, il numero di casi
- di test.
- Seguono T casi di test, numerati da 1 a T.
+La prima riga del file di input contiene un intero 
+\emph on
+T
+\emph default
+, il numero di casi di test.
+ Seguono 
+\emph on
+T
+\emph default
+ casi di test, numerati da 1 a 
+\emph on
+T
+\emph default
+.
  Ogni caso di test è preceduto da una riga vuota.
 \end_layout
 
 \begin_layout Plain Layout
-In ciascun caso di test, la prima riga contiene l'intero 
+In ciascun caso di test, la prima riga contiene due interi 
 \emph on
-N
+H
+\emph default
+ e 
+\emph on
+W
+\emph default
+ separati da uno spazio che corrispondono all'altezza, 
+\emph on
+H
+\emph default
+, e alla larghezza, 
+\emph on
+W
+\emph default
+, della mappa.
+ Le successive 
+\emph on
+H
+\emph default
+ righe contengono ciascuna 
+\emph on
+W
+\emph default
+ interi separati da spazi, corrispondenti all'altitudine in metri lungo
+ una riga della mappa.
+ Ovvero, in ciascun caso di test, l'altitudine 
+\emph on
+Ai,j
+\emph default
+ alle coordinate 
+\emph on
+i
+\emph default
+ e 
+\emph on
+j
+\emph default
+ appare sulla riga (
+\emph on
+i
+\emph default
++1)-esima, in posizione 
+\emph on
+j
 \emph default
 .
- La seconda riga contiene gli 
-\emph on
-N
-\emph default
- valori 
-\begin_inset Formula $R_{1}\ldots R_{N}$
-\end_inset
-
- separati da spazio.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -297,7 +318,7 @@ t
 \emph on
 p
 \emph default
- è è il minimo numero di volte in cui la macchina deve essere azionata.
+ è il minimo valore di pericolo trovato per quel test case.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -309,25 +330,32 @@ Assunzioni
 \emph on
 T
 \emph default
-=19, sono presenti 19 casi di prova.
+=27, ci sono 27 casi di prova.
 \end_layout
 
 \begin_layout Itemize
-1≤N≤1000, ovvero, l'osso è lungo al massimo 1000 centimetri.
+1≤
+\emph on
+H,W
+\emph default
+≤100, la mappa ha dimensione massima 100×100.
 \end_layout
 
 \begin_layout Itemize
-0≤R
-\begin_inset script subscript
-
-\begin_layout Plain Layout
-i
+(1,1)≠(
+\emph on
+H,W
+\emph default
+), ovvero la mappa è abbastanza grande da avere partenza e arrivo in punti
+ diversi.
 \end_layout
 
-\end_inset
-
-≤1000, ogni centimetro può dover ricevere una quantità di radiazione fino
- a 1000.
+\begin_layout Itemize
+1≤
+\emph on
+Ai,j
+\emph default
+≤1.000.000, l'altitudine in ogni cella è compresa fra 1 e 1.000.000.
 \end_layout
 
 \begin_layout Plain Layout
@@ -377,7 +405,7 @@ File output.txt
 \uwave off
 \noun off
 \color none
-2
+3
 \end_layout
 
 \begin_layout Plain Layout
@@ -400,7 +428,7 @@ File output.txt
 \uwave off
 \noun off
 \color none
-4 
+2 2
 \end_layout
 
 \begin_layout Plain Layout
@@ -416,7 +444,23 @@ File output.txt
 \uwave off
 \noun off
 \color none
-1 2 3 1
+100 150
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+110 130
 \end_layout
 
 \begin_layout Plain Layout
@@ -439,7 +483,7 @@ File output.txt
 \uwave off
 \noun off
 \color none
-4 
+4 4
 \end_layout
 
 \begin_layout Plain Layout
@@ -455,7 +499,99 @@ File output.txt
 \uwave off
 \noun off
 \color none
-100 0 1 1
+1 5 6 7
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2 4 3 8
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2 9 2 8
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3 3 2 9
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1 10
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2 4 6 8 10 12 14 16 18 20
 \end_layout
 
 \end_inset
@@ -466,13 +602,49 @@ File output.txt
 \begin_layout Plain Layout
 
 \family typewriter
-Case #1: 3
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Case #1: 20 
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
-Case #2: 101
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Case #2: 1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Case #3: 2
 \end_layout
 
 \end_inset
@@ -491,137 +663,89 @@ Spiegazione
 
 \begin_layout Plain Layout
 \noindent
-Nel 
-\series bold
-primo caso d'esempio
-\series default
-, è possibile azionare la macchina ad esempio nel seguente modo:
-\end_layout
-
-\begin_layout Enumerate
-\noindent
-segmento da 
-\emph on
-a
-\emph default
-=2 a 
-\emph on
-b
-\emph default
-=3
-\end_layout
-
-\begin_layout Enumerate
-\noindent
-segmento da 
-\emph on
-a
-\emph default
-=1 a 
-\emph on
-b
-\emph default
-=4
-\end_layout
-
-\begin_layout Enumerate
-\noindent
-segmento da 
-\emph on
-a
-\emph default
-=3 a 
-\emph on
-b
-\emph default
-=3
+Nel primo caso d'esempio, Mojito sceglie il percorso:
 \end_layout
 
 \begin_layout Plain Layout
-\noindent
-Graficamente:
-\end_layout
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2018_escursione/percorso1.png
+	scale 50
 
-\begin_layout Verbatim
-\noindent
+\end_inset
 
-.
- x x .
- <-- azionamento 1
-\end_layout
 
-\begin_layout Verbatim
-\noindent
-
-x x x x <-- azionamento 2
-\end_layout
-
-\begin_layout Verbatim
-\noindent
-
-.
- .
- x .
- <-- azionamento 3
-\end_layout
-
-\begin_layout Verbatim
-\noindent
-
--------
-\end_layout
-
-\begin_layout Verbatim
-\noindent
-
-1 2 3 1 <-- totale radiazione accumulata
 \end_layout
 
 \begin_layout Plain Layout
-\noindent
-Non ci sono soluzioni con solo 2 azionamenti o meno, quindi la risposta
- corretta è 3.
+ovvero, con i seguenti spostamenti:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+in basso
+\emph default
+, da(1,1) a (2,1), con un dislivello pari a 110−100=10 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+a destra
+\emph default
+, da (2,1) a (2,2)=(H,W), con un dislivello pari a 130−110=20.
 \end_layout
 
 \begin_layout Plain Layout
-\noindent
-Nel 
-\series bold
-secondo caso d'esempio
-\series default
-, è possibile azionare la macchina ad esempio nel seguente modo:
-\end_layout
-
-\begin_layout Enumerate
-\noindent
-segmento da 
-\emph on
-a
-\emph default
-=1a 
-\emph on
-b
-\emph default
-=1(ripeti 100 volte)
-\end_layout
-
-\begin_layout Enumerate
-\noindent
-segmento da 
-\emph on
-a
-\emph default
-=3 a 
-\emph on
-b
-\emph default
-=4
+Il pericolo del percorso è 20 (il massimo fra i dislivelli, 10 e 20).
 \end_layout
 
 \begin_layout Plain Layout
-\noindent
-Non ci sono soluzioni con solo 100 azionamenti o meno, quindi la risposta
- corretta è 101.
+Non ci sono percorsi migliori, quindi la risposta corretta è 20.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+L'altro percorso possibile è:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2018_escursione/percorso2.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+che ha dislivelli 50 e 20, e quindi ha pericolo 50.
+\end_layout
+
+\begin_layout Plain Layout
+Nel secondo caso d'esempio, Mojito sceglie il percorso:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2018_escursione/percorso3.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Gli spostamenti hanno tutti dislivello 0 o 1, quindi il pericolo del percorso
+ è 1.
+ Non ci sono percorsi di pericolo pari a 0, quindi la risposta corretta
+ è 1.
+\end_layout
+
+\begin_layout Plain Layout
+Nel terzo caso d'esempio c'è un solo percorso possibile.
 \end_layout
 
 \end_inset
@@ -633,312 +757,8 @@ Non ci sono soluzioni con solo 100 azionamenti o meno, quindi la risposta
 Suggerimenti
 \end_layout
 
-\begin_layout Itemize
-Quante volte deve essere irradiato un centimetro di osso per ottenere la
- quantità richiesta 
-\begin_inset Formula $R_{i}$
-\end_inset
-
-?
-\end_layout
-
-\begin_layout Itemize
-Se ogni centimetro venisse irradiato separatamente da ogni altro quante
- operazioni di irradiamento sarebbero necessarie in totale? Sarebbero troppe?
-\end_layout
-
-\begin_layout Itemize
-Se invece si irradiasse tutto l'osso un numero di volte pari al massimo
- valore di 
-\begin_inset Formula $R_{i}$
-\end_inset
-
-, il risultato comporterebbe un numero minimo di irraggiamenti, ma ogni
- parte sarebbe irradiata correttamente?
-\end_layout
-
-\begin_layout Itemize
-Fra le due situazioni precedenti, entrambe estreme, come raggiungere la
- situazione richiesta?
-\end_layout
-
-\begin_layout Itemize
-Se è possibile sembra convenga irradiare ogni volta un intervallo il più
- ampio possibile, ma quali sono le condizioni per cui ciò porta a un risultato
- valido? 
-\end_layout
-
-\begin_layout Itemize
-Esiste una rappresentazione grafica che può aiutare a comprendere meglio
- il problema?
-\end_layout
-
 \begin_layout Subsection
 Soluzione
-\end_layout
-
-\begin_layout Standard
-Un modo di rappresentare il problema che può aiutare a vedere la soluzione
- è quello di pensare ad ogni centimetro di osso come una 
-\begin_inset Quotes eld
-\end_inset
-
-costruzione
-\begin_inset Quotes erd
-\end_inset
-
- composta da 
-\begin_inset Formula $R_{i}$
-\end_inset
-
- mattoncini sovrapposti e quindi arrivare a una rappresentazione come quella
- in figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rappresentazione-osso"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../materiali/problemi territoriali/2018_radioanalisi fossile/esempio.eps
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:rappresentazione-osso"
-
-\end_inset
-
-Come risulterebbe il primo esempio del testo
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Perchè una rappresentazione del genere può aiutare? Si pensi alle due situazioni
- estreme poste nei suggerimenti e si provi a rappresentarle con delle situazioni
- nelle quali producano dei risultati corretti, ottenendo ad esempio quanto
- si può vedere in figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Due-casi-estremi"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/xubuntu/guida_territoriali/materiali/problemi territoriali/2018_radioanalisi fossile/casi.eps
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Due-casi-estremi"
-
-\end_inset
-
-Due casi estremi
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Nel caso (
-\emph on
-a
-\emph default
-), la macchina a 
-\emph on
-raggi x
-\emph default
- non può irraggiare dal primo all'ultimo centimetro per 4 volte, perchè
- altrimenti anche i centimetri 2 e 3 riceverebbero una dose non corretta,
- in quanto quelle parti non devono ricevere proprio nessuna dose: quindi
- l'unica possibilità è quella di irraggiare 4 volte il centimetro 1 e altre
- 4 volte il centimetro 4, per un totale di 8 irraggiamenti.
- Invece nel caso (
-\emph on
-b
-\emph default
-), siccome ogni centimetro deve ricevere la stessa dose, si può irraggiare
- tutto l'osso per 4 volte, usando quindi solo 4 irraggiamenti.
- Sembra quindi evidente che:
-\end_layout
-
-\begin_layout Itemize
-ogni centimetro di osso non può ricevere più irraggiamenti della quantità
- massima a lui assegnata
-\end_layout
-
-\begin_layout Itemize
-se si riescono a raggruppare centimetri adiacenti che hanno necessità della
- stessa quantità di raggi x si risparmia sul numero di irraggiamenti, irraggiand
-o per una lunghezza maggiore
-\end_layout
-
-\begin_layout Standard
-Combinando queste due semplici informazioni si può realizzare un algoritmo
- che, per ogni 
-\begin_inset Quotes eld
-\end_inset
-
-
-\emph on
-livello
-\emph default
-
-\begin_inset Quotes erd
-\end_inset
-
-, cerchi tutti gli N intervalli contigui di osso che devono essere irraggiati
- con la stessa quantità di radiazioni e quindi effettui N irraggiamenti.
- Per 
-\emph on
-livello
-\emph default
- si intende la quantità di radiazioni, come indicato nella figura
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:soluzione-x-ray"
-
-\end_inset
-
-: la figura rappresenta il caso d'esempio a cui è stato aggiunto un altro
- centimetro da irraggiare con tre unità, per renderlo più significativo.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../materiali/problemi territoriali/2018_radioanalisi fossile/soluzione.eps
-	scale 60
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:soluzione-x-ray"
-
-\end_inset
-
-Esempio grafico di algoritmo risolutivo
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Come si vede la macchina partirà dal livello 3, nel quale ci sono due intervalli
- da irraggiare, quello del centimetro 3 e del centimetro 5.
- Successivamente si 
-\begin_inset Quotes eld
-\end_inset
-
-sposterà
-\begin_inset Quotes erd
-\end_inset
-
- al livello 2, dove gli intervalli sono ancora due, quelli dei centimetri
- 2-3 e quello del centimetro 5.
- Infine si sposterà al livello 1, dove l'intervallo va dal centimetro 1
- al centimetro 5, arrivando quindi a un totale di 5 irraggiamenti, che è
- la soluzione, essendo il minimo possibile.
-\end_layout
-
-\begin_layout Standard
-Volendo implementare l'algoritmo nel modo più simile a quanto mostrato in
- figura, si può utilizzare una matrice in cui le caselle vengano 
-\begin_inset Quotes eld
-\end_inset
-
-colorate
-\begin_inset Quotes erd
-\end_inset
-
- per colonne come mostrato nelle figure e successivamente muoversi per livelli
- per implementare la ricerca di intervalli contigui che contengono caselle
- da irraggiare, ottenendo questo codice.
 \end_layout
 
 \begin_layout Standard
@@ -1230,178 +1050,6 @@ int main()
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-La funzione 
-\emph on
-inizializza
-\emph default
- pone esplicitamente a zero tutti gli elementi della matrice globale 
-\emph on
-osso
-\emph default
- e serve perchè la matrice deve essere resettata ad ogni nuovo caso di test.
- La funzione 
-\emph on
-riempi_colonna
-\emph default
- si occupa invece di riempire la colonna 
-\emph on
-c
-\emph default
- con 
-\emph on
-n
-\emph default
- caselle poste a 1, che nelle figure sono rappresentate dai quadrati grigi.
- 
-\end_layout
-
-\begin_layout Standard
-L'algoritmo viene di fatto svolto interamente dalla funzione 
-\emph on
-intervalli
-\emph default
-, i cui due parametri 
-\series bold
-r 
-\series default
-e 
-\series bold
-n 
-\series default
-rappresentano rispettivamente la riga (livello) sulla quale viene conteggiato
- il numero di intervallo e la lunghezza della riga, cioè nel problema la
- lunghezza dell'osso.
- L'implementazione non è ottimizzata e segue quanto esposto sopra: come
- prima cosa, alla riga 20, si scorre fino ad arrivare al primo centimetro
- di osso che necessita di essere irradiato: nella figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:soluzione-x-ray"
-
-\end_inset
-
-, se stessimo analizzando il livello 2, corrisponderebbe al centimetro 2.
- Successivamente il ciclo 
-\emph on
-while
-\emph default
- dalla riga 21 alla riga 26 contiene due ulteriori cicli, il primo per scorrere
- un intero intervallo di 1 adiacenti, il secondo per un intervallo di 0
- adiacenti, con lo scopo di trovare un intervallo e posizionare 
-\emph on
-i
-\emph default
- in modo che sia pronto per la ricerca dell'intervallo successivo.
- Da notare che entrambi i cicli, oltre a contenere la condizione che verifica
- se la casella 
-\emph on
-i
-\emph default
--esima contiene un 1 o uno 0, contengono anche il controllo sul non superamento
- della lunghezza massima 
-\emph on
-n
-\emph default
-: se così non fosse 
-\emph on
-i
-\emph default
- potrebbe uscire dalla lunghezza massima della riga con risultati imprevedibili
- (nella migliore delle ipotesi terminazione del programma, nella peggiore
- risultati non corretti).
- È inoltre indispensabile notare che il controllo 
-\emph on
-i < n
-\emph default
- deve essere inserito come prima condizione dell'operatore di AND, poichè
- in questo modo se la condizione fallisce non viene considerata l'altra
- condizione
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Questa caratteristica di alcuni operatori booleani in alcuni linguaggi di
- programmazione viene tecnicamente chiamata 
-\emph on
-short-circuit evaluation
-\emph default
-, e consiste nel valutare il secondo argomento solo se la valutazione del
- primo non è sufficiente a determinare il valore dell'intera espressione.
-\end_layout
-
-\end_inset
-
-, che non avrebbe un valore corretto per valori di 
-\emph on
-i
-\emph default
- maggiori o uguali a 
-\emph on
-n.
-
-\emph default
- 
-\end_layout
-
-\begin_layout Standard
-Alla riga 25 si incrementa il contatore solo se 
-\emph on
-i
-\emph default
- è minore di 
-\emph on
-n
-\emph default
-, questo per tenere conto del fatto che esiste almeno un intervallo (difatti
- la funzione ritorna 
-\emph on
-conta + 1
-\emph default
-) e che l'ultimo non deve essere contato, per evitare di dover differenziare
- tra righe che finiscono con 1 oppure con 0.
-\end_layout
-
-\begin_layout Standard
-A questo punto il programma, dopo aver inizializzato la matrice che rappresenta
- le radiazioni che dovrà subire l'osso (righe 40-49), si limiterà a chiamare
- questa funzione su tutti i livelli dell'intervallo (righe 50-51), sommando
- i vari movimenti che dovrà fare per ogni livello.
-\end_layout
-
-\begin_layout Standard
-Viene lasciato al lettore l'esercizio di sostituire la matrice con un vettore
- di interi, dove ogni valore rappresenta la quantità di radiazioni che deve
- subire l'
-\emph on
-i
-\emph default
--esimo centimetro di osso, ottenendo un miglioramento nell'occupazione di
- memoria (da 
-\begin_inset Formula $N^{2}$
-\end_inset
-
-a 
-\begin_inset Formula $N$
-\end_inset
-
-) e anche delle prestazioni, che su dei test fatti permettono al programma
- con i vettori di essere circa tre volte più veloce, pur mantenendo la stessa
- complessità computazionale
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-La versione qui mostrata comunque in gara permetteva di prendere l'intero
- punteggio
-\end_layout
-
-\end_inset
-
-.
- 
 \end_layout
 
 \end_body
