@@ -1,7 +1,9 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass book
 \begin_preamble
 \date{}
@@ -13,16 +15,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman palatino
-\font_sans helvet
-\font_typewriter courier
+\font_roman "palatino" "default"
+\font_sans "helvet" "default"
+\font_typewriter "courier" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -33,15 +35,24 @@
 \use_hyperref false
 \papersize a4paper
 \use_geometry true
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 0
 \index Indice
 \shortcut idx
@@ -178,7 +189,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -596,6 +607,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -706,7 +722,7 @@ Esempi di input/output
 <lyxtabular version="3" rows="2" columns="2">
 <features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -1365,7 +1381,7 @@ Utilizzare invece le funzioni di libreria permette di evitare questi problemi,
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:La-funzione-qsort"
+name "subsec:La-funzione-qsort"
 
 \end_inset
 
@@ -1779,15 +1795,10 @@ re quando implementa la funzione di comparazione: in questo esempio si sarebbe
  scambiando l'ordine delle istruzioni in modo opportuno.
 \end_layout
 
-\begin_layout Standard
-I codici completi degli esempi visti in questo paragrafo si trovano in appendice
- con il nome Ordinamento1.c e Ordinamento2.c.
-\end_layout
-
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:L'algoritmo-sort-C++"
+name "subsec:L'algoritmo-sort-C++"
 
 \end_inset
 
@@ -1929,8 +1940,7 @@ qsort
 \emph default
  del C, a patto di passargli i parametri opportuni di inizio del vettore
  e di numero di elementi da ordinare).
- L'esempio completo di utilizzo si può trovare in appendice con nome Ordinamento
-1.cpp.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1978,10 +1988,6 @@ sort(vettore,vettore + 10);
 \end_layout
 
 \begin_layout Standard
-come si può vedere nel codice Ordinamento2.cpp.
-\end_layout
-
-\begin_layout Standard
 Se infine, come visto anche per il 
 \emph on
 qsort
@@ -2004,9 +2010,9 @@ operator overloading
 \end_layout
 
 \begin_layout Standard
-Nell'esempio Ordinamento3.cpp è stata seguita la prima possibilità: la funzione
- deve essere definita in modo da restituire un booleano e avere come parametri
- due oggetti del tipo che si intende ordinare.
+Usando la prima possibilità la funzione deve essere definita in modo da
+ restituire un booleano e avere come parametri due oggetti del tipo che
+ si intende ordinare.
  
 \end_layout
 
@@ -2028,7 +2034,7 @@ bool cmp(const persona& a,const persona& b)
 
 \begin_layout Plain Layout
 
-    if (a.peso >= b.peso) return false;
+    if (a.peso > b.peso) return false;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2038,7 +2044,7 @@ bool cmp(const persona& a,const persona& b)
 
 \begin_layout Plain Layout
 
-    if (a.altezza >= b.altezza) return false;
+    if (a.altezza > b.altezza) return false;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2063,7 +2069,23 @@ bool cmp(const persona& a,const persona& b)
 
 \begin_layout Standard
 A seconda poi del codice contenuto nella funzione l'ordinamento avverrà
- di conseguenza.
+ di conseguenza e verrà chiamata nel seguente modo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sort(vettore.begin(),vettore.end(),cmp);
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2113,7 +2135,7 @@ struct persona{
 
 \begin_layout Plain Layout
 
-        if (peso >= b.peso) return false;
+        if (peso > b.peso) return false;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2123,7 +2145,7 @@ struct persona{
 
 \begin_layout Plain Layout
 
-        if (altezza >= b.altezza) return false;
+        if (altezza > b.altezza) return false;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2152,10 +2174,14 @@ struct persona{
 \end_layout
 
 \begin_layout Standard
-Il resto del programma sarà poi uguale a quello del primo esempio, poiché
- a questo punto il tipo persona sarà trattato, per quanto riguarda l'ordinamento
-, come un tipo predefinito.
- L'esempio completo si trova in appendice con nome Ordinamento4.cpp
+e la chiamata della funzione 
+\emph on
+sort
+\emph default
+ sarà poi uguale a quello del primo esempio, poiché a questo punto il tipo
+ persona sarà trattato, per quanto riguarda l'ordinamento, come un tipo
+ predefinito.
+ 
 \end_layout
 
 \begin_layout Section
@@ -2186,6 +2212,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -2272,7 +2303,7 @@ Esempi di input/output
 <lyxtabular version="3" rows="2" columns="2">
 <features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -2377,7 +2408,7 @@ File output.txt
 <lyxtabular version="3" rows="2" columns="2">
 <features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
-<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -3173,7 +3204,7 @@ Alla riga 11 viene effettuato l'ordinamento del vettore come già visto nel
  paragrafo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:La-funzione-qsort"
+reference "subsec:La-funzione-qsort"
 
 \end_inset
 
@@ -3349,7 +3380,7 @@ o e alla fine del vettore e l'elemento da cercare.
  confronto come visto al paragrafo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:L'algoritmo-sort-C++"
+reference "subsec:L'algoritmo-sort-C++"
 
 \end_inset
 
