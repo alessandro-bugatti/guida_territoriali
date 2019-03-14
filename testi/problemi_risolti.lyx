@@ -4037,14 +4037,6 @@ Questo ci garantisce inoltre di arrivare alla soluzione in meno di 3N mosse,
  a 3N.
 \end_layout
 
-\begin_layout Standard
-Rimane infine da notare che questo problema, avendo non una ma una serie
- di possibili soluzioni, verrà valutato positivamente dal correttore solo
- nel caso produca la stessa soluzione inserita nel correttore: il codice
- qui proposto, pur essendo corretto, viene considerato errato dal correttore
- automatico.
-\end_layout
-
 \begin_layout Section
 Quasi-palindromi - territoriali 2010
 \end_layout

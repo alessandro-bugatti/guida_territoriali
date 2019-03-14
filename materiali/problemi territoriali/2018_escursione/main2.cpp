@@ -72,14 +72,6 @@ int main()
                     nodi[i*W+j].push_back(Arco(abs(mappa[i][j] - mappa[i][j+1]),i*W + j+1));
             }
         dijkstra();
-        /*for (int i = 0 ; i < H*W; i++)
-            cout << costo[i] << endl;
-        for (int i = 0 ; i < H*W; i++){
-            cout << "Nodo" << i << " : ";
-            for (auto arco: nodi[i])
-                cout << "(" << arco.peso << "," << arco.nodo << ") ";
-            cout << endl;
-        }*/
         out << costo[H*W - 1] << endl;
         cout << "Case #" << test << " finished" << endl;
     }
