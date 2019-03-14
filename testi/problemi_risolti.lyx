@@ -1007,7 +1007,22 @@ Almeno questo è ciò che ricordo, ma la discussione sul problema è avvenuta
 
 \end_inset
 
- che la stesura del testo non rispecchi esattamente l'intenzione dell'ideatore,
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+enlargethispage{-
+\backslash
+baselineskip}
+\end_layout
+
+\end_inset
+
+che la stesura del testo non rispecchi esattamente l'intenzione dell'ideatore,
  che voleva si usasse un approccio greedy, cosa che è dimostrata dal fatto
  che il correttore da il massimo punteggio alle soluzioni di tipo greedy.
  Siccome però non c'è nessuna evidenza sicura che sia così se non i risultati
