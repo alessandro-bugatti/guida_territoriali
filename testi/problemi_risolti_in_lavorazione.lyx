@@ -835,8 +835,8 @@ esplorare
  del salto più alto che si è costretti a fare.
  Quando un ramo della ricorsione arriva alla casella finale, quella in posizione
  H-1, W-1, allora si verifica se il salto più alto di quel percorso è più
- basso di quello finora migliore, se sì si memorizza la nuova soluzione
- temporanea, in ogni caso, tramite 
+ basso di quello finora migliore, se sì, si memorizza la nuova soluzione
+ temporanea, e, in ogni caso, tramite 
 \emph on
 backtracking
 \emph default
@@ -858,7 +858,7 @@ Il codice comunque è il seguente:
 \begin_inset listings
 lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
 inline false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -1133,8 +1133,14 @@ int main()
 \end_layout
 
 \begin_layout Standard
-L'algoritmo è tutto contenuto nella funzione ricorsiva visita, definita
- alla riga 5.
+L'algoritmo è tutto contenuto nella funzione ricorsiva 
+\emph on
+visita
+\emph default
+, definita alla riga 5, i cui primi due parametri rappresentano le coordinate
+ della casella che viene visitata dal percorso corrente, mentre il terzo
+ è il valore attuale del salto maggiore contenuto nel percorso che si sta
+ esplorando.
  Le prime due istruzioni (righe 7-8) sono fondamentali per poter prendere
  una serie cospicua di punti: il loro scopo è quello di fermare la soluzione
  una volta che, percorrendo un sentiero, si arriva a una situazione nella
@@ -1150,6 +1156,604 @@ soluzione
 \emph default
  verrebbe scritta il costo dell'ultimo percorso esplorato, che poco probabilment
 e sarebbe quello corretto.
+ 
+\end_layout
+
+\begin_layout Standard
+Le righe dalla 9 alla 13 implementano invece la condizione di terminazione
+ della ricorsione che viene raggiunta quando il percorso arriva sulla casella
+ di destinazione.
+ L'assegnamento di 
+\emph on
+salto 
+\emph default
+a 
+\emph on
+soluzione 
+\emph default
+è determinato dal fatto che nelle righe precedenti si controllava già se
+ 
+\emph on
+salto
+\emph default
+ era maggiore o uguale a 
+\emph on
+soluzione
+\emph default
+ e nel caso si usciva, quindi a questo punto 
+\emph on
+salto
+\emph default
+ è per forza la 
+\emph on
+soluzione 
+\emph default
+temporanea
+\emph on
+.
+\end_layout
+
+\begin_layout Standard
+La ricorsione vera e propria viene fatta nelle righe successive: per permettere
+ il 
+\emph on
+backtracking 
+\emph default
+si tiene da parte il valore contenuto nella cella attuale, che dovrà successivam
+ente essere reinserito, e lo sostituisce con un -1, in modo da evitare percorsi
+ che ripassino più volte sulla stessa casella.
+ 
+\end_layout
+
+\begin_layout Standard
+La struttura definita tra le righe 16 e 17 serve solo a permettere al ciclo
+ 
+\emph on
+for
+\emph default
+ di esplorare le quattro direzioni, poichè ogni elemento del vettore 
+\emph on
+direzioni
+\emph default
+ contiene una direzione (basso, destra, alto, sinistra) e quindi è possibile
+ iterare sulle direzioni.
+\end_layout
+
+\begin_layout Standard
+Detta a parole questa ricorsione funziona così:
+\end_layout
+
+\begin_layout Itemize
+per ognuna delle quattro direzioni (riga 19)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+se la casella si trova all'interno della matrice (riga 22) e non è già contenuta
+ nel percorso corrente (riga 23)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+se il salto maggiore visto fino a questo momento è maggiore del salto per
+ spostarsi dalla casella 
+\emph on
+r,c
+\emph default
+ a quella 
+\emph on
+r+i, c+j
+\emph default
+, allora ci si sposta ricorsivamente in quella casella passando il valore
+ di 
+\emph on
+salto
+\end_layout
+
+\begin_layout Itemize
+altrimenti ci si sposta ricorsivamente in quella casella passando il valore
+ assoluto della differenza tra le due caselle, perchè da questo momento
+ è quello il valore di salto maggiore trovato 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+Infine viene reinserito (riga 31) nella casella 
+\emph on
+r,c
+\emph default
+ il valore che in precedenza era stato sostituito con il -1, in modo da
+ permettere ad altri rami della ricorsione di poter usare quella casella
+ (quindi operare in 
+\emph on
+backtracking
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+Come si diceva, il problema di questa soluzione, che pure è corretta, sta
+ nel tempo impiegato per risolvere i casi di test: provando su esempi reali
+ forniti dal sistema di correzione si può affermare che si riescono a prendere
+ i primi 13 punti associati alla soluzione dei primi 13 casi di test, ma
+ non oltre quelli
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Sulla mia macchina i primi 13 casi vengono risolti in meno di un secondo,
+ mentre dopo 16 minuti il programma è stato terminato perchè ancora non
+ si vedeva la soluzione del 14-esimo caso.
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Si può notare nel codice che alla riga 50 è stata inserita un'istruzione
+ per tenere traccia dei casi man mano che vengono risolti dal programma.
+ Perchè questo può essere utile? Perchè, in un caso come questo, senza istruzion
+i di stampa a video, potrebbe essere difficile capire se il programma sta
+ risolvendo alcuni casi ma è lento, oppure contiene semplicemente un errore
+ che lo porta a un ciclo infinito.
+ Avendo invece questo input a video si può decidere di lasciare proseguire
+ il programma e terminarlo solo quando si decide che non abbia più possibilità
+ di risolvere altri casi di test.
+ La terminazione del programma non 
+\begin_inset Quotes eld
+\end_inset
+
+distrugge
+\begin_inset Quotes erd
+\end_inset
+
+ la parte di file che contiene le soluzioni dei casi risolti, quindi poi
+ lo si potrà sottoporre per prendere i punti meritati, e il sistema di correzion
+e farà solo notare che mancano delle soluzioni, ma darà comunque un punteggio
+ a quelle presenti.
+\end_layout
+
+\begin_layout Standard
+Come ottenere tutti i 27 punti? L'idea è che, mentre si cerca la soluzione,
+ ci si continua a imbattere in soluzioni parziali (ed eventualmente temporanee)
+ del problema, che però possono essere usate per eliminare la maggior parte
+ delle ricerche successive, in modo da rendere il tempo di risoluzione accettabi
+le.
+ 
+\end_layout
+
+\begin_layout Standard
+Ma cos'è una soluzione parziale? Definito il nostro problema generale come
+ quello che prevede che il percorso finisca in 
+\emph on
+H-1, W-1
+\emph default
+ e che può essere scritto come 
+\begin_inset Formula $P(H-1,W-1)$
+\end_inset
+
+, possiamo definire come sottoproblema quello che prevede che il percorso
+ finisca in una generica casella 
+\emph on
+r, c
+\emph default
+, con 
+\begin_inset Formula $r<H$
+\end_inset
+
+ e 
+\begin_inset Formula $c<W$
+\end_inset
+
+, che quindi può essere scritto come 
+\begin_inset Formula $P(r,c)$
+\end_inset
+
+.
+ Siccome la soluzione del problema è solo un numero, si potrebbe pensare
+ di memorizzare queste soluzioni ai vari sottoproblemi all'interno di una
+ matrice 
+\begin_inset Formula $HxW$
+\end_inset
+
+, dove nella casella in posizione 
+\emph on
+r, c
+\emph default
+ si trova la soluzione del sottoproblema 
+\begin_inset Formula $P(r,c)$
+\end_inset
+
+, che può essere scritta come 
+\begin_inset Formula $Sol(r,c)$
+\end_inset
+
+.
+ Il vantaggio rispetto alla soluzione precedente è che, prima, la ricorsione
+ veniva interrotta solo quando un percorso arrivava ad avere un salto maggiore
+ o uguale alla migliore soluzione trovata fino a quel momento, adesso si
+ può invece interrompere la ricorsione sul singolo percorso molto presto:
+ basta che il percorso passi per una casella 
+\emph on
+r,c
+\emph default
+ il cui valore, che si ricorda essere il migliore finora trovato per il
+ sottoproblema 
+\begin_inset Formula $P(r,c)$
+\end_inset
+
+, sia inferiore a quello del percorso che si sta analizzando.
+ Cerchiamo di chiarire con un esempio: siano H=20 e W = 20 e sia 
+\begin_inset Formula $Sol(7,9)=17$
+\end_inset
+
+ la soluzione del sottoproblema 
+\begin_inset Formula $P(7,9)$
+\end_inset
+
+ (cioè quella in cui un percorso termina in 7,9) e invece la soluzione globale
+ migliore finora trovata sia 
+\begin_inset Formula $Sol(19,19)=43$
+\end_inset
+
+ (cioè è stato scoperto ricorsivamente un percorso che arriva alla destinazione
+ il cui salto peggiore è 43).
+ Se la ricorsione sul percorso attuale arriva alla casella 7,9 e in quel
+ momento il salto di quel percorso fosse 22, in questo nuovo algoritmo si
+ esce dalla ricorsione e si smette di esplorare quel percorso, poichè sappiamo
+ già che si potrebbe arrivare alla casella 7,9 con un percorso migliore
+ e quindi non avremmo nessun vantaggio a partire da lì con un percorso che
+ già ha un valore peggiore.
+ Viceversa, nel primo algoritmo, il valore verrebbe confrontato solo con
+ la soluzione ottima fino a quel momento, che in questo esempio abbiamo
+ ipotizzato essere 43.
+ Quindi la ricorsione proseguirebbe, magari anche molto a lungo e sicuramente
+ non esplorerebbe percorsi utili alla ricerca della soluzione, perchè ognuno
+ di essi avrebbe costo pari ad almeno 22, che è peggio di 17.
+ 
+\end_layout
+
+\begin_layout Standard
+Questo guadagno è notevolissimo, considerando che, quanto prima si ferma
+ la ricorsione, tanto maggiore è il guadagno in termini di operazioni non
+ fatte.
+ Difatti, considerando che ogni chiamata ricorsiva genera fino a 4 diverse
+ chiamate, risulta evidente che se riusciamo a fermare un percorso ad esempio
+ 10 passaggi prima, si potrebbero salvare fino a 
+\begin_inset Formula $4^{10}=1048576$
+\end_inset
+
+ chiamate ricorsive.
+\end_layout
+
+\begin_layout Standard
+Il codice risulta il seguente, che si potrà notare essere molto simile a
+ quello del primo algoritmo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int mappa[100][100];
+\end_layout
+
+\begin_layout Plain Layout
+
+int soluzione[100][100];
+\end_layout
+
+\begin_layout Plain Layout
+
+int H, W;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void visita(int r, int c, int salto)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (r == H - 1 && c == W - 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+        return;
+\end_layout
+
+\begin_layout Plain Layout
+
+    struct {
+\end_layout
+
+\begin_layout Plain Layout
+
+		int i, j;
+\end_layout
+
+\begin_layout Plain Layout
+
+	} direzioni[] = {{1,0},{0,1},{-1,0},{0,-1}};
+\end_layout
+
+\begin_layout Plain Layout
+
+   for (int d = 0; d < 4; d++)
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+		int i = direzioni[d].i, j = direzioni[d].j;		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (r+i >= 0 && c+j >= 0 && r+i < H && c+j < W)
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				if (salto < abs(mappa[r][c] - mappa[r+i][c+j]))
+\end_layout
+
+\begin_layout Plain Layout
+
+					salto = abs(mappa[r][c] - mappa[r+i][c+j]);
+\end_layout
+
+\begin_layout Plain Layout
+
+				if (salto < soluzione[r+i][c+j])
+\end_layout
+
+\begin_layout Plain Layout
+
+				{
+\end_layout
+
+\begin_layout Plain Layout
+
+					soluzione[r+i][c+j] = salto;
+\end_layout
+
+\begin_layout Plain Layout
+
+					visita(r+i,c+j, salto);
+\end_layout
+
+\begin_layout Plain Layout
+
+				}
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+    ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+    int T;
+\end_layout
+
+\begin_layout Plain Layout
+
+    in >> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int test = 1; test <= T; test++)
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << "Case #" << test << ": ";
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> H >> W;
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (int i = 0 ; i < H; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+            for (int j = 0; j < W; j++){
+\end_layout
+
+\begin_layout Plain Layout
+
+                in >> mappa[i][j];
+\end_layout
+
+\begin_layout Plain Layout
+
+				soluzione[i][j] = 10000000;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+        visita(0,0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << soluzione[H-1][W-1] << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+        cout << "Case #" << test << " finished" << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La prima differenza è che sono scomparse le righe che controllano il salto
+ corrente rispetto alla migliore soluzione finora trovata, poichè questo
+ controllo avverrà qualche riga dopo, effettuando la verifica rispetto alla
+ soluzione del sottoproblema 
+\begin_inset Formula $P(r,c)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La condizione di terminazione, se si è arrivati fino alla destinazione,
+ prevede semplicemente che la ricorsione si fermi.
+ Nella parte dove si esplorano le quattro caselle vicine (riga 12), evitando
+ ovviamente di uscire dalla matrice (riga 15), prima si verifica se il nuovo
+ salto da fare per arrivare alla casella 
+\emph on
+r+i, c+j
+\emph default
+ peggiora la situazione e, nel caso, si aggiorna il valore di 
+\emph on
+salto
+\emph default
+.
+ Successivamente si prosegue con la ricorsione solo se il percorso attuale
+ migliora 
+\begin_inset Formula $Sol(r+i,c+j)$
+\end_inset
+
+, che è memorizzata nella matrice 
+\emph on
+soluzione[r+i][c+j]
+\emph default
+.
+ Se si prosegue, solo allora si aggiorna anche 
+\emph on
+soluzione[r+i][c+j],
+\emph default
+ che, come detto in precedenza, è una soluzione parziale e temporanea e
+ si continua con la ricorsione.
+\end_layout
+
+\begin_layout Standard
+Quando la funzione 
+\emph on
+visita
+\emph default
+ avrà finito la ricorsione, la matrice 
+\emph on
+soluzione 
+\emph default
+conterrà in ogni casella 
+\begin_inset Formula $Sol(r,c)$
+\end_inset
+
+, che è la soluzione del problema 
+\begin_inset Formula $P(r,c)$
+\end_inset
+
+, quindi basterà stampare il contenuto della casella in posizione 
+\emph on
+H-1, W-1,
+\emph default
+ che è la soluzione del problema originale.
+\end_layout
+
+\begin_layout Standard
+Così codificata questa soluzione, su una macchina virtuale appoggiata su
+ un host Core i7, impiega 9 secondi per risolvere tutti e 27 i casi di test.
 \end_layout
 
 \end_body
