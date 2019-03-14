@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass book
 \use_default_options true
 \master guida.lyx
@@ -13,16 +15,16 @@ logicalmkup
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman palatino
-\font_sans helvet
-\font_typewriter courier
-\font_math auto
+\font_roman "palatino" "default"
+\font_sans "helvet" "default"
+\font_typewriter "courier" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -173,7 +175,30 @@ le soluzioni proposte sono comunque state testate su un correttore ufficiale
 \end_layout
 
 \begin_layout Section
-Gare di formula 7 (f7) - CoCi
+Gare di formula 7 (f7) - CoCi ottobre 2012
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Subsection*
+Gare di formula 7 (f7)
 \begin_inset Foot
 status collapsed
 
@@ -194,25 +219,7 @@ target "http://www.hsin-hr/coci"
 
 \end_inset
 
- ottobre 2012
-\end_layout
 
-\begin_layout Standard
-\begin_inset Box Framed
-position "t"
-hor_pos "c"
-has_inner_box 0
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-status collapsed
-
-\begin_layout Subsection*
-Gare di formula 7 (f7)
 \end_layout
 
 \begin_layout Subsubsection*
@@ -344,7 +351,7 @@ Esempi di input/output
 \noindent
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -418,7 +425,7 @@ Output
 \noindent
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -519,7 +526,7 @@ Il problema può essere facilmente risolto con un algoritmo greedy, ma bisogna
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Soluzione f7"
+name "subsec:Soluzione f7"
 
 \end_inset
 
@@ -688,7 +695,7 @@ minima energia
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="4">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -788,7 +795,7 @@ minima energia
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="4">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -888,7 +895,7 @@ minima energia
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="4">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -986,7 +993,7 @@ minima energia
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="4">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1086,7 +1093,7 @@ minima energia
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="4">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1186,7 +1193,7 @@ minima energia
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="4">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1326,6 +1333,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -1448,7 +1460,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -1514,7 +1526,7 @@ Output
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -2188,7 +2200,7 @@ greater
  Una soluzione alternativa era quella usata nell'esercizio 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Soluzione f7"
+reference "subsec:Soluzione f7"
 
 \end_inset
 
@@ -2216,6 +2228,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -2420,7 +2437,7 @@ Esempi di input/output
 \noindent
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top" width="1in">
 <row>
@@ -2982,6 +2999,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
@@ -3177,7 +3199,7 @@ Esempi di input/output
 \noindent
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top" width="1in">
 <row>
@@ -3561,18 +3583,6 @@ Il codice che implementa quanto spiegato si trova tra la riga 8 e la riga
 
 \begin_layout Section
 Fulcro del gioco (fulcro) - GATOR 2014
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Questa gara è stata tenuta per la prima volta a marzo 2014 come allenamento
- per le territoriali in modalità online ed è stata organizzata dal Dipartimento
- di Informatica dell'Università di Roma Tor Vergata.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -3587,10 +3597,27 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
 Fulcro del gioco (fulcro)
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Questa gara è stata tenuta per la prima volta a marzo 2014 come allenamento
+ per le territoriali in modalità online ed è stata organizzata dal Dipartimento
+ di Informatica dell'Università di Roma Tor Vergata.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3713,7 +3740,7 @@ Esempi di input/output
 \noindent
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top" width="1in">
 <row>
@@ -4278,6 +4305,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -4399,7 +4431,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top">
 <row>
@@ -4481,7 +4513,7 @@ Output
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top">
 <row>
@@ -4660,6 +4692,10 @@ costruttivo
 
 \begin_layout Itemize
 per ogni piatto di portata nel vassoio controlla se è presente nel menù
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -5106,6 +5142,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
@@ -5248,7 +5289,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top" width="1in">
 <row>
@@ -5322,7 +5363,7 @@ Output
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top" width="1in">
 <row>
@@ -5850,6 +5891,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -6075,7 +6121,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top" width="1in">
 <row>
@@ -6189,7 +6235,7 @@ Output
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top" width="1in">
 <row>
@@ -6591,7 +6637,7 @@ status open
 Per una discussione più approfondita si veda 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Subtask-e-template"
+reference "subsec:Subtask-e-template"
 
 \end_inset
 
@@ -6705,7 +6751,7 @@ upper_bound.
 Mentre la prima è già stata utilizzata in molti problemi e spiegata in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:L'algoritmo-sort-C++"
+reference "subsec:L'algoritmo-sort-C++"
 
 \end_inset
 
@@ -6717,6 +6763,10 @@ reference "sub:L'algoritmo-sort-C++"
  differenza della ricerca binaria, non cerca un numero all'interno di un
  vettore, ma il primo numero maggiore del numero cercato.
  I parametri passati sono tre: 
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper

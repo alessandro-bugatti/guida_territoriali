@@ -10831,7 +10831,7 @@ separation "3pt"
 shadowsize "4pt"
 framecolor "black"
 backgroundcolor "none"
-status collapsed
+status open
 
 \begin_layout Subsection*
 Trova la parola (trovaparola) 
@@ -11572,7 +11572,8 @@ DDBDBDBB
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset VSpace bigskip
+\noindent
+\begin_inset VSpace defskip
 \end_inset
 
 
@@ -11686,6 +11687,21 @@ ASSENTE
 \end_inset
 
 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Nota
+\series default
+: John Romita e Stan Lee, che compaiono nell'ultima e penultima riga dell'esempi
+o, sono rispettivamente il secondo disegnatore del fumetto Spider Man e
+ il creatore dello stesso.
 \end_layout
 
 \end_inset
@@ -11695,22 +11711,6 @@ ASSENTE
 
 \begin_layout Subsection
 Suggerimenti
-\family typewriter
-
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-
-\family typewriter
-John Romita e Stan Lee, che compaiono nell'ultima e penultima riga dell'esempio,
- sono rispettivamente il secondo disegnatore del fumetto Spider Man e il
- creatore dello stesso.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -19113,17 +19113,35 @@ name "sec:Crittografia-LWF"
 
 \end_inset
 
-Crittografia LWF
-\begin_inset Foot
-status collapsed
+Crittografia LWF - Territoriali 2017
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Doublebox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
 
 \begin_layout Plain Layout
 I problemi del 2017 non sono nella loro formulazione originaria, ma sono
  stati modificati i dati di input/output in modo da riflettere la nuova
  impostazione della sottomissione che verrà utilizzata per la prima volta
  nelle territoriali del 18 aprile 2018.
- Al momento della scrittura è possibile testare questa nuova modalità all'indiri
-zzo 
+ Al momento della scrittura (marzo 2018) è possibile testare questa nuova
+ modalità all'indirizzo 
 \begin_inset CommandInset href
 LatexCommand href
 name "https://territoriali.olinfo.it"
@@ -19142,11 +19160,18 @@ target "https://training.olinfo.it/"
 
 .
  Una descrizione della nuova modalità si trova al paragrafo 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:Nuova-mod_sottoposizione"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
 
- - Territoriali 2017
+
 \end_layout
 
 \begin_layout Standard
@@ -19166,7 +19191,7 @@ separation "3pt"
 shadowsize "4pt"
 framecolor "black"
 backgroundcolor "none"
-status open
+status collapsed
 
 \begin_layout Subsection*
 Crittografia LWF (lwf)
