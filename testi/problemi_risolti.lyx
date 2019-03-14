@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass book
 \begin_preamble
 \date{}
@@ -13,16 +15,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman palatino
-\font_sans helvet
-\font_typewriter courier
-\font_math auto
+\font_roman "palatino" "default"
+\font_sans "helvet" "default"
+\font_typewriter "courier" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -136,6 +138,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
@@ -232,7 +239,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="2.5in">
 <column alignment="center" valignment="top" width="2.7in">
 <row>
@@ -714,6 +721,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
@@ -834,7 +846,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top" width="1.5in">
 <row>
@@ -1477,6 +1489,10 @@ j
 k
 \emph default
 ,
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -2006,6 +2022,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
@@ -2082,7 +2103,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -2476,6 +2497,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -2607,7 +2633,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -3006,6 +3032,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -3097,7 +3128,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -3366,6 +3397,11 @@ width "100in"
 special "width"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -3418,6 +3454,10 @@ Per esempio, con N = 4, abbiamo inizialmente la configurazione A A A A B
 
 \begin_layout Itemize
 Il primo spostamento della gru è (4,9) e porta alla configurazione:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -3436,6 +3476,10 @@ A A A * * B B B A B
 \end_deeper
 \begin_layout Itemize
 Il secondo spostamento è (6, 4) e porta alla configurazione:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -3454,6 +3498,10 @@ A A A B B * * B A B
 \end_deeper
 \begin_layout Itemize
 Il terzo spostamento è (2, 6) e porta alla configurazione:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -3472,6 +3520,10 @@ A * * B B A A B A B
 \end_deeper
 \begin_layout Itemize
 Il quarto spostamento è (5,2) e porta alla configurazione:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -3492,6 +3544,10 @@ A B A B * * A B A B
 \end_deeper
 \begin_layout Itemize
 Il quinto e ultimo spostamento è (9,5) e porta alla configurazione desiderata:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -3567,7 +3623,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="left" valignment="top" width="1in">
 <row>
@@ -3981,14 +4037,6 @@ Questo ci garantisce inoltre di arrivare alla soluzione in meno di 3N mosse,
  a 3N.
 \end_layout
 
-\begin_layout Standard
-Rimane infine da notare che questo problema, avendo non una ma una serie
- di possibili soluzioni, verrà valutato positivamente dal correttore solo
- nel caso produca la stessa soluzione inserita nel correttore: il codice
- qui proposto, pur essendo corretto, viene considerato errato dal correttore
- automatico.
-\end_layout
-
 \begin_layout Section
 Quasi-palindromi - territoriali 2010
 \end_layout
@@ -4005,6 +4053,11 @@ width "100in"
 special "width"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -4102,7 +4155,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top" width="1in">
 <row>
@@ -4711,6 +4764,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -4800,7 +4858,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -5248,6 +5306,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -5330,7 +5393,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -5852,6 +5915,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -5945,7 +6013,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -6321,6 +6389,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -6394,7 +6467,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -7029,6 +7102,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -7135,7 +7213,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -7832,6 +7910,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -7944,7 +8027,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -8118,6 +8201,10 @@ In questo problema si può arrivare molto velocemente alla soluzione se si
 gli intervalli dei turni di guardia devono coprire completamente tutti i
  giorni, come da testo del problema, quindi esiste almeno un intervallo
  che inizia dal primo giorno: 
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -8335,7 +8422,7 @@ Alle righe 1-5 viene definita la classe Turno (si poteva anche fare con
 mo di ordinamento (vedi 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:L'algoritmo-sort-C++"
+reference "subsec:L'algoritmo-sort-C++"
 
 \end_inset
 
@@ -8387,6 +8474,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
@@ -8528,7 +8620,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -8605,7 +8697,7 @@ File output.txt
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -9445,6 +9537,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
@@ -9571,7 +9668,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top" width="1.3in">
 <row>
@@ -9920,6 +10017,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -10121,7 +10223,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top" width="1.3in">
 <row>
@@ -10718,6 +10820,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -10757,7 +10864,7 @@ Visto il successo del gioco Ruzzle©, che riprende il noto paroliere, i giochi
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="7">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top">
@@ -11348,7 +11455,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -11465,7 +11572,7 @@ DDBDBDBB
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -11959,6 +12066,10 @@ si pone la posizione di partenza uguale all'angolo in alto a sinistra, cioè
 \begin_layout Itemize
 si verifica che la lettera in posizione (i+1,j) sia uguale alla prossima
  lettera di P
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -11970,6 +12081,10 @@ se lo è si sposta la posizione corrente in (i+1,j), si concatena la lettera
 \begin_layout Itemize
 se non lo è si verifica che la lettera in posizione (i,j+1) sia uguale alla
  prossima lettera di P
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -12112,6 +12227,10 @@ l
 
 \begin_layout Itemize
 le condizioni di terminazioni saranno
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -12286,6 +12405,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -12395,7 +12519,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -12461,7 +12585,7 @@ File output.txt
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -12706,7 +12830,7 @@ iva tra le due impelementazioni.
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="5cm">
 <column alignment="left" valignment="top" width="5cm">
 <row>
@@ -12905,6 +13029,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -13067,7 +13196,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -13147,7 +13276,7 @@ File output.txt
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -13695,6 +13824,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -13736,7 +13870,7 @@ Paolo, per festeggiare il suo quarantesimo compleanno, si è iscritto a un
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="9">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -14086,7 +14220,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -14186,7 +14320,7 @@ File output.txt
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -14678,6 +14812,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -14710,7 +14849,7 @@ Gemma ha appena imparato che cos’è un numero semiprimo, e presa dall’eufori
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="1">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
@@ -14799,7 +14938,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -15193,6 +15332,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -15297,7 +15441,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1in">
 <column alignment="left" valignment="top">
 <row>
@@ -15762,6 +15906,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
@@ -15912,7 +16061,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top">
 <row>
@@ -16802,6 +16951,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -16925,7 +17079,7 @@ Esempi di input/output
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top">
 <row>
@@ -17170,6 +17324,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -17304,7 +17463,7 @@ Il primo esempio qui sotto si riferisce all’esempio mostrato nel testo del
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top">
 <row>
@@ -17984,6 +18143,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
@@ -18201,7 +18365,7 @@ Il secondo esempio qui sotto si riferisce all’esempio mostrato nel testo
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top">
 <row>
@@ -18991,6 +19155,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
@@ -19071,6 +19240,11 @@ width "90col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Plain Layout
@@ -19245,7 +19419,7 @@ Il secondo esempio qui sotto si riferisce all’esempio mostrato nel testo
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="1.5in">
 <column alignment="left" valignment="top" width="5cm">
 <row>
@@ -19840,6 +20014,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
@@ -19911,6 +20090,11 @@ width "90col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
@@ -20054,7 +20238,7 @@ Ogni numero tra 0 e N−1 compare esattamente una volta nella sequenza dei
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="2.5in">
 <column alignment="left" valignment="top" width="5cm">
 <row>
@@ -20572,6 +20756,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Subsection*
@@ -20754,7 +20943,7 @@ Si garantisce l’esistenza di una soluzione: Ape Maya è spacciata!
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="2.5in">
 <column alignment="left" valignment="top" width="5cm">
 <row>
@@ -21039,6 +21228,10 @@ usando una visita in profondità si può costruire un percorso chiuso, con
 \begin_layout Itemize
 un nodo può essere attraversato al massimo due volte, in particolare viene
  visitato un nodo se:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
