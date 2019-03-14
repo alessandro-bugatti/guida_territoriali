@@ -4037,6 +4037,14 @@ Questo ci garantisce inoltre di arrivare alla soluzione in meno di 3N mosse,
  a 3N.
 \end_layout
 
+\begin_layout Standard
+Rimane infine da notare che questo problema, avendo non una ma una serie
+ di possibili soluzioni, verrà valutato positivamente dal correttore solo
+ nel caso produca la stessa soluzione inserita nel correttore: il codice
+ qui proposto, pur essendo corretto, viene considerato errato dal correttore
+ automatico.
+\end_layout
+
 \begin_layout Section
 Quasi-palindromi - territoriali 2010
 \end_layout
@@ -10805,12 +10813,6 @@ funzione
 \end_layout
 
 \begin_layout Section
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Trova-la-parola"
-
-\end_inset
-
 Trova la parola - territoriali 2013
 \end_layout
 
@@ -21269,7 +21271,7 @@ Da queste due osservazioni segue che utilizzando una visita in profondità
 \begin_inset listings
 lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
 inline false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -21835,6 +21837,3060 @@ soluzione
 naviga
 \emph default
 .
+\end_layout
+
+\begin_layout Section
+Festa canina - Territoriali 2018
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Subsection*
+Festa canina (party)
+\end_layout
+
+\begin_layout Subsubsection*
+Punteggio massimo: 6
+\end_layout
+
+\begin_layout Subsubsection*
+\noindent
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Mojito, il cane di Monica, vuole organizzare una festa con i suoi amici.
+ Aiutalo a scegliere quali invitare e quali escludere in modo da rendere
+ la festa più bella possibile.
+ Mojito ha 
+\series bold
+N
+\series default
+ amici, ognuno dei quali ha un grado di amicizia 
+\series bold
+A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\series bold
+i
+\end_layout
+
+\end_inset
+
+
+\series default
+ che indica quanto Mojito apprezzi la sua presenza.
+ Ovviamente nella lista c'è anche qualche antipatico che quindi ha un grado
+ di amicizia negativo.
+\end_layout
+
+\begin_layout Plain Layout
+La bellezza della festa è definita come la somma del grado di amicizia degli
+ invitati.
+ Quanto può valere al massimo questa somma?
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga del file di input contiene un intero 
+\series bold
+T
+\series default
+, il numero di casi di test.
+ Seguono 
+\series bold
+T
+\series default
+ casi di test, numerati da 1 a 
+\series bold
+T
+\series default
+.
+ Ogni caso di test è preceduto da una riga vuota.
+ In ciascun caso di test, la prima riga contiene l'unico intero 
+\series bold
+N
+\series default
+.
+ La seconda riga contiene gli 
+\series bold
+N
+\series default
+ interi separati da spazi, 
+\series bold
+A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\series bold
+i
+\end_layout
+
+\end_inset
+
+
+\series default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file di output deve contenere la risposta ai casi di test che sei riuscito
+ a risolvere.
+ Per ogni caso di test che hai risolto, il file di output deve contenere
+ una riga con la dicitura: 
+\end_layout
+
+\begin_layout Verbatim
+
+Case #t: k 
+\end_layout
+
+\begin_layout Plain Layout
+dove 
+\series bold
+t
+\series default
+ è il numero del caso di test (a partire da 1) e 
+\series bold
+k
+\series default
+ è il massimo valore di bellezza ottenibile.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+T=6, sono presenti 6 casi di input (nell'esempio per brevità ne sono mostrati
+ solo 2)
+\end_layout
+
+\begin_layout Itemize
+1≤N≤10.000, il numero di amici di Mojito.
+\end_layout
+
+\begin_layout Itemize
+−100≤A
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+ ≤100, il grado di amicizia dell'i-esimo amico.
+\end_layout
+
+\begin_layout Itemize
+È anche possibile che Mojito festeggi senza amici, in tal caso la festa
+ ha valore 0.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.5in">
+<column alignment="left" valignment="top" width="5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+2 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+8 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+1 -4 5 -2 -1 8 0 1 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+3 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+-1 -2 -4 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #1: 15
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #2: 0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Spiegazione
+\end_layout
+
+\begin_layout Plain Layout
+Nel 
+\series bold
+primo caso d'esempio
+\series default
+ la soluzione si ottiene invitando il primo, il terzo, il sesto, il settimo
+ e l'ottavo amico, totalizzando una somma di 15.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Nel 
+\series bold
+secondo caso d'esempio
+\series default
+ la soluzione si ottiene non invitando alcun amico, totalizzando quindi
+ 0.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Gli antipatici potranno mai rendere una festa più bella?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Quelle del 2018 sono state le prime selezioni territoriali nelle quali è
+ stata utilizzata la nuova modalità di sottoposizione (si veda 
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "sec:Nuova-mod_sottoposizione"
+
+\end_inset
+
+), quindi immagino che l'idea degli autori fosse quella di fornire un semplice
+ problema per testare la modalità di sottoposizione, che non avesse difficoltà
+ risolutive, ma permettesse altresì di verificare se si era in grado di
+ gestire la nuova modalità.
+ Detto questo, il problema in sè è piuttosto semplice: poichè gli antipatici
+ non possono mai aumentare il valore della bellezza di una festa, avendo
+ valori di amicizia negativi, basta invitare alla festa solo gli amici simpatici
+ che hanno un grado di amicizia maggiore di 0.
+ Una soluzione quindi può essere scritta nel modo seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+    ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+    int T;
+\end_layout
+
+\begin_layout Plain Layout
+
+    in >> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int test = 1; test <= T; test++)
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << "Case #" << test << ": ";
+\end_layout
+
+\begin_layout Plain Layout
+
+        int n, bellezza = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> n;
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (int i = 0; i < n; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+        {
+\end_layout
+
+\begin_layout Plain Layout
+
+            int valore;
+\end_layout
+
+\begin_layout Plain Layout
+
+            in >> valore;
+\end_layout
+
+\begin_layout Plain Layout
+
+            if (valore > 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+                bellezza += valore;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << bellezza << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La soluzione vera e propria si trova quindi tra le righe 10-19 e non fa
+ altro che leggere il numero 
+\series bold
+n 
+\series default
+di amici (riga 11), fare un ciclo per leggere i valori di amicizia degli
+ 
+\series bold
+n 
+\series default
+amici (riga 12 e seguenti), e sommare nella variabile 
+\series bold
+bellezza 
+\series default
+solo i gradi di amicizia positivi, concludendo con la stampa del valore
+ di 
+\series bold
+bellezza
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Ritengo utile soffermarmi un attimo ancora sulle peculiarità del nuovo sistema
+ di sottoposizione:
+\end_layout
+
+\begin_layout Itemize
+il sistema fornisce un file di input (
+\emph on
+input.txt
+\emph default
+), che deve essere letto secondo le istruzioni del testo e che in generale
+ contiene più di una istanza del problema.
+ Questo implica che ci sarà sempre un ciclo esterno come quello alla riga
+ 7, che permette di ripetere il procedimento risolutivo per ognuna delle
+ istanze del problema.
+\end_layout
+
+\begin_layout Itemize
+una conseguenza ovvia, ma che durante la gara può essere dimenticata
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Lo dico per esperienza personale
+\end_layout
+
+\end_inset
+
+, è che ogni volta devono essere reinizializzate eventuali variabili che
+ ne abbiano necessità, ad esempio in questo problema la variabile 
+\series bold
+bellezza 
+\series default
+(riga 10)
+\end_layout
+
+\begin_layout Itemize
+il vantaggio del nuovo sistema è che, una volta eseguito sul proprio computer
+ il programma e prodotto il file di output (
+\emph on
+output.txt
+\emph default
+ in questo esempio, ma il nome è irrilevante), la sottoposizione al correttore
+ restituisca immediatamente il numero di casi di test risolti correttamente,
+ dando quindi un feedback istantaneo sulla bontà della soluzione proposta
+ e, di conseguenza, sul numero di punti guadagnati.
+\end_layout
+
+\begin_layout Section
+Antivirus - Territoriali 2018
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Subsection*
+Antivirus (antivirus)
+\end_layout
+
+\begin_layout Subsubsection*
+Punteggio massimo: 12
+\end_layout
+
+\begin_layout Subsubsection*
+\noindent
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Il nuovo sistema di gara delle Selezioni Territoriali funziona alla grande,
+ ma Mojito non è così convinto...
+ sembra infatti che la nota mascotte delle Olimpiadi abbia fiutato un 
+\series bold
+virus
+\series default
+ nascosto fra i file inviati da un partecipante!
+\end_layout
+
+\begin_layout Plain Layout
+Conosciamo la lunghezza del virus e sappiamo che si ripete uguale nei quattro
+ file che abbiamo ricevuto, ma non sappiamo dove.
+ Aiutaci ad individuare il virus!
+\end_layout
+
+\begin_layout Plain Layout
+I quattro file F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+ sono dati in input, rappresentati come quattro stringhe di caratteri di
+ lunghezza rispettivamente N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Il virus è una stringa di caratteri 
+\emph on
+V
+\emph default
+ di lunghezza 
+\emph on
+M
+\emph default
+.
+ La lunghezza 
+\emph on
+M
+\emph default
+ è data in input, ma non si conosce il contenuto della stringa 
+\emph on
+V
+\emph default
+ del virus.
+\end_layout
+
+\begin_layout Plain Layout
+Sappiamo con certezza che il virus 
+\emph on
+V
+\emph default
+ appare all'interno di tutti e quattro i file, come sottostringa di caratteri
+ consecutivi.
+ Sappiamo inoltre che 
+\series bold
+NON
+\series default
+ ci sono altre sottostringhe consecutive di lunghezza 
+\emph on
+M
+\emph default
+ che si ripetono uguali in tutti e quattro i file.
+\end_layout
+
+\begin_layout Plain Layout
+Le posizioni dei caratteri nelle stringhe sono numerati a partire da 
+\emph on
+0
+\emph default
+.
+ Per ciascuno dei quattro file F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+, trova la posizione in cui è inserito il virus, ovvero la posizione dove
+ appare il primo carattere del virus 
+\emph on
+V
+\emph default
+ all'interno della stringa F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga del file di input contiene un intero 
+\emph on
+T
+\emph default
+, il numero di casi di test.
+ Seguono 
+\emph on
+T
+\emph default
+ casi di test, numerati da 1 a 
+\emph on
+T.
+
+\emph default
+ Ogni caso di test è preceduto da una riga vuota.
+\end_layout
+
+\begin_layout Plain Layout
+In ciascun caso di test:
+\end_layout
+
+\begin_layout Itemize
+La prima riga contiene quattro interi, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+, separati da uno spazio, che corrispondono alla lunghezza di ciascuno dei
+ quattro file.
+\end_layout
+
+\begin_layout Itemize
+La seconda riga contiene un solo intero 
+\emph on
+M
+\emph default
+, che corrisponde alla lunghezza del virus.
+\end_layout
+
+\begin_layout Itemize
+Le successive 4 righe contengono rispettivamente le quattro stringhe F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+,F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file di output deve contenere la risposta ai casi di test che sei riuscito
+ a risolvere.
+ Per ogni caso di test che hai risolto, il file di output deve contenere
+ una riga con la dicitura
+\end_layout
+
+\begin_layout Verbatim
+
+Case #t: p1 p2 p3 p4
+\end_layout
+
+\begin_layout Plain Layout
+dove 
+\emph on
+t
+\emph default
+ è il numero del caso di test (a partire da 1) e i valori 
+\emph on
+p1, p2, p3, p4
+\emph default
+ sono le posizioni in cui si trova il virus in ciascuno dei quattro file.
+ Con posizione si intende l'indice del primo carattere del virus, il primo
+ carattere del file ha indice zero.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+T
+\emph default
+=12, sono presenti 12 casi di input.
+\end_layout
+
+\begin_layout Itemize
+2 ≤ N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+ ≤ 100, i file non sono più lunghi di 100 caratteri.
+\end_layout
+
+\begin_layout Itemize
+2≤M≤20, il virus non è più lungo di 20 caratteri.
+\end_layout
+
+\begin_layout Itemize
+M≤min(N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+, N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+), il virus non è più lungo del file più corto.
+\end_layout
+
+\begin_layout Itemize
+Tutti i caratteri dei file sono lettere minuscole dell'alfabeto inglese
+ (dalla a alla z), 
+\series bold
+NON
+\series default
+ sono presenti spazi.
+\end_layout
+
+\begin_layout Itemize
+È garantito che il virus esiste ed è unico.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.5in">
+<column alignment="left" valignment="top" width="5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+8 12 10 74
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ananasso
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+associazione
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+tassonomia
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+massone
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+6 9 11 10
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+simone
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ponessimo
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+milionesimo
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+cassonetto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #1: 4 0 1 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #2: 3 1 4 4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Spiegazione
+\end_layout
+
+\begin_layout Plain Layout
+Nel 
+\series bold
+primo caso d'esempio
+\series default
+ il virus è 
+\series bold
+asso
+\series default
+: anan
+\series bold
+asso
+\series default
+, 
+\series bold
+asso
+\series default
+ciazione, t
+\series bold
+asso
+\series default
+nomia, m
+\series bold
+asso
+\series default
+ne
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Nel 
+\series bold
+secondo caso d'esempio
+\series default
+ il virus è 
+\series bold
+one
+\series default
+: sim
+\series bold
+one
+\series default
+, p
+\series bold
+one
+\series default
+ssimo, mili
+\series bold
+one
+\series default
+simo, cass
+\series bold
+one
+\series default
+tto.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Nota che 
+\series bold
+sim
+\series default
+ è presente nei primi tre file ma non nel quarto, quindi non è il virus
+ cercato.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Meglio stringhe C o C++?
+\end_layout
+
+\begin_layout Itemize
+Come si cerca una stringa all'interno di un'altra stringa?
+\end_layout
+
+\begin_layout Itemize
+Come può aiutare il fatto di sapere già la dimensione del virus?
+\end_layout
+
+\begin_layout Itemize
+Date le dimensioni del problema, è fattibile una soluzione a forza bruta?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Il passo elementare nella soluzione di questo problema prevede di cercare
+ una stringa all'interno di un'altra, cosa che può essere fatta in due modi:
+\end_layout
+
+\begin_layout Itemize
+implementando una piccola funzione che risolva il problema
+\end_layout
+
+\begin_layout Itemize
+usando la funzionalità presente nelle librerie di C e C++, 
+\emph on
+strstr
+\emph default
+ e 
+\emph on
+find
+\emph default
+, rispettivamente.
+\end_layout
+
+\begin_layout Standard
+Sapendo verificare la presenza di una stringa all'interno di un'altra, ci
+ si può iniziare a domandare come fare a scoprire quale stringa in particolare
+ è il virus cercato, dal momento che se ne conosce la dimensione, ma non
+ il contenuto.
+\end_layout
+
+\begin_layout Standard
+Un semplice algoritmo risolutivo consiste nel prendere tutte le sottostringhe
+ di caratteri consecutivi di lunghezza 
+\emph on
+M
+\emph default
+ all'interno di uno dei quattro file, il primo per semplicità, e avere quindi
+ una lista di candidati ad essere virus: tra tutti questi candidati solo
+ uno sarà presente contemporaneamente nei tre file rimanenti, quindi basterà
+ provare con tutti fino a trovare quello che soddisfa questa proprietà.
+\end_layout
+
+\begin_layout Standard
+Prima di guardare l'implementazione può valere la pena soffermarsi sul costo
+ computazionale della soluzione proposta.
+ La prima domanda riguarda il numero di virus candidati: quanti possono
+ essere al massimo? Essendo i file lunghi al massimo 100 e i virus lunghi
+ al minimo 2, il numero massimo di virus candidati è 99, che è il numero
+ di stringhe di 2 caratteri consecutivi all'interno di una stringa di lunghezza
+ 100.
+\end_layout
+
+\begin_layout Standard
+Anche avendo 99 stringhe candidate a essere virus, la ricerca di ognuna
+ di esse all'interno dei 3 file rimasti ha un costo basso, in generale proporzio
+nale a
+\family typewriter
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+O(3*numero\_candidati*numero\_confronti)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dove 
+\family typewriter
+numero_confronti
+\family default
+ è il numero di confronti che devono essere fatti all'interno di ogni stringa
+ per vedere se contiene o meno il virus.
+ Siccome anche ogni altra stringa (file) al massimo è lunga 100, il numero
+ di confronti che un algoritmo di ricerca banale fa è di nuovo proporzionale
+ a 100.
+ Questa analisi ci conforta sul fatto che, date le dimensioni del problema,
+ non serve andare a cercare una soluzione più sofisticata di quella descritta,
+ e quindi una possibibile inplementazione è la seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+    ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+    int T;
+\end_layout
+
+\begin_layout Plain Layout
+
+    in >> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int test = 1; test <= T; test++)
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << "Case #" << test << ": ";
+\end_layout
+
+\begin_layout Plain Layout
+
+        int trash;
+\end_layout
+
+\begin_layout Plain Layout
+
+        int l_virus;
+\end_layout
+
+\begin_layout Plain Layout
+
+        string F[4];
+\end_layout
+
+\begin_layout Plain Layout
+
+        vector<string> viruses;
+\end_layout
+
+\begin_layout Plain Layout
+
+        string soluzione;
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> trash >> trash >> trash >> trash;
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> l_virus;
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> F[0] >> F[1] >> F[2] >> F[3];
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (int i = 0; i < F[0].size() - l_virus; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+            viruses.push_back(F[0].substr(i, l_virus));
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (auto virus: viruses)
+\end_layout
+
+\begin_layout Plain Layout
+
+        {
+\end_layout
+
+\begin_layout Plain Layout
+
+            bool trovato = true;
+\end_layout
+
+\begin_layout Plain Layout
+
+            for (int j = 1; j < 4; j++)
+\end_layout
+
+\begin_layout Plain Layout
+
+                if (F[j].find(virus) == string::npos)
+\end_layout
+
+\begin_layout Plain Layout
+
+                    trovato = false;
+\end_layout
+
+\begin_layout Plain Layout
+
+            if (trovato)
+\end_layout
+
+\begin_layout Plain Layout
+
+                soluzione = virus;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (auto file: F)
+\end_layout
+
+\begin_layout Plain Layout
+
+            out << file.find(soluzione) << " ";
+\end_layout
+
+\begin_layout Plain Layout
+
+        out <<  endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La soluzione si trova tra la riga 9 e la 31 e utilizza le stringhe C++ per
+ raggiungere il risultato richiesto.
+ Tra le variabili utilizzate vale la pena notare il vettore 
+\emph on
+F
+\emph default
+ di quattro 
+\family typewriter
+string
+\family default
+ per contenere i quattro file, il 
+\emph on
+vector
+\emph default
+ di 
+\emph on
+string
+\emph default
+ 
+\family typewriter
+viruses
+\family default
+ per contenere i virus candidati e
+\family typewriter
+ l_virus
+\family default
+ che rappresenta la lunghezza del virus.
+\end_layout
+
+\begin_layout Standard
+Utilizzando le stringhe C++ (ma probabilmente lo stesso discorso si sarebbe
+ potuto fare con le stringhe C), i primi quattro interi che rappresentano
+ la lunghezza delle stringhe sono di fatto inutili e quindi vengono letti,
+ perchè ovviamente non si può non farlo, ma i loro valori vengono 
+\begin_inset Quotes eld
+\end_inset
+
+buttati via
+\begin_inset Quotes erd
+\end_inset
+
+ nella variabile 
+\family typewriter
+trash
+\family default
+ (riga 15).
+ Dopo aver letto le quattro stringhe (file), viene presa la prima e viene
+ utilizzata per inserire nel vettore viruses tutti i virus candidati (righe
+ 18-19), stando attenti a prendere solo sottostringhe di lunghezza 
+\family typewriter
+l_virus
+\family default
+ e non più corte: questo spiega perchè 
+\family typewriter
+i
+\family default
+ viene fermato a 
+\family typewriter
+F[0].size() - l_virus
+\family default
+ e non a 
+\family typewriter
+F[0].size()
+\family default
+, altrimenti la 
+\emph on
+substring
+\emph default
+ avrebbe generato in coda stringhe di lunghezza via via più corta, portando
+ a un errore nell'algoritmo.
+\end_layout
+
+\begin_layout Standard
+Una volta creato il vettore dei possibili virus, viene fatta un'iterazione
+ per ognuno di essi, usando il costrutto 
+\emph on
+foreach
+\emph default
+ del C++ 2011 (riga 20) e, per ognuno di essi, si utilizza il metodo find
+ per verificare se 
+\series bold
+non
+\series default
+ compare, poichè in quel caso non è sicuramente il virus cercato.
+ Per verificare la condizione 
+\begin_inset Quotes eld
+\end_inset
+
+la sottostringa non è presente nella stringa
+\begin_inset Quotes erd
+\end_inset
+
+ si confronta il valore di ritorno di 
+\emph on
+find
+\emph default
+ con 
+\emph on
+string::npos
+\emph default
+, che è ciò che ritorna 
+\emph on
+find
+\emph default
+ quando non trova la stringa, altrimenti ritorna la sua posizione.
+ La stringa dell'insieme 
+\family typewriter
+viruses
+\family default
+ che viene trovata in tutti e tre i file viene memorizzata nella variabile
+ 
+\family typewriter
+soluzione
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+A questo punto non rimane che stampare la posizione all'interno delle quattro
+ stringhe utilizzando ancora il metodo 
+\emph on
+find
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Un'ultima osservazione: per ridurre il numero di virus candidati si sarebbe
+ potuta scegliere tra le quattro stringhe F quella di lunghezza minore,
+ ma, come osservato durante l'analisi del costo del problema, non ci sarebbero
+ stati vantaggi significativi.
+\end_layout
+
+\begin_layout Section
+Radioanalisi fossile - Territoriali 2018
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Subsection*
+Radioanalisi fossile (xray)
+\end_layout
+
+\begin_layout Subsubsection*
+Punteggio massimo: 19
+\end_layout
+
+\begin_layout Subsubsection*
+\noindent
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+È stato appena ritrovato un fossile della rarissima specie 
+\emph on
+Canis mojitus albus
+\emph default
+, ritenuta antenata della più comune 
+\emph on
+Canis mojitus familiaris
+\emph default
+.
+ Per analizzarlo, gli scienziati devono trattarlo con delle radiazioni:
+ ogni centimetro dell'osso deve riceverne una precisa quantità.
+ La macchina che fa il trattamento può applicare radiazioni in modo uniforme
+ su un qualsiasi segmento contiguo: calcola quante volte deve essere azionata
+ la macchina per ottenere la giusta quantità di radiazioni su ogni punto
+ dell'osso.
+\end_layout
+
+\begin_layout Plain Layout
+L'osso da trattare è lungo 
+\series bold
+N
+\series default
+ centimetri, numerati da 1 a 
+\series bold
+N
+\series default
+.
+ Il centimetro 
+\emph on
+i
+\emph default
+ deve ricevere una quantità di radiazioni specificata da un numero naturale
+ R
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+.
+ Il numero 
+\series bold
+N
+\series default
+ ed i numeri 
+\begin_inset Formula $R_{1}\ldots R_{N}$
+\end_inset
+
+ sono dati in input.
+\end_layout
+
+\begin_layout Plain Layout
+La macchina viene azionata specificando due numeri interi positivi 
+\emph on
+a
+\emph default
+ e 
+\emph on
+b
+\emph default
+, che indicano gli estremi del segmento di osso su cui la macchina opera
+ (
+\begin_inset Formula $a\leq b$
+\end_inset
+
+).
+ Dopo tale azionamento, tutti i centimetri da 
+\emph on
+a
+\emph default
+ a 
+\emph on
+b
+\emph default
+ dell'osso accumulano 1 unità di radiazioni.
+\end_layout
+
+\begin_layout Plain Layout
+Dopo aver azionato la macchina un certo numero di volte, la quantità di
+ radiazioni ricevute sul centimetro 
+\emph on
+i
+\emph default
+ si può conoscere contando quante volte una radiazione ha operato su quella
+ zona (ovvero, quante volte la macchina è stata azionata con valori tali
+ per cui 
+\begin_inset Formula $a\leq i\leq b$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Plain Layout
+Calcola il numero minimo di volte in cui è necessario azionare la macchina
+ affinché ciascuna zona 
+\emph on
+i
+\emph default
+ riceva esattamente la quantità di radiazioni richiesta 
+\begin_inset Formula $R_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga del file di input contiene un intero T, il numero di casi
+ di test.
+ Seguono T casi di test, numerati da 1 a T.
+ Ogni caso di test è preceduto da una riga vuota.
+\end_layout
+
+\begin_layout Plain Layout
+In ciascun caso di test, la prima riga contiene l'intero 
+\emph on
+N
+\emph default
+.
+ La seconda riga contiene gli 
+\emph on
+N
+\emph default
+ valori 
+\begin_inset Formula $R_{1}\ldots R_{N}$
+\end_inset
+
+ separati da spazio.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file di output deve contenere la risposta ai casi di test che sei riuscito
+ a risolvere.
+ Per ogni caso di test che hai risolto, il file di output deve contenere
+ una riga con la dicitura
+\end_layout
+
+\begin_layout Verbatim
+
+Case #t: p
+\end_layout
+
+\begin_layout Plain Layout
+dove 
+\emph on
+t
+\emph default
+ è il numero del caso di test (a partire da 1) e 
+\emph on
+p
+\emph default
+ è il minimo numero di volte in cui la macchina deve essere azionata.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+T
+\emph default
+=19, sono presenti 19 casi di prova.
+\end_layout
+
+\begin_layout Itemize
+1≤N≤1000, ovvero, l'osso è lungo al massimo 1000 centimetri.
+\end_layout
+
+\begin_layout Itemize
+0≤R
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+≤1000, ogni centimetro può dover ricevere una quantità di radiazione fino
+ a 1000.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.5in">
+<column alignment="left" valignment="top" width="5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+4 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1 2 3 1
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+4 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+100 0 1 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #1: 3
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #2: 101
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Spiegazione
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Nel 
+\series bold
+primo caso d'esempio
+\series default
+, è possibile azionare la macchina ad esempio nel seguente modo:
+\end_layout
+
+\begin_layout Enumerate
+\noindent
+segmento da 
+\emph on
+a
+\emph default
+=2 a 
+\emph on
+b
+\emph default
+=3
+\end_layout
+
+\begin_layout Enumerate
+\noindent
+segmento da 
+\emph on
+a
+\emph default
+=1 a 
+\emph on
+b
+\emph default
+=4
+\end_layout
+
+\begin_layout Enumerate
+\noindent
+segmento da 
+\emph on
+a
+\emph default
+=3 a 
+\emph on
+b
+\emph default
+=3
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Graficamente:
+\end_layout
+
+\begin_layout Verbatim
+\noindent
+
+.
+ x x .
+ <-- azionamento 1
+\end_layout
+
+\begin_layout Verbatim
+\noindent
+
+x x x x <-- azionamento 2
+\end_layout
+
+\begin_layout Verbatim
+\noindent
+
+.
+ .
+ x .
+ <-- azionamento 3
+\end_layout
+
+\begin_layout Verbatim
+\noindent
+
+-------
+\end_layout
+
+\begin_layout Verbatim
+\noindent
+
+1 2 3 1 <-- totale radiazione accumulata
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Non ci sono soluzioni con solo 2 azionamenti o meno, quindi la risposta
+ corretta è 3.
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Nel 
+\series bold
+secondo caso d'esempio
+\series default
+, è possibile azionare la macchina ad esempio nel seguente modo:
+\end_layout
+
+\begin_layout Enumerate
+\noindent
+segmento da 
+\emph on
+a
+\emph default
+=1a 
+\emph on
+b
+\emph default
+=1(ripeti 100 volte)
+\end_layout
+
+\begin_layout Enumerate
+\noindent
+segmento da 
+\emph on
+a
+\emph default
+=3 a 
+\emph on
+b
+\emph default
+=4
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Non ci sono soluzioni con solo 100 azionamenti o meno, quindi la risposta
+ corretta è 101.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Quante volte deve essere irradiato un centimetro di osso per ottenere la
+ quantità richiesta 
+\begin_inset Formula $R_{i}$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Itemize
+Se ogni centimetro venisse irradiato separatamente da ogni altro quante
+ operazioni di irradiamento sarebbero necessarie in totale? Sarebbero troppe?
+\end_layout
+
+\begin_layout Itemize
+Se invece si irradiasse tutto l'osso un numero di volte pari al massimo
+ valore di 
+\begin_inset Formula $R_{i}$
+\end_inset
+
+, il risultato comporterebbe un numero minimo di irraggiamenti, ma ogni
+ parte sarebbe irradiata correttamente?
+\end_layout
+
+\begin_layout Itemize
+Fra le due situazioni precedenti, entrambe estreme, come raggiungere la
+ situazione richiesta?
+\end_layout
+
+\begin_layout Itemize
+Se è possibile sembra convenga irradiare ogni volta un intervallo il più
+ ampio possibile, ma quali sono le condizioni per cui ciò porta a un risultato
+ valido? 
+\end_layout
+
+\begin_layout Itemize
+Esiste una rappresentazione grafica che può aiutare a comprendere meglio
+ il problema?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Un modo di rappresentare il problema che può aiutare a vedere la soluzione
+ è quello di pensare ad ogni centimetro di osso come una 
+\begin_inset Quotes eld
+\end_inset
+
+costruzione
+\begin_inset Quotes erd
+\end_inset
+
+ composta da 
+\begin_inset Formula $R_{i}$
+\end_inset
+
+ mattoncini sovrapposti e quindi arrivare a una rappresentazione come quella
+ in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rappresentazione-osso"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2018_radioanalisi fossile/esempio.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rappresentazione-osso"
+
+\end_inset
+
+Come risulterebbe il primo esempio del testo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Perchè una rappresentazione del genere può aiutare? Si pensi alle due situazioni
+ estreme poste nei suggerimenti e si provi a rappresentarle con delle situazioni
+ nelle quali producano dei risultati corretti, ottenendo ad esempio quanto
+ si può vedere in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Due-casi-estremi"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/xubuntu/guida_territoriali/materiali/problemi territoriali/2018_radioanalisi fossile/casi.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Due-casi-estremi"
+
+\end_inset
+
+Due casi estremi
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nel caso (
+\emph on
+a
+\emph default
+), la macchina a 
+\emph on
+raggi x
+\emph default
+ non può irraggiare dal primo all'ultimo centimetro per 4 volte, perchè
+ altrimenti anche i centimetri 2 e 3 riceverebbero una dose non corretta,
+ in quanto quelle parti non devono ricevere proprio nessuna dose: quindi
+ l'unica possibilità è quella di irraggiare 4 volte il centimetro 1 e altre
+ 4 volte il centimetro 4, per un totale di 8 irraggiamenti.
+ Invece nel caso (
+\emph on
+b
+\emph default
+), siccome ogni centimetro deve ricevere la stessa dose, si può irraggiare
+ tutto l'osso per 4 volte, usando quindi solo 4 irraggiamenti.
+ Sembra quindi evidente che:
+\end_layout
+
+\begin_layout Itemize
+ogni centimetro di osso non può ricevere più irraggiamenti della quantità
+ massima a lui assegnata
+\end_layout
+
+\begin_layout Itemize
+se si riescono a raggruppare centimetri adiacenti che hanno necessità della
+ stessa quantità di raggi x si risparmia sul numero di irraggiamenti, irraggiand
+o per una lunghezza maggiore
+\end_layout
+
+\begin_layout Standard
+Combinando queste due semplici informazioni si può realizzare un algoritmo
+ che, per ogni 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+livello
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+, cerchi tutti gli N intervalli contigui di osso che devono essere irraggiati
+ con la stessa quantità di radiazioni e quindi effettui N irraggiamenti.
+ Per 
+\emph on
+livello
+\emph default
+ si intende la quantità di radiazioni, come indicato nella figura
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:soluzione-x-ray"
+
+\end_inset
+
+: la figura rappresenta il caso d'esempio a cui è stato aggiunto un altro
+ centimetro da irraggiare con tre unità, per renderlo più significativo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../materiali/problemi territoriali/2018_radioanalisi fossile/soluzione.eps
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:soluzione-x-ray"
+
+\end_inset
+
+Esempio grafico di algoritmo risolutivo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si vede la macchina partirà dal livello 3, nel quale ci sono due intervalli
+ da irraggiare, quello del centimetro 3 e del centimetro 5.
+ Successivamente si 
+\begin_inset Quotes eld
+\end_inset
+
+sposterà
+\begin_inset Quotes erd
+\end_inset
+
+ al livello 2, dove gli intervalli sono ancora due, quelli dei centimetri
+ 2-3 e quello del centimetro 5.
+ Infine si sposterà al livello 1, dove l'intervallo va dal centimetro 1
+ al centimetro 5, arrivando quindi a un totale di 5 irraggiamenti, che è
+ la soluzione, essendo il minimo possibile.
+\end_layout
+
+\begin_layout Standard
+Volendo implementare l'algoritmo nel modo più simile a quanto mostrato in
+ figura, si può utilizzare una matrice in cui le caselle vengano 
+\begin_inset Quotes eld
+\end_inset
+
+colorate
+\begin_inset Quotes erd
+\end_inset
+
+ per colonne come mostrato nelle figure e successivamente muoversi per livelli
+ per implementare la ricerca di intervalli contigui che contengono caselle
+ da irraggiare, ottenendo questo codice.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int osso[1001][1001];
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void inizializza()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int i = 0 ; i < 1001; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (int j = 0; j < 1001; j++)
+\end_layout
+
+\begin_layout Plain Layout
+
+            osso[i][j] = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void riempi_colonna(int c, int n)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int i = 0; i < n; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+        osso[i][c] = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int intervalli(int r, int n)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    int i = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    int conta = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    while (osso[r][i] == 0) i++;
+\end_layout
+
+\begin_layout Plain Layout
+
+    while (i < n)
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        while(i < n && osso[r][i] == 1) i++;
+\end_layout
+
+\begin_layout Plain Layout
+
+        while(i < n && osso[r][i] == 0) i++;
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (i < n) conta++;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    return conta + 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    ifstream in("input.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+    ofstream out("output.txt");
+\end_layout
+
+\begin_layout Plain Layout
+
+    int T;
+\end_layout
+
+\begin_layout Plain Layout
+
+    in >> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int test = 1; test <= T; test++)
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        int n, massimo = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << "Case #" << test << ": ";
+\end_layout
+
+\begin_layout Plain Layout
+
+        inizializza();
+\end_layout
+
+\begin_layout Plain Layout
+
+        in >> n;
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (int i = 0; i < n; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+        {
+\end_layout
+
+\begin_layout Plain Layout
+
+            int temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+            in >> temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+            if (temp > massimo)
+\end_layout
+
+\begin_layout Plain Layout
+
+                massimo = temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+            riempi_colonna(i, temp);
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        int movimenti = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (int i = 0; i < massimo; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+            movimenti += intervalli(i,n);
+\end_layout
+
+\begin_layout Plain Layout
+
+        out << movimenti << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La funzione 
+\emph on
+inizializza
+\emph default
+ pone esplicitamente a zero tutti gli elementi della matrice globale 
+\emph on
+osso
+\emph default
+ e serve perchè la matrice deve essere resettata ad ogni nuovo caso di test.
+ La funzione 
+\emph on
+riempi_colonna
+\emph default
+ si occupa invece di riempire la colonna 
+\emph on
+c
+\emph default
+ con 
+\emph on
+n
+\emph default
+ caselle poste a 1, che nelle figure sono rappresentate dai quadrati grigi.
+ 
+\end_layout
+
+\begin_layout Standard
+L'algoritmo viene di fatto svolto interamente dalla funzione 
+\emph on
+intervalli
+\emph default
+, i cui due parametri 
+\series bold
+r 
+\series default
+e 
+\series bold
+n 
+\series default
+rappresentano rispettivamente la riga (livello) sulla quale viene conteggiato
+ il numero di intervallo e la lunghezza della riga, cioè nel problema la
+ lunghezza dell'osso.
+ L'implementazione non è ottimizzata e segue quanto esposto sopra: come
+ prima cosa, alla riga 20, si scorre fino ad arrivare al primo centimetro
+ di osso che necessita di essere irradiato: nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:soluzione-x-ray"
+
+\end_inset
+
+, se stessimo analizzando il livello 2, corrisponderebbe al centimetro 2.
+ Successivamente il ciclo 
+\emph on
+while
+\emph default
+ dalla riga 21 alla riga 26 contiene due ulteriori cicli, il primo per scorrere
+ un intero intervallo di 1 adiacenti, il secondo per un intervallo di 0
+ adiacenti, con lo scopo di trovare un intervallo e posizionare 
+\emph on
+i
+\emph default
+ in modo che sia pronto per la ricerca dell'intervallo successivo.
+ Da notare che entrambi i cicli, oltre a contenere la condizione che verifica
+ se la casella 
+\emph on
+i
+\emph default
+-esima contiene un 1 o uno 0, contengono anche il controllo sul non superamento
+ della lunghezza massima 
+\emph on
+n
+\emph default
+: se così non fosse 
+\emph on
+i
+\emph default
+ potrebbe uscire dalla lunghezza massima della riga con risultati imprevedibili
+ (nella migliore delle ipotesi terminazione del programma, nella peggiore
+ risultati non corretti).
+ È inoltre indispensabile notare che il controllo 
+\emph on
+i < n
+\emph default
+ deve essere inserito come prima condizione dell'operatore di AND, poichè
+ in questo modo se la condizione fallisce non viene considerata l'altra
+ condizione
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Questa caratteristica di alcuni operatori booleani in alcuni linguaggi di
+ programmazione viene tecnicamente chiamata 
+\emph on
+short-circuit evaluation
+\emph default
+, e consiste nel valutare il secondo argomento solo se la valutazione del
+ primo non è sufficiente a determinare il valore dell'intera espressione.
+\end_layout
+
+\end_inset
+
+, che non avrebbe un valore corretto per valori di 
+\emph on
+i
+\emph default
+ maggiori o uguali a 
+\emph on
+n.
+
+\emph default
+ 
+\end_layout
+
+\begin_layout Standard
+Alla riga 25 si incrementa il contatore solo se 
+\emph on
+i
+\emph default
+ è minore di 
+\emph on
+n
+\emph default
+, questo per tenere conto del fatto che esiste almeno un intervallo (difatti
+ la funzione ritorna 
+\emph on
+conta + 1
+\emph default
+) e che l'ultimo non deve essere contato, per evitare di dover differenziare
+ tra righe che finiscono con 1 oppure con 0.
+\end_layout
+
+\begin_layout Standard
+A questo punto il programma, dopo aver inizializzato la matrice che rappresenta
+ le radiazioni che dovrà subire l'osso (righe 40-49), si limiterà a chiamare
+ questa funzione su tutti i livelli dell'intervallo (righe 50-51), sommando
+ i vari movimenti che dovrà fare per ogni livello.
+\end_layout
+
+\begin_layout Standard
+Viene lasciato al lettore l'esercizio di sostituire la matrice con un vettore
+ di interi, dove ogni valore rappresenta la quantità di radiazioni che deve
+ subire l'
+\emph on
+i
+\emph default
+-esimo centimetro di osso, ottenendo un miglioramento nell'occupazione di
+ memoria (da 
+\begin_inset Formula $N^{2}$
+\end_inset
+
+a 
+\begin_inset Formula $N$
+\end_inset
+
+) e anche delle prestazioni, che su dei test fatti permettono al programma
+ con i vettori di essere circa tre volte più veloce, pur mantenendo la stessa
+ complessità computazionale
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+La versione qui mostrata comunque in gara permetteva di prendere l'intero
+ punteggio
+\end_layout
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \end_body
