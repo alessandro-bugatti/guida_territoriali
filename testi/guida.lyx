@@ -254,7 +254,21 @@ Sono stati aggiunti i problemi dell'edizione 2018 e corretto qualche errore.
  sottraendo tempo ad altre cose che potrei fare, quindi non sempre posso
  permettermi di rileggere con attenzione quanto scrivo (senza parlare poi
  del fatto che le mie competenze tecniche non sempre mi garantiscono di
- fornire soluzioni o osservazioni precise)
+ fornire soluzioni precise).
+ Sono quindi gradite osservazioni, commenti, suggerimenti, che potete inviarmi
+ direttamente al mio indirizzo di posta elettronica o come 
+\emph on
+issue
+\emph default
+ sulla pagina GitHub del libro (
+\begin_inset CommandInset href
+LatexCommand href
+name "https://github.com/alessandro-bugatti/guida_territoriali"
+target "https://github.com/alessandro-bugatti/guida_territoriali"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Section*
