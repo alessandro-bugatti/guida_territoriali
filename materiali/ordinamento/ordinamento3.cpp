@@ -39,9 +39,9 @@ struct persona{
 //Ordina per peso, in caso di pesi uguali ordina per altezza
 bool cmp(const persona& a,const persona& b)
 {
-    if (a.peso >= b.peso) return false;
+    if (a.peso > b.peso) return false;
     if (a.peso < b.peso) return true;
-    if (a.altezza >= b.altezza) return false;
+    if (a.altezza > b.altezza) return false;
     if (a.altezza < b.altezza) return true;
     return true;
 }
