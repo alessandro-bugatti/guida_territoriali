@@ -654,7 +654,7 @@ fgets
 \emph default
 
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Non viene usata la più usuale 
@@ -2019,6 +2019,10 @@ Può essere interessante notare che, essendo le soluzioni per Aminolazina
 Per il resto il codice è simile a quello visto per la soluzione greedy,
  con l'ordinamento iniziale dei bidoni e l'ordinamento successivo dei bidoni
  per stampare la soluzione nell'ordine in cui i bidoni vengono incontrati.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -3394,6 +3398,10 @@ Essendo la ricerca di un massimo, ci sarà una variabile per contenere il
 
  e se i due valori sono paragonabili diventa di tipo quadratico.
  
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -24929,6 +24937,10 @@ La versione qui mostrata comunque in gara permetteva di prendere l'intero
 
 .
  
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
