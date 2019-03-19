@@ -1,0 +1,9 @@
+Questa guida è stata scritta come supporto per chi vuole prepararsi ad affrontare le Olimpiadi di Informatica, in particolare per le selezioni territoriali. Si tratta del primo livello della competizione in cui gli allievi si misurano nella scrittura di codice per la soluzione di problemi.
+La guida fornisce una breve introduzione teorica a tutti gli argomenti fondamentali, partendo da strutture dati semplici come i vettori e gli algoritmi relativi, fino ad arrivare alle nozioni essenziali sui grafi. Sono inoltre analizzati e risolti tutti gli esercizi delle passate edizioni, cercando di fornire le idee risolutive in modo semplice e chiaro e stimolando il lettore a svilupparne di proprie.
+
+Alessandro Bugatti insegna Informatica presso l'Istituto di Istruzione Superiore B. Castelli di Brescia e dal 2002 è referente territoriale per le Olimpiadi di Informatica. 
+
+
+Problemi aggiornati alle territoriali 2018
+
+
