@@ -13063,7 +13063,7 @@ separation "3pt"
 shadowsize "4pt"
 framecolor "black"
 backgroundcolor "none"
-status collapsed
+status open
 
 \begin_layout Subsection*
 Giochiamo con Mojito (mojito) 
@@ -13440,12 +13440,12 @@ reference "fig:Esempi-Mojito"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/xubuntu/Desktop/guida/materiali/problemi territoriali/2014_mojito/mojito.eps
+	filename ../materiali/problemi territoriali/2014_mojito/mojito.eps
 	display false
 	scale 65
 
@@ -15678,7 +15678,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/xubuntu/Desktop/guida/materiali/problemi territoriali/2015_disuguaglianze/schema_soluzione.eps
+	filename ../materiali/problemi territoriali/2015_disuguaglianze/schema_soluzione.eps
 	scale 55
 
 \end_inset
@@ -16004,7 +16004,7 @@ Si prenda ad esempio la mappa della città motrata qua sopra (dove il numero
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/xubuntu/Desktop/guida/materiali/problemi territoriali/2015_footing/fig2.png
+	filename ../materiali/problemi territoriali/2015_footing/fig2.png
 	lyxscale 50
 	scale 25
 
@@ -17703,12 +17703,12 @@ j
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/xubuntu/Desktop/guida/materiali/problemi territoriali/2016_discesa/matrice.eps
+	filename ../materiali/problemi territoriali/2016_discesa/matrice.eps
 	lyxscale 60
 	scale 80
 
@@ -24306,7 +24306,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/xubuntu/guida_territoriali/materiali/problemi territoriali/2018_radioanalisi fossile/casi.eps
+	filename ../materiali/problemi territoriali/2018_radioanalisi fossile/casi.eps
 	scale 50
 
 \end_inset
@@ -24407,7 +24407,7 @@ reference "fig:soluzione-x-ray"
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
