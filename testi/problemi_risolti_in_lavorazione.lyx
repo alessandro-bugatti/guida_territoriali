@@ -101,7 +101,7 @@ status open
 \end_layout
 
 \begin_layout Section
-Escursione - Territoriali 2018
+Gerarchie di tutor - Territoriali 2019
 \end_layout
 
 \begin_layout Standard
@@ -124,11 +124,11 @@ backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
-Escursione (escursione)
+Gerarchie di tutor (gerarchie)
 \end_layout
 
 \begin_layout Subsubsection*
-Punteggio massimo: 27
+Punteggio massimo: 19
 \end_layout
 
 \begin_layout Subsubsection*
@@ -137,87 +137,122 @@ Descrizione del problema
 \end_layout
 
 \begin_layout Plain Layout
-Mojito vuole pianificare un'escursione sulle colline di Volterra.
- Ha a disposizione una mappa rettangolare, in cui è indicata l'altitudine
- della zona.
- Mojito vuole fare un percorso che parte dall'angolo in alto a sinistra
- della mappa e raggiunge l'angolo in basso a destra, in modo tale che il
- dislivello massimo che è costretto a fare ad ogni spostamento sia il mimimo
- possibile.
- Aiuta Mojito a calcolare questo dislivello!
+Le Olimpiadi Italiane di Informatica sono gestite da Luigi con l’aiuto di
+ 
+\emph on
+N
+\emph default
+ ragazzi e ragazze che prendono il nome di 
+\series bold
+tutor
+\series default
+.
+ Questi membri dello staff (che in passato hanno partecipato alle OII come
+ voi!) con grande impegno e dedizione mettono a beneficio delle OII le loro
+ conoscenze tecniche.
+ In così tanti però è difficile organizzarsi, per questo già da molti anni
+ è stata definita una gerarchia molto precisa che, se rispettata, massimizza
+ l’efficienza della squadra.
+ 
 \end_layout
 
 \begin_layout Plain Layout
-La mappa è una tabella di numeri interi: ciascuno esprime l'altitudine in
- metri nel corrispondente punto della mappa.
- La tabella è composta di 
-\emph on
-H
-\emph default
- righe e 
-\emph on
-W
-\emph default
- colonne, numerate rispettivamente da 
-\emph on
-1
-\emph default
- a 
-\emph on
-H
-\emph default
- e da 
-\emph on
-1
-\emph default
- a 
-\emph on
-W
-\emph default
-.
- Nella cella di coordinate 
-\emph on
-(i,j)
-\emph default
-, ovvero in corrispondenza della riga 
+Al tutor 
 \emph on
 i
 \emph default
- e della colonna 
-\emph on
-j
-\emph default
-, è indicato il valore dell'altitudine 
-\begin_inset Formula $A_{i,j}$
+-esimo è stato associato un 
+\series bold
+tutor di riferimento
+\series default
+ 
+\begin_inset Formula $R_{i}$
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Plain Layout
-Mojito inizia l'escursione dalla cella di coordinate (1,1), in alto a sinistra,
- ed arriva alla cella di coordinate (H,W), in basso a destra.
- Ogni minuto si sposta di esattamente una cella, in una della quattro possibili
- direzioni (in alto, in basso, a destra o a sinistra).
- Non può però uscire dalla mappa.
-\end_layout
-
-\begin_layout Plain Layout
-Stabilito un percorso lungo la mappa, il 
+ , che è in pratica un altro tutor incaricato di supervisionare il suo lavoro.
+ In cima alla gerarchia si trova il 
 \series bold
-pericolo
+tutor leader
 \series default
- associato a quel percorso è 
-\emph on
-il massimo dislivello tra due celle consecutive lungo il percorso
-\emph default
-, ovvero la differenza di altitudine fra due celle consecutive: non cambia
- nulla se lo spostamento è in salita o in discesa.
+, al quale non è assegnato alcun tutor di riferimento.
 \end_layout
 
 \begin_layout Plain Layout
-Calcola il pericolo minimo, fra tutti i percorsi possibili che partono dalla
- cella (1,1) e arrivano alla cella (H,W).
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/alex/repositories/guida_territoriali/materiali/problemi territoriali/2019_gerarchie/gerarchia.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+L’efficacia di questa politica è massima quando ogni tutor di riferimento
+ risulta 
+\emph on
+più competente di tutti i tutor che è incaricato di supervisionare
+\emph default
+.
+ Negli ultimi anni però, Luigi si è accorto che qualcosa non va: sembra
+ infatti che i livelli di competenza 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ dei vari tutor siano cambiati e che quindi non ci sia più il bilanciamento
+ necessario.
+ Urge una riorganizzazione! Però, essendo tra amici, ed essendo la burocrazia
+ molto costosa, sarà necessario prestare molta attenzione alle promozioni
+ fatte.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+La promozione di un tutor 
+\emph on
+i
+\emph default
+ consiste nello scambio di ruolo tra 
+\emph on
+i
+\emph default
+ ed il suo tutor di riferimento, di fatto facendo salire 
+\emph on
+i
+\emph default
+ nella gerarchia e facendo scendere il suo supervisore.
+ Ognuna di queste operazioni ha un costo e, per ribilanciare l’intera struttura,
+ Luigi vorrebbe farne il minor numero possibile.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Essendo tra amici, Luigi vuole evitare che un tutor venga continuamente
+ promosso e declassato durante la riorganizzazione.
+ Per evitare ogni problema si impone quindi la seguente regola: se un tutor
+ viene promosso, tutti i 
+\series bold
+successivi
+\series default
+ scambi di ruolo che lo coinvolgono dovranno essere ancora delle 
+\emph on
+promozioni
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Aiuta Luigi a calcolare il numero di minimo di scambi che deve fare per
+ riorganizzare la gerarchia senza però mai violare la sua regola!
 \end_layout
 
 \begin_layout Subsubsection*
@@ -227,9 +262,9 @@ Dati di input
 \begin_layout Plain Layout
 La prima riga del file di input contiene un intero 
 \emph on
-T
+T,
 \emph default
-, il numero di casi di test.
+ il numero di casi di test.
  Seguono 
 \emph on
 T
@@ -238,59 +273,47 @@ T
 \emph on
 T
 \emph default
-.
+ .
  Ogni caso di test è preceduto da una riga vuota.
+ 
 \end_layout
 
 \begin_layout Plain Layout
-In ciascun caso di test, la prima riga contiene due interi 
+Ciascun caso di test è composto da 
 \emph on
-H
+N
 \emph default
+ + 1 righe: la prima contiene un numero intero 
+\emph on
+N
+\emph default
+, il numero di tutor.
+ Ciascuna delle seguenti 
+\emph on
+N
+\emph default
+ righe contiene due interi 
+\begin_inset Formula $R_{i}$
+\end_inset
+
  e 
-\emph on
-W
-\emph default
- separati da uno spazio che corrispondono all'altezza, 
-\emph on
-H
-\emph default
-, e alla larghezza, 
-\emph on
-W
-\emph default
-, della mappa.
- Le successive 
-\emph on
-H
-\emph default
- righe contengono ciascuna 
-\emph on
-W
-\emph default
- interi separati da spazi, corrispondenti all'altitudine in metri lungo
- una riga della mappa.
- Ovvero, in ciascun caso di test, l'altitudine 
-\emph on
-Ai,j
-\emph default
- alle coordinate 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ separati da spazio: rispettivamente l’indice del tutor di riferimento ed
+ il livello di competenza dell’
 \emph on
 i
 \emph default
- e 
-\emph on
-j
-\emph default
- appare sulla riga (
+-esimo tutor (con 
 \emph on
 i
 \emph default
-+1)-esima, in posizione 
+ che va da 0 a 
 \emph on
-j
+N
 \emph default
-.
+ − 1).
 \end_layout
 
 \begin_layout Subsubsection*
@@ -306,7 +329,7 @@ Il file di output deve contenere la risposta ai casi di test che sei riuscito
 
 \begin_layout Verbatim
 
-Case #t: p
+Case #t: s
 \end_layout
 
 \begin_layout Plain Layout
@@ -314,11 +337,12 @@ dove
 \emph on
 t
 \emph default
- è il numero del caso di test (a partire da 1) e 
+ è il numero del caso di test (a partire da 1) e il valore 
 \emph on
-p
+s
 \emph default
- è il minimo valore di pericolo trovato per quel test case.
+ è il minimo numero di scambi per bilanciare la gerarchia rispettando le
+ regole.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -330,38 +354,75 @@ Assunzioni
 \emph on
 T
 \emph default
-=27, ci sono 27 casi di prova.
+ = 19, nei file di input che scaricherai saranno presenti esattamente 19
+ casi di test.
+ 
 \end_layout
 
 \begin_layout Itemize
-1≤
+1 ≤ 
 \emph on
-H,W
+N
 \emph default
-≤100, la mappa ha dimensione massima 100×100.
+ ≤ 1000.
+ 
 \end_layout
 
 \begin_layout Itemize
-(1,1)≠(
+0 ≤ 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ ≤ 
 \emph on
-H,W
+N
 \emph default
-), ovvero la mappa è abbastanza grande da avere partenza e arrivo in punti
- diversi.
+ − 1.
+ 
 \end_layout
 
 \begin_layout Itemize
-1≤
+0 ≤ 
+\begin_inset Formula $R_{i}$
+\end_inset
+
+ ≤ 
 \emph on
-Ai,j
+N
 \emph default
-≤1.000.000, l'altitudine in ogni cella è compresa fra 1 e 1.000.000.
+ − 1 se i non è il tutor leader, 
+\begin_inset Formula $R_{i}$
+\end_inset
+
+ = −1 se i è il tutor leader.
+ 
+\end_layout
+
+\begin_layout Itemize
+I valori di competenza dei tutor sono numeri da 0 a 
+\emph on
+N
+\emph default
+ − 1 e sono tutti distinti.
+ 
+\end_layout
+
+\begin_layout Itemize
+Non è consentito declassare un tutor dopo una sua promozione ma è possibile
+ declassarlo prima.
+ 
+\end_layout
+
+\begin_layout Itemize
+Esiste uno ed un solo tutor leader.
+ Risalendo la catena di supervisori di un qualsiasi tutor, si raggiunge
+ sempre il tutor leader.
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<lyxtabular version="3" rows="3" columns="2">
+<features islongtable="true" longtabularalignment="center">
 <column alignment="left" valignment="top" width="2.5in">
 <column alignment="left" valignment="top" width="5cm">
 <row>
@@ -389,6 +450,224 @@ File output.txt
 </cell>
 </row>
 <row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+6 6 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+4 4 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1 2 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1 1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+4 3 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+4 5 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+8 3 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Case #1: 6 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Case #2: 2 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -405,14 +684,7 @@ File output.txt
 \uwave off
 \noun off
 \color none
-3
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset VSpace defskip
-\end_inset
-
-
+6 
 \end_layout
 
 \begin_layout Plain Layout
@@ -428,7 +700,7 @@ File output.txt
 \uwave off
 \noun off
 \color none
-2 2
+2 4 
 \end_layout
 
 \begin_layout Plain Layout
@@ -444,7 +716,7 @@ File output.txt
 \uwave off
 \noun off
 \color none
-100 150
+-1 7 
 \end_layout
 
 \begin_layout Plain Layout
@@ -460,14 +732,7 @@ File output.txt
 \uwave off
 \noun off
 \color none
-110 130
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset VSpace defskip
-\end_inset
-
-
+2 5 
 \end_layout
 
 \begin_layout Plain Layout
@@ -483,7 +748,7 @@ File output.txt
 \uwave off
 \noun off
 \color none
-4 4
+5 1 
 \end_layout
 
 \begin_layout Plain Layout
@@ -499,7 +764,7 @@ File output.txt
 \uwave off
 \noun off
 \color none
-1 5 6 7
+2 0 
 \end_layout
 
 \begin_layout Plain Layout
@@ -515,7 +780,7 @@ File output.txt
 \uwave off
 \noun off
 \color none
-2 4 3 8
+3 2 
 \end_layout
 
 \begin_layout Plain Layout
@@ -531,120 +796,16 @@ File output.txt
 \uwave off
 \noun off
 \color none
-2 9 2 8
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-3 3 2 9
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-
-\begin_inset VSpace defskip
-\end_inset
-
-
-\family typewriter
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-1 10
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-2 4 6 8 10 12 14 16 18 20
+5 3
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\family typewriter
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-Case #1: 20 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-Case #2: 1 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-Case #3: 2
 \end_layout
 
 \end_inset
@@ -663,89 +824,12 @@ Spiegazione
 
 \begin_layout Plain Layout
 \noindent
-Nel primo caso d'esempio, Mojito sceglie il percorso:
+La spiegazione degli esempi, essendo lunga, può essere recuperata nei testi
+ originali.
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../materiali/problemi territoriali/2018_escursione/percorso1.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-ovvero, con i seguenti spostamenti:
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-in basso
-\emph default
-, da(1,1) a (2,1), con un dislivello pari a 110−100=10 
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-a destra
-\emph default
-, da (2,1) a (2,2)=(H,W), con un dislivello pari a 130−110=20.
-\end_layout
-
-\begin_layout Plain Layout
-Il pericolo del percorso è 20 (il massimo fra i dislivelli, 10 e 20).
-\end_layout
-
-\begin_layout Plain Layout
-Non ci sono percorsi migliori, quindi la risposta corretta è 20.
- 
-\end_layout
-
-\begin_layout Plain Layout
-L'altro percorso possibile è:
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../materiali/problemi territoriali/2018_escursione/percorso2.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-che ha dislivelli 50 e 20, e quindi ha pericolo 50.
-\end_layout
-
-\begin_layout Plain Layout
-Nel secondo caso d'esempio, Mojito sceglie il percorso:
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../materiali/problemi territoriali/2018_escursione/percorso3.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Gli spostamenti hanno tutti dislivello 0 o 1, quindi il pericolo del percorso
- è 1.
- Non ci sono percorsi di pericolo pari a 0, quindi la risposta corretta
- è 1.
-\end_layout
-
-\begin_layout Plain Layout
-Nel terzo caso d'esempio c'è un solo percorso possibile.
+.
 \end_layout
 
 \end_inset
@@ -758,52 +842,24 @@ Suggerimenti
 \end_layout
 
 \begin_layout Itemize
-Come in altri esercizi (ad esempio 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Esempio:-Mappa-antica"
-
-\end_inset
-
- e 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Trova-la-parola"
-
-\end_inset
-
-) si ha una mappa che è una griglia rettangolare (eventualmente quadrata):
- quali sono le similitudini e quali le differenze?
+Nonostante la figura e il testo del problema suggeriscano che i dati e le
+ loro relazioni abbiano una topologia ad albero, è necessaio usare una strutture
+ dati esplicita per rappresentarli?
 \end_layout
 
 \begin_layout Itemize
-Possono essere utilizzati gli stessi approcci usati in quei problemi o bisogna
- aggiungere qualcosa di diverso?
+Come si può garantire che un tutor dopo essere stato promosso non vanga
+ declassato in un momento successivo?
 \end_layout
 
 \begin_layout Itemize
-Considerando che il percorso può contenere una serie di svolte in una qualsiasi
- delle quattro direzioni, posso limitarmi a esplorare la griglia con due
- cicli 
-\emph on
-for
-\emph default
- organizzati per righe e colonne?
+Ci sono delle scelte ottime che una volta effettuate non richiedano di tornare
+ più sui propri passi? 
 \end_layout
 
 \begin_layout Itemize
-Se con la ricorsione e facendo 
-\emph on
-backtracking
-\emph default
- esploro tutti i sentieri possibili, date le dimensioni del problema, è
- possibile che risolva tutti i casi di test in tempo ragionevole?
-\end_layout
-
-\begin_layout Itemize
-Se il problema diventa il tempo impiegato e non più la soluzione in sè,
- è possibile migliorare l'algoritmo in modo da ottenere tutti i risultati
- in un tempo compatibile a quello di gara?
+Come si può garantire che una scelta di scambi non solo porti a una soluzione
+ del problema, ma sia anche quella migliore possibile?
 \end_layout
 
 \begin_layout Subsection
@@ -811,628 +867,96 @@ Soluzione
 \end_layout
 
 \begin_layout Standard
-Chiaramente il problema presenta delle similitudini con quelli indicati
- e quindi l'approccio utilizzato sarà simile e farà uso della ricorsione.
- Si vedrà adesso come arrivare a due diverse soluzioni: la prima, concettualment
-e più semplice, non permetterà di prendere tutti i punti, la seconda, che
- non è altro che un'evoluzione 
-\emph on
-furba
-\emph default
- della prima, invece farà punteggio pieno.
+A prima vista potrebbe non essere chiaro come affrontare il problema, dato
+ che la struttura ad albero induce a cercare una soluzione nella quale venga
+ rappresentano esplicitamente questo tipo di struttura dati.
 \end_layout
 
 \begin_layout Standard
-L'idea di base è quella di usare la ricorsione per 
+Provando un po' a riflettere sui casi di esempio si può vedere che se si
+ parte da un tutor a caso per fare un eventuale scambio con il suo tutor
+ di riferimento, si rischia di violare la regola che non vuole che un tutor
+ venga declassato dopo essere stato promosso: nel primo esempio, se partissimo
+ dal tutor numero 2, con competenza uguale a 4, verrebbe prima scambiato
+ con il proprio tutor di riferimento, il numero 4 con competenza 1, ottenendo
+ così una promozione.
+ Successivamente però dovrebbe però essere retrocesso perchè comunque si
+ troverebbe a un livello più alto sia del numero 6, con competenza 5, che
+ del numero 0 con competenza 6.
+ 
+\end_layout
+
+\begin_layout Standard
+Questa osservazione evidenzia che partire da un tutor a caso non è l'idea
+ corretta, allora sembra necessario trovare una strategia per stabilere
+ l'ordine con cui analizzare e eventualmente spostare i tutor.
+ L'osservazione astuta, che permette di risolvere il problema, è quella
+ di notare che è sufficiente mettere i tutor al posto corretto partendo
+ da quelli più competenti fino a quelli con meno competenza.
+ 
+\end_layout
+
+\begin_layout Standard
+Si supponga infatti di aver ordinato i tutor per competenza e che inizialmente,
+ per quanto ci è dato sapere, nessuno dei tutor sia nella sua posizione
+ finale.
+ Partendo dal tutor più competente, si può procedere a scambiarlo con i
+ propri tutor di riferimento, finchè finirà inevitabilmente alla radice
+ dell'albero, essendo quello con la competenza maggiore.
+ Sicuramente non potrà più essere declassato, essendo nella sua posizione
+ finale, e, anche se nel procedere degli scambi altri tutor sono stati declassat
+i, questo non è un problema, perchè fa parte delle regole di scambio.
+ 
+\end_layout
+
+\begin_layout Standard
+Procedendo adesso con il secondo tutor più competente, anche questo 
 \begin_inset Quotes eld
 \end_inset
 
-esplorare
+risalirà
 \begin_inset Quotes erd
 \end_inset
 
- tutti i percorsi possibili e, man mano che li si esplorano, si tiene traccia
- del salto più alto che si è costretti a fare.
- Quando un ramo della ricorsione arriva alla casella finale, quella in posizione
- H-1, W-1, allora si verifica se il salto più alto di quel percorso è più
- basso di quello finora migliore, se sì, si memorizza la nuova soluzione
- temporanea, e, in ogni caso, tramite 
+ (a meno che non sia già al livello sotto al tutor più competente) fino
+ ad arrivare alla sua posizione definitiva e anche in questo caso non potrà
+ più scendere, perchè i tutor che rimangono da posizionare hanno competenza
+ inferiore alla sua.
+ Iterando questo procedimento per tutti i tutor, sempre nell'ordine dal
+ più competente a quello meno, si arriverà alla soluzione del problema.
+ Il numero di scambi è garantito essere il minimo poichè ogni tutor, dovendo
+ risalire a una posizione che si trova a 
 \emph on
-backtracking
+L
 \emph default
- si torna indietro e si esplorano altri percorsi.
-\end_layout
-
-\begin_layout Standard
-Il grosso limite di questa soluzione, come si vedrà, è che il numero di
- percorsi ha una crescita esponenziale, quindi anche con una dimensione
- della griglia piuttosto piccola, non si riesce ad arrivare a una soluzione
- in tempi ragionevoli.
-\end_layout
-
-\begin_layout Standard
-Il codice comunque è il seguente:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
-inline false
-status collapsed
-
-\begin_layout Plain Layout
-
-int mappa[100][100];
-\end_layout
-
-\begin_layout Plain Layout
-
-int soluzione;
-\end_layout
-
-\begin_layout Plain Layout
-
-int H, W;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-void visita(int r, int c, int salto)
-\end_layout
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\begin_layout Plain Layout
-
-    if (salto >= soluzione)
-\end_layout
-
-\begin_layout Plain Layout
-
-        return;
-\end_layout
-
-\begin_layout Plain Layout
-
-    if (r == H - 1 && c == W - 1)
-\end_layout
-
-\begin_layout Plain Layout
-
-    {
-\end_layout
-
-\begin_layout Plain Layout
-
-        soluzione = salto;
-\end_layout
-
-\begin_layout Plain Layout
-
-        return;
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
-    int temp = mappa[r][c];
-\end_layout
-
-\begin_layout Plain Layout
-
-    mappa[r][c] = -1;
-\end_layout
-
-\begin_layout Plain Layout
-
-    struct {
-\end_layout
-
-\begin_layout Plain Layout
-
-		int i, j;
-\end_layout
-
-\begin_layout Plain Layout
-
-	} direzioni[] = {{1,0},{0,1},{-1,0},{0,-1}};
-\end_layout
-
-\begin_layout Plain Layout
-
-    for (int d = 0; d < 4; d++)
-\end_layout
-
-\begin_layout Plain Layout
-
-    {
-\end_layout
-
-\begin_layout Plain Layout
-
-		int i = direzioni[d].i, j = direzioni[d].j;
-\end_layout
-
-\begin_layout Plain Layout
-
-		if (r+i >= 0 && c+j >= 0 && r+i < H && c+j < W &&
-\end_layout
-
-\begin_layout Plain Layout
-
-			mappa[r+i][c+j] != -1)
-\end_layout
-
-\begin_layout Plain Layout
-
-			{
-\end_layout
-
-\begin_layout Plain Layout
-
-				if (salto > abs(temp - mappa[r+i][c+j]))
-\end_layout
-
-\begin_layout Plain Layout
-
-					visita(r+i,c+j, salto);
-\end_layout
-
-\begin_layout Plain Layout
-
-				else
-\end_layout
-
-\begin_layout Plain Layout
-
-					visita(r+i,c+j, abs(temp - mappa[r+i][c+j]));
-\end_layout
-
-\begin_layout Plain Layout
-
-			}
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-    mappa[r][c] = temp;
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-int main()
-\end_layout
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\begin_layout Plain Layout
-
-    ifstream in("input.txt");
-\end_layout
-
-\begin_layout Plain Layout
-
-    ofstream out("output.txt");
-\end_layout
-
-\begin_layout Plain Layout
-
-    int T;
-\end_layout
-
-\begin_layout Plain Layout
-
-    in >> T;
-\end_layout
-
-\begin_layout Plain Layout
-
-    for (int test = 1; test <= T; test++)
-\end_layout
-
-\begin_layout Plain Layout
-
-    {
-\end_layout
-
-\begin_layout Plain Layout
-
-        out << "Case #" << test << ": ";
-\end_layout
-
-\begin_layout Plain Layout
-
-        in >> H >> W;
-\end_layout
-
-\begin_layout Plain Layout
-
-        for (int i = 0 ; i < H; i++)
-\end_layout
-
-\begin_layout Plain Layout
-
-            for (int j = 0; j < W; j++)
-\end_layout
-
-\begin_layout Plain Layout
-
-                in >> mappa[i][j];
-\end_layout
-
-\begin_layout Plain Layout
-
-        soluzione = 10000000;
-\end_layout
-
-\begin_layout Plain Layout
-
-        visita(0,0,0);
-\end_layout
-
-\begin_layout Plain Layout
-
-        out << soluzione << endl;
-\end_layout
-
-\begin_layout Plain Layout
-
-        cout << "Case #" << test << " finished" << endl;
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
-    return 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-L'algoritmo è tutto contenuto nella funzione ricorsiva 
+ livelli più in alto, ha bisogno di fare non meno di 
 \emph on
-visita
+L
 \emph default
-, definita alla riga 5, i cui primi due parametri rappresentano le coordinate
- della casella che viene visitata dal percorso corrente, mentre il terzo
- è il valore attuale del salto maggiore contenuto nel percorso che si sta
- esplorando.
- Le prime due istruzioni (righe 7-8) sono fondamentali per poter prendere
- una serie cospicua di punti: il loro scopo è quello di fermare la soluzione
- una volta che, percorrendo un sentiero, si arriva a una situazione nella
- quale un salto contenuto nel percorso è più alto della migliore soluzione
- finora trovata.
- Questo chiaramente indica che è inutile andare avanti a esplorare quel
- percorso e quindi la ricorsione viene terminata.
- Senza quelle due righe il programma riuscirebbe a eseguire solo il primo
- caso di test, che è su una matrice 5x5, e inoltre il risultato non sarebbe
- corretto perchè in 
-\emph on
-soluzione
-\emph default
- verrebbe scritta il costo dell'ultimo percorso esplorato, che poco probabilment
-e sarebbe quello corretto.
- 
-\end_layout
-
-\begin_layout Standard
-Le righe dalla 9 alla 13 implementano invece la condizione di terminazione
- della ricorsione che viene raggiunta quando il percorso arriva sulla casella
- di destinazione.
- L'assegnamento di 
-\emph on
-salto 
-\emph default
-a 
-\emph on
-soluzione 
-\emph default
-è determinato dal fatto che nelle righe precedenti si controllava già se
- 
-\emph on
-salto
-\emph default
- era maggiore o uguale a 
-\emph on
-soluzione
-\emph default
- e nel caso si usciva, quindi a questo punto 
-\emph on
-salto
-\emph default
- è per forza la 
-\emph on
-soluzione 
-\emph default
-temporanea
-\emph on
-.
-\end_layout
-
-\begin_layout Standard
-La ricorsione vera e propria viene fatta nelle righe successive: per permettere
- il 
-\emph on
-backtracking 
-\emph default
-si tiene da parte il valore contenuto nella cella attuale, che dovrà successivam
-ente essere reinserito, e lo sostituisce con un -1, in modo da evitare percorsi
- che ripassino più volte sulla stessa casella.
- 
-\end_layout
-
-\begin_layout Standard
-La struttura definita tra le righe 16 e 17 serve solo a permettere al ciclo
- 
-\emph on
-for
-\emph default
- di esplorare le quattro direzioni, poichè ogni elemento del vettore 
-\emph on
-direzioni
-\emph default
- contiene una direzione (basso, destra, alto, sinistra) e quindi è possibile
- iterare sulle direzioni.
-\end_layout
-
-\begin_layout Standard
-Detta a parole questa ricorsione funziona così:
-\end_layout
-
-\begin_layout Itemize
-per ognuna delle quattro direzioni (riga 19)
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-se la casella si trova all'interno della matrice (riga 22) e non è già contenuta
- nel percorso corrente (riga 23)
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-se il salto maggiore visto fino a questo momento è maggiore del salto per
- spostarsi dalla casella 
-\emph on
-r,c
-\emph default
- a quella 
-\emph on
-r+i, c+j
-\emph default
-, allora ci si sposta ricorsivamente in quella casella passando il valore
- di 
-\emph on
-salto
-\end_layout
-
-\begin_layout Itemize
-altrimenti ci si sposta ricorsivamente in quella casella passando il valore
- assoluto della differenza tra le due caselle, perchè da questo momento
- è quello il valore di salto maggiore trovato 
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Standard
-Infine viene reinserito (riga 31) nella casella 
-\emph on
-r,c
-\emph default
- il valore che in precedenza era stato sostituito con il -1, in modo da
- permettere ad altri rami della ricorsione di poter usare quella casella
- (quindi operare in 
-\emph on
-backtracking
-\emph default
-).
-\end_layout
-
-\begin_layout Standard
-Come si diceva, il problema di questa soluzione, che pure è corretta, sta
- nel tempo impiegato per risolvere i casi di test: provando su esempi reali
- forniti dal sistema di correzione si può affermare che si riescono a prendere
- i primi 13 punti associati alla soluzione dei primi 13 casi di test, ma
- non oltre quelli
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Sulla mia macchina i primi 13 casi vengono risolti in meno di un secondo,
- mentre dopo 16 minuti il programma è stato terminato perchè ancora non
- si vedeva la soluzione del 14-esimo caso.
-\end_layout
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-Si può notare nel codice che alla riga 50 è stata inserita un'istruzione
- per tenere traccia dei casi man mano che vengono risolti dal programma.
- Perchè questo può essere utile? Perchè, in un caso come questo, senza istruzion
-i di stampa a video, potrebbe essere difficile capire se il programma sta
- risolvendo alcuni casi ma è lento, oppure contiene semplicemente un errore
- che lo porta a un ciclo infinito.
- Avendo invece questo input a video si può decidere di lasciare proseguire
- il programma e terminarlo solo quando si decide che non abbia più possibilità
- di risolvere altri casi di test.
- La terminazione del programma non 
+ scambi per arrivarci (si ricorda che ogni tutor può scambiarsi solo con
+ il tutor di riferimento e non con altri tutor più 
 \begin_inset Quotes eld
 \end_inset
 
-distrugge
+distanti
 \begin_inset Quotes erd
 \end_inset
 
- la parte di file che contiene le soluzioni dei casi risolti, quindi poi
- lo si potrà sottoporre per prendere i punti meritati, e il sistema di correzion
-e farà solo notare che mancano delle soluzioni, ma darà comunque un punteggio
- a quelle presenti.
+ di così).
 \end_layout
 
 \begin_layout Standard
-Come ottenere tutti i 27 punti? L'idea è che, mentre si cerca la soluzione,
- ci si continua a imbattere in soluzioni parziali (ed eventualmente temporanee)
- del problema, che però possono essere usate per eliminare la maggior parte
- delle ricerche successive, in modo da rendere il tempo di risoluzione accettabi
-le.
- 
+Si può anche notare che questa è una soluzione di tipo 
+\emph on
+greedy
+\emph default
+, poichè ad ogni passaggio viene posizionato un tutor nella sua posizione
+ definitiva, che non dovrà più essere modificata perchè è già parte della
+ soluzione del problema.
 \end_layout
 
 \begin_layout Standard
-Ma cos'è una soluzione parziale? Definito il nostro problema generale come
- quello che prevede che il percorso finisca in 
-\emph on
-H-1, W-1
-\emph default
- e che può essere scritto come 
-\begin_inset Formula $P(H-1,W-1)$
-\end_inset
-
-, possiamo definire come sottoproblema quello che prevede che il percorso
- finisca in una generica casella 
-\emph on
-r, c
-\emph default
-, con 
-\begin_inset Formula $r<H$
-\end_inset
-
- e 
-\begin_inset Formula $c<W$
-\end_inset
-
-, che quindi può essere scritto come 
-\begin_inset Formula $P(r,c)$
-\end_inset
-
-.
- Siccome la soluzione del problema è solo un numero, si potrebbe pensare
- di memorizzare queste soluzioni ai vari sottoproblemi all'interno di una
- matrice 
-\begin_inset Formula $HxW$
-\end_inset
-
-, dove nella casella in posizione 
-\emph on
-r, c
-\emph default
- si trova la soluzione del sottoproblema 
-\begin_inset Formula $P(r,c)$
-\end_inset
-
-, che può essere scritta come 
-\begin_inset Formula $Sol(r,c)$
-\end_inset
-
-.
- Il vantaggio rispetto alla soluzione precedente è che, prima, la ricorsione
- veniva interrotta solo quando un percorso arrivava ad avere un salto maggiore
- o uguale alla migliore soluzione trovata fino a quel momento, adesso si
- può invece interrompere la ricorsione sul singolo percorso molto presto:
- basta che il percorso passi per una casella 
-\emph on
-r,c
-\emph default
- il cui valore, che si ricorda essere il migliore finora trovato per il
- sottoproblema 
-\begin_inset Formula $P(r,c)$
-\end_inset
-
-, sia inferiore a quello del percorso che si sta analizzando.
- Cerchiamo di chiarire con un esempio: siano H=20 e W = 20 e sia 
-\begin_inset Formula $Sol(7,9)=17$
-\end_inset
-
- la soluzione del sottoproblema 
-\begin_inset Formula $P(7,9)$
-\end_inset
-
- (cioè quella in cui un percorso termina in 7,9) e invece la soluzione globale
- migliore finora trovata sia 
-\begin_inset Formula $Sol(19,19)=43$
-\end_inset
-
- (cioè è stato scoperto ricorsivamente un percorso che arriva alla destinazione
- il cui salto peggiore è 43).
- Se la ricorsione sul percorso attuale arriva alla casella 7,9 e in quel
- momento il salto di quel percorso fosse 22, in questo nuovo algoritmo si
- esce dalla ricorsione e si smette di esplorare quel percorso, poichè sappiamo
- già che si potrebbe arrivare alla casella 7,9 con un percorso migliore
- e quindi non avremmo nessun vantaggio a partire da lì con un percorso che
- già ha un valore peggiore.
- Viceversa, nel primo algoritmo, il valore verrebbe confrontato solo con
- la soluzione ottima fino a quel momento, che in questo esempio abbiamo
- ipotizzato essere 43.
- Quindi la ricorsione proseguirebbe, magari anche molto a lungo e sicuramente
- non esplorerebbe percorsi utili alla ricerca della soluzione, perchè ognuno
- di essi avrebbe costo pari ad almeno 22, che è peggio di 17.
- 
-\end_layout
-
-\begin_layout Standard
-Questo guadagno è notevolissimo, considerando che, quanto prima si ferma
- la ricorsione, tanto maggiore è il guadagno in termini di operazioni non
- fatte.
- Difatti, considerando che ogni chiamata ricorsiva genera fino a 4 diverse
- chiamate, risulta evidente che se riusciamo a fermare un percorso ad esempio
- 10 passaggi prima, si potrebbero salvare fino a 
-\begin_inset Formula $4^{10}=1048576$
-\end_inset
-
- chiamate ricorsive.
-\end_layout
-
-\begin_layout Standard
-Il codice risulta il seguente, che si potrà notare essere molto simile a
- quello del primo algoritmo:
+A questo punto una possibile implementazione è la seguente:
 \end_layout
 
 \begin_layout Standard
@@ -1443,17 +967,37 @@ status open
 
 \begin_layout Plain Layout
 
-int mappa[100][100];
+const int MAXN = 1000;
 \end_layout
 
 \begin_layout Plain Layout
 
-int soluzione[100][100];
+struct Nodo{
 \end_layout
 
 \begin_layout Plain Layout
 
-int H, W;
+	int R;
+\end_layout
+
+\begin_layout Plain Layout
+
+	int C;
+\end_layout
+
+\begin_layout Plain Layout
+
+	bool sistemato = false;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+Nodo nodi[MAXN];
 \end_layout
 
 \begin_layout Plain Layout
@@ -1462,7 +1006,7 @@ int H, W;
 
 \begin_layout Plain Layout
 
-void visita(int r, int c, int salto)
+int maggiore(Nodo nodi[], int N)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1472,97 +1016,37 @@ void visita(int r, int c, int salto)
 
 \begin_layout Plain Layout
 
-	if (r == H - 1 && c == W - 1)
+	int massimo = -1, indice;
 \end_layout
 
 \begin_layout Plain Layout
 
-        return;
+	for (int i = 0; i < N; i++)
 \end_layout
 
 \begin_layout Plain Layout
 
-    struct {
+		if (nodi[i].C > massimo && nodi[i].sistemato == false){
 \end_layout
 
 \begin_layout Plain Layout
 
-		int i, j;
+			indice = i;
 \end_layout
 
 \begin_layout Plain Layout
 
-	} direzioni[] = {{1,0},{0,1},{-1,0},{0,-1}};
+			massimo = nodi[i].C;
 \end_layout
 
 \begin_layout Plain Layout
 
-   for (int d = 0; d < 4; d++)
+		} 
 \end_layout
 
 \begin_layout Plain Layout
 
-    {
-\end_layout
-
-\begin_layout Plain Layout
-
-		int i = direzioni[d].i, j = direzioni[d].j;		
-\end_layout
-
-\begin_layout Plain Layout
-
-		if (r+i >= 0 && c+j >= 0 && r+i < H && c+j < W)
-\end_layout
-
-\begin_layout Plain Layout
-
-			{
-\end_layout
-
-\begin_layout Plain Layout
-
-				if (salto < abs(mappa[r][c] - mappa[r+i][c+j]))
-\end_layout
-
-\begin_layout Plain Layout
-
-					salto = abs(mappa[r][c] - mappa[r+i][c+j]);
-\end_layout
-
-\begin_layout Plain Layout
-
-				if (salto < soluzione[r+i][c+j])
-\end_layout
-
-\begin_layout Plain Layout
-
-				{
-\end_layout
-
-\begin_layout Plain Layout
-
-					soluzione[r+i][c+j] = salto;
-\end_layout
-
-\begin_layout Plain Layout
-
-					visita(r+i,c+j, salto);
-\end_layout
-
-\begin_layout Plain Layout
-
-				}
-\end_layout
-
-\begin_layout Plain Layout
-
-			}
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
+	return indice;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1572,96 +1056,42 @@ void visita(int r, int c, int salto)
 
 \begin_layout Plain Layout
 
+	
 \end_layout
 
 \begin_layout Plain Layout
 
-int main()
+int solve() {
 \end_layout
 
 \begin_layout Plain Layout
 
-{
+    int N;
 \end_layout
 
 \begin_layout Plain Layout
 
-    ifstream in("input.txt");
+    cin >> N;
 \end_layout
 
 \begin_layout Plain Layout
 
-    ofstream out("output.txt");
+    int risposta = 0;     
 \end_layout
 
 \begin_layout Plain Layout
 
-    int T;
+    for (int i=0; i<N; i++) {
 \end_layout
 
 \begin_layout Plain Layout
 
-    in >> T;
+        cin >> nodi[i].R >> nodi[i].C;
 \end_layout
 
 \begin_layout Plain Layout
 
-    for (int test = 1; test <= T; test++)
-\end_layout
-
-\begin_layout Plain Layout
-
-    {
-\end_layout
-
-\begin_layout Plain Layout
-
-        out << "Case #" << test << ": ";
-\end_layout
-
-\begin_layout Plain Layout
-
-        in >> H >> W;
-\end_layout
-
-\begin_layout Plain Layout
-
-        for (int i = 0 ; i < H; i++)
-\end_layout
-
-\begin_layout Plain Layout
-
-            for (int j = 0; j < W; j++){
-\end_layout
-
-\begin_layout Plain Layout
-
-                in >> mappa[i][j];
-\end_layout
-
-\begin_layout Plain Layout
-
-				soluzione[i][j] = 10000000;
-\end_layout
-
-\begin_layout Plain Layout
-
-			}
-\end_layout
-
-\begin_layout Plain Layout
-
-        visita(0,0,0);
-\end_layout
-
-\begin_layout Plain Layout
-
-        out << soluzione[H-1][W-1] << endl;
-\end_layout
-
-\begin_layout Plain Layout
-
-        cout << "Case #" << test << " finished" << endl;
+        nodi[i].sistemato = false;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1671,7 +1101,121 @@ int main()
 
 \begin_layout Plain Layout
 
-    return 0;
+	for (int i=0; i<N; i++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        int da_sistemare = maggiore(nodi, N);
+\end_layout
+
+\begin_layout Plain Layout
+
+        while (nodi[da_sistemare].R != -1 && 
+\end_layout
+
+\begin_layout Plain Layout
+
+			nodi[da_sistemare].C > nodi[nodi[da_sistemare].R].C)
+\end_layout
+
+\begin_layout Plain Layout
+
+        {
+\end_layout
+
+\begin_layout Plain Layout
+
+			int temp = nodi[da_sistemare].C;
+\end_layout
+
+\begin_layout Plain Layout
+
+			nodi[da_sistemare].C = nodi[nodi[da_sistemare].R].C;
+\end_layout
+
+\begin_layout Plain Layout
+
+			nodi[nodi[da_sistemare].R].C = temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+			da_sistemare = nodi[da_sistemare].R;
+\end_layout
+
+\begin_layout Plain Layout
+
+			risposta++;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		nodi[da_sistemare].sistemato = true;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+	return risposta;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    freopen("input.txt", "r", stdin);
+\end_layout
+
+\begin_layout Plain Layout
+
+    freopen("output.txt", "w", stdout);
+\end_layout
+
+\begin_layout Plain Layout
+
+    int T, t;
+\end_layout
+
+\begin_layout Plain Layout
+
+    scanf("%d", &T);
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (t = 1; t <= T; t++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        cout << "Case #" << t << ": " << solve() << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
 \end_layout
 
 \begin_layout Plain Layout
@@ -1685,75 +1229,69 @@ int main()
 \end_layout
 
 \begin_layout Standard
-La prima differenza è che sono scomparse le righe che controllano il salto
- corrente rispetto alla migliore soluzione finora trovata, poichè questo
- controllo avverrà qualche riga dopo, effettuando la verifica rispetto alla
- soluzione del sottoproblema 
-\begin_inset Formula $P(r,c)$
-\end_inset
-
-.
+Alla riga 3 viene definita la struttura che conterrà le informazioni relative
+ ad un singolo tutor, cioè il suo tutor di riferimento R, la sua competenza
+ C e un flag che servirà successivante per sapere se un tutor è ancora da
+ sistemare oppure è già stato sistemato, cioè è già nella sua posizione
+ definitiva all'interno dell'albero delle gerarchie.
+ Alla riga 9 viene predisposto l'array che conterrà le informazioni su tutti
+ i tutor, dove il numero identificativo del tutor si assume essere l'indice
+ dove si trova il tutor, quindi il tutor 0 sarà nella posizione 0, il tutor
+ 1 nella posizione 1 e così via.
 \end_layout
 
 \begin_layout Standard
-La condizione di terminazione, se si è arrivati fino alla destinazione,
- prevede semplicemente che la ricorsione si fermi.
- Nella parte dove si esplorano le quattro caselle vicine (riga 12), evitando
- ovviamente di uscire dalla matrice (riga 15), prima si verifica se il nuovo
- salto da fare per arrivare alla casella 
+La funzione 
 \emph on
-r+i, c+j
+solve
 \emph default
- peggiora la situazione e, nel caso, si aggiorna il valore di 
+, dopo aver effettuato l'input dei dati (righe 24-29), esegue un ciclo per
+ scorrere tutti i tutor e andarli a spostare nella loro posizione definitiva.
+ Come detto, l'ordine con cui vengono presi in considerazione i tutor deve
+ essere dal più competente a quello meno, quindi la funzione 
 \emph on
-salto
+maggiore
 \emph default
-.
- Successivamente si prosegue con la ricorsione solo se il percorso attuale
- migliora 
-\begin_inset Formula $Sol(r+i,c+j)$
-\end_inset
-
-, che è memorizzata nella matrice 
+ (riga 11 e seguenti) si preoccupa di ritornare l'indice del tutor 
 \emph on
-soluzione[r+i][c+j]
+ancora da sistemare
 \emph default
-.
- Se si prosegue, solo allora si aggiorna anche 
-\emph on
-soluzione[r+i][c+j],
-\emph default
- che, come detto in precedenza, è una soluzione parziale e temporanea e
- si continua con la ricorsione.
+ con la competenza maggiore (verrà spiegato oltre perchè si è deciso di
+ cercare ogni volta il massimo e di non procedere invece a un ordinamento
+ iniziale).
 \end_layout
 
 \begin_layout Standard
-Quando la funzione 
+A questo punto il ciclo 
 \emph on
-visita
+while
 \emph default
- avrà finito la ricorsione, la matrice 
+ porterà il tutor nella sua posizione definitiva, effettuando uno scambio
+ se non è già nella radice e se il suo tutor di riferimento ha una competenza
+ minore della sua.
+ Lo scambio consiste semplicemente nello scambio dei valori delle rispettive
+ competenze (righe 35-37), poichè la topologia dell'albero non cambia, e
+ successivamente viene indicato come nuovo nodo da analizzare quello che
+ prima era quello del tutor di riferimento (riga 38) e viene incrementato
+ il contatore degli scambi.
+ Una volta finito questo ciclo viene settato il flag 
 \emph on
-soluzione 
+sistemato
 \emph default
-conterrà in ogni casella 
-\begin_inset Formula $Sol(r,c)$
-\end_inset
-
-, che è la soluzione del problema 
-\begin_inset Formula $P(r,c)$
-\end_inset
-
-, quindi basterà stampare il contenuto della casella in posizione 
-\emph on
-H-1, W-1,
-\emph default
- che è la soluzione del problema originale.
+ in modo che la funzione di ricerca del maggiore non proponga nuovamente
+ questo nodo come nodo da sistemare, poichè porterebbe ovviamente al fallimento
+ del programma.
 \end_layout
 
 \begin_layout Standard
-Così codificata questa soluzione, su una macchina virtuale appoggiata su
- un host Core i7, impiega 9 secondi per risolvere tutti e 27 i casi di test.
+Perchè non sono stati direttamente ordinati i tutor? Siccome i tutor devono
+ essere spostati in posizioni diverse da quelle che occupavano inizialmente,
+ sarebbe poi necessario tenere una mappa che associ il numero che avevano
+ inizialmente con la posizione che poi andranno ad assumere nel vettore
+ dei nodi una volta spostati.
+ Questo porterebbe a una complicazione nel codice con un miglioramento delle
+ performance intorno al 30%, passando da un tempo totale di 0.1 secondi a
+ 0.077 secondi, quindi in questo caso sembra un'ottimizzazione non necessaria.
 \end_layout
 
 \end_body
