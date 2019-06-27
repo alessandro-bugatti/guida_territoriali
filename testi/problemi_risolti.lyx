@@ -21906,7 +21906,7 @@ separation "3pt"
 shadowsize "4pt"
 framecolor "black"
 backgroundcolor "none"
-status open
+status collapsed
 
 \begin_layout Subsection*
 Festa canina (party)
@@ -22439,7 +22439,7 @@ separation "3pt"
 shadowsize "4pt"
 framecolor "black"
 backgroundcolor "none"
-status open
+status collapsed
 
 \begin_layout Subsection*
 Antivirus (antivirus)
@@ -26597,6 +26597,539 @@ H-1, W-1,
 \begin_layout Standard
 Così codificata questa soluzione, su una macchina virtuale appoggiata su
  un host Core i7, impiega 9 secondi per risolvere tutti e 27 i casi di test.
+\end_layout
+
+\begin_layout Section
+Filmati e canzoni - Territoriali 2019
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Subsection*
+Filmati e canzoni (download)
+\end_layout
+
+\begin_layout Subsubsection*
+Punteggio massimo: 6
+\end_layout
+
+\begin_layout Subsubsection*
+\noindent
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Monica ha regalato un nuovo hard disk a Mojito, il suo cagnolino.
+ Si sa, Mojito è un grande amante di filmati e canzoni, quindi ha intenzione
+ di riempire tutto lo spazio del suo hard disk scaricando quanti più filmati
+ e canzoni possibili!
+\end_layout
+
+\begin_layout Plain Layout
+È importante menzionare che Mojito preferisce di gran lunga i filmati alle
+ canzoni, quindi comincerà subito a scaricare quanti più filmati possibile.
+ Nel caso in cui lo spazio rimanente sull’hard disk non gli desse altra
+ scelta, Mojito ripiegherà sulle canzoni e comincerà quindi a scaricarne
+ fino a riempire completamente l’hard disk.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+I gusti di Mojito non sono molto vari, i filmati che gli interessano hanno
+ tutti la stessa dimensione, e lo stesso vale per le canzoni.
+ Per l’esattezza, tutti i filmati hanno una dimensione di 
+\emph on
+F
+\emph default
+ byte e tutte le canzoni hanno una dimensione di 
+\emph on
+C
+\emph default
+ byte.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Sapendo che il nuovo hard disk ha una capacità di 
+\emph on
+N
+\emph default
+ byte, scrivi un programma che calcoli il 
+\series bold
+numero di filmati
+\series default
+ ed il 
+\series bold
+numero di canzoni
+\series default
+ che Mojito scaricherà, sapendo che il cane darà preferenza ai filmati.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga del file di input contiene un intero 
+\emph on
+T
+\emph default
+ , il numero di casi di test.
+ Seguono 
+\emph on
+T
+\emph default
+ casi di test, numerati da 1 a 
+\emph on
+T
+\emph default
+ .
+ Ogni caso di test è preceduto da una riga vuota.
+ Ciascun caso di test è composto da una sola riga, contenente tre numeri
+ interi 
+\emph on
+N
+\emph default
+, 
+\emph on
+F
+\emph default
+, 
+\emph on
+C
+\emph default
+ separati da uno spazio, rispettivamente: la capacità in byte dell’hard
+ disk, la dimensione in byte dei filmati e la dimensione in byte delle canzoni.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file di output deve contenere la risposta ai casi di test che sei riuscito
+ a risolvere.
+ Per ogni caso di test che hai risolto, il file di output deve contenere
+ una riga con la dicitura
+\end_layout
+
+\begin_layout Verbatim
+
+Case #t: nf nc
+\end_layout
+
+\begin_layout Plain Layout
+dove 
+\family typewriter
+t
+\family default
+ è il numero del caso di test (a partire da 1) e i valori 
+\family typewriter
+nf
+\family default
+, 
+\family typewriter
+nc
+\family default
+ sono il numero di filmati e canzoni che Mojito scaricherà.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+T
+\emph default
+ = 6, nei file di input che scaricherai saranno presenti esattamente 6 casi
+ di test.
+ 
+\end_layout
+
+\begin_layout Itemize
+1 ≤ N, F, C ≤ 10 000.
+ 
+\end_layout
+
+\begin_layout Itemize
+Non è detto che i filmati occupino più spazio delle canzoni.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.5in">
+<column alignment="left" valignment="top" width="5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1000 300 10 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1000 30 50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Case #1: 30 10 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Case #2: 33 0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Spiegazione
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Nel 
+\series bold
+primo caso d’esempio
+\series default
+, Mojito può scaricare 3 filmati e 10 canzoni per un'occupazione totale
+ di 3 · 300 + 10 · 10 = 900 + 100 = 1000 byte e riempire così l’hard disk
+ completamente.
+ Non può invece scaricare 4 filmati, perché il totale verrebbe di 4 · 300
+ = 1200 che eccede la capacità dell’hard disk.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+Nel 
+\series bold
+secondo caso d’esempio
+\series default
+, Mojito può scaricare 33 filmati per un occupazione totale di 33 · 30 =
+ 990 byte.
+ Nello spazio rimanente non è possibile scaricare canzoni.
+\end_layout
+
+\begin_layout Plain Layout
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+Servono dei suggerimenti?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Come per le territoriali 2019, questo problema serve solo come banco di
+ prova per verificare di essere in grado di utilizzare il sistema di sottoposizi
+one ed avere un feedback sulla correttezza di quanto scritto.
+ Al posto di spiegare come affrontarlo, dal momento che la soluzione è banale,
+ ci si soffermerà invece su come è strutturato il programma il sorgente
+ che viene fornito come spunto di partenza per scrivere la soluzione del
+ problema.
+ Da questa edizione, infatti, insieme al testo del problema viene fornito
+ un 
+\begin_inset Quotes eld
+\end_inset
+
+template
+\begin_inset Quotes erd
+\end_inset
+
+ nel quale è già scritta tutta la parte di lettura/scrittura dell'I/O: viene
+ lasciata allo studente la scelta di utilizzarlo oppure di scrivere il programma
+ da zero, comunque può essere comodo perchè fa risparmiare qualche minuto
+ e garantisce che la parte di I/O sia corretta.
+\end_layout
+
+\begin_layout Standard
+Nella soluzione mostrata qua sotto, le uniche righe aggiunte per risolvere
+ il problema sono la 11 e la 12, le altre erano già scritte nel template
+ fornito dal sistema di gara.
+ Come si può vedere il ciclo in riga 6 permette di iterare sui casi di test
+ e, al suo interno, viene fatto l'input e l'output di ognuno dei singoli
+ casi.
+ 
+\end_layout
+
+\begin_layout Standard
+L'unica cosa che vale la pena notare solo le istruzioni che si trovano alle
+ righe 2-3, che usano una funzione standard, la 
+\family typewriter
+\series bold
+freopen
+\family default
+\series default
+, che permette di ridirigere quelli che sono i canali standard di I/O, 
+\emph on
+stdin
+\emph default
+ e 
+\emph on
+stdout
+\emph default
+, normalmente associati alla tastiera e allo schermo rispettivamente, verso
+ dei file, in questo caso il file 
+\emph on
+input.txt
+\emph default
+ fornirà l'input come fosse la tastiera e il file 
+\emph on
+output.txt
+\emph default
+ conterrà l'output che normalmente sarebbe andato a schermo.
+ 
+\end_layout
+
+\begin_layout Standard
+L'aspetto comodo di questo approccio è che, semplicemente commentando quelle
+ due righe, il programma tornerà a prendere l'input da tastiera e mandare
+ l'output a schermo, senza nessuna modifica delle successive righe di codice.
+ Va anche notato che non necessariamente vanno commentati entrambe: ad esempio
+ può essere comodo commentare solo la seconda linea, in modo da prendere
+ l'input dal file 
+\emph on
+input.txt
+\emph default
+ e mostrare invece l'output a video, per avere un feedback più immediato
+ di cosa sta facendo il proprio programma.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int main() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    freopen("input.txt", "r", stdin);
+\end_layout
+
+\begin_layout Plain Layout
+
+    freopen("output.txt", "w", stdout);
+\end_layout
+
+\begin_layout Plain Layout
+
+    int T, t;
+\end_layout
+
+\begin_layout Plain Layout
+
+    cin >> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (t = 1; t <= T; t++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        int N, F, C;
+\end_layout
+
+\begin_layout Plain Layout
+
+        int nf, nc;
+\end_layout
+
+\begin_layout Plain Layout
+
+        cin >> N >> F >> C;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+        nf = N/F;
+\end_layout
+
+\begin_layout Plain Layout
+
+        nc = (N%F)/C;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        cout << "Case #" << t << ": " << nf << " " << nc << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per quanto riguarda la soluzione vera e propria: la riga 11 calcola quanti
+ filmati si possono scaricare semplicemente facendo una divisione intera
+ tra N e F, poichè, per come è fatto il sistema dei tipi in C/C++, la divisione
+ tra due interi da un intero che non è altro che il risultato della divisione
+ privato della parte decimale.
+ Fatto questo, la riga 12 calcola prima quanta parte dell'hard disk è rimasta
+ per poter ospitare le canzoni, tramite l'operatore di modulo (%) e successivame
+nte ripete quanto fatto per i filmati, usando la parte di hard disk rimasto
+ e la dimensione delle canzoni.
 \end_layout
 
 \begin_layout Section
