@@ -101,7 +101,7 @@ status open
 \end_layout
 
 \begin_layout Section
-Filmati e canzoni - Territoriali 2019
+Tornello olimpico - Territoriali 2019
 \end_layout
 
 \begin_layout Standard
@@ -124,11 +124,11 @@ backgroundcolor "none"
 status open
 
 \begin_layout Subsection*
-Filmati e canzoni (download)
+Tornello olimpico (tornello)
 \end_layout
 
 \begin_layout Subsubsection*
-Punteggio massimo: 6
+Punteggio massimo: 12
 \end_layout
 
 \begin_layout Subsubsection*
@@ -137,50 +137,125 @@ Descrizione del problema
 \end_layout
 
 \begin_layout Plain Layout
-Monica ha regalato un nuovo hard disk a Mojito, il suo cagnolino.
- Si sa, Mojito è un grande amante di filmati e canzoni, quindi ha intenzione
- di riempire tutto lo spazio del suo hard disk scaricando quanti più filmati
- e canzoni possibili!
-\end_layout
-
-\begin_layout Plain Layout
-È importante menzionare che Mojito preferisce di gran lunga i filmati alle
- canzoni, quindi comincerà subito a scaricare quanti più filmati possibile.
- Nel caso in cui lo spazio rimanente sull’hard disk non gli desse altra
- scelta, Mojito ripiegherà sulle canzoni e comincerà quindi a scaricarne
- fino a riempire completamente l’hard disk.
+Questo settembre, all’
+\emph on
+IIS G.B.
+ Pentasuglia
+\emph default
+ di Matera, si terrà la fase finale delle Olimpiadi di Informatica.
+ Come ogni anno Monica sarà presente e si occuperà di aspetti organizzativi
+ legati alla logistica degli studenti come: assicurarsi che tutti siano
+ presenti quando c’è da prendere un autobus, ritrovare e restituire la valigia
+ perduta di qualche distratto, radunare gli studenti prima della gara in
+ modo che nessuno rimanga per sbaglio in hotel, e così via.
  
 \end_layout
 
 \begin_layout Plain Layout
-I gusti di Mojito non sono molto vari, i filmati che gli interessano hanno
- tutti la stessa dimensione, e lo stesso vale per le canzoni.
- Per l’esattezza, tutti i filmati hanno una dimensione di 
+Per ottimizzare l’efficienza con la quale svolgerà queste mansioni Monica
+ ha pianificato di installare un 
+\series bold
+tornello
+\series default
+ agli ingressi che le interessa controllare (come l’ingresso della sede
+ di gara, dell’hotel, e così via).
+ Un tornello permette a Monica di essere informata in modo automatizzato
+ di quando uno studente entra o esce da una stanza: in risposta a questi
+ due tipi di eventi, il tornello manderà rispettivamente un segnale +1 e
+ un segnale -1 sul PC di Monica.
+ Naturalmente, il tornello non fornisce alcuna informazione su chi effettivament
+e è entrato/uscito.
+ Al file di prevedere i movimenti degli studenti, Monica ha scelto una stanza
+ da monitorare e sta cercando di dedurre (a partire dalla sequenza di segnali
+ ±1 ricevuti dal tornello posto al suo ingresso) quale sia la risposta alla
+ seguente domanda: 
+\end_layout
+
+\begin_layout Quote
+«Qual è il 
+\series bold
+numero minimo di studenti diversi
+\series default
+ che hanno visitato la stanza?» 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Nota bene
+\series default
+: quando il tornello viene acceso (e comincia a “contare” gli ingressi e
+ le uscite) è possibile che nella stanza 
 \emph on
-F
+siano già presenti
 \emph default
- byte e tutte le canzoni hanno una dimensione di 
+ alcuni studenti.
+ Lo stesso vale quando il tornello viene spento: potrebbero 
 \emph on
-C
+rimanere alcuni studenti
 \emph default
- byte.
+ all’interno.
+ Inoltre, per lo scopo di questo problema, supporremo che non ci siano ingressi/
+uscite secondarie per accedere alla stanza monitorata, e che nella stanza
+ in questione sia installato un solo tornello.
+\end_layout
+
+\begin_layout Plain Layout
+Supponiamo per esempio che nel lasso di tempo in cui il tornello è operativo
+ Monica riceva i segnali 
+\family typewriter
+-1 -1 -1
+\family default
+.
+ In un caso di questo tipo, sarebbe possibile dedurre con certezza che 
+\series bold
+almeno 3 studenti
+\series default
+ hanno visitato la stanza: infatti, se ne sono usciti 3, vuol dire che dentro
+ ce n’erano almeno 3.
+ È possibile che nella stanza fossero presenti inizialmente più di 3 studenti,
+ ma con i dati a disposizione non possiamo dirlo con certezza.
  
 \end_layout
 
 \begin_layout Plain Layout
-Sapendo che il nuovo hard disk ha una capacità di 
-\emph on
-N
-\emph default
- byte, scrivi un programma che calcoli il 
+Analogamente, nel caso in cui Monica ricevesse i segnali 
+\family typewriter
++1 +1 +1
+\family default
+, si potrebbe affermare di nuovo che almeno 3 studenti hanno visitato la
+ stanza.
+ Infatti, dal momento che il tornello ha girato sempre nello stesso verso,
+ non è pensabile che uno stesso studente sia entrato più volte (sarebbe
+ dovuto uscire, prima di poter rientrare!) quindi sappiamo che il tornello
+ è stato attivato sempre da persone diverse.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Più complicato è invece il caso in cui Monica riceve i segnali 
+\family typewriter
++1 -1 +1
+\family default
+.
+ In questo caso infatti è possibile che 
 \series bold
-numero di filmati
+uno stesso studente
 \series default
- ed il 
+ sia entrato, poi uscito e successivamente rientrato, attivando il tornello
+ 3 volte.
+ Quindi in questa situazione il minimo numero di studenti diversi che hanno
+ visitato la stanza è 1.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Aiuta Monica scrivendo un programma che, dati i segnali ottenuti da un tornello
+ posizionato all’ingresso di una stanza, calcoli 
 \series bold
-numero di canzoni
+il minimo numero di studenti diversi
 \series default
- che Mojito scaricherà, sapendo che il cane darà preferenza ai filmati.
+ che hanno visitato quella stanza.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -203,21 +278,22 @@ T
 \emph default
  .
  Ogni caso di test è preceduto da una riga vuota.
- Ciascun caso di test è composto da una sola riga, contenente tre numeri
- interi 
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Ciascun caso di test è composto da due righe.
+ La prima contiene il numero intero 
 \emph on
 N
 \emph default
-, 
+ : il numero di segnali ricevuti dal tornello.
+ La seconda contiene 
 \emph on
-F
+N
 \emph default
-, 
-\emph on
-C
-\emph default
- separati da uno spazio, rispettivamente: la capacità in byte dell’hard
- disk, la dimensione in byte dei filmati e la dimensione in byte delle canzoni.
+ interi (ciascuno uguale a +1 o -1) separati da spazio: la sequenza di segnali
+ ricevuti dal tornello.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -241,15 +317,11 @@ dove
 \family typewriter
 t
 \family default
- è il numero del caso di test (a partire da 1) e i valori 
+ è il numero del caso di test (a partire da 1) e il valore 
 \family typewriter
-nf
+c
 \family default
-, 
-\family typewriter
-nc
-\family default
- sono il numero di filmati e canzoni che Mojito scaricherà.
+ è il minimo numero di studenti che hanno visitato la stanza.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -261,18 +333,13 @@ Assunzioni
 \emph on
 T
 \emph default
- = 6, nei file di input che scaricherai saranno presenti esattamente 6 casi
- di test.
+ = 12, nei file di input che scaricherai saranno presenti esattamente 12
+ casi di test.
  
 \end_layout
 
 \begin_layout Itemize
-1 ≤ N, F, C ≤ 10 000.
- 
-\end_layout
-
-\begin_layout Itemize
-Non è detto che i filmati occupino più spazio delle canzoni.
+1 ≤ N ≤ 1 000 000.
  
 \end_layout
 
@@ -323,7 +390,7 @@ File output.txt
 \uwave off
 \noun off
 \color none
-2 
+4 
 \end_layout
 
 \begin_layout Plain Layout
@@ -339,7 +406,7 @@ File output.txt
 \uwave off
 \noun off
 \color none
-1000 300 10 
+3 
 \end_layout
 
 \begin_layout Plain Layout
@@ -355,7 +422,103 @@ File output.txt
 \uwave off
 \noun off
 \color none
-1000 30 50
+-1 -1 -1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
++1 +1 +1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
++1 -1 +1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+10 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1 +1 +1 +1 -1 +1 +1 +1 -1 +1
 \end_layout
 
 \end_inset
@@ -376,7 +539,7 @@ File output.txt
 \uwave off
 \noun off
 \color none
-Case #1: 30 10 
+Case #1: 3
 \end_layout
 
 \begin_layout Plain Layout
@@ -392,7 +555,39 @@ Case #1: 30 10
 \uwave off
 \noun off
 \color none
-Case #2: 33 0
+Case #2: 3
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Case #3: 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Case #4: 5
 \end_layout
 
 \end_inset
@@ -403,39 +598,6 @@ Case #2: 33 0
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsubsection*
-Spiegazione
-\end_layout
-
-\begin_layout Plain Layout
-\noindent
-Nel 
-\series bold
-primo caso d’esempio
-\series default
-, Mojito può scaricare 3 filmati e 10 canzoni per un'occupazione totale
- di 3 · 300 + 10 · 10 = 900 + 100 = 1000 byte e riempire così l’hard disk
- completamente.
- Non può invece scaricare 4 filmati, perché il totale verrebbe di 4 · 300
- = 1200 che eccede la capacità dell’hard disk.
- 
-\end_layout
-
-\begin_layout Plain Layout
-\noindent
-Nel 
-\series bold
-secondo caso d’esempio
-\series default
-, Mojito può scaricare 33 filmati per un occupazione totale di 33 · 30 =
- 990 byte.
- Nello spazio rimanente non è possibile scaricare canzoni.
-\end_layout
-
-\begin_layout Plain Layout
-.
 \end_layout
 
 \end_inset
