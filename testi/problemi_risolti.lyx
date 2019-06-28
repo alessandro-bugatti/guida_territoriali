@@ -27030,7 +27030,7 @@ input.txt
 \begin_inset listings
 lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
 inline false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -27126,6 +27126,915 @@ Per quanto riguarda la soluzione vera e propria: la riga 11 calcola quanti
  per poter ospitare le canzoni, tramite l'operatore di modulo (%) e successivame
 nte ripete quanto fatto per i filmati, usando la parte di hard disk rimasto
  e la dimensione delle canzoni.
+\end_layout
+
+\begin_layout Section
+Tornello olimpico - Territoriali 2019
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Framed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Subsection*
+Tornello olimpico (tornello)
+\end_layout
+
+\begin_layout Subsubsection*
+Punteggio massimo: 12
+\end_layout
+
+\begin_layout Subsubsection*
+\noindent
+Descrizione del problema
+\end_layout
+
+\begin_layout Plain Layout
+Questo settembre, all’
+\emph on
+IIS G.B.
+ Pentasuglia
+\emph default
+ di Matera, si terrà la fase finale delle Olimpiadi di Informatica.
+ Come ogni anno Monica sarà presente e si occuperà di aspetti organizzativi
+ legati alla logistica degli studenti come: assicurarsi che tutti siano
+ presenti quando c’è da prendere un autobus, ritrovare e restituire la valigia
+ perduta di qualche distratto, radunare gli studenti prima della gara in
+ modo che nessuno rimanga per sbaglio in hotel, e così via.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Per ottimizzare l’efficienza con la quale svolgerà queste mansioni Monica
+ ha pianificato di installare un 
+\series bold
+tornello
+\series default
+ agli ingressi che le interessa controllare (come l’ingresso della sede
+ di gara, dell’hotel, e così via).
+ Un tornello permette a Monica di essere informata in modo automatizzato
+ di quando uno studente entra o esce da una stanza: in risposta a questi
+ due tipi di eventi, il tornello manderà rispettivamente un segnale +1 e
+ un segnale -1 sul PC di Monica.
+ Naturalmente, il tornello non fornisce alcuna informazione su chi effettivament
+e è entrato/uscito.
+ Al file di prevedere i movimenti degli studenti, Monica ha scelto una stanza
+ da monitorare e sta cercando di dedurre (a partire dalla sequenza di segnali
+ ±1 ricevuti dal tornello posto al suo ingresso) quale sia la risposta alla
+ seguente domanda: 
+\end_layout
+
+\begin_layout Quote
+«Qual è il 
+\series bold
+numero minimo di studenti diversi
+\series default
+ che hanno visitato la stanza?» 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Nota bene
+\series default
+: quando il tornello viene acceso (e comincia a “contare” gli ingressi e
+ le uscite) è possibile che nella stanza 
+\emph on
+siano già presenti
+\emph default
+ alcuni studenti.
+ Lo stesso vale quando il tornello viene spento: potrebbero 
+\emph on
+rimanere alcuni studenti
+\emph default
+ all’interno.
+ Inoltre, per lo scopo di questo problema, supporremo che non ci siano ingressi/
+uscite secondarie per accedere alla stanza monitorata, e che nella stanza
+ in questione sia installato un solo tornello.
+\end_layout
+
+\begin_layout Plain Layout
+Supponiamo per esempio che nel lasso di tempo in cui il tornello è operativo
+ Monica riceva i segnali 
+\family typewriter
+-1 -1 -1
+\family default
+.
+ In un caso di questo tipo, sarebbe possibile dedurre con certezza che 
+\series bold
+almeno 3 studenti
+\series default
+ hanno visitato la stanza: infatti, se ne sono usciti 3, vuol dire che dentro
+ ce n’erano almeno 3.
+ È possibile che nella stanza fossero presenti inizialmente più di 3 studenti,
+ ma con i dati a disposizione non possiamo dirlo con certezza.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Analogamente, nel caso in cui Monica ricevesse i segnali 
+\family typewriter
++1 +1 +1
+\family default
+, si potrebbe affermare di nuovo che almeno 3 studenti hanno visitato la
+ stanza.
+ Infatti, dal momento che il tornello ha girato sempre nello stesso verso,
+ non è pensabile che uno stesso studente sia entrato più volte (sarebbe
+ dovuto uscire, prima di poter rientrare!) quindi sappiamo che il tornello
+ è stato attivato sempre da persone diverse.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Più complicato è invece il caso in cui Monica riceve i segnali 
+\family typewriter
++1 -1 +1
+\family default
+.
+ In questo caso infatti è possibile che 
+\series bold
+uno stesso studente
+\series default
+ sia entrato, poi uscito e successivamente rientrato, attivando il tornello
+ 3 volte.
+ Quindi in questa situazione il minimo numero di studenti diversi che hanno
+ visitato la stanza è 1.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Aiuta Monica scrivendo un programma che, dati i segnali ottenuti da un tornello
+ posizionato all’ingresso di una stanza, calcoli 
+\series bold
+il minimo numero di studenti diversi
+\series default
+ che hanno visitato quella stanza.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di input
+\end_layout
+
+\begin_layout Plain Layout
+La prima riga del file di input contiene un intero 
+\emph on
+T
+\emph default
+ , il numero di casi di test.
+ Seguono 
+\emph on
+T
+\emph default
+ casi di test, numerati da 1 a 
+\emph on
+T
+\emph default
+ .
+ Ogni caso di test è preceduto da una riga vuota.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Ciascun caso di test è composto da due righe.
+ La prima contiene il numero intero 
+\emph on
+N
+\emph default
+ : il numero di segnali ricevuti dal tornello.
+ La seconda contiene 
+\emph on
+N
+\emph default
+ interi (ciascuno uguale a +1 o -1) separati da spazio: la sequenza di segnali
+ ricevuti dal tornello.
+\end_layout
+
+\begin_layout Subsubsection*
+Dati di output
+\end_layout
+
+\begin_layout Plain Layout
+Il file di output deve contenere la risposta ai casi di test che sei riuscito
+ a risolvere.
+ Per ogni caso di test che hai risolto, il file di output deve contenere
+ una riga con la dicitura
+\end_layout
+
+\begin_layout Verbatim
+
+Case #t: nf nc
+\end_layout
+
+\begin_layout Plain Layout
+dove 
+\family typewriter
+t
+\family default
+ è il numero del caso di test (a partire da 1) e il valore 
+\family typewriter
+c
+\family default
+ è il minimo numero di studenti che hanno visitato la stanza.
+\end_layout
+
+\begin_layout Subsubsection*
+Assunzioni
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+T
+\emph default
+ = 12, nei file di input che scaricherai saranno presenti esattamente 12
+ casi di test.
+ 
+\end_layout
+
+\begin_layout Itemize
+1 ≤ N ≤ 1 000 000.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.5in">
+<column alignment="left" valignment="top" width="5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File input.txt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+File output.txt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+4 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1 -1 -1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
++1 +1 +1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
++1 -1 +1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+10 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1 +1 +1 +1 -1 +1 +1 +1 -1 +1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Case #1: 3
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Case #2: 3
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Case #3: 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Case #4: 5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Suggerimenti
+\end_layout
+
+\begin_layout Itemize
+La situazione di partenza (quanti studenti ci sono già nella stanza) è rilevante
+?
+\end_layout
+
+\begin_layout Itemize
+C'è differenza tra entrare e uscire o il problema è perfettamente simmetrico
+ rispetto alla direzione?
+\end_layout
+
+\begin_layout Itemize
+Quando un movimento del tornello implica con certezza che viene 
+\begin_inset Quotes eld
+\end_inset
+
+visto
+\begin_inset Quotes erd
+\end_inset
+
+ un nuovo studente e quando invece potrebbe trattarsi di uno studente già
+ passato?
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Per scrivere la soluzione è necessario riflettere sulle domande poste nei
+ suggerimenti: per quanto riguarda la prima il fatto che ci siano o meno
+ studenti nella stanza è irrelevante, nel senso che si può sempre ipotizzare
+ che ce ne siano un numero sufficiente per rendere congruenti i dati del
+ problema, ma quanto siano esattamente non è importante (e non si avrebbero
+ comunque abbastanza informazioni per dirlo).
+ Ad esempio nel caso 1, perchè possano inizialmente uscire 3 studenti, inizialme
+nte ce ne sarebbero dovuti essere almeno 3, ma se anche fossero stati 4,
+ 5 o più, dal punto di vista del nostro problema sarebbe stata la stessa
+ cosa.
+\end_layout
+
+\begin_layout Standard
+Per quanto riguarda l'entrare/uscire non ci sono differenze, perchè una
+ volta stabilito che non ci interessa la presenza di eventuali studenti
+ presenti inizialmente all'interno della stanza, lo stesso ragionamento
+ si può fare per l'esterno e risulta solo una convenzione chiamare qualcosa
+ 
+\emph on
+interno
+\emph default
+ e l'altra parte 
+\emph on
+esterno
+\emph default
+, infatti, se cambiassimo i termini, il ragionamento non cambierebbe.
+ Questo è interessante perchè vuol dire che il codice che andremo a scrivere
+ sarà esattamente simmetrico, cioè scritta una parte ce ne sarà un'altra
+ uguale con i ruoli invertiti, come si vedrà sotto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/alex/repositories/guida_territoriali/materiali/problemi territoriali/2019_tornello/tornello.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tornello"
+
+\end_inset
+
+Esempio di sequenza di movimenti
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La risposta all'ultima domanda porta direttamente alla soluzione del problema:
+ ipotizzando di non sapere niente all'inizio del problema, possiamo inizializzar
+e a zero un contatore 
+\series bold
+in
+\series default
+ degli 
+\emph on
+studenti
+\emph default
+ che sono passati dal tornello per entrare nella stanza e lo stesso con
+ un contatore 
+\series bold
+out
+\series default
+ per gli 
+\emph on
+studenti
+\emph default
+ che, passando dal tornello, sono usciti dalla stanza.
+ Ogni volta che si verifica un movimento del tornello basta verificare lo
+ stato del contatore per vedere se si tratta di uno studente nuovo (che
+ quindi andrà aggiunto) oppure no.
+ 
+\end_layout
+
+\begin_layout Standard
+Supponiamo ad esempio che ci sia un movimento in ingresso alla stanza, ci
+ sono solo due possibilità:
+\end_layout
+
+\begin_layout Itemize
+il contatore 
+\series bold
+out
+\series default
+ degli studenti già visti che si trovano all'esterno è ha valore uguale
+ a zero, allora lo studente che sta entrando non può essere uno già visto
+ in precedenza, quindi si incrementa il contatore degli studenti 
+\series bold
+nuovi
+\series default
+ e il contatore 
+\series bold
+in
+\series default
+ degli studenti passati dal tornello e presenti nella stanza 
+\end_layout
+
+\begin_layout Itemize
+il contatore 
+\series bold
+out
+\series default
+ degli studenti già visti che si trovano all'esterno è maggiore di zero,
+ quindi lo studente che sta entrando era già stato visto in precedenza quando
+ era uscito: in questo caso non si fa altro che decrementare il contatore
+ 
+\series bold
+out
+\series default
+ degli studenti fuori (perchè adesso all'esterno della stanza c'è uno studente
+ in meno che era già stato visto) e incrementare il contatore 
+\series bold
+in
+\series default
+ degli studenti passati dal tornello e che ora sono all'interno della stanza.
+\end_layout
+
+\begin_layout Standard
+Siccome abbiamo già detto che il problema è simmetrico, lo stesso ragionamento
+ a parte invertite si può fare con un movimento in uscita alla stanza, ottenendo
+ il risultato desiderato come mostrato nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tornello"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Il codice risolutivo quindi risulta semplice da scrivere e anche in questo
+ caso è stato utilizzato il template fornito dal sistema di gara, aggiungendo
+ solamente la parte relativa alla soluzione.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+int solve() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    int N;
+\end_layout
+
+\begin_layout Plain Layout
+
+    cin >> N;
+\end_layout
+
+\begin_layout Plain Layout
+
+    int risposta = 0;  
+\end_layout
+
+\begin_layout Plain Layout
+
+	int in = 0, out = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int i=0; i<N; i++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        int variazione;
+\end_layout
+
+\begin_layout Plain Layout
+
+        cin >> variazione;
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (variazione > 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (out > 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+				out--;
+\end_layout
+
+\begin_layout Plain Layout
+
+			else
+\end_layout
+
+\begin_layout Plain Layout
+
+				risposta++;
+\end_layout
+
+\begin_layout Plain Layout
+
+			in++;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}		
+\end_layout
+
+\begin_layout Plain Layout
+
+		else
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (in > 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+				in--;
+\end_layout
+
+\begin_layout Plain Layout
+
+			else
+\end_layout
+
+\begin_layout Plain Layout
+
+				risposta++;
+\end_layout
+
+\begin_layout Plain Layout
+
+			out++;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    return risposta;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    freopen("input.txt", "r", stdin);
+\end_layout
+
+\begin_layout Plain Layout
+
+    freopen("output.txt", "w", stdout);
+\end_layout
+
+\begin_layout Plain Layout
+
+    int T, t;
+\end_layout
+
+\begin_layout Plain Layout
+
+    scanf("%d", &T);
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (t = 1; t <= T; t++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        cout << "Case #" << t << ": " << solve() << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La soluzione si trova tra la riga 9 e la riga 25: dopo aver letto la variazione
+ e verificato se è un ingresso o un'uscita (+1 o -1), si va a testare il
+ contatore relativo alla parte da cui inizia il movimento (riga 9) e, nel
+ caso uno studente si stia spostando dall'esterno all'interno della stanza,
+ si implementa esattamente quanto spiegato in precedenza (righe 11-15),
+ altrimenti si fa la stessa cosa a parti invertite (righe 19-23).
+\end_layout
+
+\begin_layout Standard
+Un ultimo consiglio: durante le finali nazionali si consiglia che, dopo
+ una certa ora, tutti i contatori rimangano a zero, perchè una buona notte
+ di riposo è propedeutica a una buona prestazione in finale ☺.
 \end_layout
 
 \begin_layout Section
