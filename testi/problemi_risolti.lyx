@@ -26620,7 +26620,7 @@ separation "3pt"
 shadowsize "4pt"
 framecolor "black"
 backgroundcolor "none"
-status collapsed
+status open
 
 \begin_layout Subsection*
 Filmati e canzoni (download)
@@ -26931,10 +26931,6 @@ secondo caso d’esempio
 , Mojito può scaricare 33 filmati per un occupazione totale di 33 · 30 =
  990 byte.
  Nello spazio rimanente non è possibile scaricare canzoni.
-\end_layout
-
-\begin_layout Plain Layout
-.
 \end_layout
 
 \end_inset
