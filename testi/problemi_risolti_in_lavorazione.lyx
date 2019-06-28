@@ -610,7 +610,26 @@ Suggerimenti
 \end_layout
 
 \begin_layout Itemize
-Servono dei suggerimenti?
+La situazione di partenza (quanti studenti ci sono già nella stanza) è rilevante
+?
+\end_layout
+
+\begin_layout Itemize
+C'è differenza tra entrare e uscire o il problema è perfettamente simmetrico
+ rispetto alla direzione?
+\end_layout
+
+\begin_layout Itemize
+Quando un movimento del tornello implica con certezza che viene 
+\begin_inset Quotes eld
+\end_inset
+
+visto
+\begin_inset Quotes erd
+\end_inset
+
+ un nuovo studente e quando invece potrebbe trattarsi di uno studente già
+ passato?
 \end_layout
 
 \begin_layout Subsection
@@ -618,79 +637,166 @@ Soluzione
 \end_layout
 
 \begin_layout Standard
-Come per le territoriali 2019, questo problema serve solo come banco di
- prova per verificare di essere in grado di utilizzare il sistema di sottoposizi
-one ed avere un feedback sulla correttezza di quanto scritto.
- Al posto di spiegare come affrontarlo, dal momento che la soluzione è banale,
- ci si soffermerà invece su come è strutturato il programma il sorgente
- che viene fornito come spunto di partenza per scrivere la soluzione del
- problema.
- Da questa edizione, infatti, insieme al testo del problema viene fornito
- un 
-\begin_inset Quotes eld
-\end_inset
-
-template
-\begin_inset Quotes erd
-\end_inset
-
- nel quale è già scritta tutta la parte di lettura/scrittura dell'I/O: viene
- lasciata allo studente la scelta di utilizzarlo oppure di scrivere il programma
- da zero, comunque può essere comodo perchè fa risparmiare qualche minuto
- e garantisce che la parte di I/O sia corretta.
+Per scrivere la soluzione è necessario riflettere sulle domande poste nei
+ suggerimenti: per quanto riguarda la prima il fatto che ci siano o meno
+ studenti nella stanza è irrelevante, nel senso che si può sempre ipotizzare
+ che ce ne siano un numero sufficiente per rendere congruenti i dati del
+ problema, ma quanto siano esattamente non è importante (e non si avrebbero
+ comunque abbastanza informazioni per dirlo).
+ Ad esempio nel caso 1, perchè possano inizialmente uscire 3 studenti, inizialme
+nte ce ne sarebbero dovuti essere almeno 3, ma se anche fossero stati 4,
+ 5 o più, dal punto di vista del nostro problema sarebbe stata la stessa
+ cosa.
 \end_layout
 
 \begin_layout Standard
-Nella soluzione mostrata qua sotto, le uniche righe aggiunte per risolvere
- il problema sono la 11 e la 12, le altre erano già scritte nel template
- fornito dal sistema di gara.
- Come si può vedere il ciclo in riga 6 permette di iterare sui casi di test
- e, al suo interno, viene fatto l'input e l'output di ognuno dei singoli
- casi.
+Per quanto riguarda l'entrare/uscire non ci sono differenze, perchè una
+ volta stabilito che non ci interessa la presenza di eventuali studenti
+ presenti inizialmente all'interno della stanza, lo stesso ragionamento
+ si può fare per l'esterno e risulta solo una convenzione chiamare qualcosa
  
+\emph on
+interno
+\emph default
+ e l'altra parte 
+\emph on
+esterno
+\emph default
+, infatti, se cambiassimo i termini, il ragionamento non cambierebbe.
+ Questo è interessante perchè vuol dire che il codice che andremo a scrivere
+ sarà esattamente simmetrico, cioè scritta una parte ce ne sarà un'altra
+ uguale con i ruoli invertiti, come si vedrà sotto.
 \end_layout
 
 \begin_layout Standard
-L'unica cosa che vale la pena notare solo le istruzioni che si trovano alle
- righe 2-3, che usano una funzione standard, la 
-\family typewriter
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/alex/repositories/guida_territoriali/materiali/problemi territoriali/2019_tornello/tornello.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tornello"
+
+\end_inset
+
+Esempio di sequenza di movimenti
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La risposta all'ultima domanda porta direttamente alla soluzione del problema:
+ ipotizzando di non sapere niente all'inizio del preblema, possiamo inizializzar
+e a zero un contatore 
 \series bold
-freopen
-\family default
+in
 \series default
-, che permette di ridirigere quelli che sono i canali standard di I/O, 
+ degli 
 \emph on
-stdin
+studenti
 \emph default
- e 
+ che sono passati dal tornello per entrare nella stanza e lo stesso con
+ un contatore 
+\series bold
+out
+\series default
+ per gli 
 \emph on
-stdout
+studenti
 \emph default
-, normalmente associati alla tastiera e allo schermo rispettivamente, verso
- dei file, in questo caso il file 
-\emph on
-input.txt
-\emph default
- fornirà l'input come fosse la tastiera e il file 
-\emph on
-output.txt
-\emph default
- conterrà l'output che normalmente sarebbe andato a schermo.
+ che, passando dal tornello, sono usciti dalla stanza.
+ Ogni volta che si verifica un movimento del tornello basta verificare lo
+ stato del contatore per vedere se si tratta di uno studente nuovo (che
+ quindi andrà aggiunto) oppure no.
  
 \end_layout
 
 \begin_layout Standard
-L'aspetto comodo di questo approccio è che, semplicemente commentando quelle
- due righe, il programma tornerà a prendere l'input da tastiera e mandare
- l'output a schermo, senza nessuna modifica delle successive righe di codice.
- Va anche notato che non necessariamente vanno commentati entrambe: ad esempio
- può essere comodo commentare solo la seconda linea, in modo da prendere
- l'input dal file 
-\emph on
-input.txt
-\emph default
- e mostrare invece l'output a video, per avere un feedback più immediato
- di cosa sta facendo il proprio programma.
+Supponiamo ad esempio che ci sia un movimento in ingresso alla stanza, ci
+ sono solo due possibilità:
+\end_layout
+
+\begin_layout Itemize
+il contatore 
+\series bold
+out
+\series default
+ degli studenti già visti che si trovano all'esterno è a zero, allora lo
+ studente che sta entrando non può essere uno già visto in precedenza, quindi
+ si incrementa il contatore degli studenti 
+\series bold
+nuovi
+\series default
+ e il contatore 
+\series bold
+in
+\series default
+ degli studenti passati dal tornello e presenti nella stanza 
+\end_layout
+
+\begin_layout Itemize
+il contatore 
+\series bold
+out
+\series default
+ degli studenti già visti che si trovano all'esterno è maggiore di zero,
+ quindi lo studente che sta entrando era già stata vista in precedenza quando
+ era uscita: in questo caso non si fa altro che decrementare il contatore
+ 
+\series bold
+out
+\series default
+ degli studenti fuori (perchè adesso all'esterno della stanza c'è uno studente
+ in meno che era già stato visto) e incrementare il contatore 
+\series bold
+in
+\series default
+ degli studenti passati dal tornello e che ora sono all'interno della stanza.
+\end_layout
+
+\begin_layout Standard
+Siccome abbiamo già detto che il problema è simmetrico, lo stesso ragionamento
+ a parte invertite si può fare con un movimento in uscita alla stanza, ottenendo
+ il risultato desiderato come mostrato nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tornello"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Il codice risolutivo quindi risulta semplice da scrivere e anche in questo
+ caso è stato utilizzato il template fornito dal sistema di gara, aggiungendo
+ solamente la parte relativa alla soluzione.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -698,6 +804,145 @@ input.txt
 lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
 inline false
 status open
+
+\begin_layout Plain Layout
+
+int solve() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    int N;
+\end_layout
+
+\begin_layout Plain Layout
+
+    cin >> N;
+\end_layout
+
+\begin_layout Plain Layout
+
+    int risposta = 0;  
+\end_layout
+
+\begin_layout Plain Layout
+
+	int in = 0, out = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int i=0; i<N; i++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        int variazione;
+\end_layout
+
+\begin_layout Plain Layout
+
+        cin >> variazione;
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (variazione > 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (out > 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+				out--;
+\end_layout
+
+\begin_layout Plain Layout
+
+			else
+\end_layout
+
+\begin_layout Plain Layout
+
+				risposta++;
+\end_layout
+
+\begin_layout Plain Layout
+
+			in++;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}		
+\end_layout
+
+\begin_layout Plain Layout
+
+		else
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (in > 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+				in--;
+\end_layout
+
+\begin_layout Plain Layout
+
+			else
+\end_layout
+
+\begin_layout Plain Layout
+
+				risposta++;
+\end_layout
+
+\begin_layout Plain Layout
+
+			out++;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    return risposta;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \begin_layout Plain Layout
 
@@ -721,7 +966,7 @@ int main() {
 
 \begin_layout Plain Layout
 
-    cin >> T;
+    scanf("%d", &T);
 \end_layout
 
 \begin_layout Plain Layout
@@ -731,41 +976,7 @@ int main() {
 
 \begin_layout Plain Layout
 
-        int N, F, C;
-\end_layout
-
-\begin_layout Plain Layout
-
-        int nf, nc;
-\end_layout
-
-\begin_layout Plain Layout
-
-        cin >> N >> F >> C;
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\end_layout
-
-\begin_layout Plain Layout
-
-        nf = N/F;
-\end_layout
-
-\begin_layout Plain Layout
-
-        nc = (N%F)/C;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-        cout << "Case #" << t << ": " << nf << " " << nc << endl;
+        cout << "Case #" << t << ": " << solve() << endl;
 \end_layout
 
 \begin_layout Plain Layout
@@ -784,15 +995,18 @@ int main() {
 \end_layout
 
 \begin_layout Standard
-Per quanto riguarda la soluzione vera e propria: la riga 11 calcola quanti
- filmati si possono scaricare semplicemente facendo una divisione intera
- tra N e F, poichè, per come è fatto il sistema dei tipi in C/C++, la divisione
- tra due interi da un intero che non è altro che il risultato della divisione
- privato della parte decimale.
- Fatto questo, la riga 12 calcola prima quanta parte dell'hard disk è rimasta
- per poter ospitare le canzoni, tramite l'operatore di modulo (%) e successivame
-nte ripete quanto fatto per i filmati, usando la parte di hard disk rimasto
- e la dimensione delle canzoni.
+La soluzione si trova tra la riga 9 e la riga 25, in cui, dopo aver letto
+ la variazione e verificato se è in ingresso o uscita (+1 o -1), si va a
+ testare il contatore relativo alla parte da cui inizia il movimento (riga
+ 9) e, nel caso uno studente si stia spostando dall'esterno all'interno
+ della stanza, si implementa esattamente quanto spiegato in precedenza (righe
+ 11-15), altrimenti si fa la stessa cosa a parti invertite (righe 19-23).
+\end_layout
+
+\begin_layout Standard
+Un ultimo consiglio: durante le finali nazionali si consiglia che, dopo
+ una certa ora, tutti i contatori rimangano a zero, perchè una buona notte
+ di riposo è propedeutica a una buona prestazione in finale ☺.
 \end_layout
 
 \end_body
