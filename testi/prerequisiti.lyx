@@ -1,7 +1,9 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass book
 \begin_preamble
 \date{}
@@ -13,16 +15,18 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman palatino
-\font_sans helvet
-\font_typewriter courier
+\font_roman "palatino" "default"
+\font_sans "helvet" "default"
+\font_typewriter "courier" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -33,16 +37,26 @@
 \use_hyperref false
 \papersize a4paper
 \use_geometry true
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 0
+\use_minted 0
 \index Indice
 \shortcut idx
 \color #008000
@@ -55,7 +69,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -133,7 +150,7 @@ impacchettati
  e anche dalle preferenze di ogni programmatore; per le gare come le Olimpiadi
  dove i programmi da sviluppare sono molto contenuti in termini di linee
  di codice scritte, più o meno qualsiasi ambiente può andar bene, l'importante
- è che si utilizzi un compilatore C/C++ (o Pascal) aderente agli standard.
+ è che si utilizzi un compilatore C/C++ aderente agli standard.
 \end_layout
 
 \begin_layout Standard
@@ -141,11 +158,11 @@ Tanto per chiarire e per fare in modo che ognuno possa utilizzare correttamente
  la terminologia legata allo sviluppo software vediamo una breve lista dei
  termini utilizzati e del loro significato
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Anche se la maggior parte delle definizioni posso essere applicate a vari
- linguaggi, alcuni particolari sono legati al linguaggio C/C++
+ linguaggi, alcuni particolari sono legati al linguaggio C/C++.
 \end_layout
 
 \end_inset
@@ -168,8 +185,8 @@ codice sorgente
 \series bold
 compilatore
 \series default
-: in C/C++ è il software che prende il codice sorgente e attraverso un processo
- di 
+: in C/C++ è il software che prende il codice sorgente e, attraverso un
+ processo di 
 \begin_inset Quotes eld
 \end_inset
 
@@ -177,7 +194,7 @@ traduzione
 \begin_inset Quotes erd
 \end_inset
 
- lo trasforma in un codice oggetto, cioè un file in linguaggio macchina
+, lo trasforma in un codice oggetto, cioè un file in linguaggio macchina
  non ancora pronto per essere mandato in esecuzione.
  Se il codice sorgente presenta degli errori sintattici, viene emesso un
  messaggio d'errore e non viene prodotto niente
@@ -233,29 +250,100 @@ debugger
 \end_layout
 
 \begin_layout Standard
-Al momento della stesura di questo manuale il sito ufficiale delle Olimpiadi
- indica come ambienti di gara il DevCpp versione 4.9 per il C/C++ e il DevPascal
- versione 1.9 per il Pascal, entrambi completi di compilatore e editor (il
- debugger può essere installato separatamente, ma personalmente lo trovo
- abbastanza inutile in questo tipo di gare).
- L'installazione e l'utilizzo sotto Windows sono molto semplici, anche per
- chi dovesse provenire da ambienti di sviluppo differenti.
- Ovviamente entrambi gli ambienti sono liberamente scaricabili.
- Per chi volesse utilizzare il sistema operativo Linux
+Al momento della stesura di questo manuale la situazione è molto articolata,
+ nel senso che possono essere utilizzati diversi ambienti di sviluppo che
+ includono tutto quanto indicato sopra.
+ Solo a titolo di esempio ne citerò alcuni tra i più utilizzati, poi vedete
+ voi:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "CodeBlocks"
+target "https://www.codeblocks.org/"
+literal "false"
+
+\end_inset
+
+: l'ho utilizzato per svariati anni, semplice da installare, se si sceglie
+ la versione che contiene il compilatore poi funziona senza dover fare altro,
+ facile da utilizzare, il debugger ogni tanto ha dei problemi, gratuito
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "JetBrains CLion"
+target "https://www.jetbrains.com/clion/"
+literal "false"
+
+\end_inset
+
+: ambiente estremamente potente, dato le mille cose che può fare non è altrettan
+to semplice da usare del precedente, non è gratuito, ma se la propria scuola
+ si registra (gratuitamente), tutti i docenti e gli studenti di quella scuola
+ possono utilizzare senza dover pagare niente, che è il motivo perchè utlimament
+e sto usando quello
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Microsoft Visual Studio Code"
+target "https://code.visualstudio.com/"
+literal "false"
+
+\end_inset
+
+: ambiente con una serie di plugin per poterlo adattare ai vari linguaggi,
+ l'ho usato pochissimo, è molto diffuso ed è gratuito
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Embarcadero Dev-Cpp"
+target "https://www.embarcadero.com/free-tools/dev-cpp"
+literal "false"
+
+\end_inset
+
+: simile a CodeBlocks come semplicità di utilizzo, è rimasto fermo senza
+ aggiornamenti per un lungo periodo, adesso è stato rinnovato, era l'ambiente
+ di sviluppo ufficiale delle prime edizioni delle Olimpiadi, gratuito
+\end_layout
+
+\begin_layout Standard
+Quanto è importante l'ambiente di sviluppo alle selezioni territoriali?
+ Premesso che ogni sede territoriale ha una certa libertà su cosa installare
+ sulle macchine che useranno gli studenti durante la gara e che le regole
+ precise posso variare da anno in anno, non credo che l'ambiente possa davvero
+ fare la differenza a questo livello: chi è bravo passerà comunque, chi
+ è meno bravo o non lo è per niente, non passerà.
+ Consiglio comunque di provare a sentire il proprio referente territoriale
+ se si vogliono avere più informazioni su cosa si troverà installato sulle
+ macchine di gara.
+ 
+\end_layout
+
+\begin_layout Standard
+Per chi volesse utilizzare il sistema operativo Linux
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Dalle selezioni nazionali 2011 l'ambiente Linux è diventato l'unico ambiente
- di gara possibile per tale livello e a breve lo potrebbe diventare anche
- nelle selezioni territoriali.
+ di gara possibile per tale livello, per le selezioni territoriali è ancora
+ dipendente dalla sede.
 \end_layout
 
 \end_inset
 
- questi due ambienti non sono presenti, ma per il C/C++ è possibile usare
- CodeBlocks (installabile anche sotto Windows) oppure uno tra i molteplici
- editor evoluti per programmatori (vi, gedit, geany, ecc.)
+ i primi tre ambienti di sviluppo sono multipiattaforma e quindi possono
+ essere installati anche lì, oppure si possono usare i vari editor (vi,
+ gedit, geany, ecc.) inclusi nei sistemi di pacchettizzazione della propria
+ distribuzione.
 \end_layout
 
 \begin_layout Section
@@ -279,7 +367,7 @@ reference "fig:Schema-di-valutazione"
 
 \end_inset
 
-.
+ o a schemi analoghi.
 \end_layout
 
 \begin_layout Standard
@@ -301,7 +389,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -340,7 +428,7 @@ rapido
 \end_layout
 
 \begin_layout Standard
-Anche se può sembrare strano questo sistema non garantisce che il programma
+Anche se può sembrare strano, questo sistema non garantisce che il programma
  sia corretto in senso assoluto, ma solo che risolva correttamente i casi
  proposti: nella realtà questa distinzione è più teorica che pratica, in
  quanto i casi proposti in genere sono scelti per verificare il comportamento
@@ -359,8 +447,8 @@ reference "fig:Schema-di-valutazione"
 \end_inset
 
  può essere facilmente automatizzata facendola svolgere a un computer.
- I programmi che svolgono la valutazione delle prove sono in gergo chiamati
- 
+ I programmi che portano a termine la valutazione delle prove sono in gergo
+ chiamati 
 \emph on
 correttori
 \emph default
@@ -379,61 +467,36 @@ simulare
 \end_inset
 
  la situazione di gara.
- Recentemente l'organizzazione italiana che cura le Olimpiadi ha messo a
- disposizione un correttore online che si può trovare all'interno del 
+ 
+\end_layout
+
+\begin_layout Standard
+L'organizzazione italiana che cura le Olimpiadi ha messo a disposizione
+ un correttore online che si può trovare all'indirizzo 
 \begin_inset CommandInset href
 LatexCommand href
-name "portale italiano delle Olimpiadi Italiane di Informatica"
-target "www.olimpiadi-informatica.it"
+name "training.olinfo.it"
+target "https://training.olinfo.it/#/overview"
+literal "false"
 
 \end_inset
 
- all'indirizzo 
-\family typewriter
-http://www.olimpiadi-informatica.it
-\family default
-, nella sezione 
-\emph on
-Allenamenti
-\emph default
-.
+, sito che contiene anche tutta una serie di materiali didattici.
  Tramite una semplice registrazione sarà quindi possibile testare la comprension
 e del presente manuale in tempo reale, sottoponendo al correttore le proprie
  soluzioni e verificandone la correttezza.
- Allo stato attuale (settembre 2011) l'unico neo di questo correttore è
- che non è 
-\emph on
-semantico
-\emph default
-, cioè non è in grado di valutare correttamente soluzioni corrette che però
- non siano esattamente uguali a quelle che si aspetta, come verrà mostrato
- in seguito con alcuni esempi presi dalle gare territoriali.
  
-\series bold
-Aggiornamento (gennaio 2014)
-\series default
-: è stato messo online e reso disponibile per gli allenamenti il nuovo correttor
-e CMS, quello sviluppato dal team degli allenatori italiani e usato anche
- per le Olimpiadi Internazionali.
- Il nuovo correttore, che si trova all'indirizzo 
-\begin_inset CommandInset href
-LatexCommand href
-name "https://cms.di.unipi.it"
-target "https://cms.di.unipi.it"
-
-\end_inset
-
-, è più completo e più stabile rispetto al precedente e quindi si invitano
- i ragazzi a usarlo per allenarsi.
 \end_layout
 
 \begin_layout Standard
 L'aspetto sicuramente più importante del correttore italiano è che contiene
  un insieme di problemi di test che sono presi direttamente dalle selezioni
- territoriali e nazionali degli anni passati, permettendo quindi di testare
- il livello a cui ci si troverà di fronte in gara.
- Oltre a questi sono inclusi anche molti altri problemi divisi in categorie
- in base alla difficoltà, che ampliano ulteriormente la possibilità di allenarsi.
+ territoriali e nazionali degli anni passati, più altre gare come le Olimpiadi
+ a squadre, permettendo quindi di testare il livello a cui ci si troverà
+ di fronte in gara.
+ I problemi sono divisi in categorie in base alla strategia risolutiva,
+ alla manifestazione da cui sono stati tratti e alla difficoltà, in modo
+ da personalizzare il proprio percorso di allenamento.
 \end_layout
 
 \begin_layout Section
@@ -459,8 +522,8 @@ vera
 \end_layout
 
 \begin_layout Standard
-I due siti generalmente indicati anche dall'organizzazione italiana per
- cimentarsi con delle gare online sono i seguenti:
+Negli ultimi anni sono stati creati molti siti per cimentarsi con delle
+ gare online, alcune possibilità sono:
 \end_layout
 
 \begin_layout Standard
@@ -468,6 +531,7 @@ I due siti generalmente indicati anche dall'organizzazione italiana per
 LatexCommand href
 name "USACO"
 target "www.usaco.org"
+literal "false"
 
 \end_inset
 
@@ -477,20 +541,31 @@ target "www.usaco.org"
  Contiene una sezione per le gare online che vengono tenute di norma un
  fine settimana al mese e una sezione per gli allenamenti simile al nostro
  correttore.
+ Contiene anche una sezione per la preparazione che si trova all'indirizzo
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "usaco.guide"
+target "https://usaco.guide/"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset href
 LatexCommand href
-name "COCI"
-target "www.hsin.hr/coci/"
+name "CodeForces"
+target "https://codeforces.com/"
+literal "false"
 
 \end_inset
 
-: Croatian Competition in Informatics, è il sito delle Olimpiadi croate,
- le gare vengono tenute di norma un sabato al mese, ogni gara è composta
- da sei problemi di difficoltà crescente in modo molto graduale (i primi
- tre in genere sono fattibili senza troppo sforzo).
+: vengono tenute gare di vari livelli di difficoltà, con cadenza più o meno
+ mensile: alla fine delle gare è anche possibile trovare delle spiegazioni
+ sulle soluzioni.
 \end_layout
 
 \begin_layout Standard
