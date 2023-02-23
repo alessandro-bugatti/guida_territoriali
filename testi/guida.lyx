@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -7,6 +7,7 @@
 \textclass book
 \begin_preamble
 \date{}
+\usepackage{tikzsymbols}
 \end_preamble
 \use_default_options false
 \begin_modules
@@ -27,6 +28,8 @@ logicalmkup
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -68,6 +71,7 @@ logicalmkup
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Indice
 \shortcut idx
 \color #008000
@@ -80,7 +84,10 @@ logicalmkup
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -106,7 +113,7 @@ Alessandro Bugatti
 \end_layout
 
 \begin_layout Verse
-© 2019 Alessandro Bugatti
+© 2023 Alessandro Bugatti
 \end_layout
 
 \begin_layout Verse
@@ -114,7 +121,7 @@ alessandro.bugatti@gmail.com
 \end_layout
 
 \begin_layout Verse
-Sesta edizione: marzo 2019
+Ultima edizione: marzo 2023
 \end_layout
 
 \begin_layout Verse
@@ -198,6 +205,7 @@ Puoi trovare informazioni su come acquistare il libro cartaceo a questo
 \begin_inset CommandInset href
 LatexCommand href
 target "http://www.imparando.net/guida"
+literal "false"
 
 \end_inset
 
@@ -210,6 +218,7 @@ o direttamente andando sul sito
 LatexCommand href
 name "www.lulu.com/it"
 target "lulu.it"
+literal "false"
 
 \end_inset
 
@@ -245,74 +254,123 @@ target "lulu.it"
 \end_layout
 
 \begin_layout Section*
-AGGIUNTA ALLA SESTA EDIZIONE
+Prefazione a questa edizione (l'ultima)
 \end_layout
 
 \begin_layout Standard
-Sono stati aggiunti i problemi dell'edizione 2018 e corretto qualche errore.
- Prendo anche l'occasione per ricordare che questa guida è autoprodotta,
- sottraendo tempo ad altre cose che potrei fare, quindi non sempre posso
- permettermi di rileggere con attenzione quanto scrivo (senza parlare poi
- del fatto che le mie competenze tecniche non sempre mi garantiscono di
- fornire soluzioni precise).
- Sono quindi gradite osservazioni, commenti, suggerimenti, che potete inviarmi
- direttamente al mio indirizzo di posta elettronica o come 
+Cari lettori, questa guida è nata nel 2011 e da allora ha subito un po'
+ di aggiornamenti per cercare di seguire quella che è stata l'evoluzione
+ delle Olimpiadi e in particolare per fornire uno strumento che aiutasse
+ chi si approcia a questa competizione per la prima volta.
+ Non è mai voluta essere una guida completa o super avanzata e ho sempre
+ cercato di bilanciare la precisione con la chiarezza espositiva e una scelta
+ degli argomenti che tenesse conto del livello degli studenti a cui viene
+ proposta, tendenzialmente alle prime armi.
+ Non credo di esserci sempre riuscito (alcune soluzioni, viste adesso, mi
+ sembrano non adeguate, se non addirittura fuorvianti), però direi che essendo
+ un testo scritto su base volontaria non ho nulla da rimproverarmi.
+ 
+\end_layout
+
+\begin_layout Standard
+Nel frattempo le competenze richieste sono diventate più complesse, la modalità
+ di gara è stata cambiata più volte, anche il linguaggio utilizzato nel
+ testo, il C++, ha subito delle forti evoluzioni
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Nel 2011 era in ballo da diversi anni una versione delle standard chiamata
+ C++0x, dove lo 0x stava ad indicare che sarebbe dovuto diventare standard
+ in un anno della prima decina del nuovo secolo, cosa che poi non è avvenuta,
+ essendo diventato C++11.
+ Adesso il C++, come altri linguaggi, viene aggiornato con maggiore frequenza
+ e stargli dietro risulta molto complesso.
+\end_layout
+
+\end_inset
+
+, l'organizzazione tecnica che cura le gare fornisce sempre più materiale
+ di preparazione, io ho parecchi anni in più
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Quanti sono rimarrà un segreto ben custodito.
+\end_layout
+
+\end_inset
+
+ e quindi ho deciso di aggiornare per l'ultima volta questa guida, con i
+ seguenti obiettivi:
+\end_layout
+
+\begin_layout Itemize
+aggiornare il codice per renderlo più 
 \emph on
-issue
+moderno 
 \emph default
- sulla pagina GitHub del libro (
+e più in linea con la mia sensibilità attuale di scrittura
+\end_layout
+
+\begin_layout Itemize
+correggere degli errori che mi sono stati segnalati
+\end_layout
+
+\begin_layout Itemize
+rimuovere materiale, principalmente problemi risolti, che non mi piacciono,
+ o perchè il problema in sè è brutto (senza offesa per gli ideatori), o
+ perchè la mia soluzione è brutta
+\end_layout
+
+\begin_layout Itemize
+cercare di puntare di più sui concetti, che sono resistenti al passare del
+ tempo
+\end_layout
+
+\begin_layout Itemize
+se è l'ultima edizione, non mi sentirò costretto ad aggiornarla in futuro
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Laughey
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il sito di riferimento dove recuperare la guida in formato PDF rimane il
+ sito 
 \begin_inset CommandInset href
 LatexCommand href
-name "https://github.com/alessandro-bugatti/guida_territoriali"
+name "www.imparando.net"
+target "https://www.imparando.net/sito/olimpiadi_di_informatica.htm"
+literal "false"
+
+\end_inset
+
+ e per i sorgenti si possono trovare su 
+\begin_inset CommandInset href
+LatexCommand href
+name "GitHub"
 target "https://github.com/alessandro-bugatti/guida_territoriali"
+literal "false"
 
 \end_inset
 
 ).
 \end_layout
 
-\begin_layout Section*
-AGGIUNTA ALLA QUINTA EDIZIONE E MEZZA
-\end_layout
-
 \begin_layout Standard
-Questa edizione è solo di passaggio, sono stati aggiunti i problemi dell'edizion
-e 2017 e una parte che spiega come funziona il nuovo sistema di sottoposizione
- che verrà utilizzato per la prima volta nell'edizione 2018 (grazie Edoardo,
- Luca e William).
-\end_layout
-
-\begin_layout Section*
-AGGIUNTA ALLA QUINTA EDIZIONE
-\end_layout
-
-\begin_layout Standard
-Rispetto alla quarta edizione questa contiene le soluzioni delle ultime
- due edizioni delle territoriali, una serie di nuovi problemi nel capitolo
- finale e qualche aggiornamento rispetto alle modalità di gara.
- 
-\end_layout
-
-\begin_layout Section*
-AGGIUNTA ALLA QUARTA EDIZIONE
-\end_layout
-
-\begin_layout Standard
-Nonostante quanto scritto all'inizio, in tre anni di edizione di questa
- guida le vendite non hanno mai superato le 5 copie all'anno (nel picco
- di vendita): quest'anno avevo quindi deciso di non pubblicare più questa
- guida, ma poi qualcuno mi ha richiesto se era possibile averne una copia
- 
-\begin_inset Quotes eld
-\end_inset
-
-originale
-\begin_inset Quotes erd
-\end_inset
-
- e quindi ho cambiato idea: ho deciso di pubblicarla su Lulu.com, perchè
- mi sembra offra qualche vantaggio in più sui metodi di pagamenti e la qualità
- del libro, spero possa interessare a qualcuno.
+Buona lettura e buone gare.
 \end_layout
 
 \begin_layout Verse
@@ -480,27 +538,7 @@ filename "grafi.lyx"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "problemi_risolti.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "nuovi_problemi.lyx"
-
-\end_inset
-
-
+d
 \end_layout
 
 \begin_layout Standard
