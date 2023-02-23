@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -25,6 +25,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -54,6 +56,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Indice
 \shortcut idx
 \color #008000
@@ -66,7 +69,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -114,7 +120,7 @@ Douglas Adams
 \begin_layout Standard
 La prima cosa necessaria per affrontare una gara è conoscere la struttura
  dei problemi proposti, che è abbastanza costante a tutti i livelli e tra
- tutte le gare online.
+ tutte le gare online, almeno come idea generale.
  Come esempio vediamo un testo delle territoriali, precisamente il problema
  
 \emph on
@@ -148,9 +154,8 @@ folklore
 \end_inset
 
 , in modo da dare un indizio della storia che seguirà, mentre quello breve
- è usato per dare il nome al codice sorgente della soluzione che dovremo
- sottoporre al correttore (in questo caso, supponendo di scrivere il codice
- in C++, il file si chiamerà nimbus.cpp)
+ può esserci o meno, di solito è il nome che compare nel tabellone dei punteggi,
+ non è rilevante al fine della comprensione e soluzione del problema.
 \end_layout
 
 \begin_layout Itemize
@@ -158,7 +163,7 @@ folklore
 \series bold
 Difficoltà
 \series default
-: l'indicatore della difficoltà ha un duplice scopo.
+: può esserci o non esserci, se è presente ha un duplice scopo.
  Da una parte permette a chi sta svolgendo la prova di capire quale esercizio
  è più semplice e orientarsi di conseguenza (ad esempio partendo prima dalla
  soluzione dell'esercizio più semplice), dall'altra è il coefficiente che
@@ -170,7 +175,18 @@ reference "fig:Schema-di-valutazione"
 \end_inset
 
 , quindi gli esercizi con difficoltà più alta danno un punteggio maggiore,
- se risolti correttamente.
+ se risolti correttamente
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Questa non è una regola, dipende da come viene steso il regolamento di anno
+ in anno
+\end_layout
+
+\end_inset
+
+.
  Pur essendo un parametro oggettivo, che quindi rispecchia piuttosto esattamente
  la difficoltà di ogni problema, può essere che soggettivamente la valutazione
  di ogni singolo problema possa essere diversa.
@@ -463,66 +479,29 @@ name "sec:Nuova-mod_sottoposizione"
 
 \end_inset
 
-Nuova modalità di sottomissione (a partire dalle Territoriali 2018)
+Modalità di sottomissione delle soluzioni
 \end_layout
 
 \begin_layout Standard
-In questo paragrafo viene presentata la nuova modalità di sottoposizione
- delle soluzioni, che diventerà ufficiale dalle territoriali 2018.
+Una volta compreso il problema e scritta la soluzione, si spera corretta,
+ è necessario inviarla perchè venga valutata.
+ Il meccanismo esatto è stato modificato negli anni, qui verrà presentato
+ quello attuale, ma l'idea generale è sempre la stessa: scrivere un codice
+ che risolva un problema e sottoporgli una serie di casi di test che deve
+ risolvere.
 \end_layout
 
 \begin_layout Standard
-Una premessa: perchè si è scelta questa nuova modalità? Una delle critiche
- più frequenti che venivano fatte dai referenti e dagli studenti rispetto
- alla modalità di sottoposizione era quella di non avere nessun tipo di
- feedback rispetto ai codici sottoposti, se non che l'upload avesse funzionato
- e che i nomi dei file fossero quelli giusti.
- Questo in qualche caso portava alla non qualificazione a causa di errori
- banali (vedi ad esempio 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "attenzione-agli-errori"
-
-\end_inset
-
- ), che probabilmente sarebbero stati corretti se lo studente avesse avuto
- accesso a qualche tipo di feedback, come succede ai Nazionali.
- Purtroppo però non era possibile utilizzare il correttore delle selezioni
- Nazionali, per due ordini di motivi:
-\end_layout
-
-\begin_layout Itemize
-utilizzo da remoto su un server centrale: difficoltà per le scuole a isolare
- le postazioni degli atleti da Internet e, cosa peggiore, nel caso di non
- funzionamento del collegamento a Internet il giorno della prova nella scuola
- sede di gara, la gara non si sarebbe potuta disputare
-\end_layout
-
-\begin_layout Itemize
-utilizzo in locale su un server della scuola: pur non essendo particolarmente
- complesso, il software CMS non è semplicissimo da usare nella parte di
- gestione/amministrazione, quindi poteva comportare dei problemi durante
- la gara se si fosse dovuto intervenire.
- Inoltre la struttura di correzione prevede comunque un certo carico di
- lavoro sul server: se la macchina o il network di macchine che fungono
- da correttore sono abbastanza potenti non ci sono problemi perchè è progettato
- per scalare bene, ma dovendo girare su una macchina virtuale nelle sedi
- territoriali, avrebbe presumibilmente creato problemi.
- Fa ricordato infatti che i limiti sul tempo di esecuzione dei problemi
- del livello territoriale sono fissati a 5 minuti, quindi le soluzioni non
- corrette che al proprio interno creassero dei cicli infiniti, andrebbero
- a utilizzare le risorse del server in maniera molto pesante.
- 
-\end_layout
-
-\begin_layout Standard
-Il team di supporto alle Olimpiadi ha così pensato di risolvere i problemi
- creando un software che utilizzasse un meccanismo già presente in altre
- competizioni, ad esempio 
+A differenza di buona parte dei correttori online, che prevedono che venga
+ inviato il codice sorgente sul server e che lì avvenga la compilazione,
+ l'esecuzione e l'assegnazione dei punteggi, dal 2018 il metodo usato alle
+ selezioni territoriali utilizza un meccanismo già presente in altre competizion
+i, ad esempio 
 \begin_inset CommandInset href
 LatexCommand href
 name "Google Code Jam"
 target "https://code.google.com/codejam/"
+literal "false"
 
 \end_inset
 
@@ -565,7 +544,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Nuova modalità di sottoposizione
+Modalità di sottoposizione
 \end_layout
 
 \end_inset
@@ -581,21 +560,23 @@ Nuova modalità di sottoposizione
 \begin_layout Standard
 Successivamente il file di output verrà caricato sul server che risponderà
  con il numero di punti ottenuti, indicando anche quali test case hanno
- avuto una risposta corretta e quali no
+ avuto una risposta corretta e quali no.
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Al momento della scrittura di questo paragrafo (19/02/2018) esiste una piattafor
+Al momento della scrittura di questo paragrafo (01/03/2023) esiste una piattafor
 ma di prova all'indirizzo 
 \begin_inset CommandInset href
 LatexCommand href
 name "https://territoriali.olinfo.it/"
 target "https://territoriali.olinfo.it/"
+literal "false"
 
 \end_inset
 
- su cui si possono fare dei test relativi ai problemi dei territoriali 2017.
+ su cui si possono fare dei test relativi ai problemi dei territoriali degli
+ anni precedenti.
 \end_layout
 
 \end_inset
@@ -618,62 +599,46 @@ Nel caso di risposte non corrette o solo parzialmente corrette, lo studente
 
 \begin_layout Standard
 In questo modo è possibile fornire allo studente un feedback preciso su
- quanto fatto e allo stesso tempo fornire alle varie sedi territoriali una
- macchina virtuale su cui fare girare il server, che a questo punto non
- ha più problemi di carico, dovendosi sostanzialmente limitare a creare
- e confrontare file, senza dover far eseguire le soluzioni dei concorrenti
- in una sandbox locale.
-\end_layout
-
-\begin_layout Standard
-Questa nuova modalità prevede sostanzialmente due modi per poter ottenere
- delle soluzioni da sottoporre:
-\end_layout
-
-\begin_layout Enumerate
-il programma utilizza l'input/output da file, come nella precedente modalità
-\end_layout
-
-\begin_layout Enumerate
-il programma sfrutta la ridirezione di I/O messa a disposizione dai terminali
- dei sistemi operativi (anche in quello di Windows, che notoriamente ha
- delle funzionalità molto limitate).
+ quanto fatto.
 \end_layout
 
 \begin_layout Subsection
-Lettura/scrittura da codice
+Lettura/scrittura da e su file
 \end_layout
 
 \begin_layout Standard
-Come nella modalità in uso fino al 2017, il programma si occupa di aprire
- il file 
-\emph on
-input.txt
-\emph default
-, che è quello che il sistema permette di scaricare.
+Dovendo produrre un file in output partendo da un file di input, che è quello
+ che il sistema permette di scaricare, il programma dovrà necessariamente
+ gestire questa situazione.
  Questo file, a differenza della modalità precedente, contiene generalmente
- un primo intero T che rappresenta il numero di test case, dopodichè seguono
- i dati di input di ognuno dei singoli test case, come se i casi che una
- volta venivano dati su file separati fossero stati tutti accodati nello
- stesso file.
+ un primo intero T che rappresenta il numero di 
+\emph on
+test case
+\emph default
+, dopodichè seguono i dati di input di ognuno dei singoli test case, come
+ se i casi che una volta venivano dati su file separati fossero stati tutti
+ accodati nello stesso file.
 \end_layout
 
 \begin_layout Standard
 Per fare un esempio si faccia riferimento al testo del problema 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Crittografia-LWF"
+\begin_inset CommandInset href
+LatexCommand href
+name "Tornello Olimpico"
+target "https://territoriali.olinfo.it/task/tornello"
+literal "false"
 
 \end_inset
 
-, di cui qua vengono riportati per brevità le definizioni degli input/output.
+, di cui qua vengono riportati per brevità solo le definizioni degli input/outpu
+t.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Box Framed
+\begin_inset Box Boxed
 position "t"
 hor_pos "c"
-has_inner_box 0
+has_inner_box 1
 inner_pos "t"
 use_parbox 0
 use_makebox 0
@@ -695,18 +660,32 @@ Dati di input
 \begin_layout Plain Layout
 La prima riga del file di input contiene un intero 
 \series bold
+\noun on
 T
 \series default
-, il numero di testcase.
- Le successive 
+\noun default
+, il numero di casi di test.
+ Seguono 
 \series bold
 T
 \series default
- righe contengono un intero ciascuna: il valore intero 
+ casi di test, numerati da 1 a T.
+ Ogni caso di test è preceduto da una riga vuota.
+\end_layout
+
+\begin_layout Plain Layout
+Ciascun caso di test è composto da due righe.
+ La prima contiene il numero intero 
 \series bold
 N
 \series default
- del relativo testcase.
+: il numero di segnali ricevuti dal tornello.
+ La seconda contiene 
+\series bold
+N
+\series default
+ interi (ciascuno uguale a +1 o -1) separati da spazio: la sequenza di segnali
+ ricevuti dal tornello.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -714,24 +693,21 @@ Dati di output
 \end_layout
 
 \begin_layout Plain Layout
-Il file di output deve essere composto da 
-\series bold
-T
-\series default
- righe, ciascuna delle quali contenente la dicitura 
+Il file di output deve contenere la risposta ai casi di test che sei riuscito
+ a risolvere.
+ Per ogni caso di test che hai risolto, il file di output deve contenere
+ una riga con la dicitura
+\end_layout
+
+\begin_layout Plain Layout
+
 \family typewriter
-Case #x: y
-\family default
- dove 
-\family typewriter
-x
-\family default
- è il numero del testcase (a partire da 1) e 
-\family typewriter
-y
-\family default
- è una sequenza di cifre binarie corrispondente al valore di N del testcase,
- che termina con '1'.
+Case #t: c
+\end_layout
+
+\begin_layout Plain Layout
+dove t è il numero del caso di test (a partire da 1) e il valore c è il
+ minimo numero di studenti che hanno visitato la stanza.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -749,7 +725,7 @@ Esempi di input/output
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
 <features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="1.5in">
+<column alignment="left" valignment="top" width="2.5in">
 <column alignment="left" valignment="top" width="5cm">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
@@ -782,19 +758,154 @@ File output.txt
 \begin_layout Plain Layout
 
 \family typewriter
-2
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+4
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
-19
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
-9
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1 -1 -1
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
++1 +1 +1
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
++1 -1 +1
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+10
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1 +1 +1 +1 -1 +1 +1 +1 -1 +1
 \end_layout
 
 \end_inset
@@ -805,13 +916,25 @@ File output.txt
 \begin_layout Plain Layout
 
 \family typewriter
-Case #1: 1011001 
+Case #1: 3 
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
-Case #2: 11101
+Case #2: 3
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #3: 1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Case #4: 5
 \end_layout
 
 \end_inset
@@ -830,8 +953,18 @@ Case #2: 11101
 \end_layout
 
 \begin_layout Standard
-Dovendo leggere un file di input definito nel modo precedente è necessario
- scrivere del codice simile al seguente:
+A questo punto ci sono due possibilità: o gestirsi la lettura/scrittura
+ scrivendo il codice da zero oppure utilizzare il 
+\emph on
+template
+\emph default
+ messo a disposizione sulla piattaforma di gara.
+ Un template non è altro che uno scheletro di programma che contiene già
+ tutta la parte di I/O in modo che lo studente possa concentrarsi solo sulla
+ soluzione del problema, senza preoccuparsi di dover leggere/scrivere su
+ file in maniera corretta.
+ Nel caso di questo problema, il template scaricabile dalla piattaforma
+ è fatto così:
 \end_layout
 
 \begin_layout Standard
@@ -842,57 +975,54 @@ status open
 
 \begin_layout Plain Layout
 
-int main()
+int solve() {
 \end_layout
 
 \begin_layout Plain Layout
 
-{
+    int N;
 \end_layout
 
 \begin_layout Plain Layout
 
-	int T, N;
+    cin >> N;
 \end_layout
 
 \begin_layout Plain Layout
 
-	ifstream in("input.txt");
 \end_layout
 
 \begin_layout Plain Layout
 
-	ofstream out("output.txt");
+    int risposta = 0;  // memorizza qui la risposta
 \end_layout
 
 \begin_layout Plain Layout
 
-	in >> T;
 \end_layout
 
 \begin_layout Plain Layout
 
-	for (int i = 0; i < T; i++)
+    for (int i=0; i<N; i++) {
 \end_layout
 
 \begin_layout Plain Layout
 
-	{
+        int variazione;
 \end_layout
 
 \begin_layout Plain Layout
 
-        //Esegue le elaborazioni richieste
+        cin >> variazione;
 \end_layout
 
 \begin_layout Plain Layout
 
-        out << "Case #" << i+1 << ": ";
 \end_layout
 
 \begin_layout Plain Layout
 
-        out << "Risultati dell'algoritmo ..." << endl;
+        // aggiungi codice...
 \end_layout
 
 \begin_layout Plain Layout
@@ -902,7 +1032,82 @@ int main()
 
 \begin_layout Plain Layout
 
-	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    return risposta;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    // se preferisci leggere e scrivere da file
+\end_layout
+
+\begin_layout Plain Layout
+
+    // ti basta decommentare le seguenti due righe:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    //freopen("input.txt", "r", stdin);
+\end_layout
+
+\begin_layout Plain Layout
+
+    //freopen("output.txt", "w", stdout);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    int T, t;
+\end_layout
+
+\begin_layout Plain Layout
+
+    scanf("%d", &T);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (t = 1; t <= T; t++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        cout << "Case #" << t << ": " << solve() << endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
 \end_layout
 
 \begin_layout Plain Layout
@@ -916,420 +1121,63 @@ int main()
 \end_layout
 
 \begin_layout Standard
-Come si può vedere la soluzione del problema si trova all'interno del ciclo
- 
-\emph on
-for
-\emph default
- e viene eseguita T volte su casi di input diversi contenuti all'interno
- del file 
+Come si può vedere, la lettura e la scrittura vengono fatte utilizzando
+ le solite primitive di I/O: per usare i file anzichè la tastiera/video
+ come input/output, è sufficiente decommentare le righe 21-22, che prenderanno
+ quindi l'input dal file 
 \emph on
 input.txt
 \emph default
-.
-\end_layout
-
-\begin_layout Subsection
-Ridirezione dell'I/O
-\end_layout
-
-\begin_layout Standard
-La seconda possibilità è quella di leggere/scrivere come se si lavorasse
- normalmente con 
-\emph on
-scanf/printf
-\emph default
- o 
-\emph on
-cin/cout
-\emph default
- e passare il file utilizzando la ridirezione in questo modo:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-lstparams "language=bash,showstringspaces=false"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-./mio_programma < input.txt > output.txt
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-I segni di minore e maggiore indicano rispettivamente che il file 
-\emph on
-input.txt
-\emph default
- verrà utilizzato per fornire l'input e il file 
+, anzichè da tastiera, e scriveranno l'output sul file 
 \emph on
 output.txt
 \emph default
- conterrà l'output.
- Facendo sempre riferimento all'esempio del paragrafo precedente, il codice
- che permette di creare il file che dopo dovrà essere sottoposto al server
- sarà simile al seguente:
+, anzichè a video.
+ Perchè tutto funzioni correttamente serve inoltre che il file di input
+ sia posizionato nella cartella corretta, in modo che il programma possa
+ leggerlo: la regola generale è che, per come è scritto quel codice, il
+ file debba essere posizionato nella stessa cartella dell'eseguibile, poi
+ però gli ambienti di sviluppo possono alterare questo comportamento, quindi
+ è bene provare a capire come funziona nell'ambiente utilizzato.
 \end_layout
 
 \begin_layout Standard
-\begin_inset listings
-lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},numbers=left,showstringspaces=false,tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-int main()
-\end_layout
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\begin_layout Plain Layout
-
-	int T, N;
-\end_layout
-
-\begin_layout Plain Layout
-
-	cin >> T;
-\end_layout
-
-\begin_layout Plain Layout
-
-	for (int i = 0; i < T; i++)
-\end_layout
-
-\begin_layout Plain Layout
-
-	{
-\end_layout
-
-\begin_layout Plain Layout
-
-        //Esegue le elaborazioni richieste
-\end_layout
-
-\begin_layout Plain Layout
-
-        cout << "Case #" << i+1 << ": ";
-\end_layout
-
-\begin_layout Plain Layout
-
-        cout << "Risultati dell'algoritmo ..." << endl;
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
-	return 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Come si può notare la lettura/scrittura avviene attraverso i normali canali
- di I/O e tramite il comando indicato sopra viene creato il file di output
- da sottoporre.
- L'unica difficoltà può essere quella di sapere dove scrivere quel comando,
- per chi non fosse avvezzo all'utilizzo del terminale.
- Come prima cosa è necessario portarsi nella cartella dove è contenuto l'eseguib
-ile, nell'esempio 
-\family typewriter
-mio_programma
-\family default
-, copiare nella stessa cartella il file di input e dopo aver eseguito il
- comando apparirà il file di output (se queste istruzioni risultassero incompren
-sibili si consiglia di chiedere al proprio professore o utilizzare la prima
- modalità).
-\end_layout
-
-\begin_layout Section
-Input/output su file (valido fino alle Territoriali 2017)
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Input/output"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Sebbene dalle territoriali 2018 il meccanismo di sottomissione cambierà,
- questo paragrafo è stato mantenuto per giustificare il modo con cui sono
- gestiti input e output fino ai problemi del 2016
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-I problemi del 2017 sono stati proposti in gara con la modalità 
-\begin_inset Quotes eld
-\end_inset
-
-vecchia
-\begin_inset Quotes erd
-\end_inset
-
-, ma su questa guida vengono risolti utilizzando la nuova modalità, per
- far vedere almeno un esempio concreto di come saranno i problemi dal 2018
- in poi.
- 
-\end_layout
-
-\end_inset
-
-, che altrimenti risulterebbe incomprensibile ai nuovi lettori.
- Viene lasciato il tempo presente nel testo perchè renderlo adeguato al
- fatto che è una modalità ormai passata avrebbe richiesto un lavoro che
- ritengo inutile.
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-
-\family sans
-\series bold
-ATTENZIONE: rimane solo come riferimento 
-\begin_inset Quotes eld
-\end_inset
-
-storico
-\begin_inset Quotes erd
-\end_inset
-
-, adesso non è più così.
-\end_layout
-
-\begin_layout Standard
-Il meccanismo di valutazione del correttore prevede che i programmi debbano
- leggere il proprio input da un file chiamato 
-\emph on
-input.txt
-\emph default
- e debbano stampare il proprio output su un file chiamato 
-\emph on
-output.txt
-\emph default
-
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-In un futuro potrebbe essere tolto questo vincolo, permettendo la lettura
- direttamente da tastiera, come succede ad esempio nelle gare COCI, ma finchè
- ci sarà bisogna abituarsi a leggere/scrivere su file.
-\end_layout
-
-\end_inset
-
-.
- Questa richiesta è molto rigida poiché siccome il correttore è a sua volta
- un programma, non può gestire errori formali di nessun tipo
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Un mio allievo un anno non si si è classificato ai nazionali perché nella
- sua soluzione cercava di aprire il file 
-\emph on
-i
-\bar under
-m
-\bar default
-put.txt
-\emph default
- piuttosto che 
-\emph on
-input.txt, 
-\emph default
-quindi occorre porre attenzione a questi aspetti.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Si vedrà comunque come la scrittura/lettura da file abbia davvero poche
- differenze con i meccanismi normalmente utilizzati per leggere da tastiera
- e scrivere a video, anche perché nelle Olimpiadi viene usata solo una parte
- delle possibilità di accesso ai file.
-\end_layout
-
-\begin_layout Standard
-L'I/O su file prevede sempre tre passi:
-\end_layout
-
-\begin_layout Enumerate
-apertura del file
-\end_layout
-
-\begin_layout Enumerate
-operazioni sul file
-\end_layout
-
-\begin_layout Enumerate
-chiusura del file
-\end_layout
-
-\begin_layout Standard
-Dovendo ad esempio leggere da un file di nome 
-\emph on
-input.txt
-\emph default
- un unico numero intero, in C si farà in questo modo:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,numbers=left,showstringspaces=false,tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-FILE *in; 				//puntatore alla struttura FILE
-\end_layout
-
-\begin_layout Plain Layout
-
-int n;
-\end_layout
-
-\begin_layout Plain Layout
-
-in = fopen("input.txt","r");//apertura del file
-\end_layout
-
-\begin_layout Plain Layout
-
-fscanf(in,"%d",&n);		//operazione sul file
-\end_layout
-
-\begin_layout Plain Layout
-
-fclose(in);				//chiusura del file
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Vediamo gli aspetti principali di questo breve listato:
-\end_layout
-
-\begin_layout Itemize
-riga 1: ogni file aperto deve avere un 
-\begin_inset Quotes eld
-\end_inset
-
-reference
-\begin_inset Quotes erd
-\end_inset
-
- che verrà usato nel resto del codice per riferirsi a quel file (nel caso
- del C questo sarà un puntatore a struttura, mentre nel caso del C++ sarà
- un oggetto di una classe standard)
-\end_layout
-
-\begin_layout Itemize
-riga 3: l'apertura avviene attraverso la chiamata alla funzione 
-\emph on
-fopen
-\emph default
-, passandogli due parametri: il nome del file completo e la modalità di
- apertura, che nel caso di lettura sarà 
-\emph on
-r
-\emph default
- (read), mentre per la scrittura sarà 
-\emph on
-w
-\emph default
- (write).
- La funzione ritorna il 
-\begin_inset Quotes eld
-\end_inset
-
-reference
-\begin_inset Quotes erd
-\end_inset
-
- che viene assegnato al parametro 
-\emph on
-in
-\emph default
-.
- A questo punto sarebbe buona norma di programmazione controllare se l'apertura
- del file è andata a buon fine, cosa che potrebbe non essere vera e che
- porterebbe in generale a comportamenti anomali del programma, ma nel caso
- di una gara si può omettere questo passaggio perché viene assicurato che
- il file è presente con il nome dichiarato
-\end_layout
-
-\begin_layout Itemize
-riga 4: vengono effettuate una o più operazioni sul file, utilizzando le
- funzioni opportune.
- In questo esempio viene utilizzata la 
-\emph on
-fscanf
-\emph default
-, che ha una sintassi del tutto identica alla 
+Il mio consiglio è quello di utilizzare sempre il template, poichè si ha
+ la sicurezza che l'input/output sono sicuramente corretti, dove, scrivendo
+ il codice da zero, non è così improbabile che un errore, anche molto banale,
+ possa alterare la lettura o la scrittura portando a un risultato sbagliato
+ a fronte di un algoritmo risolutivo scritto correttamente.
+ L'unica problematica può essere legata al fatto che nel template si possono
+ a volte trovare delle istruzioni che non si comprendono appieno o proprio
+ per nulla.
+ Ad esempio, nel codice mostrato si può notare che alla riga 25 viene utilizzata
+ la funzione 
 \emph on
 scanf
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Non è chiaro perchè sia stata fatta questa scelta di mescolare due primitive
+ di I/O diverse, dovendo tirare a indovinare direi un copia/incolla, comunque
+ la garanzia è che il template è sempre corretto.
+\end_layout
+
+\end_inset
+
+
 \emph default
-, a parte il primo parametro che è il 
-\begin_inset Quotes eld
-\end_inset
-
-reference
-\begin_inset Quotes erd
-\end_inset
-
- acquisito all'apertura del file, per indicargli dove deve andare a leggere.
- Anche in questo caso non vengono fatti controlli perché viene garantito
- che quello che ci si aspetta di leggere sia presente davvero nel file.
-\end_layout
-
-\begin_layout Itemize
-riga 5: viene chiuso il file.
- Questa operazione nelle Olimpiadi può anche essere omessa in quanto alla
- chiusura del programma comunque eventuali file aperti verranno chiusi correttam
-ente.
-\end_layout
-
-\begin_layout Standard
-Nella parte successiva del capitolo verranno mostrati alcuni esempi concreti
- di lettura/scrittura da file sia in C che in C++.
+ al posto della solito lettura con 
+\emph on
+cin
+\emph default
+, utilizzato invece alle righe 3 e 9.
+ Chi non conoscesse il C, ma solo il C++, potrebbe trovare misteriosa quell'istr
+uzione, ma probabilmente il contesto è sufficiente per far intuire che lo
+ scopo è quello di leggere un intero e scriverlo nella variabile T.
+ Inoltre è sempre possibile sostituire alcune parti del template, in modo
+ comunque da aver un buon punto di partenza per la scrittura della soluzione
+ vera e propria.
 \end_layout
 
 \begin_layout Subsection
@@ -1337,7 +1185,9 @@ Esempi di I/O
 \end_layout
 
 \begin_layout Standard
-Partiamo dal caso più semplice, che è forse anche il caso più comune di
+Volendo invece scrivere il programma da zero, verranno adesso mostrati alcuni
+ esempi significativi.
+ Partiamo dal caso più semplice, che è forse anche il caso più comune di
  lettura nei problemi delle Olimpiadi (anche se con qualche variante), nel
  quale lo schema è quello di avere un numero intero che indica quanti altri
  numeri dovranno poi essere letti nel seguito del file.
@@ -1350,8 +1200,15 @@ status collapsed
 \begin_layout Plain Layout
 A volte viene data una formulazione equivalente in cui si dice che gli N
  interi si trovano su una sola linea e sono separati dallo spazio: per quanto
- riguarda l'imput non c'è alcuna differenza, poichè la fscanf (o l'equivalente
- C++) interpreta sia gli spazi che gli a capo come separatori.
+ riguarda l'imput non c'è alcuna differenza, poichè la lettura con 
+\emph on
+cin
+\emph default
+ interpreta sia gli spazi che gli 
+\emph on
+a capo
+\emph default
+ come separatori.
 \end_layout
 
 \end_inset
@@ -1363,157 +1220,23 @@ A volte viene data una formulazione equivalente in cui si dice che gli N
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,showstringspaces=false,tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-FILE *in; 				//puntatore alla struttura FILE
-\end_layout
-
-\begin_layout Plain Layout
-
-int N, i, temp, somma = 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-in = fopen("input.txt","r");//apertura del file
-\end_layout
-
-\begin_layout Plain Layout
-
-fscanf(in,"%d",&N);		//viene letto il primo numero intero
-\end_layout
-
-\begin_layout Plain Layout
-
-for (i=0; i< N ; i++)//ciclo per leggere gli N numeri seguenti
-\end_layout
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\begin_layout Plain Layout
-
-	fscanf(in,"%d",&temp);	
-\end_layout
-
-\begin_layout Plain Layout
-
-	somma += temp;
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Come si può vedere non ci sono molte differenze da un programma che legge
- i suoi dati da tastiera: ovviamente mancano quelle istruzioni di output
- che solitamente vengono messe per chiarire all'utente quali dati deve inserire,
- in quanto i dati vengono forniti dal correttore secondo quanto definito
- nel testo del problema.
- La scrittura è ancora più semplice, riferendosi allo stesso problema visto
- sopra verrebbe fatta in questo modo:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-lstparams "basicstyle={\small\ttfamily},frame=lr,language=C,showstringspaces=false,tabsize=4"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-FILE *out; 					//puntatore alla struttura FILE
-\end_layout
-
-\begin_layout Plain Layout
-
-out = fopen("output.txt","w");	//apertura del file
-\end_layout
-
-\begin_layout Plain Layout
-
-fprintf(out,"%d
-\backslash
-n",somma);
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Anche in questo caso viene usata una funzione, la 
-\emph on
-fprintf
-\emph default
-, del tutto analoga per sintassi e comportamento alla 
-\emph on
-printf
-\emph default
-, a parte la presenza nel primo parametro del 
-\begin_inset Quotes eld
-\end_inset
-
-reference
-\begin_inset Quotes erd
-\end_inset
-
- al file.
- 
-\series bold
-Attenzione
-\series default
-: in gara è assolutamente necessario che le funzioni per l'output si limitino
- a stampare 
-\series bold
-\bar under
-solo
-\series default
-\bar default
- quanto chiesto, esattamente nel modo richiesto; quindi ad esempio eventuali
- istruzioni di output ai fini di debug dovranno essere tolte dalla versione
- definitiva del programma.
-\end_layout
-
-\begin_layout Standard
-Per concludere questo semplice esempio riscriviamo tutto il programma in
- C++, dove anche in questo caso vedremo che la differenza con la normale
- lettura/scrittura da tastiera/video è ancora minore.
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
 lstparams "basicstyle={\small\ttfamily},frame=lr,language={C++},showstringspaces=false,tabsize=4"
 inline false
 status open
 
 \begin_layout Plain Layout
 
-ifstream in("input.txt"); 	//oggetto per gestire l'input
+ifstream in("input.txt"); 	//in è l'oggetto per gestire l'input
 \end_layout
 
 \begin_layout Plain Layout
 
-ofstream out("output.txt");	//oggetto per gestire l'output
+ofstream out("output.txt");	//out è l'oggetto per gestire l'output
 \end_layout
 
 \begin_layout Plain Layout
 
-int N, i, temp, somma = 0;
+int N, somma = 0;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1523,12 +1246,17 @@ in >> N;		//viene letto il primo numero intero
 
 \begin_layout Plain Layout
 
-for (i=0; i< N ; i++) //ciclo per leggere gli N numeri seguenti
+for (int i = 0; i < N; i++) //ciclo per leggere gli N numeri seguenti
 \end_layout
 
 \begin_layout Plain Layout
 
 {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int temp;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1557,8 +1285,22 @@ out << somma << endl;	//scrittura del risultato
 \end_layout
 
 \begin_layout Standard
-Un altro modo per aprire i file in C++, usando un costruttore diverso è
- il seguente
+Come si può vedere non ci sono molte differenze da un programma che legge
+ i suoi dati da tastiera: ovviamente mancano quelle istruzioni di output
+ che solitamente vengono messe per chiarire all'utente quali dati deve inserire,
+ in quanto i dati vengono forniti dal correttore secondo quanto definito
+ nel testo del problema.
+ 
+\end_layout
+
+\begin_layout Standard
+Un altro esempio riguarda la lettura di una o più stringhe: a seconda della
+ formulazione dei dati di input a volte viene fornito il numero di caratteri
+ che formano la stringa e a volte no, qui supporremo che ci siano ancora
+ un numero interno N che rappresenta quante stringhe vanno lette e poi ci
+ sono le N stringhe da leggere.
+ Supponendo che il problema sia di stampare quella più lunga e che solo
+ una abbia questa caratteristica, il programma sarà il seguente:
 \end_layout
 
 \begin_layout Standard
@@ -1569,12 +1311,70 @@ status open
 
 \begin_layout Plain Layout
 
-fstream in("input.txt",ios::in); 	//oggetto per gestire l'input
+ifstream in("input.txt"); 	//in è l'oggetto per gestire l'input
 \end_layout
 
 \begin_layout Plain Layout
 
-fstream out("output.txt",ios::out);	//oggetto per gestire l'output
+ofstream out("output.txt");	//out è l'oggetto per gestire l'output
+\end_layout
+
+\begin_layout Plain Layout
+
+int N, stringa_lunga = 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+in >> N;		//viene letto il primo numero intero
+\end_layout
+
+\begin_layout Plain Layout
+
+for (int i = 0; i < N; i++) //ciclo per leggere le N stringhe
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	string s;
+\end_layout
+
+\begin_layout Plain Layout
+
+	in >> s;	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (s.size() > stringa_lunga.size())
+\end_layout
+
+\begin_layout Plain Layout
+
+		stringa_lunga = s;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+out << stringa_lunga << endl;	//scrittura del risultato
 \end_layout
 
 \end_inset
@@ -1583,19 +1383,13 @@ fstream out("output.txt",ios::out);	//oggetto per gestire l'output
 \end_layout
 
 \begin_layout Standard
-dove si usa l'oggetto generico 
-\emph on
-fstream
-\emph default
- e nel costruttore, tramite le costanti 
-\emph on
-ios::in
-\emph default
- e 
-\emph on
-ios::out
-\emph default
- si specifica se l'oggetto creato è in lettura o in scrittura.
+Ci sono molte altre formulazione dell'input che si possono trovare nei problemi
+ e sarebbe abbastanza inutile affrontarle tutte, su Internet si trovano
+ molte risorse rispetto alla lettura dei dati e nei problemi mostrati nel
+ seguito della guida verranno comunque trovate varie tipologie che potranno
+ essere utilizzate per comprendere meglio l'utilizzo dell'I/O in C++.
+ Vale la pena ripetere che, dove presente, è consigliato usare il template
+ di gara.
 \end_layout
 
 \begin_layout Subsection
@@ -1614,10 +1408,7 @@ Finora (anche se la situazione dovrebbe cambiare nei prossimi anni
 status collapsed
 
 \begin_layout Plain Layout
-In effetti dal 2015 è cambiata e allo stato attuale (fine 2016) quasi tutte
- le sedi territoriali effettuano la gara su una macchina virtuale Linux
- Ubuntu.
- Ritengo comunque utile lasciare questa parte in quanto inizialmente molti
+Ritengo comunque utile lasciare questa parte in quanto inizialmente molti
  ragazzi hanno Windows come piattaforma di allenamento.
  
 \end_layout
@@ -1631,10 +1422,20 @@ In effetti dal 2015 è cambiata e allo stato attuale (fine 2016) quasi tutte
 
 \begin_layout Itemize
 nelle installazioni normali Windows è configurato per non mostrare le estensioni
- dei file, quindi il file input.txt compare a video solo con il nome input
+ dei file, quindi il file 
+\emph on
+input.txt
+\emph default
+ compare a video solo con il nome 
+\emph on
+input
+\emph default
  e con la classica icona dei file di testo.
- Dal punto di vista del vostro programma però il file è sempre input.txt,
- il fatto che non si veda l'estensione è solo dovuto a una scelta di usabilità
+ Dal punto di vista del vostro programma però il file è sempre 
+\emph on
+input.txt
+\emph default
+, il fatto che non si veda l'estensione è solo dovuto a una scelta di usabilità
  per non 
 \begin_inset Quotes eld
 \end_inset
@@ -1644,45 +1445,92 @@ disturbare
 \end_inset
 
  gli utenti con poca dimestichezza con il computer (il 90-95%).
- Siccome in gara è necessario creare un file input.txt per testare se il
- programma scritto funziona, il software che si usa di solito è il Blocco
- Note, che però ha un comportamento maligno, sempre a causa della scelta
- di cui sopra: nel momento di salvare il file se si sceglie come nome input.txt
- il Blocco Note aggiungerà di suo l'estensione .txt e il vero nome del file
- sarà quindi input.txt.txt.
+ Siccome in gara è necessario creare un file i
+\emph on
+nput.txt
+\emph default
+ per testare se il programma scritto funziona, il software che propone Windows
+ è il Blocco Note, che però ha un comportamento maligno, sempre a causa
+ della scelta di cui sopra: nel momento di salvare il file se si sceglie
+ come nome 
+\emph on
+input.txt
+\emph default
+ il Blocco Note aggiungerà di suo l'estensione .
+\emph on
+txt
+\emph default
+ e il vero nome del file sarà quindi 
+\emph on
+input.txt.txt
+\emph default
+.
  Questo farà si che il vostro programma fallirà nell'apertura del file perché
- il file input.txt non è presente; però guardando nella cartella si vedrà
- che c'è un file che si chiama input.txt (sempre per il discorso che l'estensione
- non viene mostrata) e quindi si inizierà a dare la colpa, nell'ordine,
- al computer di gara, all'ambiente di sviluppo, i più temerari anche al
- linguaggio di programmazione, mentre se sapete queste cose non dovreste
- avere problemi.
+ il file 
+\emph on
+input.txt
+\emph default
+ non è presente; però guardando nella cartella si vedrà che c'è un file
+ che si chiama 
+\emph on
+input.txt
+\emph default
+ (sempre per il discorso che l'estensione non viene mostrata) e quindi si
+ inizierà a dare la colpa, nell'ordine, al computer di gara, all'ambiente
+ di sviluppo, i più temerari anche al linguaggio di programmazione, mentre
+ se sapete queste cose non dovreste avere problemi.
  Inoltre è sempre possibile usare direttamente l'ambiente di sviluppo per
- creare il file input.txt oppure abilitare la visualizzazione delle estensioni
- attraverso il menù Opzioni cartella che si trova in ogni cartella aperta
+ creare il file 
+\emph on
+input.txt
+\emph default
+ oppure abilitare la visualizzazione delle estensioni attraverso il menù
+ 
+\emph on
+Opzioni cartella
+\emph default
+ che si trova in ogni cartella aperta
 \end_layout
 
 \begin_layout Itemize
-sempre in Windows, i nomi dei file sono case-insensitive, quindi bisogna
- essere certi nel proprio codice sorgente di indicare i nomi dei file con
- tutte le lettere minuscole, perché se ad esempio si scrivesse Input.txt,
- il programma funzionerebbe se testato sotto Windows, ma fallirebbe se testato
- con Linux (nel quale i file system sono case-sensitive).
+sempre in Windows, i nomi dei file sono 
+\emph on
+case-insensitive
+\emph default
+, quindi bisogna essere certi nel proprio codice sorgente di indicare i
+ nomi dei file con tutte le lettere minuscole, perché se ad esempio si scrivesse
+ 
+\series bold
+\emph on
+I
+\series default
+nput.txt
+\emph default
+, il programma funzionerebbe se testato sotto Windows, ma fallirebbe se
+ testato con Linux (nel quale i file system sono 
+\emph on
+case-sensitive
+\emph default
+).
  Siccome dalle territoriali in poi e in tutte le gare online il correttore
  gira sotto Linux, è bene abituarsi a scrivere i nomi dei file in minuscolo
 \end_layout
 
 \begin_layout Itemize
-il file input.txt che verrà creato per fare delle prove deve trovarsi in
- una posizione per cui il vostro programma lo riesca ad aprire, quindi non
- può essere messo dove capita, ma solo in alcuni posti.
+il file 
+\emph on
+input.txt
+\emph default
+ che verrà creato per fare delle prove deve trovarsi in una posizione per
+ cui il vostro programma lo riesca ad aprire, quindi non può essere messo
+ dove capita, ma solo in alcuni posti.
  Siccome il correttore si aspetta che il file sia nella stessa cartella
  dell'eseguibile, il programma lo cerca nella cartella dove è in esecuzione:
  gli ambienti di sviluppo di gara in generale permettono anche di metterlo
  nella stessa cartella del codice sorgente, quindi vale la pena di fare
  un po' di prove per capire esattamente dove posizionarlo e evitare di scoprire
  durante la gara che il file non viene letto perché il programma non riesce
- a trovarlo
+ a trovarlo.
 \end_layout
 
 \begin_layout Subsection
@@ -1693,13 +1541,12 @@ Utilizzo di Linux
 Dall'edizione 2014-2015 l'organizzazione nazionale ha invitato le sedi territori
 ali che avevano la possibilità di farlo
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Va comunque verificato cosa verrà usato nella propria sede di gara, poichè
- l'utilizzo di Linux non è obbligatorio e alcune sedi potrebbero ancora
- utilizzare Windows.
- 
+ l'utilizzo di Linux dipende dal regolamento corrente e quindi potrebbero
+ esserci differenze tra una sese e un'altra.
 \end_layout
 
 \end_inset
@@ -1707,7 +1554,7 @@ Va comunque verificato cosa verrà usato nella propria sede di gara, poichè
  a proporre agli studenti il sistema operativo Linux, con la suite di compilazio
 ne 
 \emph on
-gcc
+gcc/g++
 \emph default
  e i normali strumenti di programmazione (CodeBlocks, Geany, Vim, ecc.),
  come piattaforma di gara.
@@ -1719,10 +1566,10 @@ gcc
 \begin_layout Standard
 Questa nuova modalità, almeno per quanto riguarda le selezioni territoriali,
  non ha un forte impatto sulla conduzione della gara, in quanto la maggior
- parte degli allievi, nella mia esperienza, usano ancora CodeBlocks come
- avrebbero fatto su un sistema Windows e si limitano a usare i normali strumenti
- grafici di gestione dei file per tutte le operazioni che coinvolgono spostament
-o/copia/cancellazione di file.
+ parte degli allievi, nella mia esperienza, usano CodeBlocks come avrebbero
+ fatto su un sistema Windows e si limitano a usare i normali strumenti grafici
+ di gestione dei file per tutte le operazioni che coinvolgono spostamento/copia/
+cancellazione di file.
 \end_layout
 
 \begin_layout Standard
@@ -1738,11 +1585,10 @@ collaterali
 \end_inset
 
  (ad esempio creazione di casi di test di grandi dimensioni).
- La mia opinione è che l'allenamento sulla piattaforma di gara ufficiale,
- che solitamente viene comunicata e messa a disposizione per il download
- intorno a febbraio-marzo, sia assolutamente indispensabile, ulteriori approfond
-imenti possono invece essere lasciati a dopo l'eventuale passaggio alla
- finale nazionale.
+ La mia opinione è che, nel caso si sia obbligati oppure si voglia utilizzare
+ Linux, è assolutamente indispensabile provarlo prima per avere una competenza
+ minima prima della gara, lasciando ulteriori approfondimenti dopo l'eventuale
+ passaggio alla finale nazionale.
 \end_layout
 
 \begin_layout Subsection
@@ -1752,7 +1598,7 @@ name "subsec:Subtask-e-template"
 
 \end_inset
 
-Subtask e template di soluzione
+Subtask
 \end_layout
 
 \begin_layout Standard
@@ -1763,7 +1609,7 @@ subtask
 \series default
 .
  Sebbene a livello delle territoriali questo non sia stato ancora fatto,
- sapere cosa sono può essere interessante poiche moltissimi dei problemi
+ sapere cosa sono può essere interessante poichè moltissimi dei problemi
  a disposizione per allenarsi sul correttore contengono subtask, le ultime
  edizioni delle Olimpiadi a squadre contengono problemi strutturati in questo
  modo e le finali nazionali e internazionali delle Olimpiadi sono strutturate
@@ -1771,28 +1617,17 @@ subtask
 \end_layout
 
 \begin_layout Standard
-Un problema contiene normalmente 5-6 subtask, ognuno dei quali contiene
- una serie di casi di test che hanno delle caratteristiche in comune, tipicament
-e delle limitazioni sulle dimensioni o sul tipo dei dati di input (per un
- esempio si veda il problema 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Anno-luce"
-
-\end_inset
-
- 
-\begin_inset CommandInset ref
-LatexCommand vpageref
-reference "sec:Anno-luce"
-
-\end_inset
-
-).
+Un problema contiene normalmente 5-6 subtask, ognuno dei quali è formato
+ da una serie di casi di test che hanno delle caratteristiche in comune,
+ tipicamente delle limitazioni sulle dimensioni o sul tipo dei dati di input.
  Il punteggio a questo punto non è più dato in base al numero di casi di
  test che vengono risolti, ma per ogni subtask vengono dati una serie di
- punti solo se tutti i casi del subtask vengono risolti correttamente.
- Può quindi capitare che dato un subtask contenente ad esempio 5 casi di
+ punti 
+\emph on
+solo se
+\emph default
+ tutti i casi del subtask vengono risolti correttamente.
+ Può quindi capitare che, dato un subtask contenente ad esempio 5 casi di
  test, 4 di essi siano risolti correttamente e 1 no, e quindi i punti assegnati
  siano 0.
 \end_layout
@@ -1800,33 +1635,10 @@ reference "sec:Anno-luce"
 \begin_layout Standard
 La differenza sostanziale è che, essendo i subtask relativi a certe limitazioni
  particolari, ci si può concentrare a risolvere solo alcuni casi del problema,
- evitando di cercare la soluzione che permette di risolvere in maniera completa
- il problema.
+ evitando di cercare la soluzione completa del problema.
  In molti casi questa può essere una condotta di gara più fruttuosa, soprattutto
  se si riesce fin da subito a valutare la difficoltà della soluzione generale
  del problema e invece la relativa facilità nella soluzione di alcuni subtask.
-\end_layout
-
-\begin_layout Standard
-Insieme a questa nuova impostazione dei casi di test, nelle ultime edizioni
- delle Nazionali e delle Olimpiadi a squadre viene fornito un 
-\emph on
-template di soluzione,
-\emph default
- cioè uno o più file in cui sono già presenti dei frammenti di codice che
- possono essere utilizzati per scrivere la propria soluzione.
- Tipicamente il file contiene già il 
-\emph on
-main
-\emph default
-, nel quale è presente la lettura dell'input e la scrittura dell'output
- e una funzione senza corpo, che deve essere completata per implementare
- l'algoritmo risolutivo.
- Sebbene non sia obbligatorio utilizzare il template fornito, risulta molto
- comodo in quanto non è più necessario scrivere il codice di I/O, che risulta
- già ottimizzato ed è garantito essere corretto.
- Per il resto, nel codice possono essere aggiunte funzioni, variabili, definizio
-ni di strutture o classi o qualunque altra cosa si ritenga necessaria.
 \end_layout
 
 \begin_layout Section
@@ -1878,15 +1690,14 @@ ogni funzione può essere sviluppata indipendentemente dal resto del codice
 
 \begin_layout Itemize
 posso riutilizzare algoritmi comuni attraverso la creazione di librerie
- di funzione (che di fatto è quello che avviene nella libreria del C e del
- C++)
+ di funzione (che di fatto è quello che avviene nella libreria del C++)
 \end_layout
 
 \begin_layout Itemize
 il programma nel suo complesso diventa più facile da sviluppare e mantenere,
  poichè non è più una lunga sequenza di istruzioni di basso livello, ma
  l'insieme di chiamate di funzioni che svolgono operazioni a un livello
- di astrazione più elevato
+ di astrazione più elevato.
 \end_layout
 
 \begin_layout Standard
@@ -1997,8 +1808,9 @@ valore_di_ritorno: può essere
 \emph on
 void
 \emph default
-, se non presenta output, oppure un qualsiasi tipo di dato elementare (int,
- char, float, ecc.) o definito dall'utente (struttura o classe)
+, se non presente nessun valore di ritorno, oppure un qualsiasi tipo di
+ dato elementare (int, char, float, ecc.) o definito dall'utente (struttura
+ o classe)
 \end_layout
 
 \begin_layout Description
@@ -2017,7 +1829,7 @@ Per comprenderne meglio il significato ricorriamo a un esempio semplicissimo:
  dall'utente.
  Un codice possibile
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Il codice è volutamente 
@@ -2109,12 +1921,7 @@ int main()
 
 \begin_layout Plain Layout
 
-	scanf("%d",&a);
-\end_layout
-
-\begin_layout Plain Layout
-
-	scanf("%d",&b);
+	in >> a >> b;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2124,9 +1931,15 @@ int main()
 
 \begin_layout Plain Layout
 
-	printf("Il massimo è %d
-\backslash
-n",c);
+	cout << 
+\begin_inset Quotes eld
+\end_inset
+
+Il massimo è 
+\begin_inset Quotes eld
+\end_inset
+
+ << c << endl;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2170,7 +1983,7 @@ c
 \emph default
 , e i valori delle prime due vengono inseriti dall'utente tramite le solite
  funzioni di input.
- Alla riga 16 il programma principale chiama la funzione 
+ Alla riga 15 il programma principale chiama la funzione 
 \emph on
 massimo
 \emph default
@@ -2212,7 +2025,7 @@ all'interno
 massimo
 \emph default
 .
- Detta funzione esegue quindi le operazioni sui valori passati e inserisce
+ Questa funzione esegue quindi le operazioni sui valori passati e inserisce
  il risultato all'interno della variabile 
 \emph on
 max
@@ -2313,7 +2126,7 @@ status open
 
 \begin_layout Plain Layout
 
-#define N 5
+const int N = 5;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2338,12 +2151,12 @@ int somma()
 
 \begin_layout Plain Layout
 
-	for (int i = 0; i<N; i++)
+	for (int i = 0; i < N; i++)
 \end_layout
 
 \begin_layout Plain Layout
 
-		s+=V[i];
+		s += V[i];
 \end_layout
 
 \begin_layout Plain Layout
@@ -2377,12 +2190,12 @@ int main()
 
 \begin_layout Plain Layout
 
-	for (int i = 0; i<N; i++)
+	for (int i = 0; i < N; i++)
 \end_layout
 
 \begin_layout Plain Layout
 
-		scanf("%d",&V[i]);
+		cin >> V[i];
 \end_layout
 
 \begin_layout Plain Layout
@@ -2392,9 +2205,11 @@ int main()
 
 \begin_layout Plain Layout
 
-	printf("La somma degli elementi del vettore è %d
-\backslash
-n",c);
+	cout << "La somma degli elementi del vettore è 
+\begin_inset Quotes eld
+\end_inset
+
+ << c << endl;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2413,8 +2228,11 @@ n",c);
 \end_layout
 
 \begin_layout Standard
-Come si vede esiste un vettore globale V, di lunghezza 5, che viene visto
- sia dal 
+Come si vede esiste un vettore globale 
+\emph on
+V
+\emph default
+, di lunghezza 5, che viene visto sia dal 
 \emph on
 main
 \emph default
@@ -2432,7 +2250,7 @@ somma
 \emph default
  abbia bisogno del passaggio di parametri
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Si vedrà più avanti che l'utilizzo delle variabili globali comporta altri
