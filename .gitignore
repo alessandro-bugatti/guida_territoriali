@@ -12,3 +12,6 @@ testi/copertina_definitiva.xcf
 testi/guida.pdf
 testi/isbn_barcode_sesta_edizione.jpg
 testi/isbn_barcode_sesta_edizione.pdf
+# rimuove i file che sono artifatti prodotti da Lyx
+*.tex
+*.pdf
